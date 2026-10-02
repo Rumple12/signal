@@ -1,0 +1,202 @@
+lecture 2 signal
+
+
+summary
+-
+How do take a real continuos signal
+turn it into a digital sample
+analyze it 
+and later reconstruct it without losing information
+-
+(Sampling -> Fourier transform -> Convelution -> Reconstruction)
+
+
+
+(signals are everywhere)
+irl signal can be physical ... sound, light, pressure, temperature, motion
+-
+(sensor/transducer)
+converts that physical information to an electrical signal
+Sound → Microphone → Electrical signal
+Light → Camera sensor → Electrical signal
+-
+The signal can then be processed, transmitted, received, and converted back into something humans can perceive.
+
+
+
+(Deterministic vs stochastic signals)
+A deterministic signal is completely predictable... like a sin frequncy equation
+if we know f, fs, or phi ... then we know exactly what every future sample will be.
+It is mathematically easy to analyze, but real-world signals are rarely this perfect.
+-
+(Stochastic signal)
+A stochastic signal contains randomness.
+z(n)=y(n)+w(n)
+*
+y(n) = useful signal
+w(n) = random noise
+z(n) = actual measured signal
+real measured signal = wanted signal + noise
+* Stochastic signals are more realistic but harder to analyze.
+
+
+
+
+
+Fourier Transform
+-
+Time domain -- Shows: ... amplitude vs time
+-
+Frequency domain -- Shows: ... amount of each frequency
+Conceptually: x(t) -> Fourier Transform -> X(f)
+means: time representation  →   frequency representation
+-
+The Fourier transform usually gives complex numbers.
+We therefore look at two important parts.	​
+(Magnitude)  (How much of frequency \(f\) exists?) (how strong)
+(Phase) (where in its cycle / timing) (This describes the timing/phase shift of each frequency component.)
+-
+The slide compares signals in:
+time domain
+and
+frequency domain
+A clean sinusoid might look complicated as a repeating wave in time, but in frequency it can appear as only one strong frequency peak... So the frequency domain can make the contents of a signal much easier to understand.
+-
+-
+-
+Fourier transform properties
+(Lineraity)  - Fourier transforms behave nicely with addition
+(Time shifting) - Moving a signal in time changes its phase in the frequency domain.
+(Frequency shifting) - multiplying a complex sinusoid moves the spectrum to another frequency... 
+	* convolution in time = multiplication in frequence 
+	* multiplication in time = convolution in frequence = 
+(convulation) - important in signal processing
+	* take one signal/filter .. move it across another signal .. calculate how they 	overlap 
+	* 
+	
+
+
+(What sampling does to a spectrum) 17
+	* Sampling in time creates copies of the spectrum..  in the frequency domain
+	originally 
+	* so sampling ... spectral replication
+	-
+(sampling extended, adc)
+sample - Measure the signal at specific moments.
+Hold - Keep that measured value temporarily.
+quantize - Round the amplitude to one of a limited number of allowed values.
+Encode - Represent the value using binary numbers:
+* ADC - So the ADC turns real-world analog information into numbers a computer can process.
+
+
+
+(Reconstruction using sinc)
+Suppose we only have a samples x(n)
+	* can we build original continuous signal? 
+	* yes under certain conditions ... ()
+		* ideal reconstruction forumula uses ***sinc function**
+		* each sample creates sinc shaped curve
+		* all those curves added together 
+	* dots/samples → sinc interpolation → smooth original curve
+-
+(Recontruction with frequency domain
+Remember - sampling creates repeated copies of the specturm 
+	* to reconstruct the original , we want to keep only the central original spectrum
+	and remove the copies 
+	* We can use (low pass filter)
+		* original copy + unwanted copies
+		* goes through (low pass filter)
+		* becomes (original spectrum only
+
+
+
+
+
+
+(One of  the most important formula in lecture)
+(Nyquist-shannon sampling theorem)
+fs = sampling frequency
+fmax = highest frequency in original signal
+**** fs > 2 * fmax *****
+-
+ex
+fmax 
+
+
+
+
+
+
+(Aliasing)
+--
+fs < 2 * fmax ... we get aliasing
+-
+aliasing means repeated spectra starts overlapping
+-
+when that happens, different frequneces start overlapping
+A high frequency can appear to be a completely different lower frequency
+-
+f = 30hz
+fs =  50hz
+f-alias = I 30 - 50 I  = 20hz 
+-
+So a \(30\) Hz signal may incorrectly appear as \(20\) Hz after sampling.
+Once aliasing has happened, the original information can be impossible to recover
+
+
+
+(image sampling)
+-
+for an image ... instead of sampling over time ... we sample over space
+-
+More samples:
+-> more pixels
+-> more details
+Fewer samples:
+-> fewer pixels
+-> loss of fine details / pixelation
+-
+The slide visually shows the same face becoming increasingly poor as the sampling density is reduced.
+
+
+
+(spatial frequency)
+For audio:
+$$ \text{frequency}=\text{how fast the signal changes over time} $$
+For images:
+$$ \boxed{\text{spatial frequency}=\text{how fast pixel values change over space}} $$
+Imagine black and white stripes.
+-
+Imagine black and white stripes.
+Wide stripes:
+$$ \text{slow changes} \rightarrow \text{low spatial frequency} $$
+Very thin stripes:
+$$ \text{rapid changes} \rightarrow \text{high spatial frequency} $$
+Images also have:
+$$ \text{magnitude spectrum} $$
+and:
+phase spectrum
+just like ordinary signals.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+frequency = 1 / T 
+phase shift ... 
+
+

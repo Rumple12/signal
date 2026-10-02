@@ -1,0 +1,47 @@
+lecture 2 summary 
+
+Sampling = taking measurements.
+Fourier transform = seeing frequencies.
+Convolution = combining/filtering signals.
+Reconstruction = rebuilding the continuous signal.
+Aliasing = sampling too slowly.
+
+
+
+Think of recoding music
+* A microphone produces a continues electrical signal 
+	* x(t)
+* We measure it many times per second
+	* x(n) = x(nT_s)
+* With
+	* fs = 1 / T_s
+
+
+
+Sampling creates repeated spectra in frequency 
+	* X(f) -> Xs(f)
+
+
+If 
+	* f-s > 2*f_max
+	* the copies do not overlap, so theoretically we can reconstruct the original signal
+
+
+
+if 
+	* f-s < 2*f_max
+	* they overlap
+		* (Its alaising) ... and information is lost
+	
+
+(Those are the central ideas of Lecture 2) 
+
+Fourier transform lets us switch between 
+* time/space domain -> frequency domain 
+
+while convolution and multiplication are connected:
+convolution in time -> multiplication in frequency 
+multiplication in time -> convolution in frequency 
+
+
+
