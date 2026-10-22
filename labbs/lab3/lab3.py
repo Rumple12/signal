@@ -1,4 +1,4 @@
-"""DT081A Lab 3: Sections 1-4 only."""
+"""DT081A Lab 3: Sections 1-5 only."""
 
 import time
 from pathlib import Path
@@ -296,5 +296,63 @@ plt.axis("off")
 plt.tight_layout()
 plt.savefig(figure_folder / "section4_gradient_magnitude.png", dpi=150)
 
-print("\nEight figures saved in:", figure_folder)
+# Section 5.1: apply the same brightness and contrast formula in two ways.
+brightness = 20
+contrast = 1.2
+adjustment_repeats = 5
+
+start = time.time()
+for repeat in range(adjustment_repeats):
+    # Stack pixels into a column and use floats to avoid uint8 overflow.
+    img_vector = gray.reshape(-1, 1).astype(np.float64)
+    adjusted_vector = contrast * (img_vector - 128) + 128 + brightness
+    adjusted_vector = np.clip(adjusted_vector, 0, 255).astype(np.uint8)
+    adjusted_numpy = adjusted_vector.reshape(gray.shape)
+time_vector = 1000 * (time.time() - start) / adjustment_repeats
+
+start = time.time()
+for repeat in range(adjustment_repeats):
+    adjusted_loop = np.empty_like(gray)
+    for row in range(height):
+        for column in range(width):
+            value = contrast * (float(gray[row, column]) - 128) + 128 + brightness
+            value = max(0, min(255, value))
+            adjusted_loop[row, column] = int(value)
+time_loop = 1000 * (time.time() - start) / adjustment_repeats
+
+speedup = time_loop / time_vector
+images_equal = np.array_equal(adjusted_numpy, adjusted_loop)
+print("\nBrightness +20, contrast 1.2 around 128: average of", adjustment_repeats, "runs")
+print(f"NumPy vectorized: {time_vector:.3f} ms")
+print(f"Nested Python loops: {time_loop:.3f} ms")
+print(f"Loop time / NumPy time: {speedup:.2f}")
+print("Identical adjusted images:", images_equal)
+print("Adjusted intensity range:", adjusted_numpy.min(), "to", adjusted_numpy.max())
+
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.imshow(gray, cmap="gray", vmin=0, vmax=255)
+plt.title("Original grayscale")
+plt.axis("off")
+plt.subplot(1, 2, 2)
+plt.imshow(adjusted_numpy, cmap="gray", vmin=0, vmax=255)
+plt.title("Contrast 1.2 around 128; brightness +20")
+plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section5_brightness_contrast.png", dpi=150)
+
+# Section 5.2: calculate storage for H using integers only; do not create H.
+N = 512 * 512
+matrix_elements = N * N
+float32_bytes = matrix_elements * 4
+float64_bytes = matrix_elements * 8
+float32_gib = float32_bytes / 1024**3
+float64_gib = float64_bytes / 1024**3
+print(f"\nH dimensions: {N:,} x {N:,}")
+print(f"H elements: {matrix_elements:,}")
+print(f"Float32 storage: {float32_bytes:,} bytes = {float32_gib:.0f} GiB")
+print(f"Float64 storage: {float64_bytes:,} bytes = {float64_gib:.0f} GiB")
+print("Only these memory numbers were calculated; H was not allocated.")
+
+print("\nNine figures saved in:", figure_folder)
 plt.show()

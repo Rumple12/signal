@@ -1,4 +1,4 @@
-# DT081A Lab 3 - Sections 1-4
+# DT081A Lab 3 - Sections 1-5
 
 Draft work by Jakob and Obid. This is not the final report.
 
@@ -24,7 +24,7 @@ The existing local environment can also run it:
 .\labbs\lab3\.venv\Scripts\python.exe labbs/lab3/lab3.py
 ```
 
-The script prints the tables, saves eight figures in `figures/` and opens the
+The script prints the tables, saves nine figures in `figures/` and opens the
 plots. Close the plot windows to finish. Running it again replaces the figures.
 
 ## 1.1 Gamma calculation
@@ -229,6 +229,56 @@ of these outlines weak. Bright pixels mean a stronger edge.
 
 Figure: `figures/section4_gradient_magnitude.png`.
 
+## 5.1 Brightness and contrast with vectors and loops
+
+We reused the original grayscale image. Both methods use
+`1.2 * (intensity - 128) + 128 + 20`. This changes contrast around 128 and then
+adds brightness. We use floats during the calculation, clip to 0-255 and
+remove the decimal part when converting back to `uint8`.
+
+The NumPy method uses `reshape(-1, 1)` to stack the pixels into one column,
+adjusts the values and reshapes the result back into an image. The other
+method uses nested Python loops to adjust every pixel separately.
+
+We timed five runs of each method with `time.time()` and calculated the
+average per run. The times include the calculations, output creation and
+type conversion. Image loading and plotting are outside the timed loops.
+
+| Method | Average execution time (ms) |
+| --- | --- |
+| NumPy vectorized | 2.040 |
+| Nested Python loops | 468.915 |
+
+NumPy was **229.82 times faster**, using the unrounded timing values. It handles
+the array operations inside its library, avoiding a Python loop for every
+pixel. These times are from one run on this computer and can vary.
+
+`np.array_equal()` returned **True**. Both methods gave exactly the same image,
+with values from **0 to 255**. The adjusted image looks brighter overall.
+Highlights look whiter, while the dark gaps between peppers remain dark.
+Some highlights are clipped at 255. Both images use the same display scale.
+
+Figure: `figures/section5_brightness_contrast.png`.
+
+## 5.2 Memory needed for the full convolution matrix H
+
+A 512 x 512 image has **262,144 pixels**. Its stacked vector has that many
+values, so H has **262,144 rows and 262,144 columns**. This gives
+**68,719,476,736 elements**.
+
+| Value type | Bytes per element | Total bytes | Memory (GiB) |
+| --- | --- | --- | --- |
+| float32 | 4 | 274,877,906,944 | 256 |
+| float64 | 8 | 549,755,813,888 | 512 |
+
+We calculated `pixels * pixels * bytes_per_element` and divided by `1024**3`
+to get GiB. H was not created; the code calculates these numbers only.
+
+The full matrix stores an entry for every input and output pixel pair. Most
+entries would be zero for a 3 x 3 filter, but the full matrix still stores them.
+It is much more practical to store just the **nine kernel weights** and apply
+them to each small image neighbourhood.
+
 ## Verification and sources
 
 The script ran successfully with the selected TIFF. Numerical checks covered
@@ -247,9 +297,15 @@ Simple step arrays confirmed the horizontal edge direction. The magnitude
 calculation and displayed arrays were also checked. All three new figures
 were reviewed. Sections 1-3 and their five saved figures are unchanged.
 
+Section 5 passed checks for stacking, known pixel values, clipping, integer
+conversion and exact agreement between methods. The measured timing ratio
+and both memory calculations were checked. The new figure was reviewed.
+Sections 1-4 and their eight saved figures are unchanged.
+
 Sources: Lab 3 Version 1.1, pages 1-3; Lecture 8, pages 14-15 and 21;
 Lecture 9, page 26; Lecture 11, pages 3-4 and 9.
 Section 3 sources: Lab 3 Version 1.1, pages 3-4; Lecture 8, page 25;
 Lecture 11, page 7.
 Section 4 sources: Lab 3 Version 1.1, pages 4-5; Lecture 9, pages 4-8 and 15.
-Only Sections 1-4 are implemented.
+Section 5 sources: Lab 3 Version 1.1, page 5; Lecture 9, pages 9-14 and 17.
+Only Sections 1-5 are implemented.
