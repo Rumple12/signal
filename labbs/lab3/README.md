@@ -1,4 +1,4 @@
-# DT081A Lab 3 - Sections 1-3
+# DT081A Lab 3 - Sections 1-4
 
 Draft work by Jakob and Obid. This is not the final report.
 
@@ -24,7 +24,7 @@ The existing local environment can also run it:
 .\labbs\lab3\.venv\Scripts\python.exe labbs/lab3/lab3.py
 ```
 
-The script prints the tables, saves five figures in `figures/` and opens the
+The script prints the tables, saves eight figures in `figures/` and opens the
 plots. Close the plot windows to finish. Running it again replaces the figures.
 
 ## 1.1 Gamma calculation
@@ -167,6 +167,68 @@ differences cannot be recovered from the quantized image.
 Figure: `figures/section3_3bit_histograms.png`. It shows both grayscale images
 and their histograms. The pixel-count scales are labelled separately.
 
+## 4.1 Gaussian filtering
+
+We reused the original 512 x 512 grayscale image. We made a 1D Gaussian kernel
+with `cv2.getGaussianKernel()` and used `np.outer()` to form the matching 2D
+kernel. Both methods used sigma = 1.0, float64 output and the same reflected
+border rule, `cv2.BORDER_REFLECT_101`.
+
+We compared `cv2.filter2D()` with `cv2.sepFilter2D()`. Each method ran once
+before timing. We then measured 30 calls using `time.time()` and calculated
+the average per call. Kernel creation and plotting were outside the timed loops.
+These values are from a normal script run with OpenCV 5.0.0:
+
+| Kernel size | Ordinary 2D filtering (ms) | Separable filtering (ms) |
+| --- | --- | --- |
+| 5 x 5 | 5.420 | 1.429 |
+| 11 x 11 | 9.880 | 10.455 |
+| 21 x 21 | 23.481 | 24.022 |
+
+Separable filtering was clearly faster for 5 x 5. At 11 x 11 and 21 x 21,
+the times were close, with ordinary 2D slightly faster. Larger kernels took
+longer for both methods in this run. Times can change between runs.
+
+A direct 2D calculation uses `k*k` weights per pixel. A separable filter uses
+one pass along rows and one along columns, using about `2*k` weights. This can
+save many calculations with large kernels and large images. The actual time
+also depends on the filtering routines and computer. Our measurements do not
+show that separable filtering is always faster.
+
+The two Gaussian outputs look the same. Their largest measured difference was
+about **0.000002 intensity units** across the three kernel sizes. Both blur
+fine texture and soften boundaries. The figure shows the teacher's 5 x 5,
+sigma = 1.0 example with the same 0-255 display scale for all three images.
+
+Figure: `figures/section4_gaussian_comparison.png`.
+
+## 4.2 Horizontal edges
+
+The short function `detect_horizontal_edges()` uses Sobel with `dx=0, dy=1`.
+It measures brightness changes from top to bottom. We display the absolute
+values so both directions of brightness change appear as positive strengths.
+
+The horizontal image shows curved top and bottom pepper boundaries and the
+edge along the bottom of the picture strongly. The long vertical sides of
+the thin pepper are weaker. Those sides are clearer in the vertical-edge
+comparison, which uses `dx=1, dy=0`. Curved and sloping edges can appear in
+both images. The two edge images use the same display scale.
+
+Figure: `figures/section4_sobel_edges.png`.
+
+## 4.3 Gradient magnitude
+
+We combined the signed derivatives using
+`sqrt(sobel_x**2 + sobel_y**2)`. We kept those values and made a separate
+0-255 version for display, as in the teacher's example.
+
+The result shows more complete pepper outlines and stem details. It includes
+the long vertical sides as well as top and bottom boundaries because it uses
+brightness changes in both directions. The horizontal-only image leaves more
+of these outlines weak. Bright pixels mean a stronger edge.
+
+Figure: `figures/section4_gradient_magnitude.png`.
+
 ## Verification and sources
 
 The script ran successfully with the selected TIFF. Numerical checks covered
@@ -179,8 +241,15 @@ the 2:1 ratio, 50% theoretical saving, actual array sizes and histogram pixel
 counts. Both new figures were reviewed. The approved Sections 1-2 calculations
 and their three saved figures are unchanged.
 
+Section 4 checks confirmed matching Gaussian kernels, input, output type and
+border handling. All three output comparisons differed by less than 0.00001.
+Simple step arrays confirmed the horizontal edge direction. The magnitude
+calculation and displayed arrays were also checked. All three new figures
+were reviewed. Sections 1-3 and their five saved figures are unchanged.
+
 Sources: Lab 3 Version 1.1, pages 1-3; Lecture 8, pages 14-15 and 21;
 Lecture 9, page 26; Lecture 11, pages 3-4 and 9.
 Section 3 sources: Lab 3 Version 1.1, pages 3-4; Lecture 8, page 25;
 Lecture 11, page 7.
-Only Sections 1-3 are implemented.
+Section 4 sources: Lab 3 Version 1.1, pages 4-5; Lecture 9, pages 4-8 and 15.
+Only Sections 1-4 are implemented.

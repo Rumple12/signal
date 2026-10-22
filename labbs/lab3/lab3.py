@@ -1,5 +1,6 @@
-"""DT081A Lab 3: Sections 1-3 only."""
+"""DT081A Lab 3: Sections 1-4 only."""
 
+import time
 from pathlib import Path
 
 import cv2
@@ -200,5 +201,100 @@ plt.ylabel("Pixel count")
 plt.tight_layout()
 plt.savefig(figure_folder / "section3_3bit_histograms.png", dpi=150)
 
-print("\nFive figures saved in:", figure_folder)
+# Section 4.1: compare equivalent 2D and separable Gaussian filters.
+kernel_sizes = [5, 11, 21]
+sigma = 1.0
+repeats = 30
+times_2d = []
+times_separable = []
+gaussian_differences = []
+print("\nGaussian filtering: average of", repeats, "runs, sigma =", sigma)
+print("Size | Ordinary 2D (ms) | Separable (ms) | Largest output difference")
+for kernel_size in kernel_sizes:
+    kernel_1d = cv2.getGaussianKernel(kernel_size, sigma)
+    kernel_2d = np.outer(kernel_1d, kernel_1d)
+
+    # Run each method once before timing, so its first call is not measured.
+    cv2.filter2D(gray, cv2.CV_64F, kernel_2d, borderType=cv2.BORDER_REFLECT_101)
+    cv2.sepFilter2D(gray, cv2.CV_64F, kernel_1d, kernel_1d,
+                    borderType=cv2.BORDER_REFLECT_101)
+    start = time.time()
+    for repeat in range(repeats):
+        gaussian_2d = cv2.filter2D(gray, cv2.CV_64F, kernel_2d,
+                                   borderType=cv2.BORDER_REFLECT_101)
+    time_2d = 1000 * (time.time() - start) / repeats
+
+    start = time.time()
+    for repeat in range(repeats):
+        gaussian_separable = cv2.sepFilter2D(gray, cv2.CV_64F, kernel_1d, kernel_1d,
+                                             borderType=cv2.BORDER_REFLECT_101)
+    time_separable = 1000 * (time.time() - start) / repeats
+    max_difference = np.max(np.abs(gaussian_2d - gaussian_separable))
+    times_2d.append(time_2d)
+    times_separable.append(time_separable)
+    gaussian_differences.append(max_difference)
+    print(f"{kernel_size:4d} | {time_2d:16.3f} | {time_separable:14.3f} | {max_difference:.3e}")
+
+    # Save the teacher's 5 x 5 example for the image comparison.
+    if kernel_size == 5:
+        gaussian_2d_example = gaussian_2d
+        gaussian_separable_example = gaussian_separable
+
+plt.figure(figsize=(12, 4.5))
+gaussian_images = [gray, gaussian_2d_example, gaussian_separable_example]
+gaussian_titles = ["Original grayscale", "Ordinary 2D: 5 x 5, sigma = 1",
+                   "Separable: 5 x 5, sigma = 1"]
+for i in range(3):
+    plt.subplot(1, 3, i + 1)
+    plt.imshow(gaussian_images[i], cmap="gray", vmin=0, vmax=255)
+    plt.title(gaussian_titles[i])
+    plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section4_gaussian_comparison.png", dpi=150)
+
+# Section 4.2: horizontal edges come from brightness changes along y.
+def detect_horizontal_edges(image):
+    return cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3,
+                     borderType=cv2.BORDER_REFLECT_101)
+
+
+sobel_y = detect_horizontal_edges(gray)
+sobel_x = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3,
+                    borderType=cv2.BORDER_REFLECT_101)
+horizontal_strength = np.abs(sobel_y)
+vertical_strength = np.abs(sobel_x)
+edge_max = max(horizontal_strength.max(), vertical_strength.max())
+
+plt.figure(figsize=(12, 4.5))
+plt.subplot(1, 3, 1)
+plt.imshow(gray, cmap="gray", vmin=0, vmax=255)
+plt.title("Original grayscale")
+plt.axis("off")
+plt.subplot(1, 3, 2)
+plt.imshow(horizontal_strength, cmap="gray", vmin=0, vmax=edge_max)
+plt.title("Horizontal edges: absolute Sobel y")
+plt.axis("off")
+plt.subplot(1, 3, 3)
+plt.imshow(vertical_strength, cmap="gray", vmin=0, vmax=edge_max)
+plt.title("Vertical edges: absolute Sobel x")
+plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section4_sobel_edges.png", dpi=150)
+
+# Section 4.3: combine both signed derivatives before normalizing for display.
+gradient_magnitude = np.sqrt(sobel_x**2 + sobel_y**2)
+magnitude_display = cv2.normalize(gradient_magnitude, None, 0, 255, cv2.NORM_MINMAX)
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.imshow(gray, cmap="gray", vmin=0, vmax=255)
+plt.title("Original grayscale")
+plt.axis("off")
+plt.subplot(1, 2, 2)
+plt.imshow(magnitude_display, cmap="gray", vmin=0, vmax=255)
+plt.title("Sobel gradient magnitude")
+plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section4_gradient_magnitude.png", dpi=150)
+
+print("\nEight figures saved in:", figure_folder)
 plt.show()
