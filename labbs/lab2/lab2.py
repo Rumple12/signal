@@ -1,9 +1,10 @@
-"""DT081A Lab 2: Sections 1-6 only."""
+"""DT081A Lab 2: Sections 1-7. Section 7 needs a local voice.wav recording."""
 
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy.io.wavfile as wav
 from scipy import signal
 from scipy.fft import fft, fftfreq, fftshift
 from scipy.signal import lfilter, windows
@@ -513,4 +514,81 @@ print("Band-stop amplification at 50, 250, 600 Hz (dB):",
       20*np.log10(np.maximum(np.abs(H_bs[band_indices]), 1e-12)))
 
 print("Checks passed. Twelve figures saved in:", figure_folder)
+
+# Section 7: the personal recording stays local and is ignored by Git.
+voice_path = Path(__file__).resolve().parent / "voice.wav"
+if not voice_path.exists():
+    print("Section 7 pending: put your WAV recording at", voice_path)
+else:
+    fs_voice, x_voice = wav.read(voice_path)
+    # Average the channels if the recording is stereo, as in the example.
+    if len(x_voice.shape) == 2:
+        x_voice = np.mean(x_voice, axis=1)
+        print("Converted the recording to mono.")
+    recording_duration = len(x_voice) / fs_voice
+    print("Voice sampling frequency:", fs_voice, "Hz")
+    print(f"Voice recording duration: {recording_duration:.3f} s")
+
+    if len(x_voice) < 2048:
+        print("Section 7: record a longer WAV; the comparison needs at least 2048 samples.")
+    else:
+        window_lengths = [512, 1024, 2048]
+        voice_power_db = []
+        voice_frequencies = []
+        voice_time_ends = []
+        for k in window_lengths:
+            # Split the recording into complete, non-overlapping parts.
+            n = len(x_voice) // k
+            xm_xvoice = x_voice[:n*k].reshape(n, k)
+            # Compute the FFT and squared magnitude for each part.
+            Xvoice = np.fft.fft(xm_xvoice, axis=1)
+            power_spectrum = np.abs(Xvoice) ** 2
+            # Keep 0 Hz through Nyquist, rather than the negative frequencies.
+            positive_power = power_spectrum[:, :k//2 + 1]
+            frequencies = np.fft.rfftfreq(k, d=1/fs_voice)
+            voice_power_db.append(10 * np.log10(positive_power + 1e-12))
+            voice_frequencies.append(frequencies)
+            voice_time_ends.append(n*k / fs_voice)
+            print(f"k = {k}: {k/fs_voice:.6f} s per part, {fs_voice/k:.3f} Hz per bin")
+
+        # The middle result uses k = 1024, as in the teacher's example.
+        k = 1024
+        frequency_spacing = fs_voice / k
+        frequencies = voice_frequencies[1]
+        # Half-bin edges place the first and last row centres at 0 Hz and Nyquist.
+        extent = [0, voice_time_ends[1], -frequency_spacing/2,
+                  frequencies[-1] + frequency_spacing/2]
+        plt.figure(figsize=(10, 4.5))
+        plt.imshow(voice_power_db[1].T, origin="lower", aspect="auto",
+                   extent=extent, cmap="viridis")
+        plt.ylim(0, fs_voice/2)
+        plt.colorbar(label="Power (dB, raw FFT)")
+        plt.title("Section 7: Voice power spectrogram (k = 1024)")
+        plt.xlabel("Time (seconds)")
+        plt.ylabel("Frequency (Hz)")
+        plt.tight_layout()
+        plt.savefig(figure_folder / "section7_voice_spectrogram.png", dpi=150)
+
+        # Show all three choices over the same time and frequency ranges.
+        common_end = min(voice_time_ends)
+        plt.figure(figsize=(10, 9))
+        for i in range(len(window_lengths)):
+            k = window_lengths[i]
+            frequency_spacing = fs_voice / k
+            frequencies = voice_frequencies[i]
+            extent = [0, voice_time_ends[i], -frequency_spacing/2,
+                      frequencies[-1] + frequency_spacing/2]
+            plt.subplot(3, 1, i + 1)
+            plt.imshow(voice_power_db[i].T, origin="lower", aspect="auto",
+                       extent=extent, cmap="viridis")
+            plt.xlim(0, common_end)
+            plt.ylim(0, fs_voice/2)
+            plt.colorbar(label="Power (dB, raw FFT)")
+            plt.title(f"k = {k}: {1000*k/fs_voice:.2f} ms per part, {fs_voice/k:.2f} Hz per bin")
+            plt.xlabel("Time (seconds)")
+            plt.ylabel("Frequency (Hz)")
+        plt.tight_layout()
+        plt.savefig(figure_folder / "section7_window_comparison.png", dpi=150)
+        print("Section 7: two spectrogram figures saved in", figure_folder)
+
 plt.show()

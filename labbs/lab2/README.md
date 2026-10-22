@@ -1,7 +1,8 @@
-# DT081A Lab 2 - Sections 1-6
+# DT081A Lab 2 - Sections 1-7
 
-This folder contains a simple script, twelve figures and draft answers. The work
-stops after Section 6. This is not the complete Lab 2 report.
+This folder contains a simple script, twelve figures and draft answers.
+Sections 1-6 are complete. The Section 7 code is ready, but the voice experiment
+is pending until the real recording is provided. This is not the final report.
 
 ## Run the script
 
@@ -20,7 +21,7 @@ The existing local environment can also run it:
 
 The script prints basic checks, saves twelve PNG files in `labbs/lab2/figures/`
 and opens the plots. Close the plot windows to finish. Running it again replaces
-the saved figures.
+the saved figures. Section 7 adds two more figures when `voice.wav` is available.
 
 ## Draft material for the university report template
 
@@ -321,6 +322,72 @@ References: Lab 2, pages 6-7; Lecture 7, pages 18-19;
 SciPy's [butter](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.butter.html)
 and [cheby1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.cheby1.html)
 documentation.
+
+### Lab Section 7: Frequency-Time Domain Analysis
+
+**Recording setup and current status**
+
+The real recording is not available yet. Save a WAV recording of your own name
+as `labbs/lab2/voice.wav`, beside `lab2.py`, then run the same script. The audio
+stays local because `voice.wav` is listed in `.gitignore`.
+
+The code reads the file with `wav.read()`, averages stereo channels to mono,
+and prints the actual sampling frequency and recording duration. It splits the
+samples into complete parts, applies an FFT to each part and squares the FFT
+magnitudes. Any incomplete part at the end is left out, as in the example.
+The comparison needs at least 2048 samples. Missing or shorter recordings
+produce a helpful message while Sections 1-6 still run.
+
+**1. What are X(t,f) and |X(t,f)| squared called?**
+
+X(t,f) is the Short-Time Fourier Transform (STFT). It shows which frequencies
+are present at different times. Its squared magnitude is the power spectrum
+over time. The picture of this power is called a power spectrogram.
+
+**2. How does changing k affect time and frequency resolution?**
+
+Smaller parts give more detail in time, so changes can be located more closely.
+Larger parts give more detail in frequency, but blur when changes happen.
+The code compares 512, 1024 and 2048 samples without overlapping the parts.
+
+The actual voice results are **pending**. The table gives the calculations
+that will use the recording's sampling frequency, `fs_voice`:
+
+| Samples per part, k | Part duration (seconds) | Frequency spacing (Hz) |
+| --- | --- | --- |
+| 512 | 512 / fs_voice | fs_voice / 512 |
+| 1024 | 1024 / fs_voice | fs_voice / 1024 |
+| 2048 | 2048 / fs_voice | fs_voice / 2048 |
+
+These are formulas, not measured voice results. The script prints the numerical
+values once the WAV is available. The comparison uses the same time and
+frequency ranges. Colours show raw FFT power in dB, so brightness across
+different k values should not be treated as a loudness measurement.
+
+**3. Can parts of the spoken name be identified?**
+
+This answer is **pending**. No letters, sounds or syllables have been identified
+because the recording is missing. Individual letters may not be clear from a
+spectrogram alone. Any sound regions will be described after reviewing the
+real recording and its plots.
+
+The following figures will be saved when the recording is available:
+
+- `figures/section7_voice_spectrogram.png`: the teacher's 1024-sample case.
+- `figures/section7_window_comparison.png`: the three window lengths.
+
+**Plot correction:** Only the non-negative FFT bins are displayed, including
+the Nyquist bin at half the sampling frequency. The frequency row centres
+match those bins, and the time axis covers the complete parts. A small value
+of `1e-12` avoids `log10(0)`.
+
+**Verification so far:** The complete script runs without a WAV. Numerical
+checks using arrays in memory passed for stereo averaging, FFT power, known
+frequency peaks, all three k values, plot generation and axes. No audio file
+was generated. Loading the real WAV and checking its voice results are still
+pending. Section 7 has not been fully experimentally verified.
+
+References: Lab 2, pages 7-9; Lecture 7, pages 25-27.
 
 ## Source checks and small corrections
 
