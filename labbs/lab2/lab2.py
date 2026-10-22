@@ -1,4 +1,4 @@
-"""DT081A Lab 2: Sections 1, 2 and 3 only."""
+"""DT081A Lab 2: Sections 1-4 only."""
 
 from pathlib import Path
 
@@ -193,5 +193,46 @@ plt.grid()
 plt.tight_layout()
 plt.savefig(figure_folder / "section3_system2_comparison.png", dpi=150)
 
-print("Checks passed. Six figures saved in:", figure_folder)
+# Section 4: reuse x, X and the amplitude spectrum from Section 1.
+phase_x = np.angle(X)
+
+# Find the three positive-frequency peaks using their calculated magnitudes.
+component_indices = np.where(A_positive > 1)[0]
+measured_frequencies = f[component_indices]
+measured_amplitudes = 2 * np.abs(X[component_indices]) / len(x)
+measured_phases = phase_x[component_indices]
+
+assert np.allclose(measured_frequencies, [f1, f2, f3])
+assert np.allclose(measured_amplitudes, [A1, A2, A3])
+assert np.allclose(measured_phases, [ph1, ph2, ph3])
+print("Section 4 frequencies (Hz):", measured_frequencies)
+print("Section 4 cosine amplitudes:", measured_amplitudes)
+print("Section 4 phases (rad):", measured_phases)
+
+# Hide phase values where the FFT magnitude is nearly zero.
+# Only the plotting copy changes; phase_x keeps all calculated values.
+phase_plot = phase_x[:N//2].copy()
+phase_plot[A_positive < 1] = np.nan
+
+plt.figure(figsize=(11, 4))
+plt.subplot(1, 2, 1)
+plt.plot(f_positive, A_positive, ".-")
+plt.title("Section 4: Amplitude spectrum")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Raw FFT magnitude")
+plt.xlim(0, fs/2)
+plt.grid()
+
+plt.subplot(1, 2, 2)
+plt.plot(f_positive, phase_plot, "o")
+plt.title("Section 4: Phase spectrum")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Phase (radians)")
+plt.xlim(0, fs/2)
+plt.ylim(-np.pi, np.pi)
+plt.grid()
+plt.tight_layout()
+plt.savefig(figure_folder / "section4_amplitude_phase.png", dpi=150)
+
+print("Checks passed. Seven figures saved in:", figure_folder)
 plt.show()

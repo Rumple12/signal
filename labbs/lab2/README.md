@@ -1,7 +1,7 @@
-# DT081A Lab 2 - Sections 1, 2 and 3
+# DT081A Lab 2 - Sections 1-4
 
-This folder contains a simple script, six figures and draft answers. The work
-stops after Section 3. This is not the complete Lab 2 report.
+This folder contains a simple script, seven figures and draft answers. The work
+stops after Section 4. This is not the complete Lab 2 report.
 
 ## Run the script
 
@@ -18,7 +18,7 @@ The existing local environment can also run it:
 .\labbs\lab2\.venv\Scripts\python.exe labbs/lab2/lab2.py
 ```
 
-The script prints basic checks, saves six PNG files in `labbs/lab2/figures/`
+The script prints basic checks, saves seven PNG files in `labbs/lab2/figures/`
 and opens the plots. Close the plot windows to finish. Running it again replaces
 the saved figures.
 
@@ -159,6 +159,36 @@ the explicit 100-sample instruction rather than the example's `len(x)`.
 
 Section 3 references: Lab 2, pages 3-4; Lecture 4, pages 20-21 (convolution and
 impulse input); Lecture 7, page 23 (FIR and IIR).
+
+### Lab Section 4: Frequency-Domain Analysis
+
+I reused the original signal and FFT from Section 1. The amplitude spectrum is
+`np.abs(X)`, and the phase spectrum is `np.angle(X)` in radians. I found the
+positive-frequency peaks using a raw FFT magnitude above 1. The other bins
+contain only tiny rounding errors for this signal.
+
+The raw peak heights are 75, 7.5 and 22.5. To recover the cosine amplitudes,
+I used `2 * np.abs(X[index]) / len(x)` at each peak. The table contains the
+calculated FFT results, rounded to six decimal places:
+
+| Frequency (Hz) | Cosine amplitude | Phase (radians) |
+| --- | --- | --- |
+| 50 | 1.000000 | 0.000000 |
+| 55 | 0.100000 | 0.785398 |
+| 120 | 0.300000 | 1.570796 |
+
+**Do the amplitudes and phases agree with the original signal?** Yes. The
+amplitudes match 1, 0.1 and 0.3. The phases match 0, pi/4 and pi/2. The tiny
+differences are rounding errors. All three `np.allclose()` checks pass for
+the measured frequencies, amplitudes and phases.
+
+Figure: `figures/section4_amplitude_phase.png`. The left plot shows the raw FFT
+magnitudes. The right plot shows the phase at the three peaks. I hid phase
+values where the raw magnitude is below 1, since phase is not useful when
+there is almost no signal at that frequency. The original phase array is
+unchanged. No correction to the teacher's Section 4 calculations was needed.
+
+Section 4 references: Lab 2, pages 4-5; Lecture 4, page 9; Lecture 6, page 5.
 
 ## Source checks and small corrections
 
