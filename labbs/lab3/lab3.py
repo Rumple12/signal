@@ -1,4 +1,4 @@
-"""DT081A Lab 3: Sections 1 and 2 only."""
+"""DT081A Lab 3: Sections 1-3 only."""
 
 from pathlib import Path
 
@@ -133,5 +133,72 @@ plt.suptitle("Chroma subsampling: Y unchanged; full images above, enlarged crops
 plt.tight_layout()
 plt.savefig(figure_folder / "section2_chroma_subsampling.png", dpi=150)
 
-print("\nThree figures saved in:", figure_folder)
+# Section 3.1: group each colour channel into 16 possible levels.
+step_4bit = 256 // 16
+quantized_4bit = image_rgb // step_4bit
+# Use the lower value of each range for display, as in the teacher's example.
+display_4bit = quantized_4bit * step_4bit
+print("\n4-bit quantization: 16 possible levels per colour channel")
+for i, name in enumerate(["R", "G", "B"]):
+    print(name, "levels used:", len(np.unique(quantized_4bit[:, :, i])))
+
+original_bits = image_rgb.size * 8
+quantized_bits = image_rgb.size * 4
+compression_ratio = original_bits / quantized_bits
+storage_saving = 100 * (1 - quantized_bits / original_bits)
+print(f"Theoretical compression ratio: {compression_ratio:.0f}:1")
+print(f"Theoretical storage saving: {storage_saving:.0f}%")
+print("Theoretical packed 4-bit storage:", quantized_bits // 8, "bytes")
+print("Actual original uint8 array:", image_rgb.nbytes, "bytes")
+print("Actual quantized uint8 array:", quantized_4bit.nbytes, "bytes")
+
+plt.figure(figsize=(11, 5))
+plt.subplot(1, 2, 1)
+plt.imshow(image_rgb)
+plt.title("Original: 8 bits per channel")
+plt.axis("off")
+plt.subplot(1, 2, 2)
+plt.imshow(display_4bit)
+plt.title("4 bits per channel: 16 possible levels")
+plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section3_4bit_quantization.png", dpi=150)
+
+# Section 3.2: reuse the original grayscale image, before gamma correction.
+step_3bit = 256 // 8
+quantized_3bit = gray // step_3bit
+display_3bit = quantized_3bit * step_3bit
+hist_3bit, edges_3bit = np.histogram(quantized_3bit, bins=8, range=(0, 8))
+print("\n3-bit grayscale levels used:", np.unique(quantized_3bit))
+print("Displayed grayscale intensities:", np.unique(display_3bit))
+print("Pixel counts at levels 0-7:", hist_3bit)
+print("Original histogram pixel count:", hist_original.sum())
+print("3-bit histogram pixel count:", hist_3bit.sum())
+
+plt.figure(figsize=(10, 8))
+plt.subplot(2, 2, 1)
+plt.imshow(gray, cmap="gray", vmin=0, vmax=255)
+plt.title("Original grayscale: 8 bits")
+plt.axis("off")
+plt.subplot(2, 2, 2)
+plt.imshow(display_3bit, cmap="gray", vmin=0, vmax=255)
+plt.title("3-bit grayscale: 8 possible levels")
+plt.axis("off")
+plt.subplot(2, 2, 3)
+plt.bar(np.arange(256), hist_original, width=1, color="gray")
+plt.xlim(0, 255)
+plt.title("Original intensity histogram")
+plt.xlabel("Intensity (0-255)")
+plt.ylabel("Pixel count")
+plt.subplot(2, 2, 4)
+plt.bar(np.arange(8), hist_3bit, color="gray")
+plt.xticks(np.arange(8))
+plt.xlim(-0.5, 7.5)
+plt.title("3-bit level histogram")
+plt.xlabel("Quantized level (0-7)")
+plt.ylabel("Pixel count")
+plt.tight_layout()
+plt.savefig(figure_folder / "section3_3bit_histograms.png", dpi=150)
+
+print("\nFive figures saved in:", figure_folder)
 plt.show()
