@@ -1,4 +1,4 @@
-"""DT081A Lab 2: Sections 1-4 only."""
+"""DT081A Lab 2: Sections 1-5 only."""
 
 from pathlib import Path
 
@@ -234,5 +234,107 @@ plt.grid()
 plt.tight_layout()
 plt.savefig(figure_folder / "section4_amplitude_phase.png", dpi=150)
 
-print("Checks passed. Seven figures saved in:", figure_folder)
+# Section 5: find System 2's frequency response from a 150-sample impulse.
+impulse_system2 = np.zeros(len(x))
+impulse_system2[0] = 1
+h_system2 = lfilter(b, a, impulse_system2)
+H = fft(h_system2)
+
+# The first 100 samples should match the impulse response from Section 3.
+assert len(h_system2) == len(x)
+assert np.allclose(h_system2[:len(y_filter)], y_filter)
+
+plt.figure(figsize=(11, 4))
+plt.subplot(1, 2, 1)
+plt.plot(f_positive, np.abs(H[:N//2]))
+plt.title("Section 5: System 2 amplification")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Amplification (output / input)")
+plt.xlim(0, fs/2)
+plt.grid()
+
+plt.subplot(1, 2, 2)
+plt.plot(f_positive, np.angle(H[:N//2]))
+plt.title("Section 5: System 2 phase shift")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Phase shift (radians)")
+plt.xlim(0, fs/2)
+plt.grid()
+plt.tight_layout()
+plt.savefig(figure_folder / "section5_system_frequency_response.png", dpi=150)
+
+# Pass the teacher's single 50 Hz cosine through the same system.
+x2 = A1 * np.cos(2 * np.pi * f1 * t + ph1)
+y3 = lfilter(b, a, x2)
+X2 = fft(x2)
+Y3 = fft(y3)
+A_x2 = np.abs(X2)
+A_y3 = np.abs(Y3)
+phase_x2 = np.angle(X2)
+phase_y3 = np.angle(Y3)
+
+# Find the strongest positive-frequency component in each signal.
+input_index = np.argmax(A_x2[:N//2])
+output_index = np.argmax(A_y3[:N//2])
+input_frequency = f[input_index]
+output_frequency = f[output_index]
+input_amplitude = 2 * A_x2[input_index] / len(x)
+output_amplitude = 2 * A_y3[output_index] / len(x)
+input_phase = phase_x2[input_index]
+output_phase = phase_y3[output_index]
+assert np.allclose([input_frequency, output_frequency], [f1, f1])
+assert np.isclose(input_amplitude, A1)
+assert np.isclose(input_phase, ph1)
+
+# At the same frequency, multiply amplitudes and add phases to predict output.
+system_gain = np.abs(H[input_index])
+system_phase_shift = np.angle(H[input_index])
+predicted_amplitude = input_amplitude * system_gain
+predicted_phase = input_phase + system_phase_shift
+amplitude_difference = output_amplitude - predicted_amplitude
+phase_difference = output_phase - predicted_phase
+amplitude_difference_percent = 100 * amplitude_difference / predicted_amplitude
+
+print("Section 5 input frequency, amplitude, phase:",
+      input_frequency, input_amplitude, input_phase)
+print("Section 5 output frequency, amplitude, phase:",
+      output_frequency, output_amplitude, output_phase)
+print("System amplification and phase shift at 50 Hz:", system_gain, system_phase_shift)
+print("Predicted output amplitude and phase:", predicted_amplitude, predicted_phase)
+# Finite signals and the filter's start-up effect cause small differences.
+print("Measured minus predicted amplitude:", amplitude_difference)
+print("Measured minus predicted phase (rad):", phase_difference)
+print("Amplitude difference (% of prediction):", amplitude_difference_percent)
+
+# Hide phase only where the magnitude is almost zero from rounding errors.
+phase_x2_plot = phase_x2[:N//2].copy()
+phase_y3_plot = phase_y3[:N//2].copy()
+phase_x2_plot[A_x2[:N//2] < 1e-8] = np.nan
+phase_y3_plot[A_y3[:N//2] < 1e-8] = np.nan
+
+plt.figure(figsize=(11, 4))
+plt.subplot(1, 2, 1)
+plt.plot(f_positive, A_x2[:N//2], ".-", label="Input")
+plt.plot(f_positive, A_y3[:N//2], "x-", label="Output")
+plt.title("Section 5: Input and output spectra")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Raw FFT magnitude")
+plt.xlim(0, fs/2)
+plt.legend()
+plt.grid()
+
+plt.subplot(1, 2, 2)
+plt.plot(f_positive, phase_x2_plot, "o", label="Input")
+plt.plot(f_positive, phase_y3_plot, "x", label="Output")
+plt.title("Section 5: Input and output phases")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Phase (radians)")
+plt.xlim(0, fs/2)
+plt.ylim(-np.pi, np.pi)
+plt.legend()
+plt.grid()
+plt.tight_layout()
+plt.savefig(figure_folder / "section5_input_output_spectra.png", dpi=150)
+
+print("Checks passed. Nine figures saved in:", figure_folder)
 plt.show()

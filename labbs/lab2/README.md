@@ -1,7 +1,7 @@
-# DT081A Lab 2 - Sections 1-4
+# DT081A Lab 2 - Sections 1-5
 
-This folder contains a simple script, seven figures and draft answers. The work
-stops after Section 4. This is not the complete Lab 2 report.
+This folder contains a simple script, nine figures and draft answers. The work
+stops after Section 5. This is not the complete Lab 2 report.
 
 ## Run the script
 
@@ -18,7 +18,7 @@ The existing local environment can also run it:
 .\labbs\lab2\.venv\Scripts\python.exe labbs/lab2/lab2.py
 ```
 
-The script prints basic checks, saves seven PNG files in `labbs/lab2/figures/`
+The script prints basic checks, saves nine PNG files in `labbs/lab2/figures/`
 and opens the plots. Close the plot windows to finish. Running it again replaces
 the saved figures.
 
@@ -189,6 +189,62 @@ there is almost no signal at that frequency. The original phase array is
 unchanged. No correction to the teacher's Section 4 calculations was needed.
 
 Section 4 references: Lab 2, pages 4-5; Lecture 4, page 9; Lecture 6, page 5.
+
+### Lab Section 5: System Frequency Response
+
+I reused System 2's coefficients, `b = [1, 0.3]` and `a = [1, 0.6, -0.35]`.
+I used `lfilter` with a 150-sample unit impulse, then calculated
+`H = fft(h_system2)`. Its magnitude gives the estimated amplification, and its
+angle gives the phase shift. The first 100 impulse-response samples match
+Section 3.
+
+I then filtered the teacher's single 50 Hz cosine. I found the strongest
+positive-frequency FFT bin for the input and output. Both are at 50 Hz.
+The cosine amplitudes use `2 * np.abs(FFT[index]) / len(x)`, and the phases
+use `np.angle(FFT[index])`. These are the calculated values, rounded:
+
+| Signal | Frequency (Hz) | Cosine amplitude | Phase (radians) |
+| --- | --- | --- | --- |
+| Input | 50 | 1.000000 | 0.000000 |
+| Output | 50 | 0.748103 | -0.010340 |
+
+At 50 Hz, the amplification from `H` is **0.745376**, and the phase shift is
+**-0.012772 radians**. The system reduces the input's amplitude and shifts its
+phase slightly.
+
+**Does the result support `Y(f) = H(f) * X(f)`?** To check this, I multiplied
+the input amplitude by the amplification. I added the input phase to the
+system's phase shift:
+
+| Output comparison at 50 Hz | Amplitude | Phase (radians) |
+| --- | --- | --- |
+| Predicted from H and input | 0.745376 | -0.012772 |
+| Measured from output FFT | 0.748103 | -0.010340 |
+| Measured minus predicted | +0.002727 | +0.002432 |
+
+The amplitude difference is about **0.366%** of the prediction. The measured
+and predicted values are close, which supports the expected relationship.
+They do not match exactly for these finite arrays.
+
+The filter starts at rest, so the output includes a start-up effect. We also
+keep only 150 samples of the impulse response and output, cutting off their
+later values. This explains the small differences. They are not just rounding
+errors. No exact equality check was forced across the FFT arrays.
+
+Figures:
+
+- `figures/section5_system_frequency_response.png`: amplification and phase
+  shift versus frequency, estimated from the 150-sample impulse response.
+- `figures/section5_input_output_spectra.png`: input and output amplitude and
+  phase spectra. The output has smaller values in other bins because of the
+  start-up effect. Their phases also appear in the plot. The comparison above
+  uses the 50 Hz bin. Phase at almost empty bins is hidden.
+
+The script checks the impulse response, both peak frequencies and the input's
+amplitude and phase. It prints the prediction and actual differences. No
+correction to the teacher's Section 5 code was needed.
+
+Section 5 references: Lab 2, pages 5-6; Lecture 6, pages 12 and 14.
 
 ## Source checks and small corrections
 
