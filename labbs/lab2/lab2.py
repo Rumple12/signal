@@ -1,11 +1,11 @@
-"""DT081A Lab 2: Sections 1 and 2 only."""
+"""DT081A Lab 2: Sections 1, 2 and 3 only."""
 
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.fft import fft, fftfreq, fftshift
-from scipy.signal import windows
+from scipy.signal import lfilter, windows
 
 # Save figures beside this script, even when running from another folder.
 figure_folder = Path(__file__).resolve().parent / "figures"
@@ -124,5 +124,74 @@ for i in range(3):
 
 plt.tight_layout()
 plt.savefig(figure_folder / "section2_window_spectra.png", dpi=150)
-print("Checks passed. Four figures saved in:", figure_folder)
+
+# Section 3.1: convolve the given impulse response with a unit impulse.
+h = [1, 0.5, 0.3, 0.1, -0.1, -0.4, -0.2, 0.1]
+impulse1 = np.zeros(len(x))
+impulse1[0] = 1
+response1 = np.convolve(h, impulse1)
+
+# The response should be h followed by zeros. Full convolution adds lengths - 1.
+assert len(response1) == len(h) + len(impulse1) - 1
+assert np.allclose(response1[:len(h)], h)
+assert np.allclose(response1[len(h):], 0)
+print("System 1 output length:", len(response1))
+print("System 1 first eight samples:", response1[:len(h)])
+
+plt.figure(figsize=(9, 3.5))
+# Modern Matplotlib uses plt.stem() without use_line_collection.
+plt.stem(response1)
+# Zoom in so the eight non-zero values are easy to see. The rest are zero.
+plt.xlim(-1, 20)
+plt.xticks(range(0, 21, 2))
+plt.title("Section 3.1: System 1 impulse response (first 21 samples)")
+plt.xlabel("Sample index")
+plt.ylabel("Amplitude")
+plt.grid()
+plt.tight_layout()
+plt.savefig(figure_folder / "section3_system1_convolution.png", dpi=150)
+
+# Section 3.2: use the same 100-sample impulse for both implementations.
+b = [1, 0.3]
+a = [1, 0.6, -0.35]
+impulse2 = np.zeros(100)
+impulse2[0] = 1
+y_manual = np.zeros(len(impulse2))
+
+# Correct the PDF's last index to n-2, matching the lfilter coefficients:
+# y[n] = x[n] + 0.3*x[n-1] - 0.6*y[n-1] + 0.35*y[n-2].
+for n in range(len(impulse2)):
+    y_manual[n] = b[0] * impulse2[n]
+    # Skip terms before sample 0, since their input and output values are zero.
+    if n >= 1:
+        y_manual[n] += b[1] * impulse2[n-1] - a[1] * y_manual[n-1]
+    if n >= 2:
+        y_manual[n] -= a[2] * y_manual[n-2]
+
+y_filter = lfilter(b, a, impulse2)
+same_response = np.allclose(y_manual, y_filter)
+assert np.allclose(y_manual[:5], [1, -0.3, 0.53, -0.423, 0.4393])
+assert same_response
+print("System 2 first five samples:", np.round(y_manual[:5], 4))
+print("System 2 manual loop matches lfilter:", same_response)
+print("System 2 largest absolute difference:", np.max(np.abs(y_manual - y_filter)))
+
+plt.figure(figsize=(9, 6))
+plt.subplot(2, 1, 1)
+plt.stem(y_manual)
+plt.title("Section 3.2: System 2 - manual loop")
+plt.xlabel("Sample index")
+plt.ylabel("Amplitude")
+plt.grid()
+
+plt.subplot(2, 1, 2)
+plt.stem(y_filter)
+plt.title("Section 3.2: System 2 - SciPy lfilter")
+plt.xlabel("Sample index")
+plt.ylabel("Amplitude")
+plt.grid()
+plt.tight_layout()
+plt.savefig(figure_folder / "section3_system2_comparison.png", dpi=150)
+
+print("Checks passed. Six figures saved in:", figure_folder)
 plt.show()

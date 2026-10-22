@@ -1,7 +1,7 @@
-# DT081A Lab 2 - Sections 1 and 2
+# DT081A Lab 2 - Sections 1, 2 and 3
 
-This folder contains a simple script, four figures and draft answers. The work
-stops after Section 2. This is not the complete Lab 2 report.
+This folder contains a simple script, six figures and draft answers. The work
+stops after Section 3. This is not the complete Lab 2 report.
 
 ## Run the script
 
@@ -18,7 +18,7 @@ The existing local environment can also run it:
 .\labbs\lab2\.venv\Scripts\python.exe labbs/lab2/lab2.py
 ```
 
-The script prints basic checks, saves four PNG files in `labbs/lab2/figures/`
+The script prints basic checks, saves six PNG files in `labbs/lab2/figures/`
 and opens the plots. Close the plot windows to finish. Running it again replaces
 the saved figures.
 
@@ -109,6 +109,56 @@ use only a short part of a signal. Hann and Hamming generally reduce leakage
 farther from a peak, but make the peak wider. Our rectangular spectrum already
 has almost no leakage into other bins. These results do not mean that the
 rectangular window is always best.
+
+### Lab Section 3: Linear Time-Invariant Systems
+
+**3.1 System 1: Convolution**
+
+I used a unit impulse with 150 samples, the same length as the signal from
+Section 1. Convolution gives the eight values in `h`, followed by zeros:
+`1, 0.5, 0.3, 0.1, -0.1, -0.4, -0.2, 0.1`.
+
+**Does convolution give the correct response?** Yes. The checks confirm that
+the first eight values match `h` and all later values are zero. Full convolution
+returns `150 + 8 - 1 = 157` samples. This longer output is normal.
+
+**Is it FIR or IIR?** System 1 is FIR, meaning finite impulse response. It has
+only eight non-zero values. The response is zero after sample 7.
+
+Figure: `figures/section3_system1_convolution.png`. It shows samples 0-20 so the
+eight non-zero values are easy to see. All 157 output values were checked.
+
+**3.2 System 2: Difference Equation**
+
+I used a 100-sample unit impulse for both the manual loop and `lfilter`, with
+`b = [1, 0.3]` and `a = [1, 0.6, -0.35]`. Values before sample 0 were zero.
+The equation is:
+
+```text
+y[n] = x[n] + 0.3*x[n-1] - 0.6*y[n-1] + 0.35*y[n-2]
+```
+
+The first five output values are `1, -0.3, 0.53, -0.423, 0.4393`. The response
+alternates between positive and negative values and gradually gets smaller.
+
+**Is it FIR or IIR?** System 2 is IIR, meaning infinite impulse response.
+It uses earlier output values to calculate new ones. This is called feedback.
+Its impulse response keeps going in theory, although it gets smaller. The
+plot shows only the first 100 samples.
+
+**Do the two implementations give the same results?** Yes. `np.allclose()`
+returns `True`. The largest absolute difference was `0.0` in this run.
+
+Figure: `figures/section3_system2_comparison.png`. The two stem plots show the
+manual and SciPy responses separately, using the same 100-sample input.
+
+**Small corrections:** The PDF repeats `y[n-1]` in its last output term. I used
+`y[n-2]` to match its `lfilter` coefficients. I also omitted the outdated
+`use_line_collection=True` argument from `plt.stem()`. For System 2, I followed
+the explicit 100-sample instruction rather than the example's `len(x)`.
+
+Section 3 references: Lab 2, pages 3-4; Lecture 4, pages 20-21 (convolution and
+impulse input); Lecture 7, page 23 (FIR and IIR).
 
 ## Source checks and small corrections
 
