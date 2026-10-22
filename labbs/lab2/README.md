@@ -1,7 +1,7 @@
-# DT081A Lab 2 - Sections 1-5
+# DT081A Lab 2 - Sections 1-6
 
-This folder contains a simple script, nine figures and draft answers. The work
-stops after Section 5. This is not the complete Lab 2 report.
+This folder contains a simple script, twelve figures and draft answers. The work
+stops after Section 6. This is not the complete Lab 2 report.
 
 ## Run the script
 
@@ -18,7 +18,7 @@ The existing local environment can also run it:
 .\labbs\lab2\.venv\Scripts\python.exe labbs/lab2/lab2.py
 ```
 
-The script prints basic checks, saves nine PNG files in `labbs/lab2/figures/`
+The script prints basic checks, saves twelve PNG files in `labbs/lab2/figures/`
 and opens the plots. Close the plot windows to finish. Running it again replaces
 the saved figures.
 
@@ -236,15 +236,91 @@ Figures:
 - `figures/section5_system_frequency_response.png`: amplification and phase
   shift versus frequency, estimated from the 150-sample impulse response.
 - `figures/section5_input_output_spectra.png`: input and output amplitude and
-  phase spectra. The output has smaller values in other bins because of the
-  start-up effect. Their phases also appear in the plot. The comparison above
-  uses the 50 Hz bin. Phase at almost empty bins is hidden.
+  phase spectra. The output also contains small values at other frequencies.
+  These appear because the filter needs a short time to settle when the signal
+  starts. Their phases also appear in the plot. The comparison above uses the
+  50 Hz bin. Phase at almost empty bins is hidden.
 
 The script checks the impulse response, both peak frequencies and the input's
 amplitude and phase. It prints the prediction and actual differences. No
 correction to the teacher's Section 5 code was needed.
 
 Section 5 references: Lab 2, pages 5-6; Lecture 6, pages 12 and 14.
+
+### Lab Section 6: Filtering
+
+I used `fs1 = 2500 Hz`, cutoff 200 Hz, order 5 and Chebyshev ripple 3 dB.
+I calculated the responses using `lfilter` on a unit impulse, followed by an
+FFT, as in the teacher's example. I used 1000 samples so the filters could
+settle. The FFT bins are 2.5 Hz apart. The figures zoom in on 0-750 Hz.
+
+**1. How do Butterworth and Chebyshev Type I differ?**
+
+Butterworth has a smooth amplification response. Chebyshev has ripple, meaning
+small rises and falls in the frequencies it passes. Its measured passband
+ranges from about -3 to 0 dB. Chebyshev also drops more sharply after the
+cutoff. At 300 Hz, it gives -37.351 dB, compared with -18.866 dB for Butterworth.
+A value of 0 dB means unchanged amplitude. Negative dB means a weaker signal.
+
+Their phase responses also differ. At 100 Hz, the phase is -1.649 radians for
+Butterworth and -2.111 radians for Chebyshev.
+
+**2. What changes when we change type, cutoff and order?**
+
+I used Butterworth for these comparisons and changed one setting at a time:
+
+- Low-pass keeps lower frequencies and reduces higher ones. High-pass does
+  the opposite. The phase curves also change.
+- Raising the cutoff from 200 to 350 Hz lets more high frequencies through.
+  It also makes the phase shift less negative at 100 Hz.
+- Raising the order from 3 to 7 makes the drop after the cutoff steeper.
+  The phase shift becomes more negative at 100 Hz.
+
+These measured FFT values support the observations:
+
+| Filter settings | Amplification at 300 Hz (dB) | Phase at 100 Hz (radians) |
+| --- | --- | --- |
+| Butterworth LP, 200 Hz, order 5 | -18.866 | -1.649 |
+| Butterworth HP, 200 Hz, order 5 | -0.057 | -0.078 |
+| Butterworth LP, 350 Hz, order 5 | -0.711 | -0.877 |
+| Butterworth LP, 200 Hz, order 3 | -11.597 | -1.033 |
+| Butterworth LP, 200 Hz, order 7 | -26.343 | -2.282 |
+
+The phase plots use `np.angle()`, as in the teacher's example. The jumps between
+-pi and pi come from how angles are displayed. Angles differing by 2*pi mean
+the same phase. Phase is hidden where the amplification is almost zero.
+
+**3. How are band-pass and band-stop filters designed?**
+
+I used the same Butterworth function with two cutoff frequencies:
+
+```python
+band = [150, 400]
+b_bp, a_bp = signal.butter(filter_order, band, btype="bandpass", fs=fs1)
+b_bs, a_bs = signal.butter(filter_order, band, btype="bandstop", fs=fs1)
+```
+
+Band-pass keeps frequencies within the band and reduces those outside it.
+Band-stop reduces frequencies within the band and keeps those outside it.
+The band-pass response is about 0 dB at 250 Hz, -65.011 dB at 50 Hz and
+-36.263 dB at 600 Hz. The band-stop response is below -100 dB at 250 Hz,
+but about 0 dB at 50 and 600 Hz. The checks confirm both behaviours.
+
+Figures:
+
+- `figures/section6_butterworth_chebyshev.png`: the two low-pass designs.
+- `figures/section6_filter_variations.png`: type, cutoff and order comparisons.
+- `figures/section6_bandpass_bandstop.png`: band-pass and band-stop responses.
+
+**Corrections:** Section 6 uses its own frequency axis from
+`fftfreq(filter_samples, 1/fs1)`. The teacher's old axis used 250 Hz instead of
+2500 Hz. The phase axis is labelled in radians, not dB. A small positive floor
+avoids `log10(0)` in the amplification plots.
+
+References: Lab 2, pages 6-7; Lecture 7, pages 18-19;
+SciPy's [butter](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.butter.html)
+and [cheby1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.cheby1.html)
+documentation.
 
 ## Source checks and small corrections
 

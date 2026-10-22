@@ -1,9 +1,10 @@
-"""DT081A Lab 2: Sections 1-5 only."""
+"""DT081A Lab 2: Sections 1-6 only."""
 
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import signal
 from scipy.fft import fft, fftfreq, fftshift
 from scipy.signal import lfilter, windows
 
@@ -336,5 +337,180 @@ plt.grid()
 plt.tight_layout()
 plt.savefig(figure_folder / "section5_input_output_spectra.png", dpi=150)
 
-print("Checks passed. Nine figures saved in:", figure_folder)
+# Section 6: use the teacher's filter settings and a separate frequency axis.
+fs1 = 2500
+fc = 200
+filter_order = 5  # The teacher calls this N; N above is the signal sample count.
+Rp = 3
+
+# Give the filters enough samples to settle before taking the FFT.
+filter_samples = 1000
+filter_impulse = np.zeros(filter_samples)
+filter_impulse[0] = 1
+filter_half = filter_samples // 2
+f_filter = fftfreq(filter_samples, 1/fs1)
+f_filter_positive = f_filter[:filter_half]
+
+b_b, a_b = signal.butter(filter_order, fc, btype="low", fs=fs1)
+b_c1, a_c1 = signal.cheby1(filter_order, Rp, fc, btype="low", fs=fs1)
+h_b = lfilter(b_b, a_b, filter_impulse)
+h_c1 = lfilter(b_c1, a_c1, filter_impulse)
+H_b = fft(h_b)
+H_c1 = fft(h_c1)
+
+plt.figure(figsize=(11, 4))
+for response, name in zip([H_b, H_c1], ["Butterworth", "Chebyshev I"]):
+    magnitude = np.abs(response[:filter_half])
+    # A small floor avoids log10(0). Phase near zero magnitude is hidden.
+    gain_db = 20 * np.log10(np.maximum(magnitude, 1e-12))
+    phase = np.angle(response[:filter_half])
+    phase[magnitude < 1e-8] = np.nan
+    plt.subplot(1, 2, 1)
+    plt.plot(f_filter_positive, gain_db, label=name)
+    plt.subplot(1, 2, 2)
+    plt.plot(f_filter_positive, phase, label=name)
+
+plt.subplot(1, 2, 1)
+plt.title("Section 6: Low-pass filters, order 5, 200 Hz")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Amplification (dB)")
+plt.xlim(0, 750)
+plt.ylim(-100, 3)
+plt.legend()
+plt.grid()
+plt.subplot(1, 2, 2)
+plt.title("Section 6: Low-pass phase shifts")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Phase shift (radians)")
+plt.xlim(0, 750)
+plt.ylim(-np.pi, np.pi)
+plt.legend()
+plt.grid()
+plt.tight_layout()
+plt.savefig(figure_folder / "section6_butterworth_chebyshev.png", dpi=150)
+
+# Change one setting at a time, using Butterworth for these comparisons.
+b_high, a_high = signal.butter(filter_order, fc, btype="high", fs=fs1)
+b_350, a_350 = signal.butter(filter_order, 350, btype="low", fs=fs1)
+b_order3, a_order3 = signal.butter(3, fc, btype="low", fs=fs1)
+b_order7, a_order7 = signal.butter(7, fc, btype="low", fs=fs1)
+H_high = fft(lfilter(b_high, a_high, filter_impulse))
+H_350 = fft(lfilter(b_350, a_350, filter_impulse))
+H_order3 = fft(lfilter(b_order3, a_order3, filter_impulse))
+H_order7 = fft(lfilter(b_order7, a_order7, filter_impulse))
+
+variation_titles = ["Low-pass versus high-pass", "Cutoff frequency", "Filter order"]
+variation_responses = [[H_b, H_high], [H_b, H_350], [H_order3, H_order7]]
+variation_labels = [["Low-pass", "High-pass"], ["200 Hz", "350 Hz"], ["Order 3", "Order 7"]]
+
+plt.figure(figsize=(11, 9))
+for row in range(3):
+    for i in range(2):
+        response = variation_responses[row][i][:filter_half]
+        name = variation_labels[row][i]
+        magnitude = np.abs(response)
+        gain_db = 20 * np.log10(np.maximum(magnitude, 1e-12))
+        phase = np.angle(response)
+        phase[magnitude < 1e-8] = np.nan
+        plt.subplot(3, 2, 2*row + 1)
+        plt.plot(f_filter_positive, gain_db, label=name)
+        plt.subplot(3, 2, 2*row + 2)
+        plt.plot(f_filter_positive, phase, label=name)
+
+    plt.subplot(3, 2, 2*row + 1)
+    plt.title(variation_titles[row] + ": amplification")
+    plt.xlabel("Frequency (Hz)")
+    plt.ylabel("Amplification (dB)")
+    plt.xlim(0, 750)
+    plt.ylim(-100, 3)
+    plt.legend()
+    plt.grid()
+    plt.subplot(3, 2, 2*row + 2)
+    plt.title(variation_titles[row] + ": phase")
+    plt.xlabel("Frequency (Hz)")
+    plt.ylabel("Phase shift (radians)")
+    plt.xlim(0, 750)
+    plt.ylim(-np.pi, np.pi)
+    plt.legend()
+    plt.grid()
+
+plt.tight_layout()
+plt.savefig(figure_folder / "section6_filter_variations.png", dpi=150)
+
+# Band-pass and band-stop use two cutoff frequencies.
+band = [150, 400]
+b_bp, a_bp = signal.butter(filter_order, band, btype="bandpass", fs=fs1)
+b_bs, a_bs = signal.butter(filter_order, band, btype="bandstop", fs=fs1)
+H_bp = fft(lfilter(b_bp, a_bp, filter_impulse))
+H_bs = fft(lfilter(b_bs, a_bs, filter_impulse))
+
+plt.figure(figsize=(11, 4))
+for response, name in zip([H_bp, H_bs], ["Band-pass", "Band-stop"]):
+    magnitude = np.abs(response[:filter_half])
+    gain_db = 20 * np.log10(np.maximum(magnitude, 1e-12))
+    phase = np.angle(response[:filter_half])
+    phase[magnitude < 1e-8] = np.nan
+    plt.subplot(1, 2, 1)
+    plt.plot(f_filter_positive, gain_db, label=name)
+    plt.subplot(1, 2, 2)
+    plt.plot(f_filter_positive, phase, label=name)
+
+plt.subplot(1, 2, 1)
+plt.title("Section 6: Band filters, 150-400 Hz")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Amplification (dB)")
+plt.xlim(0, 750)
+plt.ylim(-100, 3)
+plt.legend()
+plt.grid()
+plt.subplot(1, 2, 2)
+plt.title("Section 6: Band-filter phase shifts")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Phase shift (radians)")
+plt.xlim(0, 750)
+plt.ylim(-np.pi, np.pi)
+plt.legend()
+plt.grid()
+plt.tight_layout()
+plt.savefig(figure_folder / "section6_bandpass_bandstop.png", dpi=150)
+
+# Basic checks of the frequency axis, settling and filter behaviour.
+assert np.isclose(f_filter_positive[1], 2.5)
+assert np.isclose(f_filter_positive[-1], 1247.5)
+assert np.max(np.abs(h_b[-20:])) < 1e-8
+assert np.max(np.abs(h_c1[-20:])) < 1e-8
+index50 = np.argmin(np.abs(f_filter_positive - 50))
+index100 = np.argmin(np.abs(f_filter_positive - 100))
+index250 = np.argmin(np.abs(f_filter_positive - 250))
+index300 = np.argmin(np.abs(f_filter_positive - 300))
+index600 = np.argmin(np.abs(f_filter_positive - 600))
+assert np.abs(H_b[index50]) > 0.9 and np.abs(H_b[index600]) < 0.01
+assert np.abs(H_high[index50]) < 0.01 and np.abs(H_high[index600]) > 0.9
+assert np.abs(H_350[index300]) > np.abs(H_b[index300])
+assert np.abs(H_order7[index300]) < np.abs(H_order3[index300])
+assert np.abs(H_bp[index250]) > 0.9
+assert np.abs(H_bp[index50]) < 0.01 and np.abs(H_bp[index600]) < 0.1
+assert np.abs(H_bs[index250]) < 0.01
+assert np.abs(H_bs[index50]) > 0.9 and np.abs(H_bs[index600]) > 0.9
+
+passband_magnitude = np.abs(H_c1[:filter_half])[f_filter_positive <= fc]
+passband_db = 20 * np.log10(np.maximum(passband_magnitude, 1e-12))
+assert np.min(passband_db) >= -Rp - 1e-6
+assert np.max(passband_db) <= 1e-6
+print("Section 6 sampling frequency and FFT spacing (Hz):", fs1, fs1/filter_samples)
+print("Chebyshev passband minimum and maximum (dB):", passband_db.min(), passband_db.max())
+print("Filter: amplification at 300 Hz (dB), phase at 100 Hz (radians)")
+check_names = ["Butterworth LP 200 order 5", "Chebyshev LP 200 order 5",
+               "Butterworth HP 200 order 5", "Butterworth LP 350 order 5",
+               "Butterworth LP 200 order 3", "Butterworth LP 200 order 7"]
+check_responses = [H_b, H_c1, H_high, H_350, H_order3, H_order7]
+for name, response in zip(check_names, check_responses):
+    print(name, 20*np.log10(np.abs(response[index300])), np.angle(response[index100]))
+band_indices = [index50, index250, index600]
+print("Band-pass amplification at 50, 250, 600 Hz (dB):",
+      20*np.log10(np.maximum(np.abs(H_bp[band_indices]), 1e-12)))
+print("Band-stop amplification at 50, 250, 600 Hz (dB):",
+      20*np.log10(np.maximum(np.abs(H_bs[band_indices]), 1e-12)))
+
+print("Checks passed. Twelve figures saved in:", figure_folder)
 plt.show()
