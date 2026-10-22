@@ -2,3 +2,8 @@
 __pycache__/
 *.pyc
 voice.wav
+jakob.wav
+obid.wav
+yacob.wav
+figures/section7_*.png
+section7_results_local.md

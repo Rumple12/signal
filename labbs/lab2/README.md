@@ -1,8 +1,8 @@
 # DT081A Lab 2 - Sections 1-7
 
-This folder contains a simple script, twelve figures and draft answers.
-Sections 1-6 are complete. The Section 7 code is ready, but the voice experiment
-is pending until the real recording is provided. This is not the final report.
+This folder contains a simple script, twelve public figures and draft answers.
+Section 7 also analyses Jakob's and Obid's local recordings. Their audio,
+five voice figures and measured results stay local. This is not the final report.
 
 ## Run the script
 
@@ -21,7 +21,8 @@ The existing local environment can also run it:
 
 The script prints basic checks, saves twelve PNG files in `labbs/lab2/figures/`
 and opens the plots. Close the plot windows to finish. Running it again replaces
-the saved figures. Section 7 adds two more figures when `voice.wav` is available.
+the saved figures. Section 7 adds five local figures when both `jakob.wav` and
+`obid.wav` are available beside `lab2.py`.
 
 ## Draft material for the university report template
 
@@ -325,18 +326,25 @@ documentation.
 
 ### Lab Section 7: Frequency-Time Domain Analysis
 
-**Recording setup and current status**
+**Recording setup and local results**
 
-The real recording is not available yet. Save a WAV recording of your own name
-as `labbs/lab2/voice.wav`, beside `lab2.py`, then run the same script. The audio
-stays local because `voice.wav` is listed in `.gitignore`.
+Save the two recordings as `labbs/lab2/jakob.wav` and `labbs/lab2/obid.wav`,
+beside `lab2.py`, then run the same script. One basic loop processes them
+separately. It reads each file with `wav.read()`, averages stereo channels to
+mono, and prints its sampling frequency and duration.
 
-The code reads the file with `wav.read()`, averages stereo channels to mono,
-and prints the actual sampling frequency and recording duration. It splits the
-samples into complete parts, applies an FFT to each part and squares the FFT
-magnitudes. Any incomplete part at the end is left out, as in the example.
-The comparison needs at least 2048 samples. Missing or shorter recordings
-produce a helpful message while Sections 1-6 still run.
+The FFT and power calculations are unchanged. The code splits each recording
+into complete parts, applies an FFT to each part and squares the FFT magnitudes.
+Any incomplete part at the end is left out, as in the teacher's example.
+Each recording uses its own sampling frequency and time axis. The comparison
+needs at least 2048 samples per recording. A missing or shorter recording gets
+a message; the other recording and Sections 1-6 can still run.
+
+**Jakob's recording:** The sampling frequency, duration and observations are
+in the local draft `section7_results_local.md`, under Jakob's recording.
+
+**Obid's recording:** The same local draft has a separate entry for Obid.
+These measured details and observations are kept out of the public repository.
 
 **1. What are X(t,f) and |X(t,f)| squared called?**
 
@@ -350,8 +358,7 @@ Smaller parts give more detail in time, so changes can be located more closely.
 Larger parts give more detail in frequency, but blur when changes happen.
 The code compares 512, 1024 and 2048 samples without overlapping the parts.
 
-The actual voice results are **pending**. The table gives the calculations
-that will use the recording's sampling frequency, `fs_voice`:
+The table uses each recording's sampling frequency, `fs_voice`:
 
 | Samples per part, k | Part duration (seconds) | Frequency spacing (Hz) |
 | --- | --- | --- |
@@ -359,33 +366,44 @@ that will use the recording's sampling frequency, `fs_voice`:
 | 1024 | 1024 / fs_voice | fs_voice / 1024 |
 | 2048 | 2048 / fs_voice | fs_voice / 2048 |
 
-These are formulas, not measured voice results. The script prints the numerical
-values once the WAV is available. The comparison uses the same time and
-frequency ranges. Colours show raw FFT power in dB, so brightness across
-different k values should not be treated as a loudness measurement.
+The script prints the numerical values for each recording. In the local plots,
+the smaller k shows finer changes in time. The larger k gives finer frequency
+rows, but changes in time look more spread out. For each recording, the three
+plots use the same time and frequency ranges. Colours show raw FFT power in
+dB, so brightness across different k values is not a loudness measurement.
 
 **3. Can parts of the spoken name be identified?**
 
-This answer is **pending**. No letters, sounds or syllables have been identified
-because the recording is missing. Individual letters may not be clear from a
-spectrogram alone. Any sound regions will be described after reviewing the
-real recording and its plots.
+The local draft describes the visible regions for each student. We cannot
+reliably identify exact sounds or syllables from these spectrograms alone,
+so we have not labelled them as specific letters.
 
-The following figures will be saved when the recording is available:
+The five local figures are:
 
-- `figures/section7_voice_spectrogram.png`: the teacher's 1024-sample case.
-- `figures/section7_window_comparison.png`: the three window lengths.
+- `figures/section7_jakob_spectrogram.png`: Jakob, k = 1024.
+- `figures/section7_obid_spectrogram.png`: Obid, k = 1024.
+- `figures/section7_jakob_window_comparison.png`: Jakob, all three lengths.
+- `figures/section7_obid_window_comparison.png`: Obid, all three lengths.
+- `figures/section7_jakob_obid_comparison.png`: Jakob on the left, Obid on
+  the right, both with k = 1024. Each has its own time and frequency axes.
+  They share a colour scale, but raw FFT power is not calibrated loudness.
+
+The side-by-side figure is made only when both recordings can be analysed.
+The audio, all Section 7 PNG files and `section7_results_local.md` are ignored
+by Git. The old `voice.wav` is also ignored and is no longer used by the script.
+Do not publish the recordings or voice figures without both students' consent.
+Before submitting a joint report, confirm that the course permits it.
 
 **Plot correction:** Only the non-negative FFT bins are displayed, including
 the Nyquist bin at half the sampling frequency. The frequency row centres
 match those bins, and the time axis covers the complete parts. A small value
 of `1e-12` avoids `log10(0)`.
 
-**Verification so far:** The complete script runs without a WAV. Numerical
-checks using arrays in memory passed for stereo averaging, FFT power, known
-frequency peaks, all three k values, plot generation and axes. No audio file
-was generated. Loading the real WAV and checking its voice results are still
-pending. Section 7 has not been fully experimentally verified.
+**Verification:** The full script ran successfully with both local recordings.
+Both loaded and were converted from stereo to mono. All three k values worked
+for each recording, and all five voice figures were checked. Sections 1-6 and
+their twelve saved figures are unchanged. No personal audio or voice figures
+are included in the Git commit.
 
 References: Lab 2, pages 7-9; Lecture 7, pages 25-27.
 
