@@ -1,4 +1,4 @@
-# DT081A Lab 3 - Sections 1-9
+# DT081A Lab 3 - Sections 1-10
 
 Draft work by Jakob and Obid. This is not the final report.
 
@@ -24,7 +24,7 @@ The existing local environment can also run it:
 .\labbs\lab3\.venv\Scripts\python.exe labbs/lab3/lab3.py
 ```
 
-The script prints the tables, saves sixteen figures in `figures/` and opens the
+The script prints the tables, saves eighteen figures in `figures/` and opens the
 plots. Close the plot windows to finish. Running it again replaces the figures.
 
 ## 1.1 Gamma calculation
@@ -510,6 +510,73 @@ differences explain the measured difference.
 
 Figure: `figures/section9_histogram_equalization.png`.
 
+## 10.1 Noise levels and filtering PSNR
+
+We used `cv2.PSNR()` with the clean original grayscale image as the reference.
+PSNR is measured in dB. A higher value means a result closer to the original
+in terms of pixel differences.
+
+We used **seed = 42** and Gaussian samples with mean 0. The same random
+sample was scaled by sigma 25 or 35. Sigma controls the noise strength.
+We added noise in floating point, clipped to 0-255 and then converted to
+`uint8`. This corrects the teacher's example, where `uint8` arithmetic can
+wrap values around instead of stopping at 0 or 255.
+
+The filter settings stayed fixed: **median 3 x 3** and **bilateral diameter 9,
+sigmaColor 75, sigmaSpace 75**. Three simple bilateral noise trials, with
+sigma 25, 30 and 35, gave output PSNR values of 28.860, 28.004 and 26.888 dB.
+We chose sigma 35 to match the median result at sigma 25.
+
+| Filter | Gaussian sigma | Noisy input PSNR (dB) | Filtered PSNR (dB) |
+| --- | --- | --- | --- |
+| Median, 3 x 3 | 25 | 20.318 | 26.829 |
+| Bilateral, 9, 75, 75 | 35 | 17.519 | 26.888 |
+
+The filtered-output difference is **0.059 dB**, so the requested match is
+close. The inputs have different noise strengths, so this experiment does
+not rank the filters on the same input.
+
+Both results have less grain than their noisy inputs. The median result still
+looks grainy. The bilateral result looks smoother, but some stem detail and
+boundaries are softer. Similar PSNR values do not mean identical appearance.
+
+Figure: `figures/section10_filter_psnr.png`. The top row uses median filtering
+and the bottom row uses bilateral filtering. All panels use 0-255.
+
+## 10.2 Mean and median filtering comparison
+
+We reused the **Gaussian sigma-25** image from 10.1. For salt-and-pepper noise,
+the same seeded generator selected pixels with **4% total probability**:
+2% black (0) and 2% white (255). The two selections do not overlap. In this
+run, **3.986%** of pixels were selected. The original image was kept unchanged.
+
+For each noise type, both filters received exactly the same noisy image.
+We used `cv2.blur(..., (3, 3))` for mean filtering and
+`cv2.medianBlur(..., 3)` for median filtering.
+
+| Noise | Noisy PSNR (dB) | Mean PSNR (dB) | Median PSNR (dB) | Mean - Median (dB) |
+| --- | --- | --- | --- | --- |
+| Gaussian, sigma 25 | 20.318 | 27.237 | 26.829 | +0.409 |
+| Salt-and-pepper, 4% total | 19.296 | 26.516 | 34.035 | -7.519 |
+
+Differences were calculated before rounding. Positive values favour mean
+filtering; negative values favour median filtering.
+
+For Gaussian noise, **mean filtering was higher by 0.409 dB**. Averaging nearby
+pixels reduces the scattered noise, but it also softens boundaries. Both
+filters reduced grain, although some remained visible.
+
+For salt-and-pepper noise, **median filtering was higher by 7.519 dB**. It
+replaces each pixel with the middle value from its neighbourhood, so isolated
+black and white pixels are usually removed. The result looks close to the
+original, with some fine detail softened. Mean filtering spreads these spots
+into nearby pixels, leaving visible marks and blur. These results support
+the expected effects for this image and these settings.
+
+Figure: `figures/section10_mean_median_comparison.png`. Gaussian noise is in
+the top row and salt-and-pepper noise is in the bottom row. Each row shows
+the original, noisy, mean-filtered and median-filtered images, all at 0-255.
+
 ## Verification and sources
 
 The script ran successfully with the selected TIFF. Numerical checks covered
@@ -560,6 +627,15 @@ checked. Both new figures and their common display scale were reviewed.
 Sections 1-8 and their fourteen saved figures are unchanged. The source image
 and course materials are unchanged.
 
+Section 10 checks covered the unchanged clean reference, reproducible random
+samples, floating-point noise addition, clipping, valid `uint8` outputs and
+both salt-and-pepper values. Filter settings and identical inputs for the
+direct comparison were checked. PSNR values were independently checked from
+the mean squared pixel differences, and the output match was within 0.5 dB.
+Both new figures and their plotted arrays and scales were reviewed. Sections
+1-9 and all sixteen previous figures are unchanged. Course materials and the
+source image are unchanged.
+
 Sources: Lab 3 Version 1.1, pages 1-3; Lecture 8, pages 14-15 and 21;
 Lecture 9, page 26; Lecture 11, pages 3-4 and 9.
 Section 3 sources: Lab 3 Version 1.1, pages 3-4; Lecture 8, page 25;
@@ -571,4 +647,6 @@ Lecture 11, page 4.
 Section 7 sources: Lab 3 Version 1.1, page 6; Lecture 10, pages 16-19.
 Section 8 sources: Lab 3 Version 1.1, page 7; Lecture 10, pages 20-22 and 31-33.
 Section 9 sources: Lab 3 Version 1.1, pages 7-8; Lecture 11, pages 3-5 and 10-11.
-Only Sections 1-9 are implemented.
+Section 10 sources: Lab 3 Version 1.1, pages 8-9; Lecture 11, PDF pages 19-22
+(slides 20-23).
+Only Sections 1-10 are implemented.

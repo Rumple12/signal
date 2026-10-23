@@ -1,4 +1,4 @@
-"""DT081A Lab 3: Sections 1-9 only."""
+"""DT081A Lab 3: Sections 1-10 only."""
 
 import time
 from pathlib import Path
@@ -608,5 +608,92 @@ for i in range(4):
 plt.tight_layout()
 plt.savefig(figure_folder / "section9_histogram_equalization.png", dpi=150)
 
-print("\nSixteen figures saved in:", figure_folder)
+# Section 10.1: use one fixed Gaussian sample, scaled to two noise strengths.
+rng = np.random.default_rng(42)
+gaussian_sample = rng.normal(0, 1, gray.shape)
+gaussian_sigma = 25
+bilateral_sigma = 35
+noisy_gaussian = np.clip(gray.astype(np.float64) + gaussian_sigma * gaussian_sample,
+                         0, 255).astype(np.uint8)
+noisy_bilateral = np.clip(gray.astype(np.float64) + bilateral_sigma * gaussian_sample,
+                          0, 255).astype(np.uint8)
+median_gaussian = cv2.medianBlur(noisy_gaussian, 3)
+bilateral_result = cv2.bilateralFilter(noisy_bilateral, 9, 75, 75)
+median_input_psnr = cv2.PSNR(gray, noisy_gaussian)
+median_output_psnr = cv2.PSNR(gray, median_gaussian)
+bilateral_input_psnr = cv2.PSNR(gray, noisy_bilateral)
+bilateral_output_psnr = cv2.PSNR(gray, bilateral_result)
+matched_psnr_difference = abs(median_output_psnr - bilateral_output_psnr)
+print("\nSection 10.1: different noise strengths, similar output PSNR")
+print("Fixed random seed: 42; Gaussian mean: 0")
+print("Filter | Noise sigma | Input PSNR (dB) | Output PSNR (dB)")
+print(f"Median (3 x 3) | {gaussian_sigma} | {median_input_psnr:.3f} | {median_output_psnr:.3f}")
+print(f"Bilateral (9, 75, 75) | {bilateral_sigma} | {bilateral_input_psnr:.3f} | {bilateral_output_psnr:.3f}")
+print(f"Filtered-output PSNR difference: {matched_psnr_difference:.3f} dB")
+
+psnr_images = [gray, noisy_gaussian, median_gaussian,
+               gray, noisy_bilateral, bilateral_result]
+psnr_titles = ["Original grayscale",
+               f"Gaussian: sigma = {gaussian_sigma}\nInput PSNR = {median_input_psnr:.3f} dB",
+               f"Median: 3 x 3\nOutput PSNR = {median_output_psnr:.3f} dB",
+               "Original grayscale",
+               f"Gaussian: sigma = {bilateral_sigma}\nInput PSNR = {bilateral_input_psnr:.3f} dB",
+               f"Bilateral: 9, 75, 75\nOutput PSNR = {bilateral_output_psnr:.3f} dB"]
+plt.figure(figsize=(14, 9))
+for i in range(6):
+    plt.subplot(2, 3, i + 1)
+    plt.imshow(psnr_images[i], cmap="gray", vmin=0, vmax=255)
+    plt.title(psnr_titles[i])
+    plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section10_filter_psnr.png", dpi=150)
+
+# Section 10.2: use disjoint black and white masks, with 4% total probability.
+sp_probability = 0.04
+noise_positions = rng.random(gray.shape)
+black_pixels = noise_positions < sp_probability/2
+white_pixels = noise_positions >= 1 - sp_probability/2
+noisy_sp = gray.copy()
+noisy_sp[black_pixels] = 0
+noisy_sp[white_pixels] = 255
+selected_noise_percent = 100 * np.mean(black_pixels | white_pixels)
+
+# Both filters receive the same noisy input for each noise type.
+# Reuse the sigma-25 Gaussian input and its median result from 10.1.
+mean_gaussian = cv2.blur(noisy_gaussian, (3, 3))
+mean_sp = cv2.blur(noisy_sp, (3, 3))
+median_sp = cv2.medianBlur(noisy_sp, 3)
+mean_gaussian_psnr = cv2.PSNR(gray, mean_gaussian)
+sp_input_psnr = cv2.PSNR(gray, noisy_sp)
+mean_sp_psnr = cv2.PSNR(gray, mean_sp)
+median_sp_psnr = cv2.PSNR(gray, median_sp)
+gaussian_filter_difference = mean_gaussian_psnr - median_output_psnr
+sp_filter_difference = mean_sp_psnr - median_sp_psnr
+print("\nSection 10.2: mean and median, both with 3 x 3 kernels")
+print("Salt-and-pepper probability: 4% total (2% black, 2% white)")
+print(f"Selected salt-and-pepper pixels in this run: {selected_noise_percent:.3f}%")
+print("Noise | Input PSNR | Mean PSNR | Median PSNR | Mean - Median (all dB)")
+print(f"Gaussian (sigma 25) | {median_input_psnr:.3f} | {mean_gaussian_psnr:.3f} | {median_output_psnr:.3f} | {gaussian_filter_difference:+.3f}")
+print(f"Salt-and-pepper (4%) | {sp_input_psnr:.3f} | {mean_sp_psnr:.3f} | {median_sp_psnr:.3f} | {sp_filter_difference:+.3f}")
+
+comparison_images = [gray, noisy_gaussian, mean_gaussian, median_gaussian,
+                     gray, noisy_sp, mean_sp, median_sp]
+comparison_titles = ["Original grayscale\nGaussian comparison",
+                     f"Gaussian: sigma = {gaussian_sigma}\nPSNR = {median_input_psnr:.3f} dB",
+                     f"Mean: 3 x 3\nPSNR = {mean_gaussian_psnr:.3f} dB",
+                     f"Median: 3 x 3\nPSNR = {median_output_psnr:.3f} dB",
+                     "Original grayscale\nSalt-and-pepper comparison",
+                     f"Salt-and-pepper: 4% total\nPSNR = {sp_input_psnr:.3f} dB",
+                     f"Mean: 3 x 3\nPSNR = {mean_sp_psnr:.3f} dB",
+                     f"Median: 3 x 3\nPSNR = {median_sp_psnr:.3f} dB"]
+plt.figure(figsize=(16, 9))
+for i in range(8):
+    plt.subplot(2, 4, i + 1)
+    plt.imshow(comparison_images[i], cmap="gray", vmin=0, vmax=255)
+    plt.title(comparison_titles[i])
+    plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section10_mean_median_comparison.png", dpi=150)
+
+print("\nEighteen figures saved in:", figure_folder)
 plt.show()
