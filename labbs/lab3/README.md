@@ -1,4 +1,4 @@
-# DT081A Lab 3 - Sections 1-10
+# DT081A Lab 3 - Sections 1-11
 
 Draft work by Jakob and Obid. This is not the final report.
 
@@ -24,7 +24,7 @@ The existing local environment can also run it:
 .\labbs\lab3\.venv\Scripts\python.exe labbs/lab3/lab3.py
 ```
 
-The script prints the tables, saves eighteen figures in `figures/` and opens the
+The script prints the tables, saves twenty figures in `figures/` and opens the
 plots. Close the plot windows to finish. Running it again replaces the figures.
 
 ## 1.1 Gamma calculation
@@ -577,6 +577,62 @@ Figure: `figures/section10_mean_median_comparison.png`. Gaussian noise is in
 the top row and salt-and-pepper noise is in the bottom row. Each row shows
 the original, noisy, mean-filtered and median-filtered images, all at 0-255.
 
+## 11.1 Object detection and counting
+
+We created two **128 x 128 binary images**. The background is black (0) and
+the objects are white (255), so foreground and background are easy to separate.
+Test A contains a circle, a rectangle and a triangle. Test B contains two
+differently sized circles, a rectangle and a triangle, at different positions.
+All objects are separated.
+
+Each image also has three isolated white pixels and one small 2 x 2 black
+hole. We used the same sequence for both images:
+
+1. Opening with the teacher's **3 x 3 cross**: erosion followed by dilation.
+   This removed the isolated white pixels.
+2. Closing with the teacher's **5 x 5 elliptical kernel**: dilation followed
+   by erosion. This filled the small hole.
+3. `cv2.connectedComponents(..., connectivity=8)` labels connected white
+   regions. We subtracted one from the number of labels to exclude the
+   background.
+
+| Test | Expected objects | Detected objects |
+| --- | --- | --- |
+| A | 3 | 3 |
+| B | 4 | 4 |
+
+Both tests passed. The main shapes stayed separate, although some corners
+were slightly rounded. Touching objects would be counted together, so this
+simple method depends on the objects being separated.
+
+Figure: `figures/section11_object_counting.png`. Each row shows the image
+before cleaning, after opening and after closing with its detected count.
+
+## 11.2 Morphological and Sobel gradient comparison
+
+We used the original grayscale peppers image for both methods. The
+morphological gradient is **dilation minus erosion**, using the teacher's
+3 x 3 cross. It measures the difference between nearby high and low values.
+We reused `magnitude_display` from Section 4 for the Sobel result.
+
+Both images show pepper outlines, stems and weaker surface detail. The
+morphological result shows more fine grain on some pepper surfaces. The
+Sobel outlines look smoother. Neither method is best for every purpose.
+
+The raw morphological range is **0-204**, while the raw Sobel magnitude range
+is **0-812.857**. Both gradient displays are scaled separately to 0-255.
+Their displayed brightness values are therefore not directly comparable as
+raw gradient strengths. The underlying gradients were kept unchanged.
+
+Morphological processing is useful for binary objects and shape boundaries.
+The chosen kernel affects the appearance and thickness of edges. Sobel is
+useful for brightness changes in grayscale images. Its separate horizontal
+and vertical results also help when edge direction matters; the displayed
+magnitude combines their strengths and does not show direction.
+
+Figure: `figures/section11_gradient_comparison.png`. It shows the original
+image, morphological gradient and reused Sobel magnitude side by side.
+
 ## Verification and sources
 
 The script ran successfully with the selected TIFF. Numerical checks covered
@@ -636,6 +692,14 @@ Both new figures and their plotted arrays and scales were reviewed. Sections
 1-9 and all sixteen previous figures are unchanged. Course materials and the
 source image are unchanged.
 
+Section 11 checks confirmed binary values, both kernels, the opening and
+closing sequence, noise-pixel removal, hole filling and the detected counts.
+The morphological gradient was checked against local pixel differences.
+Sobel reuse, image shapes, display scaling and plotted arrays were checked.
+Both new figures were reviewed. The complete script ran successfully.
+Sections 1-10 and their eighteen approved figures are unchanged. The source
+image and course materials are unchanged.
+
 Sources: Lab 3 Version 1.1, pages 1-3; Lecture 8, pages 14-15 and 21;
 Lecture 9, page 26; Lecture 11, pages 3-4 and 9.
 Section 3 sources: Lab 3 Version 1.1, pages 3-4; Lecture 8, page 25;
@@ -649,4 +713,6 @@ Section 8 sources: Lab 3 Version 1.1, page 7; Lecture 10, pages 20-22 and 31-33.
 Section 9 sources: Lab 3 Version 1.1, pages 7-8; Lecture 11, pages 3-5 and 10-11.
 Section 10 sources: Lab 3 Version 1.1, pages 8-9; Lecture 11, PDF pages 19-22
 (slides 20-23).
-Only Sections 1-10 are implemented.
+Section 11 sources: Lab 3 Version 1.1, page 9; Lecture 11, PDF pages 26-30
+(slides 28-32).
+Sections 1-11 are implemented.

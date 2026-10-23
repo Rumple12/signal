@@ -1,4 +1,4 @@
-"""DT081A Lab 3: Sections 1-10 only."""
+"""DT081A Lab 3: Sections 1-11 only."""
 
 import time
 from pathlib import Path
@@ -695,5 +695,89 @@ for i in range(8):
 plt.tight_layout()
 plt.savefig(figure_folder / "section10_mean_median_comparison.png", dpi=150)
 
-print("\nEighteen figures saved in:", figure_folder)
+# Section 11.1: use the teacher's cross and disk-like kernels.
+cross_kernel = np.array([[0, 1, 0],
+                         [1, 1, 1],
+                         [0, 1, 0]], dtype=np.uint8)
+disk_kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
+
+# Test A: a circle, a rectangle and a triangle, all separated.
+binary_a = np.zeros((128, 128), dtype=np.uint8)
+cv2.circle(binary_a, (30, 30), 16, 255, -1)
+cv2.rectangle(binary_a, (78, 14), (112, 44), 255, -1)
+triangle_a = np.array([[65, 74], [40, 112], [90, 112]], dtype=np.int32)
+cv2.fillPoly(binary_a, [triangle_a], 255)
+binary_a[27:29, 91:93] = 0
+
+# Test B: two differently sized circles, a rectangle and a triangle.
+binary_b = np.zeros((128, 128), dtype=np.uint8)
+cv2.circle(binary_b, (26, 26), 12, 255, -1)
+cv2.rectangle(binary_b, (78, 14), (112, 40), 255, -1)
+triangle_b = np.array([[25, 77], [10, 112], [44, 112]], dtype=np.int32)
+cv2.fillPoly(binary_b, [triangle_b], 255)
+cv2.circle(binary_b, (94, 94), 17, 255, -1)
+binary_b[92:94, 92:94] = 0
+
+# Add three isolated white pixels to each test; the small holes are above.
+binary_images = [binary_a, binary_b]
+for binary_image in binary_images:
+    binary_image[10, 65] = 255
+    binary_image[65, 14] = 255
+    binary_image[116, 116] = 255
+
+test_names = ["Test A", "Test B"]
+expected_counts = [3, 4]
+opened_images = []
+cleaned_images = []
+object_counts = []
+print("\nSection 11.1: opening, closing and connected components")
+plt.figure(figsize=(12, 8))
+for i in range(2):
+    opened = cv2.morphologyEx(binary_images[i], cv2.MORPH_OPEN, cross_kernel)
+    cleaned = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, disk_kernel)
+    num_labels, labels = cv2.connectedComponents(cleaned, connectivity=8)
+    object_count = num_labels - 1  # Exclude the black background.
+    opened_images.append(opened)
+    cleaned_images.append(cleaned)
+    object_counts.append(object_count)
+    print(f"{test_names[i]}: expected {expected_counts[i]}, detected {object_count} objects")
+
+    processing_images = [binary_images[i], opened, cleaned]
+    processing_titles = [test_names[i] + ": before cleaning",
+                         test_names[i] + ": after opening",
+                         f"{test_names[i]}: detected {object_count} objects"]
+    for j in range(3):
+        plt.subplot(2, 3, 3*i + j + 1)
+        plt.imshow(processing_images[j], cmap="gray", vmin=0, vmax=255,
+                   interpolation="nearest")
+        plt.title(processing_titles[j])
+        plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section11_object_counting.png", dpi=150)
+
+# Section 11.2: dilation minus erosion, on the original grayscale image.
+dilated = cv2.dilate(gray, cross_kernel)
+eroded = cv2.erode(gray, cross_kernel)
+morph_gradient = dilated - eroded
+morph_display = cv2.normalize(morph_gradient, None, 0, 255, cv2.NORM_MINMAX)
+print("\nSection 11.2: morphological and Sobel gradients")
+print("Morphological gradient range:", morph_gradient.min(), "to", morph_gradient.max())
+print(f"Raw Sobel magnitude range: {gradient_magnitude.min():.3f} to {gradient_magnitude.max():.3f}")
+print("Both gradient displays are normalized separately to 0-255.")
+
+# Reuse magnitude_display from Section 4; keep both raw gradients unchanged.
+gradient_images = [gray, morph_display, magnitude_display]
+gradient_titles = ["Original grayscale",
+                   "Morphological gradient\n3 x 3 cross, normalized",
+                   "Sobel magnitude\nReused from Section 4, normalized"]
+plt.figure(figsize=(14, 6))
+for i in range(3):
+    plt.subplot(1, 3, i + 1)
+    plt.imshow(gradient_images[i], cmap="gray", vmin=0, vmax=255)
+    plt.title(gradient_titles[i])
+    plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section11_gradient_comparison.png", dpi=150)
+
+print("\nTwenty figures saved in:", figure_folder)
 plt.show()
