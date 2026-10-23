@@ -1,4 +1,4 @@
-"""DT081A Lab 3: Sections 1-5 only."""
+"""DT081A Lab 3: Sections 1-6 only."""
 
 import time
 from pathlib import Path
@@ -354,5 +354,68 @@ print(f"Float32 storage: {float32_bytes:,} bytes = {float32_gib:.0f} GiB")
 print(f"Float64 storage: {float64_bytes:,} bytes = {float64_gib:.0f} GiB")
 print("Only these memory numbers were calculated; H was not allocated.")
 
-print("\nNine figures saved in:", figure_folder)
+# Section 6: use the same log transformation directly and in a lookup table.
+def log_middle_contrast(values, strength):
+    normalized = values.astype(np.float64) / 255.0
+    centered = 2 * normalized - 1
+    # log1p(x) means log(1+x). The sign puts each half on its side of the middle.
+    log_distance = np.log1p(strength * np.abs(centered)) / np.log1p(strength)
+    output = 127.5 * (1 + np.sign(centered) * log_distance)
+    return np.clip(output, 0, 255).astype(np.uint8)
+
+
+# Section 6.1: create the 256-entry table once, then compare per-image times.
+log_strength = 4.0
+log_input_levels = np.arange(256, dtype=np.uint8)
+start = time.time()
+lookup_table = log_middle_contrast(log_input_levels, log_strength)
+table_build_time = 1000 * (time.time() - start)
+
+# Run each method once before timing its repeated applications.
+direct_log = log_middle_contrast(gray, log_strength)
+lookup_log = lookup_table[gray]
+processing_repeats = 30
+start = time.time()
+for repeat in range(processing_repeats):
+    direct_log = log_middle_contrast(gray, log_strength)
+direct_log_time = 1000 * (time.time() - start) / processing_repeats
+
+start = time.time()
+for repeat in range(processing_repeats):
+    lookup_log = lookup_table[gray]
+lookup_log_time = 1000 * (time.time() - start) / processing_repeats
+lookup_speedup = direct_log_time / lookup_log_time
+log_results_equal = np.array_equal(direct_log, lookup_log)
+print("\nLog transformation: average of", processing_repeats, "runs")
+print(f"Lookup table creation: {table_build_time:.3f} ms")
+print(f"Vectorized direct computation: {direct_log_time:.3f} ms")
+print(f"Lookup table application: {lookup_log_time:.3f} ms")
+print(f"Direct time / lookup time: {lookup_speedup:.2f}")
+print("Identical log results:", log_results_equal)
+print("Log output range:", lookup_log.min(), "to", lookup_log.max())
+
+# Section 6.2: show the result and the steeper middle of the transfer curve.
+plt.figure(figsize=(13, 4.5))
+plt.subplot(1, 3, 1)
+plt.imshow(gray, cmap="gray", vmin=0, vmax=255)
+plt.title("Original grayscale")
+plt.axis("off")
+plt.subplot(1, 3, 2)
+plt.imshow(lookup_log, cmap="gray", vmin=0, vmax=255)
+plt.title("Log transformation: strength = 4")
+plt.axis("off")
+plt.subplot(1, 3, 3)
+plt.plot(log_input_levels, log_input_levels, "--", label="Unchanged intensity")
+plt.plot(log_input_levels, lookup_table, label="Log transformation")
+plt.xlim(0, 255)
+plt.ylim(0, 255)
+plt.xlabel("Input intensity")
+plt.ylabel("Output intensity")
+plt.title("Transfer function")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.savefig(figure_folder / "section6_log_transformation.png", dpi=150)
+
+print("\nTen figures saved in:", figure_folder)
 plt.show()

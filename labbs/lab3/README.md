@@ -1,4 +1,4 @@
-# DT081A Lab 3 - Sections 1-5
+# DT081A Lab 3 - Sections 1-6
 
 Draft work by Jakob and Obid. This is not the final report.
 
@@ -24,7 +24,7 @@ The existing local environment can also run it:
 .\labbs\lab3\.venv\Scripts\python.exe labbs/lab3/lab3.py
 ```
 
-The script prints the tables, saves nine figures in `figures/` and opens the
+The script prints the tables, saves ten figures in `figures/` and opens the
 plots. Close the plot windows to finish. Running it again replaces the figures.
 
 ## 1.1 Gamma calculation
@@ -279,6 +279,65 @@ entries would be zero for a 3 x 3 filter, but the full matrix still stores them.
 It is much more practical to store just the **nine kernel weights** and apply
 them to each small image neighbourhood.
 
+## 6.1 Direct computation and lookup tables
+
+The question asks which method is faster for our implementation and how large
+the difference is. We used the same logarithmic transformation from 6.2 for
+both methods, on the original grayscale image.
+
+The direct method calculates the formula for all pixels using NumPy. The
+lookup method first calculates one output for each input value from 0 to 255.
+It then uses `lookup_table[gray]`, following the teacher's indexing example.
+
+Both methods ran once before timing. We averaged 30 applications of each
+method using `time.time()`. Image loading, plotting and table creation were
+outside these timed loops.
+
+| Method | Average time per image (ms) |
+| --- | --- |
+| Vectorized direct computation | 9.469 |
+| Lookup table application | 2.468 |
+
+The lookup table was **3.84 times faster** in this run. It avoids calculating
+logarithms again for every pixel. Creating the 256-entry table took a separate
+**0.539 ms**. The table can be reused while the transformation stays the same.
+These measurements can vary between runs.
+
+`np.array_equal()` returned **True**. The two results are identical `uint8`
+images. The actual output range for this image is **0-240**.
+
+## 6.2 Logarithmic contrast transformation
+
+The question asks for stronger contrast in the middle range, compressed
+shadows and highlights, and a plot of the transfer function.
+
+We chose two matching logarithmic halves joined at the middle, 127.5, with
+**strength = 4**. This is our chosen design. We first move the input range to
+-1 to 1. We apply `log1p()` to the distance from the middle, restore its sign
+and move the result back to 0-255. `log1p(x)` means `log(1+x)`.
+The output is clipped to 0-255 and converted to whole numbers using `uint8`.
+
+The curve is steeper in the middle and flatter at both ends. Equal input gaps
+of 32 intensity units give these output gaps:
+
+| Input interval | Output gap |
+| --- | --- |
+| Shadows: 0-32 | 17 |
+| Middle: 112-144 | 64 |
+| Highlights: 223-255 | 18 |
+
+This confirms that middle values are spread farther apart, while shadow and
+highlight values are packed closer together. The full curve maps 0 to 0 and
+255 to 255, and never reverses the order of intensities.
+
+In the image, dark gaps look darker and lighter areas look brighter. Shading
+in the middle range is more strongly separated. Fine changes near the ends
+have less contrast. Both images use the same 0-255 display scale.
+
+Figure: `figures/section6_log_transformation.png`. It shows the original image,
+the transformed image and the actual transfer curve, with an unchanged-intensity
+line for comparison.
+
 ## Verification and sources
 
 The script ran successfully with the selected TIFF. Numerical checks covered
@@ -302,10 +361,17 @@ conversion and exact agreement between methods. The measured timing ratio
 and both memory calculations were checked. The new figure was reviewed.
 Sections 1-4 and their eight saved figures are unchanged.
 
+Section 6 checks covered all 256 lookup entries, endpoints, intensity order,
+output type and range, exact method agreement, timing calculations and the
+contrast changes in the three ranges. The new figure was reviewed. Sections
+1-5 and their nine saved figures are unchanged.
+
 Sources: Lab 3 Version 1.1, pages 1-3; Lecture 8, pages 14-15 and 21;
 Lecture 9, page 26; Lecture 11, pages 3-4 and 9.
 Section 3 sources: Lab 3 Version 1.1, pages 3-4; Lecture 8, page 25;
 Lecture 11, page 7.
 Section 4 sources: Lab 3 Version 1.1, pages 4-5; Lecture 9, pages 4-8 and 15.
 Section 5 sources: Lab 3 Version 1.1, page 5; Lecture 9, pages 9-14 and 17.
-Only Sections 1-5 are implemented.
+Section 6 sources: Lab 3 Version 1.1, pages 5-6; Lecture 9, page 17;
+Lecture 11, page 4.
+Only Sections 1-6 are implemented.
