@@ -1,4 +1,4 @@
-# DT081A Lab 3 - Sections 1-8
+# DT081A Lab 3 - Sections 1-9
 
 Draft work by Jakob and Obid. This is not the final report.
 
@@ -24,7 +24,7 @@ The existing local environment can also run it:
 .\labbs\lab3\.venv\Scripts\python.exe labbs/lab3/lab3.py
 ```
 
-The script prints the tables, saves fourteen figures in `figures/` and opens the
+The script prints the tables, saves sixteen figures in `figures/` and opens the
 plots. Close the plot windows to finish. Running it again replaces the figures.
 
 ## 1.1 Gamma calculation
@@ -460,6 +460,56 @@ grayscale image. The maximum pixel error was **0.000e+00** in this run.
 
 Figure: `figures/section8_frequency_filtering.png`, right panel.
 
+## 9.1 Histogram and cumulative histogram
+
+We used `cv2.calcHist()` on the original grayscale image and divided the counts
+by their total. The normalized histogram sums to **1**. Each bar shows the
+proportion of pixels at that intensity.
+
+We corrected the teacher's interval from `[0,255]` to **`[0,256]`**. OpenCV
+excludes the upper limit, so this includes intensity 255 and all 256 levels.
+
+About **76.43%** of the pixels have values from 64 to 191. The highest bar is
+at **96**, with another broad group of lighter values around 150-190. The
+image contains both dark and light areas, but most values are in the middle
+range. There are few very bright pixels, and the maximum value is **228**.
+The histogram does not show where these pixels are in the image.
+
+`np.cumsum(hist)` gives the proportion of pixels at or below each intensity.
+For example, **52.51%** are at or below 127, and **92.19%** are at or below
+191. The curve rises faster where there are many pixels. It reaches **1**
+at 228 and stays flat afterwards.
+
+Figure: `figures/section9_histograms.png`.
+
+## 9.2 Histogram equalization
+
+We used **contrast factor = 0.5** around intensity 128:
+`128 + 0.5 * (gray - 128)`, calculated in floating point. We then clipped to
+0-255 and converted to `uint8`. This moves values halfway towards 128.
+The range shrank from **0-228** to **64-178**. The image looks flatter, with
+smaller brightness differences between the peppers and dark gaps.
+
+We calculated the reduced-contrast image's normalized histogram and cumulative
+histogram. The teacher's formula, **255 x cumulative probability**, gives a
+256-entry lookup table. Converting it to `uint8` drops fractional parts.
+`equalization_table[low_contrast]` applies the table to every pixel.
+
+Our result and `cv2.equalizeHist(low_contrast)` both use **0-255**. Compared
+with the reduced-contrast image, pepper shading, stems and surface detail
+stand out more. Compared with the original, dark gaps look darker and
+highlights look brighter. Some fine grain is also more visible.
+All four plots use the same 0-255 display range.
+
+The two equalized images look almost the same. Their **maximum absolute
+difference is 1** intensity level, and their **mean absolute difference is
+0.443756**. OpenCV subtracts the first nonzero cumulative value before
+stretching the range and rounds to whole numbers. Our main method keeps the
+teacher's formula and drops fractional parts. These small calculation
+differences explain the measured difference.
+
+Figure: `figures/section9_histogram_equalization.png`.
+
 ## Verification and sources
 
 The script ran successfully with the selected TIFF. Numerical checks covered
@@ -502,6 +552,14 @@ results recovered the original. The plotted arrays and scales were checked,
 and both new figures were reviewed. Sections 1-7 and their twelve saved
 figures are unchanged. Course materials and the source image are unchanged.
 
+Section 9 checks covered all 256 histogram levels, pixel counts, normalization
+and cumulative probabilities. A small array containing 0 and 255 confirmed
+that both endpoints are included. The contrast calculation, smaller range,
+256-entry lookup table, output types and measured OpenCV differences were
+checked. Both new figures and their common display scale were reviewed.
+Sections 1-8 and their fourteen saved figures are unchanged. The source image
+and course materials are unchanged.
+
 Sources: Lab 3 Version 1.1, pages 1-3; Lecture 8, pages 14-15 and 21;
 Lecture 9, page 26; Lecture 11, pages 3-4 and 9.
 Section 3 sources: Lab 3 Version 1.1, pages 3-4; Lecture 8, page 25;
@@ -512,4 +570,5 @@ Section 6 sources: Lab 3 Version 1.1, pages 5-6; Lecture 9, page 17;
 Lecture 11, page 4.
 Section 7 sources: Lab 3 Version 1.1, page 6; Lecture 10, pages 16-19.
 Section 8 sources: Lab 3 Version 1.1, page 7; Lecture 10, pages 20-22 and 31-33.
-Only Sections 1-8 are implemented.
+Section 9 sources: Lab 3 Version 1.1, pages 7-8; Lecture 11, pages 3-5 and 10-11.
+Only Sections 1-9 are implemented.

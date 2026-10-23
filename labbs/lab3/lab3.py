@@ -1,4 +1,4 @@
-"""DT081A Lab 3: Sections 1-8 only."""
+"""DT081A Lab 3: Sections 1-9 only."""
 
 import time
 from pathlib import Path
@@ -542,5 +542,71 @@ for i in range(3):
 plt.tight_layout()
 plt.savefig(figure_folder / "section8_frequency_filtering.png", dpi=150)
 
-print("\nFourteen figures saved in:", figure_folder)
+# Section 9.1: include all 256 levels, then turn counts into probabilities.
+hist_counts = cv2.calcHist([gray], [0], None, [256], [0, 256]).ravel()
+hist = hist_counts.astype(np.float64) / hist_counts.sum()
+cumulative_hist = np.cumsum(hist)
+intensity_levels = np.arange(256)
+print("\nSection 9.1: original grayscale histogram")
+print(f"Normalized histogram sum: {hist.sum():.6f}")
+print(f"Final cumulative probability: {cumulative_hist[-1]:.6f}")
+for level in [63, 127, 191]:
+    print(f"Pixels at or below {level}: {100 * cumulative_hist[level]:.2f}%")
+
+plt.figure(figsize=(12, 4.5))
+plt.subplot(1, 2, 1)
+plt.bar(intensity_levels, hist, width=1, color="gray")
+plt.xlim(0, 255)
+plt.title("Original: normalized histogram")
+plt.xlabel("Intensity (0-255)")
+plt.ylabel("Proportion of pixels")
+plt.subplot(1, 2, 2)
+plt.plot(intensity_levels, cumulative_hist, color="black")
+plt.xlim(0, 255)
+plt.ylim(0, 1.02)
+plt.title("Original: cumulative histogram")
+plt.xlabel("Intensity (0-255)")
+plt.ylabel("Proportion at or below intensity")
+plt.tight_layout()
+plt.savefig(figure_folder / "section9_histograms.png", dpi=150)
+
+# Section 9.2: halve intensity differences from 128 to reduce contrast.
+contrast_factor = 0.5
+low_contrast = 128 + contrast_factor * (gray.astype(np.float64) - 128)
+low_contrast = np.clip(low_contrast, 0, 255).astype(np.uint8)
+
+# Use the teacher's 255 * cumulative probability formula as a lookup table.
+low_hist = cv2.calcHist([low_contrast], [0], None, [256], [0, 256]).ravel()
+low_hist = low_hist.astype(np.float64) / low_hist.sum()
+low_cumulative_hist = np.cumsum(low_hist)
+equalization_table = (255 * low_cumulative_hist).astype(np.uint8)
+equalized = equalization_table[low_contrast]
+
+# OpenCV is a comparison; convert to float before subtracting uint8 images.
+opencv_equalized = cv2.equalizeHist(low_contrast)
+equalization_difference = np.abs(equalized.astype(np.float64)
+                                - opencv_equalized.astype(np.float64))
+print("\nSection 9.2: histogram equalization")
+print("Contrast factor:", contrast_factor)
+print("Original range:", gray.min(), "to", gray.max())
+print("Reduced-contrast range:", low_contrast.min(), "to", low_contrast.max())
+print("Our equalized range:", equalized.min(), "to", equalized.max())
+print("OpenCV equalized range:", opencv_equalized.min(), "to", opencv_equalized.max())
+print(f"Maximum difference from OpenCV: {equalization_difference.max():.0f}")
+print(f"Mean absolute difference from OpenCV: {equalization_difference.mean():.6f}")
+
+equalization_images = [gray, low_contrast, equalized, opencv_equalized]
+equalization_titles = ["Original grayscale", "Reduced contrast: factor = 0.5",
+                       "Our equalization: 255 x cumulative probability",
+                       "OpenCV: equalizeHist()"]
+plt.figure(figsize=(11, 10))
+for i in range(4):
+    plt.subplot(2, 2, i + 1)
+    plt.imshow(equalization_images[i], cmap="gray", vmin=0, vmax=255)
+    plt.title(equalization_titles[i])
+    plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section9_histogram_equalization.png", dpi=150)
+
+print("\nSixteen figures saved in:", figure_folder)
 plt.show()
