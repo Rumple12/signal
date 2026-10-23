@@ -1,4 +1,4 @@
-"""DT081A Lab 3: Sections 1-7 only."""
+"""DT081A Lab 3: Sections 1-8 only."""
 
 import time
 from pathlib import Path
@@ -478,5 +478,69 @@ for i in range(3):
 plt.tight_layout()
 plt.savefig(figure_folder / "section7_shape_approximation.png", dpi=150)
 
-print("\nTwelve figures saved in:", figure_folder)
+# Section 8.1: transform the original grayscale image using the teacher's FFT example.
+f = np.fft.fft2(gray)
+fshift = np.fft.fftshift(f)
+magnitude = np.log1p(np.abs(fshift))
+
+plt.figure(figsize=(11, 5))
+plt.subplot(1, 2, 1)
+plt.imshow(gray, cmap="gray", vmin=0, vmax=255)
+plt.title("Original grayscale")
+plt.axis("off")
+plt.subplot(1, 2, 2)
+plt.imshow(magnitude, cmap="gray")
+plt.title("FFT: logarithmic magnitude")
+plt.xlabel("Horizontal frequency bin")
+plt.ylabel("Vertical frequency bin")
+plt.xticks([0, width//2, width-1], [-width//2, 0, width//2-1])
+plt.yticks([0, height//2, height-1], [-height//2, 0, height//2-1])
+plt.colorbar(label="log(1 + magnitude)")
+plt.tight_layout()
+plt.savefig(figure_folder / "section8_fft_spectrum.png", dpi=150)
+
+# Section 8.2: keep frequencies inside a circle, following the teacher's mask.
+rows, cols = gray.shape
+crow, ccol = rows//2, cols//2
+cutoff = 40
+lowpass_mask = np.zeros((rows, cols))
+for i in range(rows):
+    for j in range(cols):
+        if np.sqrt((i-crow)**2 + (j-ccol)**2) < cutoff:
+            lowpass_mask[i, j] = 1
+
+filtered_fft = fshift * lowpass_mask
+lowpass_complex = np.fft.ifft2(np.fft.ifftshift(filtered_fft))
+lowpass = lowpass_complex.real
+
+# Section 8.3: subtract the smooth image, keeping positive and negative values.
+highpass = gray.astype(np.float64) - lowpass
+reconstruction_error = np.max(np.abs(gray - (lowpass + highpass)))
+print("\nSection 8: frequency filtering")
+print("Low-pass cutoff radius:", cutoff, "frequency bins")
+print(f"Low-pass range: {lowpass.min():.6f} to {lowpass.max():.6f}")
+print(f"High-pass range: {highpass.min():.6f} to {highpass.max():.6f}")
+print(f"Maximum imaginary part after inverse FFT: {np.max(np.abs(lowpass_complex.imag)):.3e}")
+print(f"Maximum reconstruction error: {reconstruction_error:.3e}")
+
+# Display the signed result around zero without changing the underlying arrays.
+highpass_limit = np.max(np.abs(highpass))
+filter_images = [gray, lowpass, highpass]
+filter_titles = ["Original grayscale", "Low-pass: radius < 40 bins",
+                 "High-pass: original - low-pass"]
+plt.figure(figsize=(14, 5))
+for i in range(3):
+    plt.subplot(1, 3, i + 1)
+    if i < 2:
+        plt.imshow(filter_images[i], cmap="gray", vmin=0, vmax=255)
+        plt.colorbar(label="Intensity")
+    else:
+        plt.imshow(highpass, cmap="gray", vmin=-highpass_limit, vmax=highpass_limit)
+        plt.colorbar(label="Signed difference (zero = middle gray)")
+    plt.title(filter_titles[i])
+    plt.axis("off")
+plt.tight_layout()
+plt.savefig(figure_folder / "section8_frequency_filtering.png", dpi=150)
+
+print("\nFourteen figures saved in:", figure_folder)
 plt.show()

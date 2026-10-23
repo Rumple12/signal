@@ -1,4 +1,4 @@
-# DT081A Lab 3 - Sections 1-7
+# DT081A Lab 3 - Sections 1-8
 
 Draft work by Jakob and Obid. This is not the final report.
 
@@ -24,7 +24,7 @@ The existing local environment can also run it:
 .\labbs\lab3\.venv\Scripts\python.exe labbs/lab3/lab3.py
 ```
 
-The script prints the tables, saves twelve figures in `figures/` and opens the
+The script prints the tables, saves fourteen figures in `figures/` and opens the
 plots. Close the plot windows to finish. Running it again replaces the figures.
 
 ## 1.1 Gamma calculation
@@ -396,6 +396,70 @@ each pixel difference.
 
 Figure: `figures/section7_shape_approximation.png`.
 
+## 8.1 FFT and frequency spectrum
+
+We applied `np.fft.fft2()` to the original 512 x 512 grayscale image.
+`fftshift()` moves zero frequency to the centre. We used
+`np.log1p(np.abs(fshift))` for display so weaker components are easier to see.
+
+The spectrum shows the strength of different rates and directions of image
+changes. Its bright centre contains the average brightness and strong slow
+changes across the peppers. Faster changes, including edges and fine detail,
+contribute frequencies farther from the centre.
+
+We see a bright area around the centre and horizontal and vertical streaks
+through it. Weaker patterns spread farther out. A vertical edge changes
+brightness across columns, so it contributes along the horizontal frequency
+direction. A horizontal edge contributes along the vertical direction. Image
+borders can also contribute to the streaks. The curved pepper boundaries
+contain changes in several directions, rather than one single frequency.
+The spectrum shows frequency content, not the pixel positions of individual
+edges. We cannot assign a specific peak to a particular pepper edge here.
+
+Figure: `figures/section8_fft_spectrum.png`. Axes show frequency bins relative
+to the centre, not positions in the original image.
+
+## 8.2 Removing high frequencies
+
+We followed the teacher's circular mask example with **cutoff = 40**. These
+are frequency bins in the 512 x 512 FFT grid. The mask is 1 at distances less
+than 40 from the centre and 0 elsewhere. We multiplied the shifted FFT by
+this mask, applied `ifftshift()` and `ifft2()`, and kept the real part.
+
+The main pepper shapes and broad light and dark areas remain. Fine surface
+detail and small stem details become less visible, and boundaries look
+softer. Removing fast changes makes the image smoother. Bright and dark
+ripples also appear near some strong boundaries. This is called ringing and
+comes from the filter's sharp cutoff.
+
+The raw low-pass range is **-17.078 to 243.781**. Both the original and
+low-pass plots use 0-255, so negative values appear black. The floating-point
+array is kept unchanged for calculations.
+
+Figure: `figures/section8_frequency_filtering.png`, left and middle panels.
+
+## 8.3 Removing low frequencies
+
+Following the teacher's hint, we calculated
+`highpass = gray.astype(np.float64) - lowpass`. This gives the complementary
+high-frequency content for the same cutoff.
+
+Pepper outlines, stems and small surface details stand out. Smooth areas
+appear mostly middle gray because their differences are near zero. The
+low-pass image keeps broad brightness changes, while the high-pass image
+keeps fast changes around edges and details. Ripples from the ideal filter
+also appear in this result.
+
+The raw high-pass range is **-155.400 to 113.396**. We kept these signed values.
+The display uses equal negative and positive limits of about **155.400**.
+Zero is middle gray, positive differences are lighter and negative differences
+are darker. This shows differences rather than ordinary image brightness.
+
+Adding the unchanged low-pass and high-pass arrays reconstructed the original
+grayscale image. The maximum pixel error was **0.000e+00** in this run.
+
+Figure: `figures/section8_frequency_filtering.png`, right panel.
+
 ## Verification and sources
 
 The script ran successfully with the selected TIFF. Numerical checks covered
@@ -430,6 +494,14 @@ The weighted sum, least-squares result and MSE were checked numerically. Both
 new figures were reviewed. Sections 1-6 and their ten saved figures are
 unchanged. The source TIFF and course materials are unchanged.
 
+Section 8 checks covered the original grayscale input, FFT, shift, logarithmic
+magnitude, circular mask and removed frequencies. The inverse output had the
+correct shape and a maximum imaginary part of **6.172e-14**. The signed
+high-pass result matched the complementary frequency mask, and adding both
+results recovered the original. The plotted arrays and scales were checked,
+and both new figures were reviewed. Sections 1-7 and their twelve saved
+figures are unchanged. Course materials and the source image are unchanged.
+
 Sources: Lab 3 Version 1.1, pages 1-3; Lecture 8, pages 14-15 and 21;
 Lecture 9, page 26; Lecture 11, pages 3-4 and 9.
 Section 3 sources: Lab 3 Version 1.1, pages 3-4; Lecture 8, page 25;
@@ -439,4 +511,5 @@ Section 5 sources: Lab 3 Version 1.1, page 5; Lecture 9, pages 9-14 and 17.
 Section 6 sources: Lab 3 Version 1.1, pages 5-6; Lecture 9, page 17;
 Lecture 11, page 4.
 Section 7 sources: Lab 3 Version 1.1, page 6; Lecture 10, pages 16-19.
-Only Sections 1-7 are implemented.
+Section 8 sources: Lab 3 Version 1.1, page 7; Lecture 10, pages 20-22 and 31-33.
+Only Sections 1-8 are implemented.
