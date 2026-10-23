@@ -1,4 +1,4 @@
-"""DT081A Lab 3: Sections 1-6 only."""
+"""DT081A Lab 3: Sections 1-7 only."""
 
 import time
 from pathlib import Path
@@ -417,5 +417,66 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig(figure_folder / "section6_log_transformation.png", dpi=150)
 
-print("\nTen figures saved in:", figure_folder)
+# Section 7.1: form four 16 x 16 images using the teacher's basis vectors.
+size = 16
+ramp = np.linspace(0, 1, size)
+step = np.heaviside(np.arange(size) - size/2, 1)
+sine = np.sin(2 * np.pi * np.arange(size) / size)
+ramp_ramp = np.outer(ramp, ramp)
+step_ramp = np.outer(step, ramp)
+step_step = np.outer(step, step)
+step_sine = np.outer(step, sine)
+elementary_images = [ramp_ramp, step_ramp, step_step, step_sine]
+elementary_titles = ["Ramp x Ramp", "Step x Ramp", "Step x Step", "Step x Sine"]
+
+plt.figure(figsize=(9, 8))
+for i in range(4):
+    plt.subplot(2, 2, i + 1)
+    # A shared scale includes negative sine values; zero appears middle gray.
+    plt.imshow(elementary_images[i], cmap="gray", vmin=-1, vmax=1,
+               interpolation="nearest")
+    plt.colorbar(label="Value")
+    plt.title(elementary_titles[i])
+    plt.xlabel("Column")
+    plt.ylabel("Row")
+    plt.xticks([0, 8, 15])
+    plt.yticks([0, 8, 15])
+plt.tight_layout()
+plt.savefig(figure_folder / "section7_elementary_images.png", dpi=150)
+
+# Section 7.2: approximate a lower, horizontally centred square with three images.
+target = np.zeros((size, size))
+target[8:16, 4:12] = 1
+A = np.column_stack([step_ramp.ravel(), step_step.ravel(), step_sine.ravel()])
+target_vector = target.ravel()
+weights = np.linalg.lstsq(A, target_vector, rcond=None)[0]
+approximation = (weights[0] * step_ramp + weights[1] * step_step
+                 + weights[2] * step_sine)
+difference = target - approximation
+mse = np.mean(difference**2)
+print("\nSection 7: three-image square approximation")
+print(f"Step x Ramp weight: {weights[0]:.6f}")
+print(f"Step x Step weight: {weights[1]:.6f}")
+print(f"Step x Sine weight: {weights[2]:.6f}")
+print(f"Mean squared error: {mse:.6f}")
+print(f"Unclipped approximation range: {approximation.min():.6f} to {approximation.max():.6f}")
+
+# Keep the fit unchanged for the error calculation and for display.
+plt.figure(figsize=(12, 4.5))
+shape_images = [target, approximation, np.abs(difference)]
+shape_titles = ["Target: 8 x 8 white square", "Three-image approximation", "Absolute error"]
+for i in range(3):
+    plt.subplot(1, 3, i + 1)
+    plt.imshow(shape_images[i], cmap="gray", vmin=0, vmax=1,
+               interpolation="nearest")
+    plt.colorbar(label="Value")
+    plt.title(shape_titles[i])
+    plt.xlabel("Column")
+    plt.ylabel("Row")
+    plt.xticks([0, 8, 15])
+    plt.yticks([0, 8, 15])
+plt.tight_layout()
+plt.savefig(figure_folder / "section7_shape_approximation.png", dpi=150)
+
+print("\nTwelve figures saved in:", figure_folder)
 plt.show()

@@ -1,4 +1,4 @@
-# DT081A Lab 3 - Sections 1-6
+# DT081A Lab 3 - Sections 1-7
 
 Draft work by Jakob and Obid. This is not the final report.
 
@@ -24,7 +24,7 @@ The existing local environment can also run it:
 .\labbs\lab3\.venv\Scripts\python.exe labbs/lab3/lab3.py
 ```
 
-The script prints the tables, saves ten figures in `figures/` and opens the
+The script prints the tables, saves twelve figures in `figures/` and opens the
 plots. Close the plot windows to finish. Running it again replaces the figures.
 
 ## 1.1 Gamma calculation
@@ -338,6 +338,64 @@ Figure: `figures/section6_log_transformation.png`. It shows the original image,
 the transformed image and the actual transfer curve, with an unchanged-intensity
 line for comparison.
 
+## 7.1 Elementary images
+
+We used the teacher's ramp, step and sine vectors with **size = 16**.
+`np.outer()` combines two vectors into a 16 x 16 image. The first vector
+controls the rows, and the second controls the columns.
+
+| Combination | What the image shows |
+| --- | --- |
+| Ramp x Ramp | A gradual increase downwards and to the right |
+| Step x Ramp | A horizontal boundary, with a gradual increase across the lower half |
+| Step x Step | Sharp horizontal and vertical boundaries around the lower-right block |
+| Step x Sine | A horizontal boundary and a repeating bright and dark pattern across the lower half |
+
+Ramps describe smooth changes. Steps describe sharp boundaries. Sine vectors
+describe repeating changes. Combining them gives different image features.
+All four plots use the same scale, from -1 to 1, because the sine has negative
+values. Zero appears middle gray on this scale.
+
+Figure: `figures/section7_elementary_images.png`.
+
+## 7.2 Shape approximation
+
+Our target is an **8 x 8 white square** in the lower half of a 16 x 16 black
+image. It covers rows 8-15 and columns 4-11, counting from zero. Pixel values
+are 0 for black and 1 for white.
+
+We reused **Step x Ramp, Step x Step and Step x Sine** from 7.1. Their row
+steps match the square's top edge. None of these three images alone matches
+the square. Their column patterns are different and independent.
+
+We flattened each image into one column of `A`, giving 256 rows and three
+columns. `np.linalg.lstsq(A, target_vector, rcond=None)[0]` finds the weights
+with the smallest sum of squared pixel differences for these three images.
+We then added the three weighted images.
+
+| Elementary image | Weight |
+| --- | --- |
+| Step x Ramp | 0.156058 |
+| Step x Step | 0.812731 |
+| Step x Sine | 0.688038 |
+
+The **mean squared error (MSE) is 0.107400** on the 0-1 scale. MSE is the
+average squared difference between matching pixels. A value of zero would
+mean an exact match.
+
+The upper half stays black and the horizontal boundary is in the right place.
+The square's interior is not uniform, and its left and right edges are not
+reproduced accurately. Unwanted gray bands remain outside the square.
+These three images give a coarse approximation because their column patterns
+cannot make both sharp sides and a flat white interior at the same time.
+
+The raw approximation ranges from **0.000000 to 0.895961**. We used it without
+clipping for both the MSE and the plot. The target, approximation and absolute
+error all use the same 0-1 display scale. The error image shows the size of
+each pixel difference.
+
+Figure: `figures/section7_shape_approximation.png`.
+
 ## Verification and sources
 
 The script ran successfully with the selected TIFF. Numerical checks covered
@@ -366,6 +424,12 @@ output type and range, exact method agreement, timing calculations and the
 contrast changes in the three ranges. The new figure was reviewed. Sections
 1-5 and their nine saved figures are unchanged.
 
+Section 7 checks confirmed the basis vectors, all four outer products and the
+square's size and position. The fitting matrix has three independent columns.
+The weighted sum, least-squares result and MSE were checked numerically. Both
+new figures were reviewed. Sections 1-6 and their ten saved figures are
+unchanged. The source TIFF and course materials are unchanged.
+
 Sources: Lab 3 Version 1.1, pages 1-3; Lecture 8, pages 14-15 and 21;
 Lecture 9, page 26; Lecture 11, pages 3-4 and 9.
 Section 3 sources: Lab 3 Version 1.1, pages 3-4; Lecture 8, page 25;
@@ -374,4 +438,5 @@ Section 4 sources: Lab 3 Version 1.1, pages 4-5; Lecture 9, pages 4-8 and 15.
 Section 5 sources: Lab 3 Version 1.1, page 5; Lecture 9, pages 9-14 and 17.
 Section 6 sources: Lab 3 Version 1.1, pages 5-6; Lecture 9, page 17;
 Lecture 11, page 4.
-Only Sections 1-6 are implemented.
+Section 7 sources: Lab 3 Version 1.1, page 6; Lecture 10, pages 16-19.
+Only Sections 1-7 are implemented.
