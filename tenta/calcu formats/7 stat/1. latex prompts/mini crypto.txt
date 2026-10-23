@@ -1,0 +1,23 @@
+mini crypto
+
+
+
+EXAM_ID = "2024-05"   
+QUESTION = "Uppgift 2"   
+
+Update only:
+
+2024-05_compiled_notes.tex    
+
+Do not create md/png/pdf/log/folder files.
+
+I am providing:
+1. original question (check img given) 
+2. Yacoub's notes (check img given) 
+3. Obid's notes (check img given) 
+
+Put the original question on top, then compile Yacoub + Obid notes underneath into clean beginner-friendly LaTeX.
+
+
+when you solve b, or c ... or anythin that comes after (a)
+repeat the question itself again with the the entire a,b,c etc part of the question on top of b solution, c solution etc... So repeat the entire question again on top of part b, part c, etc ... mention the question once on top of part a 

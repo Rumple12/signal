@@ -1,0 +1,2013 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=384pt,paperheight=900pt,margin=10pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=12pt}
+\setlist[enumerate]{leftmargin=14pt}
+
+\sloppy
+\allowdisplaybreaks
+\emergencystretch=2em
+
+\begin{document}
+
+\section*{Uppgift 1}
+
+\subsection*{Original question}
+En kruka innehåller tio röda och tio vita bollar.
+Man väljer 5 bollar slumpmässigt, utan återläggning.
+Låt $A$ vara händelsen att man bara får röda bollar och låt
+$B$ vara händelsen att man får minst en boll av vardera färg.
+Beräkna följande sannolikheter:
+
+\begin{enumerate}[label=\alph*)]
+\item $P(A)$. \hfill (1p)
+\item $P(B)$. \hfill (2p)
+\item $P(A\cup B)$. \hfill (1p)
+\item $P(A\mid B^c)$. \hfill (2p)
+\end{enumerate}
+
+\textit{Kommentar:}
+Om du ej har löst a), b) så kan du använda värdena
+$p(A)=0.1$, $p(B)=0.8$ i c) och d).
+Notera dock att detta inte är de korrekta värdena.
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+We draw 5 balls without replacement from 20 balls total:
+10 red and 10 white.
+
+The notes use combinations because order does not matter.
+
+\[
+\binom{n}{k}
+\]
+
+means the number of ways to choose $k$ objects from $n$ objects.
+
+\subsubsection*{Given information}
+\begin{itemize}
+\item There are 10 red balls.
+\item There are 10 white balls.
+\item Total balls:
+\[
+20
+\]
+\item We choose:
+\[
+n=5
+\]
+\item No return, so this is without replacement.
+\end{itemize}
+
+The events are:
+
+\[
+A=\text{only red}
+\]
+
+This means:
+
+\[
+A=\text{5 red and 0 white}.
+\]
+
+Also:
+
+\[
+B=\text{at least one of each color}.
+\]
+
+So:
+
+\[
+B=\text{at least 1 red and at least 1 white}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{Total number of choices}
+
+The notes first find the total number of ways to choose 5 balls
+from 20:
+
+\begin{align*}
+\binom{20}{5}
+&=
+\frac{20\cdot 19\cdot 18\cdot 17\cdot 16}
+{5\cdot 4\cdot 3\cdot 2\cdot 1} \\[2mm]
+&=15504
+\end{align*}
+
+\textbf{a) Calculate $P(A)$}
+
+Event $A$ means all 5 chosen balls are red.
+
+Number of ways to choose 5 red from 10 red:
+
+\begin{align*}
+\binom{10}{5}
+&=
+\frac{10\cdot 9\cdot 8\cdot 7\cdot 6}
+{5\cdot 4\cdot 3\cdot 2\cdot 1} \\[2mm]
+&=252
+\end{align*}
+
+Number of ways to choose 0 white from 10 white:
+
+\[
+\binom{10}{0}=1.
+\]
+
+So:
+
+\begin{align*}
+P(A)
+&=
+\frac{
+\binom{10}{5}\binom{10}{0}
+}
+{\binom{20}{5}} \\[2mm]
+&=
+\frac{252}{15504} \\[2mm]
+&=
+\frac{21}{1292} \\[2mm]
+&\approx 0.0163
+\end{align*}
+
+So the chance to get 5 red is about:
+
+\[
+1.63\,\%.
+\]
+
+\textbf{b) Calculate $P(B)$}
+
+En kruka innehåller tio röda och tio vita bollar.
+Man väljer 5 bollar slumpmässigt, utan återläggning.
+Låt $A$ vara händelsen att man bara får röda bollar och låt
+$B$ vara händelsen att man får minst en boll av vardera färg.
+Beräkna följande sannolikheter:
+
+\begin{enumerate}[label=\alph*)]
+\item $P(A)$. \hfill (1p)
+\item $P(B)$. \hfill (2p)
+\item $P(A\cup B)$. \hfill (1p)
+\item $P(A\mid B^c)$. \hfill (2p)
+\end{enumerate}
+
+\textit{Kommentar:}
+Om du ej har löst a), b) så kan du använda värdena
+$p(A)=0.1$, $p(B)=0.8$ i c) och d).
+Notera dock att detta inte är de korrekta värdena.
+
+Event $B$ means at least one ball of each color.
+
+The notes use the complement:
+
+\[
+B^c=\text{not at least one of each color}.
+\]
+
+That means all chosen balls are one color only:
+
+\[
+B^c=(\text{all red})\cup(\text{all white}).
+\]
+
+All red:
+
+\[
+252
+\]
+
+All white is symmetric:
+
+\[
+252
+\]
+
+So:
+
+\begin{align*}
+P(B^c)
+&=
+\frac{252+252}{15504} \\[2mm]
+&=
+\frac{504}{15504} \\[2mm]
+&=
+\frac{21}{646} \\[2mm]
+&\approx 0.0325
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(B)
+&=
+1-P(B^c) \\[2mm]
+&=
+1-\frac{504}{15504} \\[2mm]
+&=
+\frac{15000}{15504} \\[2mm]
+&=
+\frac{625}{646} \\[2mm]
+&\approx 0.9675
+\end{align*}
+
+\textbf{c) Calculate $P(A\cup B)$}
+
+En kruka innehåller tio röda och tio vita bollar.
+Man väljer 5 bollar slumpmässigt, utan återläggning.
+Låt $A$ vara händelsen att man bara får röda bollar och låt
+$B$ vara händelsen att man får minst en boll av vardera färg.
+Beräkna följande sannolikheter:
+
+\begin{enumerate}[label=\alph*)]
+\item $P(A)$. \hfill (1p)
+\item $P(B)$. \hfill (2p)
+\item $P(A\cup B)$. \hfill (1p)
+\item $P(A\mid B^c)$. \hfill (2p)
+\end{enumerate}
+
+\textit{Kommentar:}
+Om du ej har löst a), b) så kan du använda värdena
+$p(A)=0.1$, $p(B)=0.8$ i c) och d).
+Notera dock att detta inte är de korrekta värdena.
+
+The notes use:
+
+\[
+P(A\cup B)
+=P(A)+P(B)-P(A\cap B).
+\]
+
+But $A$ and $B$ cannot happen at the same time:
+
+\begin{itemize}
+\item $A$ means all red, so no white is allowed.
+\item $B$ requires at least one white.
+\end{itemize}
+
+So:
+
+\[
+P(A\cap B)=0.
+\]
+
+Therefore:
+
+\begin{align*}
+P(A\cup B)
+&=
+P(A)+P(B) \\[2mm]
+&=
+\frac{252}{15504}
++\frac{15000}{15504} \\[2mm]
+&=
+\frac{15252}{15504} \\[2mm]
+&=
+\frac{1271}{1292} \\[2mm]
+&\approx 0.9837
+\end{align*}
+
+\textbf{d) Calculate $P(A\mid B^c)$}
+
+En kruka innehåller tio röda och tio vita bollar.
+Man väljer 5 bollar slumpmässigt, utan återläggning.
+Låt $A$ vara händelsen att man bara får röda bollar och låt
+$B$ vara händelsen att man får minst en boll av vardera färg.
+Beräkna följande sannolikheter:
+
+\begin{enumerate}[label=\alph*)]
+\item $P(A)$. \hfill (1p)
+\item $P(B)$. \hfill (2p)
+\item $P(A\cup B)$. \hfill (1p)
+\item $P(A\mid B^c)$. \hfill (2p)
+\end{enumerate}
+
+\textit{Kommentar:}
+Om du ej har löst a), b) så kan du använda värdena
+$p(A)=0.1$, $p(B)=0.8$ i c) och d).
+Notera dock att detta inte är de korrekta värdena.
+
+The conditional probability formula is:
+
+\begin{align*}
+P(A\mid B^c)
+&=
+\frac{P(A\cap B^c)}
+{P(B^c)}.
+\end{align*}
+
+If $A$ happens, then all balls are red.
+That automatically means $B$ failed, since $B$ needs at least
+one white.
+
+So:
+
+\[
+A\cap B^c=A.
+\]
+
+Therefore:
+
+\begin{align*}
+P(A\mid B^c)
+&=
+\frac{P(A)}{P(B^c)} \\[2mm]
+&=
+\frac{252/15504}{504/15504} \\[2mm]
+&=
+\frac{252}{504} \\[2mm]
+&=
+\frac{1}{2} \\[2mm]
+&=0.5
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(A)=\frac{252}{15504}
+=\frac{21}{1292}
+\approx 0.0163.
+\]
+
+\item
+\[
+P(B)=\frac{15000}{15504}
+=\frac{625}{646}
+\approx 0.9675.
+\]
+
+\item
+\[
+P(A\cup B)
+=\frac{15252}{15504}
+=\frac{1271}{1292}
+\approx 0.9837.
+\]
+
+\item
+\[
+P(A\mid B^c)=\frac{1}{2}=0.5.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+When choosing without replacement and order does not matter,
+use combinations:
+
+\[
+\binom{n}{k}.
+\]
+
+For ``at least one of each color'', it can be easier to use
+the complement:
+
+\[
+B^c=\text{all red or all white}.
+\]
+
+For conditional probability:
+
+\[
+P(A\mid B^c)
+=
+\frac{P(A\cap B^c)}{P(B^c)}.
+\]
+
+\section*{Uppgift 2}
+
+\subsection*{Original question}
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+\dfrac{a}{\sqrt{x}},
+& \text{om } 0<x\leq 4,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm $a$ så att $f$ bildar en täthetsfunktion för en stokastisk
+variabel $X$.
+\hfill (1.5p)
+
+\item
+Bestäm fördelningsfunktionen $F_X$.
+\hfill (1.5p)
+
+\item
+Beräkna $P(X\leq 1)$.
+\hfill (1p)
+
+\item
+Beräkna väntevärde och standardavvikelse för $X$.
+\hfill (2p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes treat $f$ as a density function.
+First we choose $a$ so that the total area under the PDF is $1$.
+
+Then we integrate the PDF from $0$ to $x$ to get the CDF.
+After that we calculate $P(X\leq 1)$ using the CDF.
+
+Finally, we calculate expected value and standard deviation.
+
+\subsubsection*{Given information}
+The function is:
+
+\[
+f(x)=
+\frac{a}{\sqrt{x}},
+\qquad 0<x\leq 4.
+\]
+
+The notes rewrite:
+
+\[
+\frac{1}{\sqrt{x}}=x^{-1/2}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Find $a$}
+
+For a PDF:
+
+\[
+\int_0^4 \frac{a}{\sqrt{x}}\,dx=1.
+\]
+
+Rewrite:
+
+\begin{align*}
+a\int_0^4 x^{-1/2}\,dx
+&=1
+\end{align*}
+
+Integrate:
+
+\begin{align*}
+a\left[
+2\sqrt{x}
+\right]_0^4
+&=1
+\end{align*}
+
+Plug in the limits:
+
+\begin{align*}
+a(2\sqrt{4}-2\sqrt{0})
+&=1 \\[2mm]
+a(4)
+&=1 \\[2mm]
+4a
+&=1 \\[2mm]
+a
+&=\frac{1}{4}
+\end{align*}
+
+So the full PDF is:
+
+\[
+f(x)=\frac{1}{4\sqrt{x}},
+\qquad 0<x\leq 4.
+\]
+
+\textbf{b) Find the CDF}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+\dfrac{a}{\sqrt{x}},
+& \text{om } 0<x\leq 4,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm $a$ så att $f$ bildar en täthetsfunktion för en stokastisk
+variabel $X$.
+\hfill (1.5p)
+
+\item
+Bestäm fördelningsfunktionen $F_X$.
+\hfill (1.5p)
+
+\item
+Beräkna $P(X\leq 1)$.
+\hfill (1p)
+
+\item
+Beräkna väntevärde och standardavvikelse för $X$.
+\hfill (2p)
+\end{enumerate}
+
+The CDF is:
+
+\[
+F_X(x)=P(X\leq x).
+\]
+
+For $0<x\leq 4$:
+
+\begin{align*}
+F_X(x)
+&=
+\int_0^x
+\frac{1}{4\sqrt{t}}\,dt \\[2mm]
+&=
+\frac{1}{4}
+\int_0^x
+t^{-1/2}\,dt \\[2mm]
+&=
+\frac{1}{4}
+\left[
+2\sqrt{t}
+\right]_0^x \\[2mm]
+&=
+\frac{1}{4}
+(2\sqrt{x}-0) \\[2mm]
+&=
+\frac{1}{2}\sqrt{x}
+\end{align*}
+
+So:
+
+\[
+F_X(x)=
+\begin{cases}
+0,
+& x\leq 0,\\
+\dfrac{1}{2}\sqrt{x},
+& 0<x\leq 4,\\
+1,
+& x>4.
+\end{cases}
+\]
+
+The notes also remind us:
+the CDF cannot go bigger than $1$.
+
+\textbf{c) Calculate $P(X\leq 1)$}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+\dfrac{a}{\sqrt{x}},
+& \text{om } 0<x\leq 4,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm $a$ så att $f$ bildar en täthetsfunktion för en stokastisk
+variabel $X$.
+\hfill (1.5p)
+
+\item
+Bestäm fördelningsfunktionen $F_X$.
+\hfill (1.5p)
+
+\item
+Beräkna $P(X\leq 1)$.
+\hfill (1p)
+
+\item
+Beräkna väntevärde och standardavvikelse för $X$.
+\hfill (2p)
+\end{enumerate}
+
+Use the CDF:
+
+\begin{align*}
+P(X\leq 1)
+&=
+F_X(1) \\[2mm]
+&=
+\frac{1}{2}\sqrt{1} \\[2mm]
+&=
+\frac{1}{2}
+\end{align*}
+
+\textbf{d) Expected value and standard deviation}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+\dfrac{a}{\sqrt{x}},
+& \text{om } 0<x\leq 4,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm $a$ så att $f$ bildar en täthetsfunktion för en stokastisk
+variabel $X$.
+\hfill (1.5p)
+
+\item
+Bestäm fördelningsfunktionen $F_X$.
+\hfill (1.5p)
+
+\item
+Beräkna $P(X\leq 1)$.
+\hfill (1p)
+
+\item
+Beräkna väntevärde och standardavvikelse för $X$.
+\hfill (2p)
+\end{enumerate}
+
+\textbf{Find $E[X]$}
+
+The notes use:
+
+\[
+E[X]=\int x f(x)\,dx.
+\]
+
+So:
+
+\begin{align*}
+E[X]
+&=
+\int_0^4
+x\left(\frac{1}{4\sqrt{x}}\right)\,dx \\[2mm]
+&=
+\int_0^4
+\frac{x}{4\sqrt{x}}\,dx
+\end{align*}
+
+Since
+
+\[
+\frac{x}{\sqrt{x}}=x^{1/2},
+\]
+
+we get:
+
+\begin{align*}
+E[X]
+&=
+\frac{1}{4}
+\int_0^4 x^{1/2}\,dx \\[2mm]
+&=
+\frac{1}{4}
+\left[
+\frac{x^{3/2}}{3/2}
+\right]_0^4 \\[2mm]
+&=
+\frac{1}{4}
+\left(
+\frac{4^{3/2}}{3/2}-0
+\right) \\[2mm]
+&=
+\frac{1}{4}\cdot \frac{16}{3} \\[2mm]
+&=
+\frac{4}{3}
+\end{align*}
+
+\textbf{Find $E[X^2]$}
+
+The notes use:
+
+\[
+E[X^2]
+=
+\int x^2 f(x)\,dx.
+\]
+
+So:
+
+\begin{align*}
+E[X^2]
+&=
+\int_0^4
+x^2\left(\frac{1}{4}x^{-1/2}\right)\,dx \\[2mm]
+&=
+\frac{1}{4}
+\int_0^4
+x^{3/2}\,dx \\[2mm]
+&=
+\frac{1}{4}
+\left[
+\frac{x^{5/2}}{5/2}
+\right]_0^4 \\[2mm]
+&=
+\frac{1}{4}
+\left(
+\frac{4^{5/2}}{5/2}
+-0
+\right) \\[2mm]
+&=
+\frac{1}{4}
+\left(
+\frac{32}{5/2}
+\right) \\[2mm]
+&=
+\frac{1}{4}\cdot \frac{64}{5} \\[2mm]
+&=
+\frac{16}{5}
+\end{align*}
+
+Variance:
+
+\begin{align*}
+\operatorname{Var}(X)
+&=
+E[X^2]-(E[X])^2 \\[2mm]
+&=
+\frac{16}{5}
+-\left(\frac{4}{3}\right)^2 \\[2mm]
+&=
+\frac{16}{5}
+-\frac{16}{9} \\[2mm]
+&=
+\frac{64}{45}
+\end{align*}
+
+Standard deviation:
+
+\begin{align*}
+\sigma
+&=
+\sqrt{\operatorname{Var}(X)} \\[2mm]
+&=
+\sqrt{\frac{64}{45}} \\[2mm]
+&=
+\frac{8}{3\sqrt{5}}
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+a=\frac{1}{4}.
+\]
+
+\item
+\[
+F_X(x)=
+\begin{cases}
+0,
+& x\leq 0,\\
+\dfrac{1}{2}\sqrt{x},
+& 0<x\leq 4,\\
+1,
+& x>4.
+\end{cases}
+\]
+
+\item
+\[
+P(X\leq 1)=\frac{1}{2}.
+\]
+
+\item
+\[
+E[X]=\frac{4}{3},
+\qquad
+\sigma=\frac{8}{3\sqrt{5}}.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For a PDF:
+
+\[
+\int f(x)\,dx=1.
+\]
+
+For a CDF:
+
+\[
+F_X(x)=\int_{-\infty}^{x} f(t)\,dt.
+\]
+
+For expected value:
+
+\[
+E[X]=\int x f(x)\,dx.
+\]
+
+For standard deviation:
+
+\[
+\sigma=
+\sqrt{E[X^2]-(E[X])^2}.
+\]
+
+\section*{Uppgift 3}
+
+\subsection*{Original question}
+Låt \(X \in \operatorname{Exp}(2)\),
+\(Y \in \operatorname{Exp}(3)\) och antag att
+\(X, Y\) är oberoende s.v.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(1 \leq X < 3)\). \hfill (1p)
+\item Beräkna \(E(3X+Y)\) och \(V(3X+Y)\). \hfill (2p)
+\item Bestäm fördelningsfunktionen för \(4X+1\). \hfill (1.5p)
+\item Beräkna \(p(\max\{X,Y\}\leq 1)\). \hfill (1.5p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes use the exponential distribution.
+For \(X\) and \(Y\), we use the CDF,
+the mean, and the variance.
+
+\subsubsection*{Given information}
+\[
+X\in \operatorname{Exp}(2)
+\]
+\[
+Y\in \operatorname{Exp}(3)
+\]
+
+\[
+X \text{ and } Y
+\text{ are independent.}
+\]
+
+For an exponential distribution:
+
+\[
+F(x)=1-e^{-\lambda x},
+\qquad x\geq 0.
+\]
+
+\[
+E[X]=\frac{1}{\lambda}
+\]
+
+\[
+\operatorname{Var}(X)=\frac{1}{\lambda^2}
+\]
+
+So the notes write:
+
+\[
+X\in \operatorname{Exp}(2)
+\Rightarrow
+E[X]=\frac{1}{2},
+\quad
+\operatorname{Var}(X)=\frac{1}{4}.
+\]
+
+\[
+Y\in \operatorname{Exp}(3)
+\Rightarrow
+E[Y]=\frac{1}{3},
+\quad
+\operatorname{Var}(Y)=\frac{1}{9}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Calculate \(P(1\leq X<3)\)}
+
+Use the CDF for \(X\):
+
+\[
+F_X(x)=1-e^{-2x}.
+\]
+
+The notes calculate:
+
+\begin{align*}
+P(1\leq X<3)
+&=F_X(3)-F_X(1) \\[2mm]
+&=(1-e^{-2\cdot 3})
+ -(1-e^{-2\cdot 1}) \\[2mm]
+&=(1-e^{-6})-(1-e^{-2}) \\[2mm]
+&=e^{-2}-e^{-6} \\[2mm]
+&\approx 0.1328566311.
+\end{align*}
+
+\[
+P(1\leq X<3)
+\approx 0.1329.
+\]
+
+\textbf{b) Calculate \(E(3X+Y)\)}
+
+Låt \(X \in \operatorname{Exp}(2)\),
+\(Y \in \operatorname{Exp}(3)\) och antag att
+\(X, Y\) är oberoende s.v.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(1 \leq X < 3)\). \hfill (1p)
+\item Beräkna \(E(3X+Y)\) och \(V(3X+Y)\). \hfill (2p)
+\item Bestäm fördelningsfunktionen för \(4X+1\). \hfill (1.5p)
+\item Beräkna \(p(\max\{X,Y\}\leq 1)\). \hfill (1.5p)
+\end{enumerate}
+
+Use the expected values from the notes:
+
+\[
+E[X]=\frac{1}{2},
+\qquad
+E[Y]=\frac{1}{3}.
+\]
+
+\begin{align*}
+E(3X+Y)
+&=3E[X]+E[Y] \\[2mm]
+&=3\cdot \frac{1}{2}
+  +\frac{1}{3} \\[2mm]
+&=\frac{3}{2}+\frac{1}{3} \\[2mm]
+&=\frac{9}{6}+\frac{2}{6} \\[2mm]
+&=\frac{11}{6}.
+\end{align*}
+
+\textbf{b) Calculate \(V(3X+Y)\)}
+
+Låt \(X \in \operatorname{Exp}(2)\),
+\(Y \in \operatorname{Exp}(3)\) och antag att
+\(X, Y\) är oberoende s.v.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(1 \leq X < 3)\). \hfill (1p)
+\item Beräkna \(E(3X+Y)\) och \(V(3X+Y)\). \hfill (2p)
+\item Bestäm fördelningsfunktionen för \(4X+1\). \hfill (1.5p)
+\item Beräkna \(p(\max\{X,Y\}\leq 1)\). \hfill (1.5p)
+\end{enumerate}
+
+Because \(X\) and \(Y\) are independent,
+the notes add the variances:
+
+\begin{align*}
+\operatorname{Var}(3X+Y)
+&=3^2\operatorname{Var}(X)
+  +1^2\operatorname{Var}(Y) \\[2mm]
+&=9\cdot \frac{1}{4}
+  +\frac{1}{9} \\[2mm]
+&=\frac{9}{4}+\frac{1}{9} \\[2mm]
+&=\frac{81}{36}
+  +\frac{4}{36} \\[2mm]
+&=\frac{85}{36}.
+\end{align*}
+
+\textbf{c) Find the CDF for \(4X+1\)}
+
+Låt \(X \in \operatorname{Exp}(2)\),
+\(Y \in \operatorname{Exp}(3)\) och antag att
+\(X, Y\) är oberoende s.v.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(1 \leq X < 3)\). \hfill (1p)
+\item Beräkna \(E(3X+Y)\) och \(V(3X+Y)\). \hfill (2p)
+\item Bestäm fördelningsfunktionen för \(4X+1\). \hfill (1.5p)
+\item Beräkna \(p(\max\{X,Y\}\leq 1)\). \hfill (1.5p)
+\end{enumerate}
+
+The notes set:
+
+\[
+Z=4X+1.
+\]
+
+We want:
+
+\[
+F_Z(z)=P(Z\leq z).
+\]
+
+\begin{align*}
+F_Z(z)
+&=P(4X+1\leq z) \\[2mm]
+&=P(4X\leq z-1) \\[2mm]
+&=P\left(X\leq \frac{z-1}{4}\right) \\[2mm]
+&=F_X\left(\frac{z-1}{4}\right).
+\end{align*}
+
+Plug this into the CDF for \(X\):
+
+\begin{align*}
+F_Z(z)
+&=1-e^{-2\left(\frac{z-1}{4}\right)} \\[2mm]
+&=1-e^{-\frac{z-1}{2}}.
+\end{align*}
+
+Since \(X\geq 0\), we have:
+
+\[
+4X+1\geq 1.
+\]
+
+So the CDF is:
+
+\[
+F_{4X+1}(z)=
+\begin{cases}
+0, & z<1,\\[1mm]
+1-e^{-\frac{z-1}{2}},
+& z\geq 1.
+\end{cases}
+\]
+
+\textbf{d) Calculate \(p(\max\{X,Y\}\leq 1)\)}
+
+Låt \(X \in \operatorname{Exp}(2)\),
+\(Y \in \operatorname{Exp}(3)\) och antag att
+\(X, Y\) är oberoende s.v.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(1 \leq X < 3)\). \hfill (1p)
+\item Beräkna \(E(3X+Y)\) och \(V(3X+Y)\). \hfill (2p)
+\item Bestäm fördelningsfunktionen för \(4X+1\). \hfill (1.5p)
+\item Beräkna \(p(\max\{X,Y\}\leq 1)\). \hfill (1.5p)
+\end{enumerate}
+
+The notes rewrite the event:
+
+\[
+\max\{X,Y\}\leq 1
+\]
+
+as:
+
+\[
+X\leq 1
+\quad \text{and} \quad
+Y\leq 1.
+\]
+
+Because \(X\) and \(Y\) are independent:
+
+\begin{align*}
+P(\max\{X,Y\}\leq 1)
+&=P(X\leq 1,\;Y\leq 1) \\[2mm]
+&=P(X\leq 1)\cdot P(Y\leq 1) \\[2mm]
+&=F_X(1)\cdot F_Y(1).
+\end{align*}
+
+Plug in the CDF values:
+
+\begin{align*}
+F_X(1)
+&=1-e^{-2\cdot 1}
+=1-e^{-2},
+\\[2mm]
+F_Y(1)
+&=1-e^{-3\cdot 1}
+=1-e^{-3}.
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(\max\{X,Y\}\leq 1)
+&=(1-e^{-2})(1-e^{-3}).
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(1\leq X<3)
+=e^{-2}-e^{-6}
+\approx 0.1329.
+\]
+
+\item
+\[
+E(3X+Y)=\frac{11}{6}.
+\]
+\[
+V(3X+Y)=\frac{85}{36}.
+\]
+
+\item
+\[
+F_{4X+1}(z)=
+\begin{cases}
+0, & z<1,\\[1mm]
+1-e^{-\frac{z-1}{2}},
+& z\geq 1.
+\end{cases}
+\]
+
+\item
+\[
+P(\max\{X,Y\}\leq 1)
+=(1-e^{-2})(1-e^{-3}).
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For \(X\in \operatorname{Exp}(\lambda)\):
+
+\[
+F_X(x)=1-e^{-\lambda x}.
+\]
+
+\[
+E[X]=\frac{1}{\lambda},
+\qquad
+\operatorname{Var}(X)=\frac{1}{\lambda^2}.
+\]
+
+For independent variables:
+
+\[
+\operatorname{Var}(aX+bY)
+=a^2\operatorname{Var}(X)
+ +b^2\operatorname{Var}(Y).
+\]
+
+\[
+P(X\leq a,\;Y\leq b)
+=P(X\leq a)P(Y\leq b).
+\]
+
+\section*{Uppgift 4}
+
+\subsection*{Original question}
+% UNCERTAIN: original question image was not provided in this prompt;
+% this wording is transcribed from the provided notes.
+Låt \(x_1,x_2,\ldots,x_n\) vara ett stickprov
+från en fördelning med täthetsfunktion
+
+\[
+f_X(x)=
+\begin{cases}
+\dfrac{x}{a}e^{-\frac{x^2}{2a}},
+& x>0,\\[2mm]
+0, & \text{annars.}
+\end{cases}
+\]
+
+Ange ML-skattningen av \(a\).
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes find the value of \(a\) that makes the
+observed data most likely.
+That means we build \(L(a)\), take \(\ln\),
+differentiate, set equal to zero,
+and isolate \(a\).
+
+\subsubsection*{Given information}
+The density used in the notes is:
+
+\[
+f_X(x_i)
+=
+\frac{x_i}{a}
+e^{-\frac{x_i^2}{2a}}.
+\]
+
+We have observations:
+
+\[
+x_1,x_2,\ldots,x_n.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{Step 1: Likelihood function}
+
+The notes start with:
+
+\[
+L(a)=
+\prod_{i=1}^{n} f_X(x_i).
+\]
+
+Substitute the density:
+
+\begin{align*}
+L(a)
+&=
+\prod_{i=1}^{n}
+\left(
+\frac{x_i}{a}
+e^{-\frac{x_i^2}{2a}}
+\right).
+\end{align*}
+
+\textbf{Step 2: Take logarithm}
+
+The notes use logarithms because they help with
+products and exponential functions:
+
+\[
+\ln(AB)=\ln A+\ln B.
+\]
+
+\[
+\ln\left(\prod(\cdot)\right)
+=
+\sum \ln(\cdot).
+\]
+
+So:
+
+\begin{align*}
+l(a)
+&=\ln(L(a)) \\[2mm]
+&=
+\sum_{i=1}^{n}
+\ln\left(
+\frac{x_i}{a}
+e^{-\frac{x_i^2}{2a}}
+\right).
+\end{align*}
+
+Split the logarithm:
+
+\begin{align*}
+l(a)
+&=
+\sum_{i=1}^{n}
+\left(
+\ln(x_i)-\ln(a)
+-\frac{x_i^2}{2a}
+\right) \\[2mm]
+&=
+\sum_{i=1}^{n}\ln(x_i)
+-n\ln(a)
+-\frac{1}{2a}
+\sum_{i=1}^{n}x_i^2.
+\end{align*}
+
+\textbf{Step 3: Differentiate with respect to \(a\)}
+
+The notes differentiate \(l(a)\):
+
+\begin{align*}
+\frac{d}{da}l(a)
+&=
+0-\frac{n}{a}
++
+\frac{1}{2a^2}
+\sum_{i=1}^{n}x_i^2 \\[2mm]
+&=
+-\frac{n}{a}
++
+\frac{1}{2a^2}
+\sum_{i=1}^{n}x_i^2.
+\end{align*}
+
+\textbf{Step 4: Set derivative equal to zero}
+
+\begin{align*}
+-\frac{n}{a}
++
+\frac{1}{2a^2}
+\sum_{i=1}^{n}x_i^2
+&=0.
+\end{align*}
+
+Move \(\frac{n}{a}\) to the other side:
+
+\begin{align*}
+\frac{1}{2a^2}
+\sum_{i=1}^{n}x_i^2
+&=
+\frac{n}{a}.
+\end{align*}
+
+Multiply by \(a^2\):
+
+\begin{align*}
+\frac{1}{2}
+\sum_{i=1}^{n}x_i^2
+&=
+na.
+\end{align*}
+
+Divide by \(n\):
+
+\begin{align*}
+a
+&=
+\frac{1}{2n}
+\sum_{i=1}^{n}x_i^2.
+\end{align*}
+
+\subsubsection*{Final answer}
+The ML estimate is:
+
+\[
+\hat a
+=
+\frac{1}{2n}
+\sum_{i=1}^{n}x_i^2.
+\]
+
+\subsubsection*{What to remember}
+For ML estimation:
+
+\[
+L(\text{parameter})
+=
+\prod f(x_i).
+\]
+
+Then:
+
+\[
+l(\text{parameter})
+=\ln(L(\text{parameter})).
+\]
+
+To find the maximum:
+
+\[
+\frac{d}{d(\text{parameter})}l=0.
+\]
+
+\section*{Uppgift 5}
+
+\subsection*{Original question}
+Låt
+\[
+13.4,\;14.1,\;15.1,\;14.3,\;14.9,\;13.9,\;14.4,\;14.0
+\]
+vara ett stickprov från \(N(\mu,\sigma)\).
+Beräkning ger att
+\[
+\sum_{i=1}^{8}x_i=114.1,
+\qquad
+\sum_{i=1}^{8}x_i^2=1629.45.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Konstruera ett (tvåsidigt) 95\%
+konfidensintervall för \(\mu\) under
+förutsättning att \(\sigma=0.5\).
+\hfill (3p)
+
+\item Konstruera ett (tvåsidigt) 95\%
+konfidensintervall för \(\mu\) under
+förutsättning att \(\sigma\) är okänt.
+\hfill (3p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes construct confidence intervals for the
+mean \(\mu\).
+
+In part a), \(\sigma\) is known, so the notes use
+a \(z\)-score.
+
+In part b), \(\sigma\) is unknown, so the notes first
+calculate \(s\), then use a \(t\)-value.
+
+\subsubsection*{Given information}
+\[
+n=8
+\]
+
+\[
+\sum x_i=114.1
+\]
+
+\[
+\sum x_i^2=1629.45
+\]
+
+The sample mean is:
+
+\begin{align*}
+\bar{x}
+&=\frac{\sum x_i}{n} \\[2mm]
+&=\frac{114.1}{8} \\[2mm]
+&=14.2625.
+\end{align*}
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Known \(\sigma=0.5\)}
+
+For a 95\% confidence interval, the notes split
+the remaining 5\% into two tails:
+
+\[
+\alpha=0.05,
+\qquad
+\frac{\alpha}{2}=0.025.
+\]
+
+From the normal table:
+
+\[
+z_{0.025}=1.96.
+\]
+
+The margin of error is:
+
+\[
+ME=z\cdot \frac{\sigma}{\sqrt{n}}.
+\]
+
+Substitute the values from the notes:
+
+\begin{align*}
+ME
+&=1.96\cdot \frac{0.5}{\sqrt{8}} \\[2mm]
+&\approx 0.3465.
+\end{align*}
+
+Construct the interval:
+
+\begin{align*}
+\bar{x}\pm ME
+&=14.2625\pm 0.3465.
+\end{align*}
+
+Lower bound:
+
+\begin{align*}
+14.2625-0.3465
+&=13.916.
+\end{align*}
+
+Upper bound:
+
+\begin{align*}
+14.2625+0.3465
+&=14.609.
+\end{align*}
+
+So:
+
+\[
+\mu\in [13.916,\;14.609].
+\]
+
+\textbf{Extra expanded notes for a)}
+
+The added notes write the given values again:
+
+\[
+n=8
+\]
+
+\[
+\sum_{i=1}^{8}x_i=114.1
+\]
+
+\[
+\sum_{i=1}^{8}x_i^2=1629.45
+\]
+
+For a 95\% confidence interval:
+
+\[
+100\%-95\%=5\%.
+\]
+
+Because the interval is two-sided,
+split the 5\% into two tails:
+
+\[
+\frac{5\%}{2}=2.5\%=0.025.
+\]
+
+So the note uses:
+
+\[
+z_{0.025}=1.9600.
+\]
+
+The margin of error is:
+
+\[
+ME=
+z\cdot \frac{\sigma}{\sqrt{n}}.
+\]
+
+Substitute:
+
+\begin{align*}
+ME
+&=
+1.96\cdot
+\frac{0.5}{\sqrt{8}} \\[2mm]
+&=0.3465.
+\end{align*}
+
+The sample mean is:
+
+\begin{align*}
+\bar{x}
+&=
+\frac{\sum x_i}{n} \\[2mm]
+&=
+\frac{114.1}{8} \\[2mm]
+&=14.2625.
+\end{align*}
+
+Then:
+
+\begin{align*}
+\bar{x}\pm ME
+&=14.2625\pm 0.3465.
+\end{align*}
+
+So the expanded note gives:
+
+\[
+[13.916,\;14.609].
+\]
+
+\textbf{b) Unknown \(\sigma\)}
+
+Låt
+\[
+13.4,\;14.1,\;15.1,\;14.3,\;14.9,\;13.9,\;14.4,\;14.0
+\]
+vara ett stickprov från \(N(\mu,\sigma)\).
+Beräkning ger att
+\[
+\sum_{i=1}^{8}x_i=114.1,
+\qquad
+\sum_{i=1}^{8}x_i^2=1629.45.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Konstruera ett (tvåsidigt) 95\%
+konfidensintervall för \(\mu\) under
+förutsättning att \(\sigma=0.5\).
+\hfill (3p)
+
+\item Konstruera ett (tvåsidigt) 95\%
+konfidensintervall för \(\mu\) under
+förutsättning att \(\sigma\) är okänt.
+\hfill (3p)
+\end{enumerate}
+
+When \(\sigma\) is unknown, the notes use the
+sample standard deviation \(s\).
+
+Formula from the notes:
+
+\[
+s^2=
+\frac{1}{n-1}
+\left(
+\sum x_i^2
+-
+\frac{(\sum x_i)^2}{n}
+\right).
+\]
+
+Substitute:
+
+\begin{align*}
+s^2
+&=
+\frac{1}{8-1}
+\left(
+1629.45
+-
+\frac{(114.1)^2}{8}
+\right) \\[2mm]
+&=
+\frac{1}{7}
+\left(
+1629.45
+-
+\frac{13018.81}{8}
+\right) \\[2mm]
+&=
+\frac{1}{7}
+\left(
+1629.45-1627.35125
+\right) \\[2mm]
+&=
+\frac{2.09875}{7} \\[2mm]
+&\approx 0.29982.
+\end{align*}
+
+Then:
+
+\begin{align*}
+s
+&=\sqrt{s^2} \\[2mm]
+&=\sqrt{0.29982} \\[2mm]
+&\approx 0.5476.
+\end{align*}
+
+Degrees of freedom:
+
+\[
+df=n-1=7.
+\]
+
+For 95\% confidence:
+
+\[
+\alpha=0.05,
+\qquad
+\frac{\alpha}{2}=0.025.
+\]
+
+From the \(t\)-table, the notes use:
+
+\[
+t_{0.025,7}=2.365.
+\]
+
+Margin of error:
+
+\begin{align*}
+ME
+&=t\cdot \frac{s}{\sqrt{n}} \\[2mm]
+&=2.365\cdot \frac{0.5476}{\sqrt{8}} \\[2mm]
+&\approx 0.4579.
+\end{align*}
+
+Construct the interval:
+
+\begin{align*}
+\bar{x}\pm ME
+&=14.2625\pm 0.4579.
+\end{align*}
+
+Lower bound:
+
+\begin{align*}
+14.2625-0.4579
+&=13.8046.
+\end{align*}
+
+Upper bound:
+
+\begin{align*}
+14.2625+0.4579
+&=14.7204.
+\end{align*}
+
+So:
+
+\[
+\mu\in [13.8046,\;14.7204].
+\]
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item If \(\sigma=0.5\), the 95\% confidence interval is:
+\[
+[13.916,\;14.609].
+\]
+
+\item If \(\sigma\) is unknown, the 95\% confidence interval is:
+\[
+[13.8046,\;14.7204].
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+If \(\sigma\) is known, use:
+
+\[
+\bar{x}\pm z\cdot \frac{\sigma}{\sqrt{n}}.
+\]
+
+If \(\sigma\) is unknown, calculate \(s\) and use:
+
+\[
+\bar{x}\pm t\cdot \frac{s}{\sqrt{n}}.
+\]
+
+\[
+df=n-1.
+\]
+
+\section*{Uppgift 6}
+
+\subsection*{Original question}
+En bonde köper 10000 granplantor.
+Höjden på dessa plantor antas vara normalfördelade
+med väntevärde \(\mu\) cm och standardavvikelse
+10 cm.
+Säljaren av dessa plantor påstår att den genomsnittliga
+höjden på plantorna är \(\mu=70\) cm.
+Om \(\mu<70\) så har bonden rätt att underkänna
+leveransen av plantor.
+
+\begin{enumerate}[label=\alph*)]
+\item Bonden misstänker att \(\mu<70\) cm.
+För att testa detta, så mäter bonden 100 plantor
+och finner att \(\bar{x}=68\) cm.
+Kan bonden underkänna leveransen om han är villig
+att ta en risk på 5\% att han gör fel?
+Svara på denna fråga genom att ställa upp ett
+lämpligt hypotestest (ställ upp hypotes \(H_0\)
+och mothypotes \(H_1\)).
+\hfill (3p)
+
+\item Antag nu istället att bonden mäter 200 plantor
+och finner att \(\bar{x}=69\).
+Kan bonden underkänna leveransen om han är villig
+att ta en risk på 5\% att han gör fel?
+Svara på denna fråga genom att använda samma
+hypotestest som du använde i a).
+\hfill (3p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes set up a hypothesis test.
+The farmer wants to know if the plants are shorter
+than \(70\) cm on average.
+
+Since the alternative is \(\mu<70\),
+this is a left-tailed test.
+
+\subsubsection*{Given information}
+From the question and notes:
+
+\[
+\sigma=10
+\]
+
+\[
+\mu_0=70
+\]
+
+\[
+\alpha=0.05
+\]
+
+For part a):
+
+\[
+n=100,
+\qquad
+\bar{x}=68.
+\]
+
+For part b):
+
+\[
+n=200,
+\qquad
+\bar{x}=69.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Set up the hypotheses}
+
+The notes write:
+
+\[
+H_0:\mu=70.
+\]
+
+\[
+H_1:\mu<70.
+\]
+
+Because the sign is \(<\), the test is left-tailed.
+
+\[
+\alpha=0.05.
+\]
+
+For a left-tailed test at 5\%,
+the notes use the critical value:
+
+\[
+z_\alpha\approx -1.645.
+\]
+
+\textbf{a) Test statistic}
+
+The notes use the \(z\)-test formula:
+
+\[
+z=
+\frac{\bar{x}-\mu_0}
+{\sigma/\sqrt{n}}.
+\]
+
+Plug in the values:
+
+\begin{align*}
+z
+&=
+\frac{68-70}
+{10/\sqrt{100}} \\[2mm]
+&=
+\frac{-2}{10/10} \\[2mm]
+&=
+\frac{-2}{1} \\[2mm]
+&=-2.
+\end{align*}
+
+Compare with the critical value:
+
+\[
+-2<-1.645.
+\]
+
+So the test statistic is in the rejection region.
+
+Therefore:
+
+\[
+\text{Reject } H_0.
+\]
+
+The notes conclude that \(H_1\) is supported:
+the farmer can reject the delivery.
+
+\textbf{b) Same hypothesis test}
+
+En bonde köper 10000 granplantor.
+Höjden på dessa plantor antas vara normalfördelade
+med väntevärde \(\mu\) cm och standardavvikelse
+10 cm.
+Säljaren av dessa plantor påstår att den genomsnittliga
+höjden på plantorna är \(\mu=70\) cm.
+Om \(\mu<70\) så har bonden rätt att underkänna
+leveransen av plantor.
+
+\begin{enumerate}[label=\alph*)]
+\item Bonden misstänker att \(\mu<70\) cm.
+För att testa detta, så mäter bonden 100 plantor
+och finner att \(\bar{x}=68\) cm.
+Kan bonden underkänna leveransen om han är villig
+att ta en risk på 5\% att han gör fel?
+Svara på denna fråga genom att ställa upp ett
+lämpligt hypotestest (ställ upp hypotes \(H_0\)
+och mothypotes \(H_1\)).
+\hfill (3p)
+
+\item Antag nu istället att bonden mäter 200 plantor
+och finner att \(\bar{x}=69\).
+Kan bonden underkänna leveransen om han är villig
+att ta en risk på 5\% att han gör fel?
+Svara på denna fråga genom att använda samma
+hypotestest som du använde i a).
+\hfill (3p)
+\end{enumerate}
+
+\textbf{English clarification:}
+The notes mainly show the setup and calculation for
+part a). Part b) says to use the same hypothesis test,
+so we keep the same \(H_0\), \(H_1\), \(\alpha\),
+and \(z\)-test formula, and only change \(n\)
+and \(\bar{x}\).
+
+\[
+H_0:\mu=70,
+\qquad
+H_1:\mu<70.
+\]
+
+\[
+\alpha=0.05,
+\qquad
+z_\alpha\approx -1.645.
+\]
+
+Now:
+
+\[
+n=200,
+\qquad
+\bar{x}=69.
+\]
+
+\begin{align*}
+z
+&=
+\frac{69-70}
+{10/\sqrt{200}} \\[2mm]
+&=
+\frac{-1}
+{10/\sqrt{200}} \\[2mm]
+&\approx
+\frac{-1}{0.7071} \\[2mm]
+&\approx -1.414.
+\end{align*}
+
+Compare with the critical value:
+
+\[
+-1.414>-1.645.
+\]
+
+So the test statistic is not in the rejection region.
+
+Therefore:
+
+\[
+\text{Do not reject } H_0.
+\]
+
+The farmer cannot reject the delivery in part b).
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+H_0:\mu=70,
+\qquad
+H_1:\mu<70.
+\]
+
+\[
+z=-2.
+\]
+
+Since
+\[
+-2<-1.645,
+\]
+we reject \(H_0\).
+
+The farmer can reject the delivery.
+
+\item
+Using the same test:
+
+\[
+z\approx -1.414.
+\]
+
+Since
+\[
+-1.414>-1.645,
+\]
+we do not reject \(H_0\).
+
+The farmer cannot reject the delivery.
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For a left-tailed \(z\)-test:
+
+\[
+H_0:\mu=\mu_0,
+\qquad
+H_1:\mu<\mu_0.
+\]
+
+Use:
+
+\[
+z=
+\frac{\bar{x}-\mu_0}
+{\sigma/\sqrt{n}}.
+\]
+
+At 5\% left tail:
+
+\[
+z_\alpha\approx -1.645.
+\]
+
+Reject \(H_0\) if:
+
+\[
+z<-1.645.
+\]
+
+\end{document}

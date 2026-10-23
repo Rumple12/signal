@@ -1,0 +1,1970 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=384pt,paperheight=900pt,margin=10pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=12pt}
+\setlist[enumerate]{leftmargin=14pt}
+
+\sloppy
+\allowdisplaybreaks
+\emergencystretch=2em
+
+\begin{document}
+
+\newcommand{\RepeatedQuestion}[1]{%
+\par\medskip
+\noindent\textbf{Original question repeated for this part}\par
+#1
+\medskip
+}
+
+\newcommand{\uppgiftOneQuestion}{%
+Låt $A$ och $B$ vara två händelser i ett och samma utfallsrum.
+Sannolikheten för att ingen av händelserna $A$ eller $B$ inträffar
+är $60\,\%$, medan sannolikheten för att både $A$ och $B$ inträffar
+är $20\,\%$. Dessutom är sannolikheten $10\,\%$ för att händelsen
+$B$ inträffar utan att händelsen $A$ inträffar.
+
+\begin{enumerate}[label=\alph*)]
+\item Är $A$ och $B$ oberoende händelser? \hfill (4 p)
+\item Beräkna den betingade sannolikheten för händelsen $B$ givet
+att händelsen $A$ inte inträffar. \hfill (2 p)
+\end{enumerate}
+}
+
+\newcommand{\uppgiftTwoQuestion}{%
+Låt följande funktion vara given.
+
+\[
+f(x)=
+\begin{cases}
+ax^2(2-x),
+& \text{om } 0\leq x\leq 2,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm talet $a$ sådant att $f$ är en täthetsfunktion.
+\hfill (1,5 p)
+\end{enumerate}
+
+Givet att talet $a$ är sådant att $f$ är en täthetsfunktion,
+låt $X$ vara en stokastisk variabel vars fördelning beskrivs av $f$.
+
+\begin{enumerate}[label=\alph*),resume]
+\item Bestäm fördelningsfunktionen för $X$.
+\hfill (1,5 p)
+\item Beräkna $P(X>1)$.
+\hfill (1 p)
+\item Beräkna väntevärdet och standardavvikelsen för $X$.
+\hfill (2 p)
+\end{enumerate}
+
+\textit{Kommentar:}
+Om du inte har löst a), så kan du istället använda
+täthetsfunktionen
+\[
+f(x)=\frac{3x^2(2-x)}{4}
+\]
+för $0\leq x\leq 2$ för att lösa b)--d).
+}
+
+\newcommand{\uppgiftThreeQuestion}{%
+Låt $X \in \operatorname{Exp}(0,04)$ och
+$Y \in \operatorname{Exp}(0,05)$ vara oberoende stokastiska variabler
+och sätt
+\[
+Z=\min\{X,Y\}.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm fördelningen för $Z$.
+\hfill (4 p)
+\item Beräkna $P(Z\geq 10)$.
+\hfill (1 p)
+\item Bestäm väntevärdet för $Z$.
+\hfill (1 p)
+\end{enumerate}
+}
+
+\newcommand{\uppgiftFourQuestion}{%
+\begin{enumerate}[label=\alph*)]
+\item
+I en förening genomförs en årlig pengainsamling, där medlemmar
+ombeds att bidra med endera 50 kr eller 100 kr. Under de föregående
+åren har $46\,\%$ valt att inte lämna något bidrag och andelen bidrag
+om 50 kr har varit dubbelt så stor som andelen bidrag om 100 kr.
+Låt $X$ vara lika med det bidraget från en slumpmässigt vald medlem
+baserat på föregående år. Bestäm fördelningen för $X$ och beräkna
+dess väntevärde samt standardavvikelse.
+\hfill (2 p)
+
+\item
+Ett taxibolag prissätter taxiresor på följande sätt: varje resa har
+en startavgift på 57 kr och sedan tillkommer 14 kr per km samt
+9 kr per minut under resan. Enligt en undersökning är bolagets
+innerstadsresor $X$ km långa och varar i $Y$ minuter, där
+$X\in N(3,1)$ och $Y\in N(8,2)$. Beräkna sannolikheten för att en
+slumpmässigt vald innerstadsresa kostar mellan 150 kr och 200 kr.
+\hfill (4 p)
+\end{enumerate}
+}
+
+\newcommand{\uppgiftFiveQuestion}{%
+I ett slumpmässigt försök räknar en basketspelare hur många lyckade
+straffkast hen kan göra i rad innan det första misslyckade
+straffkastet. Låt $p$ vara sannolikheten för ett lyckat straffkast
+och antag att alla straffkast är oberoende av varandra. Antalet
+lyckade straffkast i försöket är då en stokastisk variabel $X$ med
+följande sannolikhetsfunktion.
+
+\[
+p_X(k)=p^k(1-p),
+\qquad
+k=0,1,2,3,\ldots
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Låt $x_1,x_2,\ldots,x_n$ vara ett observerat stickprov från
+fördelningen för $X$. Härled ML-skattningen
+$p^*_{\mathrm{obs}}$ av $p$.
+\hfill (5 p)
+
+\item
+Basketspelaren genomförde försöket vid 8 separata tillfällen med
+följande resultat: $2,0,9,1,6,7,5,3$. Beräkna ML-skattningen av
+$p$ utifrån detta resultat.
+\hfill (1 p)
+\end{enumerate}
+}
+
+\newcommand{\uppgiftSixQuestion}{%
+Ett nytt parkeringshus har byggts i Grönköping med hopp om att locka
+fler personer till butikerna i centrum. Kostnaden för parkeringshuset
+ska på sikt täckas av intäkterna från parkeringsavgifter. Under
+30 veckodagar noterades de dagliga intäkterna från parkeringsavgifter,
+vilka anses utgöra ett observerat stickprov från en normalfördelning.
+Stickprovets medelvärde och standardavvikelse är 1260 kr respektive
+150 kr.
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm ett $90\,\%$ konfidensintervall för den genomsnittliga dagliga
+intäkten från parkeringsavgifter baserat på stickprovet ovan.
+\hfill (3 p)
+\end{enumerate}
+
+Den konsult som var rådgivande när bygget av parkeringshuset
+planerades förutsåg att den genomsnittliga dagliga intäkten från
+parkeringsavgifter kommer att vara 1280 kr.
+
+\begin{enumerate}[label=\alph*),resume]
+\item
+Ange lämpliga hypoteser $H_0$ och $H_1$ för att pröva konsultens
+hypotes. Motivera ditt svar!
+\hfill (1 p)
+
+\item
+Genomför hypotesprövning enligt b) med felrisk $10\,\%$ och baserat
+på det observerade stickprovet ovan. Verkar konsultens hypotes rimlig
+eller kan den förkastas?
+\hfill (2 p)
+\end{enumerate}
+}
+
+\section*{Uppgift 1}
+
+\subsection*{Original question}
+Låt $A$ och $B$ vara två händelser i ett och samma utfallsrum.
+Sannolikheten för att ingen av händelserna $A$ eller $B$ inträffar
+är $60\,\%$, medan sannolikheten för att både $A$ och $B$ inträffar
+är $20\,\%$. Dessutom är sannolikheten $10\,\%$ för att händelsen
+$B$ inträffar utan att händelsen $A$ inträffar.
+
+\begin{enumerate}[label=\alph*)]
+\item Är $A$ och $B$ oberoende händelser? \hfill (4 p)
+\item Beräkna den betingade sannolikheten för händelsen $B$ givet
+att händelsen $A$ inte inträffar. \hfill (2 p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{1. Identify the Given Information}
+First, we translate the problem statements into
+mathematical notation:
+
+\begin{itemize}
+\item The probability that neither $A$ nor $B$ occurs is
+$60\,\%$:
+\[
+P(A^c \cap B^c)=0.60.
+\]
+
+\item This implies the probability that at least one occurs is:
+\begin{align*}
+P(A \cup B)
+&= 1-0.60 \\[2mm]
+&= 0.40.
+\end{align*}
+
+\item The probability that both $A$ and $B$ occur is
+$20\,\%$:
+\[
+P(A \cap B)=0.20.
+\]
+
+\item The probability that $B$ occurs without $A$ occurring is
+$10\,\%$:
+\[
+P(B \cap A^c)=0.10.
+\]
+\end{itemize}
+
+\subsubsection*{2. Calculate Individual Probabilities}
+To answer the specific questions, we need to find
+$P(A)$ and $P(B)$.
+
+\textbf{Find $P(B)$:}
+
+The event $B$ consists of two disjoint parts:
+($B$ occurring with $A$) and ($B$ occurring without $A$).
+
+\begin{align*}
+P(B)
+&= P(A \cap B)
+   + P(B \cap A^c)
+\end{align*}
+
+\begin{align*}
+P(B)
+&= 0.20+0.10 \\[2mm]
+&= 0.30
+\end{align*}
+
+\textbf{Find $P(A)$:}
+
+Using the Addition Rule:
+
+\begin{align*}
+P(A \cup B)
+&= P(A)+P(B)-P(A \cap B).
+\end{align*}
+
+\begin{align*}
+0.40
+&= P(A)+0.30-0.20 \\[2mm]
+0.40
+&= P(A)+0.10 \\[2mm]
+P(A)
+&= 0.30
+\end{align*}
+
+\RepeatedQuestion{\uppgiftOneQuestion}
+\subsubsection*{a) Are $A$ and $B$ independent events?}
+\textbf{Reasoning:}
+Two events are independent if and only if
+
+\[
+P(A \cap B)=P(A)\cdot P(B).
+\]
+
+\begin{enumerate}
+\item We know
+\[
+P(A \cap B)=0.20.
+\]
+
+\item Calculate the product of their individual probabilities:
+\begin{align*}
+P(A)\cdot P(B)
+&= 0.30 \cdot 0.30 \\[2mm]
+&= 0.09
+\end{align*}
+
+\item Compare the results:
+\[
+0.20 \neq 0.09
+\]
+\end{enumerate}
+
+\textbf{Answer:}
+No, $A$ and $B$ are \textbf{not independent} because the
+probability of them occurring together ($20\,\%$) is not equal
+to the product of their individual probabilities ($9\,\%$).
+
+\RepeatedQuestion{\uppgiftOneQuestion}
+\subsubsection*{b) Calculate the conditional probability for event $B$ given that event $A$ does not occur.}
+\textbf{Reasoning:}
+We are looking for $P(B\mid A^c)$.
+The formula for conditional probability is:
+
+\begin{align*}
+P(B\mid A^c)
+&= \frac{P(B \cap A^c)}{P(A^c)}
+\end{align*}
+
+\begin{enumerate}
+\item Find $P(A^c)$:
+\begin{align*}
+P(A^c)
+&= 1-P(A) \\[2mm]
+&= 1-0.30 \\[2mm]
+&= 0.70
+\end{align*}
+
+\item Apply the formula:
+
+Using $P(B \cap A^c)=0.10$ from the given info:
+
+\begin{align*}
+P(B\mid A^c)
+&= \frac{0.10}{0.70} \\[2mm]
+P(B\mid A^c)
+&= \frac{1}{7} \\[2mm]
+&\approx 0.143
+\end{align*}
+\end{enumerate}
+
+\textbf{Answer:}
+The conditional probability is $1/7$
+(or approximately $14.3\,\%$).
+
+\subsubsection*{Extra expanded solution from added notes}
+
+\textbf{Translate the information}
+
+Neither $A$ nor $B$ happens:
+
+\[
+P(A^c\cap B^c)=60\,\%.
+\]
+
+Therefore the chance that at least one happens is:
+
+\begin{align*}
+P(A\cup B)
+&=100\,\%-60\,\% \\[2mm]
+&=40\,\%.
+\end{align*}
+
+Both $A$ and $B$ happen:
+
+\[
+P(A\cap B)=20\,\%.
+\]
+
+$B$ happens but not $A$:
+
+\[
+P(B\cap A^c)=10\,\%.
+\]
+
+\textbf{Find $P(B)$}
+
+$B$ can happen in two ways:
+
+\begin{itemize}
+\item $B$ happens and $A$ does not happen,
+\item $B$ happens together with $A$.
+\end{itemize}
+
+So:
+
+\begin{align*}
+P(B)
+&=
+P(B\cap A^c)
++P(A\cap B) \\[2mm]
+&=
+10\,\%+20\,\% \\[2mm]
+&=30\,\%.
+\end{align*}
+
+\textbf{Find $P(A)$}
+
+Use the formula from the notes:
+
+\[
+P(A\cup B)=P(A)+P(B\cap A^c).
+\]
+
+Plug in:
+
+\begin{align*}
+40\,\%
+&=
+P(A)+10\,\% \\[2mm]
+P(A)
+&=
+30\,\%.
+\end{align*}
+
+\RepeatedQuestion{\uppgiftOneQuestion}
+\textbf{a) Check independence}
+
+For independence:
+
+\[
+P(A\cap B)=P(A)\cdot P(B).
+\]
+
+Check with the values:
+
+\begin{align*}
+0.20
+&\stackrel{?}{=}
+0.30\cdot 0.30 \\[2mm]
+0.20
+&\neq 0.09.
+\end{align*}
+
+So they are not independent.
+
+\RepeatedQuestion{\uppgiftOneQuestion}
+\textbf{b) Conditional probability}
+
+We want:
+
+\[
+P(B\mid A^c).
+\]
+
+This means the probability of $B$ knowing that $A$ did not happen.
+
+Use:
+
+\begin{align*}
+P(B\mid A^c)
+&=
+\frac{P(B\cap A^c)}{P(A^c)}.
+\end{align*}
+
+First:
+
+\begin{align*}
+P(A^c)
+&=
+1-P(A) \\[2mm]
+&=
+1-0.30 \\[2mm]
+&=0.70.
+\end{align*}
+
+Then:
+
+\begin{align*}
+P(B\mid A^c)
+&=
+\frac{P(B\cap A^c)}{P(A^c)} \\[2mm]
+&=
+\frac{0.10}{0.70} \\[2mm]
+&=
+\frac{1}{7} \\[2mm]
+&\approx 14.3\,\%.
+\end{align*}
+
+\section*{Uppgift 2}
+
+\subsection*{Original question}
+Låt följande funktion vara given.
+
+\[
+f(x)=
+\begin{cases}
+ax^2(2-x),
+& \text{om } 0\leq x\leq 2,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm talet $a$ sådant att $f$ är en täthetsfunktion.
+\hfill (1,5 p)
+\end{enumerate}
+
+Givet att talet $a$ är sådant att $f$ är en täthetsfunktion,
+låt $X$ vara en stokastisk variabel vars fördelning beskrivs av $f$.
+
+\begin{enumerate}[label=\alph*),resume]
+\item Bestäm fördelningsfunktionen för $X$.
+\hfill (1,5 p)
+\item Beräkna $P(X>1)$.
+\hfill (1 p)
+\item Beräkna väntevärdet och standardavvikelsen för $X$.
+\hfill (2 p)
+\end{enumerate}
+
+\textit{Kommentar:}
+Om du inte har löst a), så kan du istället använda
+täthetsfunktionen
+\[
+f(x)=\frac{3x^2(2-x)}{4}
+\]
+för $0\leq x\leq 2$ för att lösa b)--d).
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes treat $f(x)$ as a continuous probability
+density function.
+For a continuous distribution, probability is represented
+by the area under the curve.
+
+So first we make the total area equal to $1$.
+Then we integrate the PDF to get the CDF.
+After that we use the CDF for $P(X>1)$.
+Finally we find the expected value and the standard deviation.
+
+\subsubsection*{Given information}
+The given function is
+
+\[
+f(x)=
+\begin{cases}
+ax^2(2-x),
+& 0\leq x\leq 2,\\
+0,
+& \text{otherwise.}
+\end{cases}
+\]
+
+The notes also rewrite the inside as
+
+\[
+x^2(2-x)=2x^2-x^3.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\RepeatedQuestion{\uppgiftTwoQuestion}
+\textbf{a) Find $a$ so that $f$ is a PDF}
+
+For a density function, the total area must be $1$:
+
+\[
+\int_{-\infty}^{\infty} f(x)\,dx=1.
+\]
+
+Since $f(x)$ is only nonzero from $0$ to $2$:
+
+\begin{align*}
+\int_0^2 ax^2(2-x)\,dx
+&=1
+\end{align*}
+
+Expand:
+
+\[
+ax^2(2-x)=2ax^2-ax^3.
+\]
+
+Integrate:
+
+\begin{align*}
+\int_0^2 ax^2(2-x)\,dx
+&=
+\left[
+\frac{2ax^3}{3}
+-\frac{ax^4}{4}
+\right]_0^2 \\[2mm]
+&=1
+\end{align*}
+
+Plug in the bounds:
+
+\begin{align*}
+\left(
+\frac{16a}{3}
+-\frac{16a}{4}
+\right)-0
+&=1 \\[2mm]
+\frac{64a-48a}{12}
+&=1 \\[2mm]
+\frac{16a}{12}
+&=1 \\[2mm]
+\frac{4a}{3}
+&=1 \\[2mm]
+a
+&=\frac{3}{4}
+\end{align*}
+
+So the density becomes
+
+\[
+f(x)=\frac{3}{4}x^2(2-x),
+\qquad 0\leq x\leq 2.
+\]
+
+\RepeatedQuestion{\uppgiftTwoQuestion}
+\textbf{b) Find the distribution function}
+
+The notes say that the cumulative distribution function
+(CDF) is the probability that $X\leq x$.
+It is found by integrating the PDF from the lower bound up
+to $x$.
+
+For $0\leq x\leq 2$:
+
+\begin{align*}
+F(x)
+&=
+\int_0^x
+\frac{3}{4}t^2(2-t)\,dt \\[2mm]
+&=
+\frac{3}{4}
+\left[
+\frac{2t^3}{3}
+-\frac{t^4}{4}
+\right]_0^x
+\end{align*}
+
+Simplify:
+
+\begin{align*}
+F(x)
+&=
+\frac{x^3}{2}
+-\frac{3x^4}{16},
+\qquad 0\leq x\leq 2.
+\end{align*}
+
+So the full CDF is
+
+\[
+F(x)=
+\begin{cases}
+0,
+& x<0,\\
+\dfrac{x^3}{2}
+-\dfrac{3x^4}{16},
+& 0\leq x\leq 2,\\
+1,
+& x>2.
+\end{cases}
+\]
+
+\RepeatedQuestion{\uppgiftTwoQuestion}
+\textbf{c) Find $P(X>1)$}
+
+The notes use the CDF from part b:
+
+\begin{align*}
+P(X>1)
+&=1-P(X\leq 1) \\[2mm]
+&=1-F(1)
+\end{align*}
+
+Plug in $x=1$:
+
+\begin{align*}
+F(1)
+&=
+\frac{1^3}{2}
+-\frac{3(1)^4}{16} \\[2mm]
+&=
+\frac{8}{16}
+-\frac{3}{16} \\[2mm]
+&=
+\frac{5}{16}
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(X>1)
+&=1-\frac{5}{16} \\[2mm]
+&=\frac{11}{16} \\[2mm]
+&=0.6875
+\end{align*}
+
+\RepeatedQuestion{\uppgiftTwoQuestion}
+\textbf{d) Expected value and standard deviation}
+
+The notes describe $E[X]$ as the theoretical average,
+or the balance point of the distribution.
+
+The formula is:
+
+\[
+E[X]=\int x f(x)\,dx.
+\]
+
+Use the density from part a:
+
+\begin{align*}
+E[X]
+&=
+\int_0^2
+x\cdot \frac{3}{4}
+\left(2x^2-x^3\right)\,dx \\[2mm]
+&=
+\int_0^2
+\frac{3}{4}
+\left(2x^3-x^4\right)\,dx
+\end{align*}
+
+Integrate:
+
+\begin{align*}
+E[X]
+&=
+\frac{3}{4}
+\left[
+\frac{x^4}{2}
+-\frac{x^5}{5}
+\right]_0^2 \\[2mm]
+&=
+\frac{3}{4}
+\left(
+\frac{16}{2}
+-\frac{32}{5}
+\right) \\[2mm]
+&=
+\frac{3}{4}(8-6.4) \\[2mm]
+&=
+\frac{3}{4}\cdot 1.6 \\[2mm]
+&=1.2
+\end{align*}
+
+For the standard deviation, the notes first find
+the variance:
+
+\[
+V[X]=E[X^2]-(E[X])^2.
+\]
+
+First find $E[X^2]$:
+
+\begin{align*}
+E[X^2]
+&=
+\int_0^2
+x^2\cdot
+\frac{3}{4}(2x^2-x^3)\,dx \\[2mm]
+&=1.6
+\end{align*}
+
+\textbf{English clarification:}
+The notes skip the middle integration for $E[X^2]$.
+The same calculation is:
+
+\begin{align*}
+E[X^2]
+&=
+\frac{3}{4}
+\int_0^2
+(2x^4-x^5)\,dx \\[2mm]
+&=
+\frac{3}{4}
+\left[
+\frac{2x^5}{5}
+-\frac{x^6}{6}
+\right]_0^2 \\[2mm]
+&=
+\frac{3}{4}
+\left(
+\frac{64}{5}
+-\frac{64}{6}
+\right) \\[2mm]
+&=1.6
+\end{align*}
+
+Now use the variance formula:
+
+\begin{align*}
+V[X]
+&=
+E[X^2]-(E[X])^2 \\[2mm]
+&=
+1.6-(1.2)^2 \\[2mm]
+&=
+1.6-1.44 \\[2mm]
+&=0.16
+\end{align*}
+
+Standard deviation is the square root of the variance:
+
+\begin{align*}
+\sigma
+&=
+\sqrt{V[X]} \\[2mm]
+&=
+\sqrt{0.16} \\[2mm]
+&=0.4
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+a=\frac{3}{4}.
+\]
+
+\item
+\[
+F(x)=
+\begin{cases}
+0,
+& x<0,\\
+\dfrac{x^3}{2}
+-\dfrac{3x^4}{16},
+& 0\leq x\leq 2,\\
+1,
+& x>2.
+\end{cases}
+\]
+
+\item
+\[
+P(X>1)=\frac{11}{16}=0.6875.
+\]
+
+\item
+\[
+E[X]=1.2,
+\qquad
+\sigma=0.4.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For a PDF, the total area under the curve must be $1$.
+
+For a CDF, integrate the PDF from the lower bound up to $x$.
+
+Expected value is the balance point:
+
+\[
+E[X]=\int x f(x)\,dx.
+\]
+
+Variance and standard deviation measure the spread:
+
+\[
+V[X]=E[X^2]-(E[X])^2,
+\qquad
+\sigma=\sqrt{V[X]}.
+\]
+
+\section*{Uppgift 3}
+
+\subsection*{Original question}
+Låt $X \in \operatorname{Exp}(0,04)$ och
+$Y \in \operatorname{Exp}(0,05)$ vara oberoende stokastiska variabler
+och sätt
+\[
+Z=\min\{X,Y\}.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm fördelningen för $Z$.
+\hfill (4 p)
+\item Beräkna $P(Z\geq 10)$.
+\hfill (1 p)
+\item Bestäm väntevärdet för $Z$.
+\hfill (1 p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+This problem is about the exponential distribution.
+The notes describe it as a mathematical model for
+how long we wait for an event to happen.
+
+Here:
+
+\[
+X\sim \operatorname{Exp}(0.04)
+\]
+
+\[
+Y\sim \operatorname{Exp}(0.05)
+\]
+
+The rates are usually represented by $\lambda$.
+The new variable is
+
+\[
+Z=\min\{X,Y\}.
+\]
+
+So $Z$ means the time until the first one of the two
+events happens.
+
+\subsubsection*{Given information}
+\begin{itemize}
+\item Event $X$ happens at rate $0.04$ per unit of time.
+\item Event $Y$ happens at rate $0.05$ per unit of time.
+\item $X$ and $Y$ are independent.
+\item $Z$ is the minimum of $X$ and $Y$.
+\end{itemize}
+
+The notes use the real-world picture:
+imagine two light bulbs are running at the same time.
+One burns out with rate $0.04$ and the other with rate $0.05$.
+The minimum is how long until the first light bulb runs out.
+
+\subsubsection*{Step-by-step solution}
+
+\RepeatedQuestion{\uppgiftThreeQuestion}
+\textbf{a) Determine the distribution for $Z$}
+
+Because both events are running at the same time,
+the rate at which at least one event happens is faster
+than either rate alone.
+
+For exponential distributions, the notes say that for
+the first event, we add the individual rates together:
+
+\begin{align*}
+\lambda_Z
+&=0.04+0.05 \\[2mm]
+&=0.09
+\end{align*}
+
+Therefore the variable $Z$ follows an exponential distribution
+with combined rate $0.09$:
+
+\[
+Z\sim \operatorname{Exp}(0.09).
+\]
+
+\RepeatedQuestion{\uppgiftThreeQuestion}
+\textbf{b) Calculate $P(Z\geq 10)$}
+
+The notes interpret this as:
+what is the probability that we have to wait at least
+$10$ units of time, or longer, before the first event happens?
+
+For an exponential distribution, the notes use the formula
+for waiting longer than $t$:
+
+\[
+P(Z\geq t)=e^{-\lambda t}.
+\]
+
+Plug in $\lambda=0.09$ and $t=10$:
+
+\begin{align*}
+P(Z\geq 10)
+&=e^{-0.09\cdot 10} \\[2mm]
+&=e^{-0.9} \\[2mm]
+&\approx 0.4066
+\end{align*}
+
+So the probability of it happening after at least
+$10$ units of time is about $40.66\,\%$.
+
+\RepeatedQuestion{\uppgiftThreeQuestion}
+\textbf{c) Determine the expected value for $Z$}
+
+The notes describe the expected value as the mathematical
+term for the average.
+
+It asks:
+on average, how long will it take for this event to happen?
+
+For an exponential distribution, the formula for the expected
+value is:
+
+\[
+\text{expected value}
+=\frac{1}{\text{rate}}
+=\frac{1}{\lambda}.
+\]
+
+Here $\lambda=0.09$, so:
+
+\begin{align*}
+E[Z]
+&=\frac{1}{0.09} \\[2mm]
+&=\frac{1}{9/100} \\[2mm]
+&=\frac{100}{9} \\[2mm]
+&\approx 11.11
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+Z\sim \operatorname{Exp}(0.09).
+\]
+
+\item
+\[
+P(Z\geq 10)=e^{-0.9}\approx 0.4066.
+\]
+That is about $40.66\,\%$.
+
+\item
+\[
+E[Z]=\frac{1}{0.09}
+=\frac{100}{9}
+\approx 11.11.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For independent exponential waiting times,
+the time until the first event is also exponential.
+
+For the minimum, add the rates:
+
+\[
+\lambda_Z=\lambda_X+\lambda_Y.
+\]
+
+For waiting longer than $t$:
+
+\[
+P(Z\geq t)=e^{-\lambda t}.
+\]
+
+For the expected value:
+
+\[
+E[Z]=\frac{1}{\lambda}.
+\]
+
+\section*{Uppgift 4}
+
+\subsection*{Original question}
+\begin{enumerate}[label=\alph*)]
+\item
+I en förening genomförs en årlig pengainsamling, där medlemmar
+ombeds att bidra med endera 50 kr eller 100 kr. Under de föregående
+åren har $46\,\%$ valt att inte lämna något bidrag och andelen bidrag
+om 50 kr har varit dubbelt så stor som andelen bidrag om 100 kr.
+Låt $X$ vara lika med det bidraget från en slumpmässigt vald medlem
+baserat på föregående år. Bestäm fördelningen för $X$ och beräkna
+dess väntevärde samt standardavvikelse.
+\hfill (2 p)
+
+\item
+Ett taxibolag prissätter taxiresor på följande sätt: varje resa har
+en startavgift på 57 kr och sedan tillkommer 14 kr per km samt
+9 kr per minut under resan. Enligt en undersökning är bolagets
+innerstadsresor $X$ km långa och varar i $Y$ minuter, där
+$X\in N(3,1)$ och $Y\in N(8,2)$. Beräkna sannolikheten för att en
+slumpmässigt vald innerstadsresa kostar mellan 150 kr och 200 kr.
+\hfill (4 p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+Part a is a discrete distribution problem.
+The possible outcomes are:
+
+\[
+0\text{ kr},\qquad 50\text{ kr},\qquad 100\text{ kr}.
+\]
+
+The notes first find the probabilities for these outcomes.
+Then they use the formulas for expected value, variance,
+and standard deviation.
+
+Part b creates a new normal variable for the taxi cost.
+Then the notes standardize with
+
+\[
+Z=\frac{K-\mu}{\sigma}
+\]
+
+to find the probability between 150 kr and 200 kr.
+
+\subsubsection*{Given information}
+\textbf{Part a:}
+
+\begin{itemize}
+\item $46\,\%$ gave 0 kr.
+\item The chance of 50 kr is twice as large as the chance of 100 kr.
+\item $X$ is the contribution from one randomly selected member.
+\end{itemize}
+
+\textbf{Part b:}
+
+\begin{itemize}
+\item Start cost: 57 kr.
+\item Cost per km: 14 kr.
+\item Cost per minute: 9 kr.
+\item $X\in N(3,1)$.
+\item $Y\in N(8,2)$.
+\end{itemize}
+
+The notes use the first number as the mean and the second number
+as the standard deviation:
+
+\[
+\mu_X=3,\quad \sigma_X=1,
+\qquad
+\mu_Y=8,\quad \sigma_Y=2.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\RepeatedQuestion{\uppgiftFourQuestion}
+\textbf{a) Distribution, expected value, and standard deviation}
+
+Possible outcomes:
+
+\[
+X=0,\qquad X=50,\qquad X=100.
+\]
+
+From the question:
+
+\[
+P(X=0)=0.46.
+\]
+
+So the chance for people who paid something is:
+
+\begin{align*}
+1-0.46
+&=0.54
+\end{align*}
+
+Let
+
+\[
+P(X=100)=p.
+\]
+
+The notes say that the chance of 50 kr is twice as large:
+
+\[
+P(X=50)=2p.
+\]
+
+Together they must be $0.54$:
+
+\begin{align*}
+p+2p
+&=0.54 \\[2mm]
+3p
+&=0.54 \\[2mm]
+p
+&=\frac{0.54}{3} \\[2mm]
+p
+&=0.18
+\end{align*}
+
+Therefore:
+
+\[
+P(X=100)=0.18
+\]
+
+\[
+P(X=50)=0.36
+\]
+
+\[
+P(X=0)=0.46
+\]
+
+So the distribution is:
+
+\[
+\begin{array}{c|c}
+x & P(X=x)\\
+\hline
+0 & 0.46\\
+50 & 0.36\\
+100 & 0.18
+\end{array}
+\]
+
+Expected value means the average per person:
+
+\begin{align*}
+E[X]
+&=
+(0\cdot 0.46)
++(50\cdot 0.36)
++(100\cdot 0.18) \\[2mm]
+&=
+0+18+18 \\[2mm]
+&=36
+\end{align*}
+
+So the expected value is:
+
+\[
+E[X]=36\text{ kr}.
+\]
+
+For standard deviation, first find $E[X^2]$:
+
+\begin{align*}
+E[X^2]
+&=
+(0^2\cdot 0.46)
++(50^2\cdot 0.36)
++(100^2\cdot 0.18) \\[2mm]
+&=
+0+900+1800 \\[2mm]
+&=2700
+\end{align*}
+
+Variance:
+
+\begin{align*}
+\operatorname{Var}(X)
+&=
+E[X^2]-(E[X])^2 \\[2mm]
+&=
+2700-36^2 \\[2mm]
+&=
+2700-1296 \\[2mm]
+&=1404
+\end{align*}
+
+Standard deviation:
+
+\begin{align*}
+\sigma
+&=
+\sqrt{\operatorname{Var}(X)} \\[2mm]
+&=
+\sqrt{1404} \\[2mm]
+&\approx 37.47
+\end{align*}
+
+The notes mention that the standard deviation is bigger than
+the mean, which tells us that the graph is spread out.
+
+\RepeatedQuestion{\uppgiftFourQuestion}
+\textbf{b) Taxi cost probability}
+
+The taxi cost is written as:
+
+\[
+K=57+14X+9Y.
+\]
+
+The notes first find the mean:
+
+\begin{align*}
+\mu_K
+&=
+57+14\mu_X+9\mu_Y \\[2mm]
+&=
+57+14(3)+9(8) \\[2mm]
+&=
+57+42+72 \\[2mm]
+&=171
+\end{align*}
+
+Now find the variance.
+The notes say:
+when combining independent variables, variances add,
+constants disappear, and coefficients are squared.
+
+\begin{align*}
+\operatorname{Var}(K)
+&=
+14^2\operatorname{Var}(X)
++9^2\operatorname{Var}(Y) \\[2mm]
+&=
+14^2\cdot 1^2
++9^2\cdot 2^2 \\[2mm]
+&=
+196+324 \\[2mm]
+&=520
+\end{align*}
+
+So:
+
+\begin{align*}
+\sigma_K
+&=
+\sqrt{520} \\[2mm]
+&\approx 22.80
+\end{align*}
+
+Therefore:
+
+\[
+K\in N(171,22.80).
+\]
+
+We want:
+
+\[
+P(150\leq K\leq 200).
+\]
+
+Standardize:
+
+\[
+Z=\frac{K-\mu}{\sigma}.
+\]
+
+Lower value:
+
+\begin{align*}
+z_1
+&=
+\frac{150-171}{22.80} \\[2mm]
+&\approx -0.92
+\end{align*}
+
+Upper value:
+
+\begin{align*}
+z_2
+&=
+\frac{200-171}{22.80} \\[2mm]
+&\approx 1.27
+\end{align*}
+
+From the notes/table:
+
+\begin{align*}
+\Phi(z_1)
+&=
+\Phi(-0.92) \\[2mm]
+&=
+1-\Phi(0.92) \\[2mm]
+&=
+1-0.8212 \\[2mm]
+&=0.1788
+\end{align*}
+
+Also:
+
+\[
+\Phi(z_2)=\Phi(1.27)=0.8980.
+\]
+
+So:
+
+\begin{align*}
+P(150\leq K\leq 200)
+&=
+\Phi(z_2)-\Phi(z_1) \\[2mm]
+&=
+0.8980-0.1788 \\[2mm]
+&=0.7192
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item The distribution is:
+\[
+\begin{array}{c|c}
+x & P(X=x)\\
+\hline
+0 & 0.46\\
+50 & 0.36\\
+100 & 0.18
+\end{array}
+\]
+
+\[
+E[X]=36\text{ kr}
+\]
+
+\[
+\sigma\approx 37.47\text{ kr}.
+\]
+
+\item
+\[
+P(150\leq K\leq 200)
+=0.7192.
+\]
+
+The probability for a taxi ride to cost between
+150 kr and 200 kr is:
+
+\[
+71.92\,\%.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For a discrete expected value:
+
+\[
+E[X]=
+\sum x\cdot P(X=x).
+\]
+
+For variance:
+
+\[
+\operatorname{Var}(X)
+=E[X^2]-(E[X])^2.
+\]
+
+For a linear combination of independent normal variables:
+
+\[
+\operatorname{Var}(aX+bY)
+=a^2\operatorname{Var}(X)
++b^2\operatorname{Var}(Y).
+\]
+
+To use the normal table:
+
+\[
+Z=\frac{K-\mu}{\sigma}.
+\]
+
+\section*{Uppgift 5}
+
+\subsection*{Original question}
+I ett slumpmässigt försök räknar en basketspelare hur många lyckade
+straffkast hen kan göra i rad innan det första misslyckade
+straffkastet. Låt $p$ vara sannolikheten för ett lyckat straffkast
+och antag att alla straffkast är oberoende av varandra. Antalet
+lyckade straffkast i försöket är då en stokastisk variabel $X$ med
+följande sannolikhetsfunktion.
+
+\[
+p_X(k)=p^k(1-p),
+\qquad
+k=0,1,2,3,\ldots
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Låt $x_1,x_2,\ldots,x_n$ vara ett observerat stickprov från
+fördelningen för $X$. Härled ML-skattningen
+$p^*_{\mathrm{obs}}$ av $p$.
+\hfill (5 p)
+
+\item
+Basketspelaren genomförde försöket vid 8 separata tillfällen med
+följande resultat: $2,0,9,1,6,7,5,3$. Beräkna ML-skattningen av
+$p$ utifrån detta resultat.
+\hfill (1 p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes use maximum likelihood.
+We first write the likelihood function.
+Then we take the log-likelihood because it is easier to maximize.
+After that we differentiate, set the derivative equal to zero,
+and solve for $p$.
+
+\subsubsection*{Given information}
+For one observation:
+
+\[
+p_X(k)=p^k(1-p),
+\qquad
+k=0,1,2,\ldots
+\]
+
+For the sample:
+
+\[
+x_1,x_2,\ldots,x_n
+\]
+
+The notes use:
+
+\[
+\sum x_i
+\]
+
+as the total number of successful shots in all attempts.
+
+\subsubsection*{Step-by-step solution}
+
+\RepeatedQuestion{\uppgiftFiveQuestion}
+\textbf{a) Derive the ML estimate}
+
+\textbf{Step 1: Likelihood function}
+
+For each observation:
+
+\[
+p_X(x_i)=p^{x_i}(1-p).
+\]
+
+The likelihood is the product:
+
+\begin{align*}
+L(p)
+&=
+p^{x_1}(1-p)\,
+p^{x_2}(1-p)\cdots
+p^{x_n}(1-p) \\[2mm]
+&=
+p^{\sum x_i}(1-p)^n
+\end{align*}
+
+\textbf{Step 2: Log-likelihood}
+
+The notes say maximizing $L(p)$ is harder because it has exponents.
+Maximizing the log-likelihood is easier.
+Because log is increasing, both have the same maximum.
+
+\begin{align*}
+\ell(p)
+&=
+\ln L(p) \\[2mm]
+&=
+\ln\!\left(
+p^{\sum x_i}(1-p)^n
+\right)
+\end{align*}
+
+Use
+
+\[
+\ln(ab)=\ln(a)+\ln(b)
+\]
+
+and
+
+\[
+\ln(k^x)=x\ln(k).
+\]
+
+Then:
+
+\begin{align*}
+\ell(p)
+&=
+\left(\sum x_i\right)\ln(p)
++n\ln(1-p)
+\end{align*}
+
+\textbf{Step 3: Differentiate}
+
+Differentiate with respect to $p$:
+
+\begin{align*}
+\frac{d}{dp}\ell(p)
+&=
+\frac{\sum x_i}{p}
+-\frac{n}{1-p}
+\end{align*}
+
+Set the derivative equal to zero:
+
+\begin{align*}
+0
+&=
+\frac{\sum x_i}{p}
+-\frac{n}{1-p}
+\end{align*}
+
+So:
+
+\begin{align*}
+\frac{\sum x_i}{p}
+&=
+\frac{n}{1-p}
+\end{align*}
+
+\textbf{Step 4: Solve for $p$}
+
+Cross multiply:
+
+\begin{align*}
+(1-p)\sum x_i
+&=
+np
+\end{align*}
+
+Expand:
+
+\begin{align*}
+\sum x_i
+-p\sum x_i
+&=
+np
+\end{align*}
+
+Put all $p$ terms on one side:
+
+\begin{align*}
+\sum x_i
+&=
+np+p\sum x_i \\[2mm]
+\sum x_i
+&=
+p\left(n+\sum x_i\right)
+\end{align*}
+
+Isolate $p$:
+
+\begin{align*}
+p
+&=
+\frac{\sum x_i}
+{n+\sum x_i}
+\end{align*}
+
+So the ML estimate is:
+
+\[
+p^*_{\mathrm{obs}}
+=
+\frac{\sum x_i}
+{n+\sum x_i}.
+\]
+
+The notes explain:
+
+\[
+\sum x_i
+= \text{total successful shots}
+\]
+
+and
+
+\[
+n
+= \text{number of failures}.
+\]
+
+So
+
+\[
+n+\sum x_i
+= \text{total shots}.
+\]
+
+\RepeatedQuestion{\uppgiftFiveQuestion}
+\textbf{b) Plug in the observed results}
+
+The observed values are:
+
+\[
+2,0,9,1,6,7,5,3.
+\]
+
+There were 8 separate attempts, so:
+
+\[
+n=8.
+\]
+
+The notes mark this as the number of failures, since each attempt
+ends with one missed shot.
+
+Add the successful shots:
+
+\begin{align*}
+\sum x_i
+&=
+2+0+9+1+6+7+5+3 \\[2mm]
+&=33
+\end{align*}
+
+Plug into the ML estimate:
+
+\begin{align*}
+p^*_{\mathrm{obs}}
+&=
+\frac{33}{8+33} \\[2mm]
+&=
+\frac{33}{41} \\[2mm]
+&\approx 0.8049
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+p^*_{\mathrm{obs}}
+=
+\frac{\sum x_i}
+{n+\sum x_i}.
+\]
+
+\item
+\[
+p^*_{\mathrm{obs}}
+=
+\frac{33}{41}
+\approx 0.8049.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For maximum likelihood:
+
+\begin{itemize}
+\item multiply probabilities to get $L(p)$,
+\item take $\ln(L(p))$ to simplify,
+\item differentiate,
+\item set the derivative equal to zero,
+\item solve for the unknown parameter.
+\end{itemize}
+
+Here the estimate becomes:
+
+\[
+\hat p
+=
+\frac{\text{successful shots}}
+{\text{total shots}}.
+\]
+
+\section*{Uppgift 6}
+
+\subsection*{Original question}
+Ett nytt parkeringshus har byggts i Grönköping med hopp om att locka
+fler personer till butikerna i centrum. Kostnaden för parkeringshuset
+ska på sikt täckas av intäkterna från parkeringsavgifter. Under
+30 veckodagar noterades de dagliga intäkterna från parkeringsavgifter,
+vilka anses utgöra ett observerat stickprov från en normalfördelning.
+Stickprovets medelvärde och standardavvikelse är 1260 kr respektive
+150 kr.
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm ett $90\,\%$ konfidensintervall för den genomsnittliga dagliga
+intäkten från parkeringsavgifter baserat på stickprovet ovan.
+\hfill (3 p)
+\end{enumerate}
+
+Den konsult som var rådgivande när bygget av parkeringshuset
+planerades förutsåg att den genomsnittliga dagliga intäkten från
+parkeringsavgifter kommer att vara 1280 kr.
+
+\begin{enumerate}[label=\alph*),resume]
+\item
+Ange lämpliga hypoteser $H_0$ och $H_1$ för att pröva konsultens
+hypotes. Motivera ditt svar!
+\hfill (1 p)
+
+\item
+Genomför hypotesprövning enligt b) med felrisk $10\,\%$ och baserat
+på det observerade stickprovet ovan. Verkar konsultens hypotes rimlig
+eller kan den förkastas?
+\hfill (2 p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+For part a, the notes calculate a confidence interval.
+This is a range of values that we are reasonably sure contains
+the true average daily income.
+
+For parts b and c, the notes use hypothesis testing.
+The consultant says the average daily income will be 1280 kr.
+We test whether this looks reasonable based on the sample.
+
+\subsubsection*{Given information}
+From the question:
+
+\begin{itemize}
+\item Sample size:
+\[
+n=30
+\]
+\item Sample mean:
+\[
+\bar{x}=1260
+\]
+\item Sample standard deviation:
+\[
+s=150
+\]
+\item Confidence level:
+\[
+90\,\%
+\]
+\item Error risk:
+\[
+\alpha=0.10
+\]
+\item Consultant's claim:
+\[
+\mu=1280
+\]
+\end{itemize}
+
+\subsubsection*{Step-by-step solution}
+
+\RepeatedQuestion{\uppgiftSixQuestion}
+\textbf{a) 90\% confidence interval}
+
+Since the population standard deviation is unknown and we use
+the sample standard deviation $s$, the notes use the
+$t$-distribution.
+
+Degrees of freedom:
+
+\begin{align*}
+df
+&=n-1 \\[2mm]
+&=30-1 \\[2mm]
+&=29
+\end{align*}
+
+For a $90\,\%$ confidence interval, the notes use:
+
+\[
+t_{0.05}\approx 1.699
+\]
+
+\textbf{Note from the notes:}
+If the course uses the $z$-table for $n\geq 30$, then
+$z_{0.05}\approx 1.645$ could be used.
+The final handwritten interval uses the $t$ value.
+
+The standard error is:
+
+\begin{align*}
+SE
+&=
+\frac{s}{\sqrt{n}} \\[2mm]
+&=
+\frac{150}{\sqrt{30}} \\[2mm]
+&\approx
+\frac{150}{5.477} \\[2mm]
+&\approx 27.386
+\end{align*}
+
+Margin of error:
+
+\begin{align*}
+ME
+&=
+t\cdot \frac{s}{\sqrt{n}} \\[2mm]
+&=
+1.699\cdot
+\frac{150}{\sqrt{30}} \\[2mm]
+&\approx
+1.699\cdot 27.386 \\[2mm]
+&\approx 46.53
+\end{align*}
+
+Construct the interval:
+
+\begin{align*}
+\bar{x}\pm ME
+&=
+1260\pm 46.53
+\end{align*}
+
+Lower bound:
+
+\begin{align*}
+1260-46.53
+&=1213.47
+\end{align*}
+
+Upper bound:
+
+\begin{align*}
+1260+46.53
+&=1306.53
+\end{align*}
+
+So the confidence interval is:
+
+\[
+[1213.47,\;1306.53].
+\]
+
+\RepeatedQuestion{\uppgiftSixQuestion}
+\textbf{b) Hypotheses}
+
+The notes say there are two hypotheses:
+either the person in the question is correct or wrong.
+
+The consultant claims:
+
+\[
+\mu=1280.
+\]
+
+So use:
+
+\[
+H_0:\mu=1280
+\]
+
+\[
+H_1:\mu\neq 1280
+\]
+
+This is two-sided, because we test whether the consultant's value is
+different from 1280, not only bigger or smaller.
+
+\RepeatedQuestion{\uppgiftSixQuestion}
+\textbf{c) Hypothesis test with error risk 10\%}
+
+The notes use the interval from part a:
+
+\[
+[1213.47,\;1306.53].
+\]
+
+Now check whether 1280 falls inside the interval.
+
+\[
+1280\in [1213.47,\;1306.53]
+\]
+
+Yes, it does.
+
+Therefore the consultant's claim is reasonable based on this sample.
+We do not reject $H_0$.
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+90\,\%\text{ confidence interval}
+=
+[1213.47,\;1306.53]\text{ kr}.
+\]
+
+\item
+\[
+H_0:\mu=1280,
+\qquad
+H_1:\mu\neq 1280.
+\]
+
+\item
+Since
+\[
+1280\in [1213.47,\;1306.53],
+\]
+we do not reject $H_0$.
+The consultant's hypothesis seems reasonable.
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For a confidence interval with unknown population standard deviation:
+
+\[
+\bar{x}\pm t\frac{s}{\sqrt{n}}.
+\]
+
+For a two-sided hypothesis test at error risk $10\,\%$,
+we can compare the claimed value with the $90\,\%$ confidence interval.
+If the claimed value is inside the interval, we do not reject $H_0$.
+
+\end{document}

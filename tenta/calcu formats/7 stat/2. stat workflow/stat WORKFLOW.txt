@@ -1,0 +1,34 @@
+stat WORKFLOW
+	
+(seperaet uppgift, update the mini prompt)
+	* miniprompt updated to current year/uppgift 
+	* give question
+	* give y/o answers
+	* giev gemeni answer if found
+-
+(seperaet test year with cx thread)
+each thread does 1 year ... so that I can seperately add/customize the the latex pdf 
+-
+customize tha master prompt for the year curently at
+
+
+does the prompt take into account the casio cg50 384 width resolution which the latex notes will be uploaded to?
+
+I need it to ensure that it stays narrow with the latex, did you account for that in the prompt?
+
+
+
+prompt og -> create prompt for codex
+-
+KEEP THE ORIGINAL LATEX FILES UNTOCHED, ONLY CREATE NEW STUFF
+Can you actually slice the 2026-01 latex file into an organized file structure
+Basically I have folders 1,2,3,4,5,6... etc 
+Folder 1 for example contains all variations of question one from 2026-01 all the way back to 2024-06
+each variation is basically a png of the latex for for example 2026-01 question part a maintaining the 384 width 
+I will give you an example for folder 1 for kryptography and what it looks like
+2026-01 question is sliced as screenshots and represented 61a.png (2026-01 part a)with the same 384 width png and vertically long image where it is scrollable, and seperaetly for 2026-01 part b 61b.png 
+Note 2026-01 is 61, 2025-08 is 58, 2025-06 is 56 etc 
+Put those pictures in "C:\Users\Jake_\OneDrive - Mittuniversitetet\EDU\2. BLUE\7 stat\stat calcu"
+See ""C:\Users\Jake_\OneDrive - Mittuniversitetet\EDU\2. BLUE\7 stat\krypto calc"" for inspiration on how the file structure cna work with the sliced latex into png workflow 
+
+To start you will take latex files from 2026-01 to 2024-06 and create all variations of question 1 from all those test years into seperaet 61a 6b 58a 58b etc pngs, keeping the same 384 width for the image 

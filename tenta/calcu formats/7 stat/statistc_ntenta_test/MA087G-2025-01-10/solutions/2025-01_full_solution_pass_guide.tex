@@ -1,0 +1,930 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75em}
+
+\title{MA087G Mathematical Statistics\\Beginner-Friendly Full Solution Guide\\2025-01-10}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Source notes before solving}
+The official exam PDF was image-only. Normal text extraction found no text, but the rendered page images were readable.
+
+Per request, this folder does not include an extraction log or mistake bank.
+
+\section*{Uppgift 1}
+
+\subsection*{What this question is really asking}
+This is a three-set counting problem. There are 30000 students, and students can be active in areas \(A\), \(B\), and \(C\).
+
+We must find the probability that a randomly chosen student is active in:
+\begin{itemize}[leftmargin=*]
+    \item at least one area,
+    \item no area,
+    \item exactly one area.
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item The question gives counts for \(A\), \(B\), and \(C\).
+    \item It gives overlaps like both \(A\) and \(B\).
+    \item It gives the number active in all three.
+\end{itemize}
+This is a Venn diagram/inclusion-exclusion problem.
+
+\subsection*{Tiny theory needed}
+For three events:
+\[
+|A\cup B\cup C|
+=|A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|.
+\]
+The vertical bars mean ``number of people in''.
+
+We subtract pair-overlaps because they were counted twice. We add the triple-overlap back because it was subtracted too many times.
+
+\subsection*{Formula and what everything means}
+\[
+P(\text{event})=\frac{\text{number of favorable students}}{\text{total number of students}}.
+\]
+Here the total is \(30000\).
+
+For exactly one area:
+\[
+\text{only }A=|A|-|A\cap B|-|A\cap C|+|A\cap B\cap C|.
+\]
+We add the triple back because it was removed twice.
+
+\subsection*{Step-by-step solution}
+Given:
+\[
+|A|=12000,\quad |B|=8000,\quad |C|=6000.
+\]
+\[
+|A\cap B|=7000,\quad |A\cap C|=4500,\quad |B\cap C|=1000.
+\]
+\[
+|A\cap B\cap C|=500.
+\]
+
+\textbf{Part a: At least one area.}
+
+At least one means \(A\cup B\cup C\). Use inclusion-exclusion:
+\begin{align*}
+|A\cup B\cup C|
+&=12000+8000+6000\\
+&\quad -7000-4500-1000+500\\
+&=26000-12500+500\\
+&=14000.
+\end{align*}
+So:
+\begin{align*}
+P(\text{at least one})
+&=\frac{14000}{30000}\\
+&=\frac{7}{15}\\
+&\approx 0.467.
+\end{align*}
+
+\textbf{Part b: No area.}
+
+No area is the complement of at least one area:
+\begin{align*}
+P(\text{no area})
+&=1-P(\text{at least one})\\
+&=1-\frac{7}{15}\\
+&=\frac{8}{15}\\
+&\approx 0.533.
+\end{align*}
+
+\textbf{Part c: Exactly one area.}
+
+Exactly one means only \(A\), only \(B\), or only \(C\).
+
+Only \(A\):
+\begin{align*}
+|A\text{ only}|
+&=12000-7000-4500+500\\
+&=1000.
+\end{align*}
+
+Only \(B\):
+\begin{align*}
+|B\text{ only}|
+&=8000-7000-1000+500\\
+&=500.
+\end{align*}
+
+Only \(C\):
+\begin{align*}
+|C\text{ only}|
+&=6000-4500-1000+500\\
+&=1000.
+\end{align*}
+
+Total exactly one:
+\begin{align*}
+1000+500+1000&=2500.
+\end{align*}
+So:
+\begin{align*}
+P(\text{exactly one})
+&=\frac{2500}{30000}\\
+&=\frac{1}{12}\\
+&\approx 0.0833.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{P(\text{at least one})=\frac{7}{15}\approx 0.467}
+\]
+\[
+\boxed{P(\text{no area})=\frac{8}{15}\approx 0.533}
+\]
+\[
+\boxed{P(\text{exactly one})=\frac{1}{12}\approx 0.0833}
+\]
+
+\subsection*{What to memorize for the exam}
+For three overlapping groups, use:
+\[
+\text{singles} - \text{pair overlaps} + \text{triple overlap}.
+\]
+
+\subsection*{Common trap}
+Do not subtract the triple overlap permanently. People in all three are included in every pair-overlap, so they need to be added back once.
+
+\subsection*{Repeated exam pattern}
+This is a new pattern so far: three-set Venn/inclusion-exclusion counting. It is related to the event-probability logic from 2026-01 Uppgift 1 and 2025-08 Uppgift 1.
+
+\section*{Uppgift 2}
+
+\subsection*{What this question is really asking}
+Screw lengths are normally distributed:
+\[
+X\sim N(1.8,0.4).
+\]
+A screw is usable if its length is less than \(2\) cm.
+
+We must find:
+\begin{itemize}[leftmargin=*]
+    \item probability one screw is usable,
+    \item probability all 10 screws in a box are usable,
+    \item how many screws are needed so the chance of at least one usable screw is above \(0.99\),
+    \item a one-sided hypothesis test for whether the mean is now larger than \(1.8\).
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It says normally distributed, so use normal standardization.
+    \item Several screws in a box means multiply independent probabilities.
+    \item ``At least one'' usually means use the complement ``none''.
+    \item ``Greater than 1.8'' means a right-tailed hypothesis test.
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+To use the standard normal table, convert:
+\[
+z=\frac{x-\mu}{\sigma}.
+\]
+Here \(z\) says how many standard deviations \(x\) is from the mean.
+
+For at least one:
+\[
+P(\text{at least one})=1-P(\text{none}).
+\]
+
+For a known-\(\sigma\) test:
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+
+\subsection*{Formula and what everything means}
+\[
+z=\frac{x-\mu}{\sigma}
+\]
+where:
+\begin{itemize}[leftmargin=*]
+    \item \(x\) is the boundary, here \(2\),
+    \item \(\mu=1.8\) is the mean,
+    \item \(\sigma=0.4\) is the standard deviation.
+\end{itemize}
+
+For all 10 usable:
+\[
+P(\text{all 10 usable})=p^{10},
+\]
+where \(p\) is the probability one screw is usable.
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: One screw usable.}
+
+Usable means:
+\[
+X<2.
+\]
+Standardize:
+\begin{align*}
+z
+&=\frac{2-1.8}{0.4}\\
+&=\frac{0.2}{0.4}\\
+&=0.5.
+\end{align*}
+So:
+\[
+P(X<2)=P(Z<0.5)=\Phi(0.5)\approx 0.6915.
+\]
+
+\textbf{Part b: All 10 usable.}
+
+Let:
+\[
+p=0.6915.
+\]
+Assuming screws are independent:
+\begin{align*}
+P(\text{all 10 usable})
+&=p^{10}\\
+&=0.6915^{10}\\
+&\approx 0.0250.
+\end{align*}
+
+\textbf{Part c: At least one usable with probability above 0.99.}
+
+At least one usable:
+\[
+1-P(\text{none usable}).
+\]
+The probability one screw is not usable is:
+\[
+1-p=1-0.6915=0.3085.
+\]
+For \(n\) screws:
+\[
+P(\text{none usable})=(0.3085)^n.
+\]
+We want:
+\begin{align*}
+1-(0.3085)^n&>0.99.
+\end{align*}
+Move terms:
+\begin{align*}
+(0.3085)^n&<0.01.
+\end{align*}
+Take logarithms:
+\begin{align*}
+n\ln(0.3085)&<\ln(0.01).
+\end{align*}
+Since \(\ln(0.3085)<0\), division flips the inequality:
+\begin{align*}
+n&>\frac{\ln(0.01)}{\ln(0.3085)}\\
+&\approx 3.92.
+\end{align*}
+So the smallest whole number is:
+\[
+n=4.
+\]
+
+\textbf{Part d: Hypothesis test.}
+
+We test:
+\[
+H_0:\mu=1.8,\qquad H_1:\mu>1.8.
+\]
+Given:
+\[
+n=10,\qquad \bar{x}=2.0,\qquad \sigma=0.4.
+\]
+Test statistic:
+\begin{align*}
+z
+&=\frac{2.0-1.8}{0.4/\sqrt{10}}\\
+&=\frac{0.2}{0.1265}\\
+&\approx 1.58.
+\end{align*}
+For a right-tailed 5\% test:
+\[
+z_{0.95}\approx 1.645.
+\]
+Since:
+\[
+1.58<1.645,
+\]
+we do not reject \(H_0\).
+
+\subsection*{Answer}
+\[
+\boxed{P(\text{one screw usable})\approx 0.6915}
+\]
+\[
+\boxed{P(\text{all 10 usable})\approx 0.0250}
+\]
+\[
+\boxed{n=4\text{ screws are needed for probability above }0.99}
+\]
+\[
+\boxed{\text{Do not reject }H_0\text{ at 5\%.}}
+\]
+
+\subsection*{What to memorize for the exam}
+For normal probabilities, standardize:
+\[
+z=\frac{x-\mu}{\sigma}.
+\]
+For at least one, use:
+\[
+1-P(\text{none}).
+\]
+
+\subsection*{Common trap}
+In the test, do not reject just because \(\bar{x}=2.0\) is bigger than \(1.8\). It must be big enough compared with the standard error.
+
+\subsection*{Repeated exam pattern}
+The hypothesis test is the same known-\(\sigma\), one-sided mean-test pattern as 2025-08 Uppgift 6 and 2025-06 Uppgift 6.
+
+\section*{Uppgift 3}
+
+\subsection*{What this question is really asking}
+We are given:
+\[
+f(x)=
+\begin{cases}
+ax^3, & 0<x<1,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+We need to normalize it, find the CDF, compute a probability, and find the density of:
+\[
+Y=\ln X.
+\]
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It gives a density with an unknown constant \(a\).
+    \item It asks for \(F_X\), so we integrate to get the CDF.
+    \item It defines a new random variable \(Y=\ln X\), so this is a transformation question.
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+A density must integrate to 1.
+
+For a transformation \(Y=\ln X\), first find the CDF:
+\[
+F_Y(y)=P(Y\le y).
+\]
+Then differentiate \(F_Y(y)\) to get the density \(f_Y(y)\).
+
+\subsection*{Formula and what everything means}
+\[
+F_Y(y)=P(Y\le y)=P(\ln X\le y).
+\]
+Since the exponential function reverses the log:
+\[
+\ln X\le y \quad \Longleftrightarrow \quad X\le e^y.
+\]
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Find \(a\).}
+\begin{align*}
+\int_0^1 ax^3\,dx&=1\\
+a\left[\frac{x^4}{4}\right]_0^1&=1\\
+\frac{a}{4}&=1\\
+a&=4.
+\end{align*}
+
+\textbf{Part b: Find \(F_X(x)\).}
+
+For \(0<x<1\):
+\begin{align*}
+F_X(x)
+&=\int_0^x 4t^3\,dt\\
+&=[t^4]_0^x\\
+&=x^4.
+\end{align*}
+So:
+\[
+F_X(x)=
+\begin{cases}
+0, & x\le 0,\\
+x^4, & 0<x<1,\\
+1, & x\ge 1.
+\end{cases}
+\]
+
+\textbf{Part c: Calculate \(P(|X|<1/2)\).}
+
+Since \(X\) only takes values between 0 and 1, \(|X|=X\). So:
+\begin{align*}
+P(|X|<1/2)
+&=P(X<1/2)\\
+&=F_X(1/2)\\
+&=\left(\frac{1}{2}\right)^4\\
+&=\frac{1}{16}.
+\end{align*}
+
+\textbf{Part d: Density of \(Y=\ln X\).}
+
+Since \(0<X<1\), we know:
+\[
+Y=\ln X<0.
+\]
+So \(Y\) has support \(y<0\).
+
+For \(y<0\):
+\begin{align*}
+F_Y(y)
+&=P(Y\le y)\\
+&=P(\ln X\le y)\\
+&=P(X\le e^y)\\
+&=F_X(e^y)\\
+&=(e^y)^4\\
+&=e^{4y}.
+\end{align*}
+Now differentiate:
+\[
+f_Y(y)=\frac{d}{dy}e^{4y}=4e^{4y}.
+\]
+Therefore:
+\[
+f_Y(y)=
+\begin{cases}
+4e^{4y}, & y<0,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+\subsection*{Answer}
+\[
+\boxed{a=4}
+\]
+\[
+\boxed{
+F_X(x)=
+\begin{cases}
+0, & x\le 0,\\
+x^4, & 0<x<1,\\
+1, & x\ge 1
+\end{cases}}
+\]
+\[
+\boxed{P(|X|<1/2)=\frac{1}{16}}
+\]
+\[
+\boxed{
+f_Y(y)=
+\begin{cases}
+4e^{4y}, & y<0,\\
+0, & \text{otherwise}
+\end{cases}}
+\]
+
+\subsection*{What to memorize for the exam}
+For transformations, a beginner-safe method is:
+\[
+F_Y(y)=P(Y\le y),
+\]
+then solve the inequality back to \(X\).
+
+\subsection*{Common trap}
+Do not forget the support. Since \(0<X<1\), \(\ln X\) is always negative.
+
+\subsection*{Repeated exam pattern}
+Parts a--c repeat the continuous density pattern from 2026-01 Uppgift 2, 2025-08 Uppgift 2, and 2025-06 Uppgift 2. Part d connects to 2025-06 Uppgift 3c, where a transformed variable's distribution was found.
+
+\section*{Uppgift 4}
+
+\subsection*{What this question is really asking}
+\(X\) is uniformly distributed on \((-1,1)\). That means all values between \(-1\) and \(1\) are equally likely.
+
+\(Y\)'s distribution is symmetric around 0. That means:
+\[
+P(Y\le 0)=\frac{1}{2}.
+\]
+Also \(X\) and \(Y\) are independent.
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item ``likformigt fördelad'' means uniform distribution.
+    \item ``symmetrisk kring origo'' means half the probability is below 0 and half above 0.
+    \item \(\max(X,Y)\le 0\) means both \(X\le 0\) and \(Y\le 0\).
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+For a uniform distribution on \((a,b)\), probability is interval length divided by total length:
+\[
+P(c<X<d)=\frac{d-c}{b-a}.
+\]
+For \(X\sim U(-1,1)\):
+\[
+E(X)=0,\qquad V(X)=\frac{(1-(-1))^2}{12}=\frac{1}{3}.
+\]
+
+\subsection*{Formula and what everything means}
+For \(W=2X-1\):
+\[
+F_W(w)=P(W\le w)=P(2X-1\le w).
+\]
+Then solve:
+\[
+X\le \frac{w+1}{2}.
+\]
+
+\subsection*{Step-by-step solution}
+\textbf{Part a.}
+\begin{align*}
+P(-0.1<X<0.2)
+&=\frac{0.2-(-0.1)}{1-(-1)}\\
+&=\frac{0.3}{2}\\
+&=0.15.
+\end{align*}
+
+\textbf{Part b.}
+\begin{align*}
+E(2X-1)
+&=2E(X)-1\\
+&=2\cdot 0-1\\
+&=-1.
+\end{align*}
+Variance:
+\begin{align*}
+V(2X-1)
+&=2^2V(X)\\
+&=4\cdot \frac{1}{3}\\
+&=\frac{4}{3}.
+\end{align*}
+
+\textbf{Part c.}
+
+Let:
+\[
+W=2X-1.
+\]
+Since \(-1<X<1\), the new variable satisfies:
+\[
+-3<W<1.
+\]
+For \(-3<w<1\):
+\begin{align*}
+F_W(w)
+&=P(W\le w)\\
+&=P(2X-1\le w)\\
+&=P\left(X\le \frac{w+1}{2}\right).
+\end{align*}
+The CDF of \(X\sim U(-1,1)\) is:
+\[
+F_X(x)=\frac{x+1}{2},\qquad -1<x<1.
+\]
+Insert \(x=(w+1)/2\):
+\begin{align*}
+F_W(w)
+&=\frac{\frac{w+1}{2}+1}{2}\\
+&=\frac{w+3}{4}.
+\end{align*}
+So:
+\[
+F_W(w)=
+\begin{cases}
+0, & w\le -3,\\
+\dfrac{w+3}{4}, & -3<w<1,\\
+1, & w\ge 1.
+\end{cases}
+\]
+
+\textbf{Part d.}
+
+\[
+\max(X,Y)\le 0
+\]
+means:
+\[
+X\le 0 \text{ and } Y\le 0.
+\]
+By independence:
+\begin{align*}
+P(\max(X,Y)\le 0)
+&=P(X\le 0)P(Y\le 0)\\
+&=\frac{1}{2}\cdot \frac{1}{2}\\
+&=\frac{1}{4}.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{P(-0.1<X<0.2)=0.15}
+\]
+\[
+\boxed{E(2X-1)=-1,\qquad V(2X-1)=\frac{4}{3}}
+\]
+\[
+\boxed{
+F_{2X-1}(w)=
+\begin{cases}
+0, & w\le -3,\\
+\frac{w+3}{4}, & -3<w<1,\\
+1, & w\ge 1
+\end{cases}}
+\]
+\[
+\boxed{P(\max(X,Y)\le 0)=\frac{1}{4}}
+\]
+
+\subsection*{What to memorize for the exam}
+Uniform probability is length over total length. For max questions:
+\[
+\max(X,Y)\le c \iff X\le c \text{ and } Y\le c.
+\]
+
+\subsection*{Common trap}
+For variance, the constant \(-1\) does not matter, but the coefficient \(2\) gets squared:
+\[
+V(2X-1)=4V(X).
+\]
+
+\subsection*{Repeated exam pattern}
+Part c repeats the transformed-variable CDF pattern from 2025-06 Uppgift 3c. Part d repeats the maximum pattern from 2025-06 Uppgift 3d and 2025-08 Uppgift 3b.
+
+\section*{Uppgift 5}
+
+\subsection*{What this question is really asking}
+We have a density depending on \(\theta\):
+\[
+f_X(x)=\theta(1+x)^{-1-\theta},\qquad x\ge 0.
+\]
+We know \(\theta\) is only allowed to be:
+\[
+2,\quad 3,\quad 4.
+\]
+The sample values are:
+\[
+0.2,\quad 0.8.
+\]
+We must choose which \(\theta\) makes the sample most likely.
+
+\subsection*{How to recognize this type of question}
+The clue is ``ML-skattningen''. Usually we derive by differentiating, but here \(\theta\) can only be 2, 3, or 4. So the easiest method is to calculate the likelihood for each and choose the largest.
+
+\subsection*{Tiny theory needed}
+Likelihood means:
+\[
+L(\theta)=f(0.2)f(0.8).
+\]
+The ML estimate is the \(\theta\) that gives the largest \(L(\theta)\).
+
+\subsection*{Formula and what everything means}
+\[
+L(\theta)
+=\theta(1+0.2)^{-1-\theta}\cdot \theta(1+0.8)^{-1-\theta}.
+\]
+This becomes:
+\[
+L(\theta)=\theta^2(1.2)^{-1-\theta}(1.8)^{-1-\theta}.
+\]
+
+\subsection*{Step-by-step solution}
+Since:
+\[
+1.2\cdot 1.8=2.16,
+\]
+we can write:
+\[
+L(\theta)=\theta^2(2.16)^{-1-\theta}.
+\]
+
+Now test the allowed values.
+
+For \(\theta=2\):
+\[
+L(2)=2^2(2.16)^{-3}\approx 0.3969.
+\]
+
+For \(\theta=3\):
+\[
+L(3)=3^2(2.16)^{-4}\approx 0.4135.
+\]
+
+For \(\theta=4\):
+\[
+L(4)=4^2(2.16)^{-5}\approx 0.3403.
+\]
+
+The largest likelihood is:
+\[
+L(3)\approx 0.4135.
+\]
+Therefore:
+\[
+\hat{\theta}_{ML}=3.
+\]
+
+\subsection*{Answer}
+\[
+\boxed{\hat{\theta}_{ML}=3}
+\]
+
+\subsection*{What to memorize for the exam}
+If the parameter is only allowed to take a few values, you can simply calculate the likelihood for each value and choose the biggest.
+
+\subsection*{Common trap}
+Do not give the continuous maximizer if the question says \(\theta\) is either 2, 3, or 4. The answer must be one of those three.
+
+\subsection*{Repeated exam pattern}
+This is the same ML pattern as 2026-01 Uppgift 5, 2025-08 Uppgift 4, and 2025-06 Uppgift 4, but with a discrete set of possible parameter values.
+
+\section*{Uppgift 6}
+
+\subsection*{What this question is really asking}
+We have two groups of students and three possible grades:
+\[
+F,\quad G,\quad VG.
+\]
+We test whether the grade distribution is the same in both groups.
+
+This is a chi-square test for homogeneity.
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item Data are in a table of counts.
+    \item There are two groups and several categories.
+    \item The question asks whether the distributions are the same.
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+The chi-square statistic is:
+\[
+\chi^2=\sum \frac{(O-E)^2}{E}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(O\) is observed count,
+    \item \(E\) is expected count if the distributions were the same.
+\end{itemize}
+
+Expected count:
+\[
+E=\frac{\text{row total}\cdot \text{column total}}{\text{grand total}}.
+\]
+
+\subsection*{Formula and what everything means}
+Degrees of freedom:
+\[
+(r-1)(c-1).
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(r=2\) rows,
+    \item \(c=3\) grade categories.
+\end{itemize}
+So:
+\[
+(2-1)(3-1)=2.
+\]
+
+\subsection*{Step-by-step solution}
+Observed table:
+\[
+\begin{array}{c|ccc|c}
+&F&G&VG&\text{row total}\\ \hline
+\text{group 1}&15&10&5&30\\
+\text{group 2}&23&27&10&60\\ \hline
+\text{column total}&38&37&15&90
+\end{array}
+\]
+
+Hypotheses:
+\[
+H_0:\text{grade distribution is the same in both groups}
+\]
+\[
+H_1:\text{grade distribution is not the same in both groups}.
+\]
+
+Expected counts for group 1:
+\[
+E_{1,F}=\frac{30\cdot 38}{90}=12.667,
+\]
+\[
+E_{1,G}=\frac{30\cdot 37}{90}=12.333,
+\]
+\[
+E_{1,VG}=\frac{30\cdot 15}{90}=5.
+\]
+
+Expected counts for group 2:
+\[
+E_{2,F}=\frac{60\cdot 38}{90}=25.333,
+\]
+\[
+E_{2,G}=\frac{60\cdot 37}{90}=24.667,
+\]
+\[
+E_{2,VG}=\frac{60\cdot 15}{90}=10.
+\]
+
+Now compute the statistic:
+\begin{align*}
+\chi^2
+&=\frac{(15-12.667)^2}{12.667}
++\frac{(10-12.333)^2}{12.333}
++\frac{(5-5)^2}{5}\\
+&\quad+\frac{(23-25.333)^2}{25.333}
++\frac{(27-24.667)^2}{24.667}
++\frac{(10-10)^2}{10}\\
+&\approx 1.307.
+\end{align*}
+
+At 5\% significance with 2 degrees of freedom:
+\[
+\chi^2_{0.95,2}\approx 5.991.
+\]
+Since:
+\[
+1.307<5.991,
+\]
+we do not reject \(H_0\).
+
+\subsection*{Answer}
+\[
+\boxed{\chi^2\approx 1.307}
+\]
+\[
+\boxed{\text{Do not reject }H_0.}
+\]
+There is not enough evidence at the 5\% level to say that the grade distribution differs between the two groups.
+
+\subsection*{What to memorize for the exam}
+For a table of counts:
+\[
+E=\frac{\text{row total}\cdot \text{column total}}{\text{grand total}},
+\qquad
+\chi^2=\sum\frac{(O-E)^2}{E}.
+\]
+
+\subsection*{Common trap}
+Do not compare percentages by eye only. The chi-square test measures whether the differences are large relative to the expected counts.
+
+\subsection*{Repeated exam pattern}
+This is a new pattern in the processed folders: chi-square test for homogeneity in a contingency table.
+
+\section*{Mini-cheatsheet from this exam}
+
+\subsection*{Venn diagrams}
+\[
+|A\cup B\cup C|=|A|+|B|+|C|-|AB|-|AC|-|BC|+|ABC|.
+\]
+
+\subsection*{Normal distribution}
+\[
+z=\frac{x-\mu}{\sigma}.
+\]
+Known-\(\sigma\) test:
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+
+\subsection*{At least one}
+\[
+P(\text{at least one})=1-P(\text{none}).
+\]
+
+\subsection*{Density and transformations}
+\[
+\int f(x)\,dx=1,\qquad F_X(x)=\int_{-\infty}^{x}f(t)\,dt.
+\]
+For transformations:
+\[
+F_Y(y)=P(Y\le y).
+\]
+
+\subsection*{Uniform distribution}
+For \(X\sim U(a,b)\):
+\[
+P(c<X<d)=\frac{d-c}{b-a},\qquad V(X)=\frac{(b-a)^2}{12}.
+\]
+
+\subsection*{Maximum}
+\[
+\max(X,Y)\le c \iff X\le c \text{ and } Y\le c.
+\]
+
+\subsection*{Maximum likelihood}
+If only a few parameter values are allowed, calculate \(L\) for each and choose the largest.
+
+\subsection*{Chi-square table test}
+\[
+E=\frac{\text{row total}\cdot \text{column total}}{\text{grand total}},
+\qquad
+\chi^2=\sum\frac{(O-E)^2}{E}.
+\]
+
+\end{document}

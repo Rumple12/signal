@@ -1,0 +1,1950 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[paperwidth=384pt,paperheight=900pt,margin=10pt]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=12pt}
+\setlist[enumerate]{leftmargin=14pt}
+
+\sloppy
+\allowdisplaybreaks
+\emergencystretch=2em
+
+\begin{document}
+
+\section*{Uppgift 2}
+
+\subsection*{Original question}
+
+En maskin producerar skruvar vars längd måste
+understiga 2 cm för att vara användbara i
+produktionen. Från erfarenhet vet man att skruvarnas
+längd kan anses vara normalfördelad med väntevärde
+\(\mu=1.8\) och standardavvikelse \(\sigma=0.4\).
+
+\begin{enumerate}[label=\alph*)]
+\item Vad är sannolikheten att en skruv är användbar
+i produktionen?
+
+\item Skruvarna förpackas i lådor om 10 stycken.
+Vad är sannolikheten att alla skruvar i en låda är
+användbara?
+
+\item Hur många skruvar måste produceras för att
+sannolikheten att minst en av de producerade
+skruvarna är användbar är större än 0.99?
+
+\item På sistone har man börjat misstänka att
+maskinen producerar med ett väntevärde större än
+1.8. Däremot har man ingen anledning att ifrågasätta
+den antagna standardavvikelsen.
+
+I ett experiment med 10 oberoende mätningar av
+skruvlängder har man fått att skruvlängdernas
+medelvärde är 2.0.
+
+Testa hypotesen att maskinens väntevärde är 1.8 i
+ett ensidigt test (d.v.s att man bara förkastar
+hypotesen om det finns tydlig anledning att tro att
+väntevärdet är större än 1.8). Genomför testet på
+5\% signifikansnivå. \((8p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+% UNCERTAIN: One handwritten setup looks like sigma = 0.5, but the
+% original question says sigma = 0.4 and the later hypothesis-test notes
+% also use sigma = 0.4. The calculation z = 0.5 matches sigma = 0.4.
+
+\subsubsection*{What we are doing}
+
+The screw length is normally distributed.
+A screw is usable if its length is less than 2 cm.
+
+First we find the probability that one screw is
+usable. Then we use powers for repeated independent
+screws. Finally we do a one-sided \(Z\)-test because
+\(\sigma\) is known.
+
+\subsubsection*{Given information}
+
+\[
+X\sim N(\mu,\sigma)
+=N(1.8,0.4).
+\]
+
+\[
+\mu=1.8,
+\qquad
+\sigma=0.4.
+\]
+
+Usable screw:
+\[
+X<2.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Probability that one screw is usable}
+
+The notes write:
+\[
+P(X<2).
+\]
+
+First standardize:
+\[
+Z=\frac{X-\mu}{\sigma}.
+\]
+
+Substitute:
+\begin{align*}
+z
+&=
+\frac{2-1.8}{0.4}
+\\[2mm]
+&=
+\frac{0.2}{0.4}
+\\[2mm]
+&=0.5.
+\end{align*}
+
+So:
+\begin{align*}
+P(X<2)
+&=
+P(Z<0.5)
+\\[2mm]
+&=
+\Phi(0.5).
+\end{align*}
+
+From the \(Z\)-table:
+\[
+\Phi(0.5)=0.6915.
+\]
+
+Therefore:
+\[
+P(X<2)=0.6915.
+\]
+
+The notes write this as about \(69\%\).
+
+\textbf{b) All 10 screws are usable}
+
+En maskin producerar skruvar vars längd måste
+understiga 2 cm för att vara användbara i
+produktionen. Från erfarenhet vet man att skruvarnas
+längd kan anses vara normalfördelad med väntevärde
+\(\mu=1.8\) och standardavvikelse \(\sigma=0.4\).
+
+\begin{enumerate}[label=\alph*)]
+\item Vad är sannolikheten att en skruv är användbar
+i produktionen?
+
+\item Skruvarna förpackas i lådor om 10 stycken.
+Vad är sannolikheten att alla skruvar i en låda är
+användbara?
+
+\item Hur många skruvar måste produceras för att
+sannolikheten att minst en av de producerade
+skruvarna är användbar är större än 0.99?
+
+\item På sistone har man börjat misstänka att
+maskinen producerar med ett väntevärde större än
+1.8. Däremot har man ingen anledning att ifrågasätta
+den antagna standardavvikelsen.
+
+I ett experiment med 10 oberoende mätningar av
+skruvlängder har man fått att skruvlängdernas
+medelvärde är 2.0.
+
+Testa hypotesen att maskinens väntevärde är 1.8 i
+ett ensidigt test (d.v.s att man bara förkastar
+hypotesen om det finns tydlig anledning att tro att
+väntevärdet är större än 1.8). Genomför testet på
+5\% signifikansnivå. \((8p)\)
+\end{enumerate}
+
+From part a), the chance that one screw is usable is:
+\[
+p=0.6915.
+\]
+
+There are 10 screws in one box.
+The notes use:
+\[
+P(\text{10 usable})
+=p^{10}.
+\]
+
+So:
+\begin{align*}
+P(\text{10 usable})
+&=
+(0.6915)^{10}
+\\[2mm]
+&\approx
+0.0248.
+\end{align*}
+
+\textbf{c) At least one usable screw}
+
+En maskin producerar skruvar vars längd måste
+understiga 2 cm för att vara användbara i
+produktionen. Från erfarenhet vet man att skruvarnas
+längd kan anses vara normalfördelad med väntevärde
+\(\mu=1.8\) och standardavvikelse \(\sigma=0.4\).
+
+\begin{enumerate}[label=\alph*)]
+\item Vad är sannolikheten att en skruv är användbar
+i produktionen?
+
+\item Skruvarna förpackas i lådor om 10 stycken.
+Vad är sannolikheten att alla skruvar i en låda är
+användbara?
+
+\item Hur många skruvar måste produceras för att
+sannolikheten att minst en av de producerade
+skruvarna är användbar är större än 0.99?
+
+\item På sistone har man börjat misstänka att
+maskinen producerar med ett väntevärde större än
+1.8. Däremot har man ingen anledning att ifrågasätta
+den antagna standardavvikelsen.
+
+I ett experiment med 10 oberoende mätningar av
+skruvlängder har man fått att skruvlängdernas
+medelvärde är 2.0.
+
+Testa hypotesen att maskinens väntevärde är 1.8 i
+ett ensidigt test (d.v.s att man bara förkastar
+hypotesen om det finns tydlig anledning att tro att
+väntevärdet är större än 1.8). Genomför testet på
+5\% signifikansnivå. \((8p)\)
+\end{enumerate}
+
+We want:
+\[
+P(\text{at least one usable})>0.99.
+\]
+
+The notes say it is easier to use the opposite event:
+\[
+P(\text{at least one usable})
+=
+1-P(\text{all are not usable}).
+\]
+
+The chance that one screw is bad is:
+\begin{align*}
+1-0.6915
+&=
+0.3085.
+\end{align*}
+
+So the chance that \(n\) screws are all bad is:
+\[
+(0.3085)^n.
+\]
+
+Thus:
+\[
+1-(0.3085)^n>0.99.
+\]
+
+Solve for \(n\):
+\begin{align*}
+1-(0.3085)^n
+&>0.99
+\\[2mm]
+-(0.3085)^n
+&>-0.01
+\\[2mm]
+(0.3085)^n
+&<0.01.
+\end{align*}
+
+Take logarithms:
+\begin{align*}
+\ln\left((0.3085)^n\right)
+&<
+\ln(0.01)
+\\[2mm]
+n\ln(0.3085)
+&<
+\ln(0.01).
+\end{align*}
+
+Since \(\ln(0.3085)<0\), the inequality reverses
+when dividing:
+\begin{align*}
+n
+&>
+\frac{\ln(0.01)}{\ln(0.3085)}
+\\[2mm]
+&\approx
+3.915.
+\end{align*}
+
+The notes round up because half a screw does not make
+sense:
+\[
+n=4.
+\]
+
+\textbf{d) One-sided hypothesis test}
+
+En maskin producerar skruvar vars längd måste
+understiga 2 cm för att vara användbara i
+produktionen. Från erfarenhet vet man att skruvarnas
+längd kan anses vara normalfördelad med väntevärde
+\(\mu=1.8\) och standardavvikelse \(\sigma=0.4\).
+
+\begin{enumerate}[label=\alph*)]
+\item Vad är sannolikheten att en skruv är användbar
+i produktionen?
+
+\item Skruvarna förpackas i lådor om 10 stycken.
+Vad är sannolikheten att alla skruvar i en låda är
+användbara?
+
+\item Hur många skruvar måste produceras för att
+sannolikheten att minst en av de producerade
+skruvarna är användbar är större än 0.99?
+
+\item På sistone har man börjat misstänka att
+maskinen producerar med ett väntevärde större än
+1.8. Däremot har man ingen anledning att ifrågasätta
+den antagna standardavvikelsen.
+
+I ett experiment med 10 oberoende mätningar av
+skruvlängder har man fått att skruvlängdernas
+medelvärde är 2.0.
+
+Testa hypotesen att maskinens väntevärde är 1.8 i
+ett ensidigt test (d.v.s att man bara förkastar
+hypotesen om det finns tydlig anledning att tro att
+väntevärdet är större än 1.8). Genomför testet på
+5\% signifikansnivå. \((8p)\)
+\end{enumerate}
+
+The notes list:
+\[
+n=10,
+\qquad
+\bar{x}=2.0,
+\qquad
+\sigma=0.4.
+\]
+
+The significance level is:
+\[
+\alpha=0.05.
+\]
+
+Set up the hypotheses:
+\[
+H_0:\mu=1.8.
+\]
+
+\[
+H_1:\mu>1.8.
+\]
+
+This is a one-sided right-tailed test.
+
+The notes use the critical value:
+\[
+z_{0.05}=1.645.
+\]
+
+Now calculate the test statistic:
+\[
+Z=
+\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+
+Substitute:
+\begin{align*}
+Z
+&=
+\frac{2.0-1.8}{0.4/\sqrt{10}}
+\\[2mm]
+&\approx
+1.581.
+\end{align*}
+
+Compare with the critical value:
+\[
+1.581<1.645.
+\]
+
+So the notes conclude that \(H_0\) is still correct.
+
+\textbf{English clarification:}
+In hypothesis-test language, this means we do not
+reject \(H_0\) at the 5\% significance level.
+There is not enough evidence that the mean is greater
+than \(1.8\).
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(X<2)=0.6915.
+\]
+
+\item
+\[
+(0.6915)^{10}\approx 0.0248.
+\]
+
+\item
+\[
+n=4.
+\]
+
+\item
+\[
+Z\approx 1.581.
+\]
+
+Since:
+\[
+1.581<1.645,
+\]
+we do not reject \(H_0:\mu=1.8\).
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For normal probabilities:
+\[
+Z=\frac{X-\mu}{\sigma}.
+\]
+
+For all independent screws to be usable:
+\[
+p^{10}.
+\]
+
+For at least one:
+\[
+1-P(\text{none}).
+\]
+
+For a one-sided \(Z\)-test with known \(\sigma\):
+\[
+Z=
+\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+
+\section*{Uppgift 3}
+
+\subsection*{Original question}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+ax^3,
+& 0<x<1,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm konstanten \(a\) sådan att \(f\) är en
+täthetsfunktion för en stokastisk variabel \(X\).
+
+\item Bestäm fördelningsfunktionen för \(X\).
+
+\item Beräkna
+\[
+P(|X|<\tfrac12).
+\]
+
+\item Anta att \(X\) bara antar värden \(x\) med
+\[
+0<x<1.
+\]
+Bestäm täthetsfunktionen för
+\[
+Y=\ln X.
+\]
+\((6p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+First we choose \(a\) so that the total area under
+the density is \(1\).
+
+Then we find the CDF \(F(x)\). After that, we use the
+CDF to calculate a probability. Finally we transform
+\[
+Y=\ln X
+\]
+by first finding the CDF of \(Y\), then differentiating.
+
+\subsubsection*{Given information}
+
+\[
+f(x)=
+\begin{cases}
+ax^3,
+& 0<x<1,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+For a density:
+\[
+\int_{-\infty}^{\infty}f(x)\,dx=1.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Find the constant \(a\)}
+
+The notes say that a PDF must integrate to \(1\).
+Since the density is only nonzero for \(0<x<1\):
+\[
+\int_0^1 ax^3\,dx=1.
+\]
+
+Integrate:
+\begin{align*}
+\int_0^1 ax^3\,dx
+&=
+\left[
+a\frac{x^4}{4}
+\right]_0^1
+\\[2mm]
+&=
+a\left(
+\frac{1^4}{4}
+-
+\frac{0^4}{4}
+\right)
+\\[2mm]
+&=
+\frac{a}{4}.
+\end{align*}
+
+Set equal to \(1\):
+\begin{align*}
+\frac{a}{4}
+&=1
+\\[2mm]
+a&=4.
+\end{align*}
+
+So:
+\[
+a=4.
+\]
+
+\textbf{b) Find the CDF}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+ax^3,
+& 0<x<1,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm konstanten \(a\) sådan att \(f\) är en
+täthetsfunktion för en stokastisk variabel \(X\).
+
+\item Bestäm fördelningsfunktionen för \(X\).
+
+\item Beräkna
+\[
+P(|X|<\tfrac12).
+\]
+
+\item Anta att \(X\) bara antar värden \(x\) med
+\[
+0<x<1.
+\]
+Bestäm täthetsfunktionen för
+\[
+Y=\ln X.
+\]
+\((6p)\)
+\end{enumerate}
+
+Now we know:
+\[
+f(x)=4x^3,
+\qquad 0<x<1.
+\]
+
+For \(0<x<1\), the notes integrate from \(0\) to
+\(x\):
+\begin{align*}
+F(x)
+&=
+\int_0^x 4t^3\,dt
+\\[2mm]
+&=
+\left[
+t^4
+\right]_0^x
+\\[2mm]
+&=
+x^4-0
+\\[2mm]
+&=
+x^4.
+\end{align*}
+
+Therefore the full CDF is:
+\[
+F(x)=
+\begin{cases}
+0,
+& x\le 0,\\
+x^4,
+& 0<x<1,\\
+1,
+& x\ge 1.
+\end{cases}
+\]
+
+\textbf{English clarification:}
+The notes explain this as: before the density starts,
+the probability is \(0\). After the whole support has
+passed, the probability is \(1\).
+
+\textbf{c) Calculate \(P(|X|<\frac12)\)}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+ax^3,
+& 0<x<1,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm konstanten \(a\) sådan att \(f\) är en
+täthetsfunktion för en stokastisk variabel \(X\).
+
+\item Bestäm fördelningsfunktionen för \(X\).
+
+\item Beräkna
+\[
+P(|X|<\tfrac12).
+\]
+
+\item Anta att \(X\) bara antar värden \(x\) med
+\[
+0<x<1.
+\]
+Bestäm täthetsfunktionen för
+\[
+Y=\ln X.
+\]
+\((6p)\)
+\end{enumerate}
+
+The notes rewrite:
+\[
+|X|<\frac12
+\]
+as:
+\[
+-\frac12<X<\frac12.
+\]
+
+So:
+\[
+P(|X|<\tfrac12)
+=
+P\left(
+-\frac12<X<\frac12
+\right).
+\]
+
+Using the CDF:
+\[
+P\left(
+-\frac12<X<\frac12
+\right)
+=
+F\left(\frac12\right)
+-
+F\left(-\frac12\right).
+\]
+
+From part b):
+\[
+F\left(\frac12\right)
+=
+\left(\frac12\right)^4.
+\]
+
+And since \(-\frac12\le 0\):
+\[
+F\left(-\frac12\right)=0.
+\]
+
+Therefore:
+\begin{align*}
+P(|X|<\tfrac12)
+&=
+\left(\frac12\right)^4-0
+\\[2mm]
+&=
+\frac{1}{16}
+\\[2mm]
+&=
+0.0625.
+\end{align*}
+
+The notes write this as:
+\[
+6.25\%.
+\]
+
+\textbf{d) Density for \(Y=\ln X\)}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+ax^3,
+& 0<x<1,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm konstanten \(a\) sådan att \(f\) är en
+täthetsfunktion för en stokastisk variabel \(X\).
+
+\item Bestäm fördelningsfunktionen för \(X\).
+
+\item Beräkna
+\[
+P(|X|<\tfrac12).
+\]
+
+\item Anta att \(X\) bara antar värden \(x\) med
+\[
+0<x<1.
+\]
+Bestäm täthetsfunktionen för
+\[
+Y=\ln X.
+\]
+\((6p)\)
+\end{enumerate}
+
+The notes start with the CDF:
+\[
+F_Y(y)=P(Y\le y).
+\]
+
+Since:
+\[
+Y=\ln X,
+\]
+we get:
+\[
+F_Y(y)=P(\ln X\le y).
+\]
+
+Put both sides as powers of \(e\):
+\[
+\ln X\le y
+\quad \Longleftrightarrow \quad
+X\le e^y.
+\]
+
+So:
+\[
+F_Y(y)=P(X\le e^y).
+\]
+
+Use the CDF from part b):
+\[
+P(X\le e^y)=F_X(e^y).
+\]
+
+For \(e^y\) to fall inside \(0<x<1\), we need:
+\[
+y<0.
+\]
+
+For \(y<0\):
+\begin{align*}
+F_Y(y)
+&=
+F_X(e^y)
+\\[2mm]
+&=
+(e^y)^4
+\\[2mm]
+&=
+e^{4y}.
+\end{align*}
+
+Thus the CDF of \(Y\) is:
+\[
+F_Y(y)=
+\begin{cases}
+e^{4y},
+& y<0,\\
+1,
+& y\ge 0.
+\end{cases}
+\]
+
+\textbf{English clarification:}
+As \(y\to -\infty\), \(e^{4y}\to 0\), so this also
+matches the lower tail.
+
+Now differentiate the CDF to get the density:
+\begin{align*}
+f_Y(y)
+&=
+\frac{d}{dy}F_Y(y)
+\\[2mm]
+&=
+\frac{d}{dy}e^{4y}
+\\[2mm]
+&=
+4e^{4y}.
+\end{align*}
+
+So:
+\[
+f_Y(y)=
+\begin{cases}
+4e^{4y},
+& y<0,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+a=4.
+\]
+
+\item
+\[
+F(x)=
+\begin{cases}
+0,
+& x\le 0,\\
+x^4,
+& 0<x<1,\\
+1,
+& x\ge 1.
+\end{cases}
+\]
+
+\item
+\[
+P(|X|<\tfrac12)
+=
+\frac{1}{16}
+=0.0625.
+\]
+
+\item
+\[
+f_Y(y)=
+\begin{cases}
+4e^{4y},
+& y<0,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For a density:
+\[
+\int f(x)\,dx=1.
+\]
+
+For a CDF:
+\[
+F(x)=P(X\le x).
+\]
+
+For intervals:
+\[
+P(a<X<b)=F(b)-F(a).
+\]
+
+For \(Y=\ln X\), use the CDF method:
+\[
+F_Y(y)=P(Y\le y).
+\]
+
+\section*{Uppgift 4}
+
+\subsection*{Original question}
+
+De stokastiska variabler \(X,Y\) är oberoende.
+\(X\) är likformigt fördelad på intervallet
+\((-1,1)\) och \(Y\):s fördelning är symmetrisk
+kring origo.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna
+\[
+P(-0.1<X<0.2).
+\]
+
+\item Bestäm
+\[
+E(2X-1)
+\quad\text{och}\quad
+V(2X-1).
+\]
+
+\item Bestäm fördelningsfunktionen för \(2X-1\).
+
+\item Beräkna
+\[
+P(\max(X,Y)\le 0).
+\]
+\((6p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We use that \(X\) is uniform on \((-1,1)\).
+That gives a constant density and simple formulas
+for mean and variance.
+
+We also use that \(Y\) is symmetric around \(0\), so:
+\[
+P(Y\le 0)=0.5.
+\]
+
+Finally, since \(X\) and \(Y\) are independent, we can
+multiply probabilities in part d).
+
+\subsubsection*{Given information}
+
+\[
+X\sim U(-1,1).
+\]
+
+\[
+X \text{ and } Y
+\text{ are independent.}
+\]
+
+\[
+Y \text{ is symmetric around }0.
+\]
+
+For \(X\sim U(a,b)\), the notes use:
+\[
+f_X(x)=\frac{1}{b-a}.
+\]
+
+\[
+E(X)=\frac{a+b}{2}.
+\]
+
+\[
+V(X)=\frac{(b-a)^2}{12}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{Collect facts about \(X\)}
+
+For \(X\sim U(-1,1)\):
+\[
+f_X(x)
+=
+\frac{1}{1-(-1)}
+=
+\frac12,
+\qquad -1<x<1.
+\]
+
+Mean:
+\begin{align*}
+E(X)
+&=
+\frac{-1+1}{2}
+\\[2mm]
+&=0.
+\end{align*}
+
+Variance:
+\begin{align*}
+V(X)
+&=
+\frac{(1-(-1))^2}{12}
+\\[2mm]
+&=
+\frac{4}{12}
+\\[2mm]
+&=
+\frac13.
+\end{align*}
+
+Because \(X\) is symmetric around \(0\):
+\[
+P(X\le 0)=0.5.
+\]
+
+Because \(Y\) is symmetric around \(0\):
+\[
+P(Y\le 0)=0.5.
+\]
+
+\textbf{a) Calculate \(P(-0.1<X<0.2)\)}
+
+For a uniform distribution on \((-1,1)\), the notes
+use:
+\[
+P(c<X<d)
+=
+\int_c^d \frac12\,dx
+=
+\frac{d-c}{2}.
+\]
+
+Here:
+\[
+c=-0.1,
+\qquad
+d=0.2.
+\]
+
+So:
+\begin{align*}
+P(-0.1<X<0.2)
+&=
+\frac12
+\bigl(0.2-(-0.1)\bigr)
+\\[2mm]
+&=
+\frac12(0.3)
+\\[2mm]
+&=
+0.15.
+\end{align*}
+
+\textbf{b) Find \(E(2X-1)\)}
+
+De stokastiska variabler \(X,Y\) är oberoende.
+\(X\) är likformigt fördelad på intervallet
+\((-1,1)\) och \(Y\):s fördelning är symmetrisk
+kring origo.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna
+\[
+P(-0.1<X<0.2).
+\]
+
+\item Bestäm
+\[
+E(2X-1)
+\quad\text{och}\quad
+V(2X-1).
+\]
+
+\item Bestäm fördelningsfunktionen för \(2X-1\).
+
+\item Beräkna
+\[
+P(\max(X,Y)\le 0).
+\]
+\((6p)\)
+\end{enumerate}
+
+The notes use:
+\[
+E(aX+b)=aE(X)+b.
+\]
+
+So:
+\begin{align*}
+E(2X-1)
+&=
+2E(X)-1
+\\[2mm]
+&=
+2\cdot 0-1
+\\[2mm]
+&=
+-1.
+\end{align*}
+
+\textbf{b) Find \(V(2X-1)\)}
+
+De stokastiska variabler \(X,Y\) är oberoende.
+\(X\) är likformigt fördelad på intervallet
+\((-1,1)\) och \(Y\):s fördelning är symmetrisk
+kring origo.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna
+\[
+P(-0.1<X<0.2).
+\]
+
+\item Bestäm
+\[
+E(2X-1)
+\quad\text{och}\quad
+V(2X-1).
+\]
+
+\item Bestäm fördelningsfunktionen för \(2X-1\).
+
+\item Beräkna
+\[
+P(\max(X,Y)\le 0).
+\]
+\((6p)\)
+\end{enumerate}
+
+The notes use:
+\[
+V(aX+b)=a^2V(X).
+\]
+
+So:
+\begin{align*}
+V(2X-1)
+&=
+2^2V(X)
+\\[2mm]
+&=
+4\cdot \frac13
+\\[2mm]
+&=
+\frac43.
+\end{align*}
+
+\textbf{c) CDF for \(2X-1\)}
+
+De stokastiska variabler \(X,Y\) är oberoende.
+\(X\) är likformigt fördelad på intervallet
+\((-1,1)\) och \(Y\):s fördelning är symmetrisk
+kring origo.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna
+\[
+P(-0.1<X<0.2).
+\]
+
+\item Bestäm
+\[
+E(2X-1)
+\quad\text{och}\quad
+V(2X-1).
+\]
+
+\item Bestäm fördelningsfunktionen för \(2X-1\).
+
+\item Beräkna
+\[
+P(\max(X,Y)\le 0).
+\]
+\((6p)\)
+\end{enumerate}
+
+Let:
+\[
+Z=2X-1.
+\]
+
+The notes isolate \(X\):
+\begin{align*}
+F_Z(z)
+&=
+P(Z\le z)
+\\[2mm]
+&=
+P(2X-1\le z)
+\\[2mm]
+&=
+P(2X\le z+1)
+\\[2mm]
+&=
+P\left(X\le \frac{z+1}{2}\right).
+\end{align*}
+
+Since \(X\) is between \(-1\) and \(1\), the new
+variable \(Z=2X-1\) is between:
+\[
+2(-1)-1=-3
+\]
+and:
+\[
+2(1)-1=1.
+\]
+
+So \(Z\) is uniform on \((-3,1)\).
+
+The notes use the uniform CDF formula:
+\[
+F_Z(z)
+=
+\frac{z-\text{lower}}{\text{upper}-\text{lower}}.
+\]
+
+Here lower \(=-3\), upper \(=1\), so:
+\[
+F_Z(z)
+=
+\frac{z-(-3)}{1-(-3)}
+=
+\frac{z+3}{4}.
+\]
+
+Therefore:
+\[
+F_{2X-1}(z)=
+\begin{cases}
+0,
+& z\le -3,\\
+\dfrac{z+3}{4},
+& -3<z<1,\\
+1,
+& z\ge 1.
+\end{cases}
+\]
+
+\textbf{d) Calculate \(P(\max(X,Y)\le 0)\)}
+
+De stokastiska variabler \(X,Y\) är oberoende.
+\(X\) är likformigt fördelad på intervallet
+\((-1,1)\) och \(Y\):s fördelning är symmetrisk
+kring origo.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna
+\[
+P(-0.1<X<0.2).
+\]
+
+\item Bestäm
+\[
+E(2X-1)
+\quad\text{och}\quad
+V(2X-1).
+\]
+
+\item Bestäm fördelningsfunktionen för \(2X-1\).
+
+\item Beräkna
+\[
+P(\max(X,Y)\le 0).
+\]
+\((6p)\)
+\end{enumerate}
+
+The notes rewrite:
+\[
+\max(X,Y)\le 0
+\]
+as:
+\[
+X\le 0
+\quad\text{and}\quad
+Y\le 0.
+\]
+
+So:
+\[
+P(\max(X,Y)\le 0)
+=
+P(X\le 0,\ Y\le 0).
+\]
+
+Because \(X\) and \(Y\) are independent:
+\[
+P(X\le 0,\ Y\le 0)
+=
+P(X\le 0)P(Y\le 0).
+\]
+
+Use the symmetry facts:
+\[
+P(X\le 0)=0.5,
+\qquad
+P(Y\le 0)=0.5.
+\]
+
+Therefore:
+\begin{align*}
+P(\max(X,Y)\le 0)
+&=
+0.5\cdot 0.5
+\\[2mm]
+&=
+0.25.
+\end{align*}
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(-0.1<X<0.2)=0.15.
+\]
+
+\item
+\[
+E(2X-1)=-1.
+\]
+
+\[
+V(2X-1)=\frac43.
+\]
+
+\item
+\[
+F_{2X-1}(z)=
+\begin{cases}
+0,
+& z\le -3,\\
+\dfrac{z+3}{4},
+& -3<z<1,\\
+1,
+& z\ge 1.
+\end{cases}
+\]
+
+\item
+\[
+P(\max(X,Y)\le 0)=0.25.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For \(X\sim U(a,b)\):
+\[
+f_X(x)=\frac{1}{b-a}.
+\]
+
+\[
+E(X)=\frac{a+b}{2}.
+\]
+
+\[
+V(X)=\frac{(b-a)^2}{12}.
+\]
+
+For a linear transformation:
+\[
+E(aX+b)=aE(X)+b.
+\]
+
+\[
+V(aX+b)=a^2V(X).
+\]
+
+For independent events, multiply probabilities.
+
+\section*{Uppgift 5}
+
+\subsection*{Original question}
+
+Den stokastiska variabeln \(X\) har täthetsfunktionen
+
+\[
+f_X(x)=
+\begin{cases}
+\theta(1+x)^{-1-\theta},
+& x\ge 0,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+Det är känt att parametern \(\theta\) är antingen
+2, 3 eller 4.
+
+Man har ett slumpmässigt stickprov från denna
+fördelning omfattande två värden, nämligen
+\[
+0.2
+\quad\text{och}\quad
+0.8.
+\]
+Ange ML-skattningen av \(\theta\). \((6p)\)
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We find the likelihood for the two observations:
+\[
+x_1=0.2,
+\qquad
+x_2=0.8.
+\]
+
+The question says that \(\theta\) can only be:
+\[
+2,\ 3,\ 4.
+\]
+
+So the notes do not solve by differentiation.
+They calculate \(L(2)\), \(L(3)\), and \(L(4)\),
+then choose the largest one.
+
+\subsubsection*{Given information}
+
+\[
+f_X(x)=
+\begin{cases}
+\theta(1+x)^{-1-\theta},
+& x\ge 0,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\[
+x_1=0.2,
+\qquad
+x_2=0.8.
+\]
+
+\[
+\theta\in\{2,3,4\}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{1) Write the likelihood}
+
+For independent observations, the notes use:
+\[
+L(\theta)
+=
+f_X(x_1)\cdot f_X(x_2).
+\]
+
+Substitute the density:
+\begin{align*}
+L(\theta)
+&=
+\left[
+\theta(1+x_1)^{-1-\theta}
+\right]
+\left[
+\theta(1+x_2)^{-1-\theta}
+\right].
+\end{align*}
+
+Now use:
+\[
+x_1=0.2,
+\qquad
+x_2=0.8.
+\]
+
+Then:
+\[
+1+x_1=1.2,
+\qquad
+1+x_2=1.8.
+\]
+
+So:
+\begin{align*}
+L(\theta)
+&=
+\left[
+\theta(1.2)^{-1-\theta}
+\right]
+\left[
+\theta(1.8)^{-1-\theta}
+\right]
+\\[2mm]
+&=
+\theta^2
+\left(1.2\cdot 1.8\right)^{-1-\theta}.
+\end{align*}
+
+Since:
+\[
+1.2\cdot 1.8=2.16,
+\]
+we get:
+\[
+L(\theta)
+=
+\theta^2(2.16)^{-(1+\theta)}.
+\]
+
+\textbf{2) Evaluate the possible values}
+
+The notes calculate only the possible values
+\(\theta=2,3,4\).
+
+For \(\theta=2\):
+\begin{align*}
+L(2)
+&=
+2^2(2.16)^{-(1+2)}
+\\[2mm]
+&=
+4(2.16)^{-3}
+\\[2mm]
+&\approx 0.3969.
+\end{align*}
+
+For \(\theta=3\):
+\begin{align*}
+L(3)
+&=
+3^2(2.16)^{-(1+3)}
+\\[2mm]
+&=
+9(2.16)^{-4}
+\\[2mm]
+&\approx 0.4135.
+\end{align*}
+
+For \(\theta=4\):
+\begin{align*}
+L(4)
+&=
+4^2(2.16)^{-(1+4)}
+\\[2mm]
+&=
+16(2.16)^{-5}
+\\[2mm]
+&\approx 0.3403.
+\end{align*}
+
+\textbf{3) Choose the largest likelihood}
+
+Compare:
+\[
+L(2)\approx 0.3969,
+\]
+\[
+L(3)\approx 0.4135,
+\]
+\[
+L(4)\approx 0.3403.
+\]
+
+The largest is:
+\[
+L(3).
+\]
+
+Therefore the ML estimate is:
+\[
+\hat{\theta}_{ML}=3.
+\]
+
+\subsubsection*{Final answer}
+
+\[
+\hat{\theta}_{ML}=3.
+\]
+
+\subsubsection*{What to remember}
+
+When the parameter can only take a few possible
+values, evaluate the likelihood at each possible
+value.
+
+Then choose the value with the largest likelihood:
+\[
+\hat{\theta}_{ML}
+=
+\arg\max_{\theta} L(\theta).
+\]
+
+\section*{Uppgift 6}
+
+\subsection*{Original question}
+
+En tentamen i matematik på Mittuniversitetet skrevs
+i två grupper, på grund av att alla inte hade
+möjligheten att skriva tentan på campus. Grupp 1
+skrev på distans, grupp 2 på campus. De möjliga
+betygen var \(F=\) underkänd, \(G=\) godkänd och
+\(VG=\) väl godkänd.
+
+Tentamensresultatet var:
+
+\[
+\begin{array}{c|ccc}
+& F & G & VG\\
+\hline
+\text{grupp 1} & 15 & 10 & 5\\
+\text{grupp 2} & 23 & 27 & 10
+\end{array}
+\]
+
+Testa hypotesen att betygsfördelningen är samma i de
+bägge grupperna på 5\% signifikansnivå. \((4p)\)
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We test whether the grade distribution is the same
+in both groups.
+
+The notes use a chi-square test with observed and
+expected frequencies.
+
+\subsubsection*{Given information}
+
+Observed frequencies:
+\[
+\begin{array}{c|ccc}
+& F & G & VG\\
+\hline
+\text{group 1} & 15 & 10 & 5\\
+\text{group 2} & 23 & 27 & 10
+\end{array}
+\]
+
+Group totals:
+\[
+\text{group 1}: 15+10+5=30.
+\]
+
+\[
+\text{group 2}: 23+27+10=60.
+\]
+
+Grade totals:
+\[
+F:15+23=38.
+\]
+
+\[
+G:10+27=37.
+\]
+
+\[
+VG:5+10=15.
+\]
+
+Total number of students:
+\[
+30+60=90.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{1) State the hypotheses}
+
+The notes write:
+\[
+H_0:
+\text{both groups have the same grade distribution.}
+\]
+
+\[
+H_1:
+\text{they do not have the same grade distribution.}
+\]
+
+\textbf{2) Calculate expected frequencies}
+
+If \(H_0\) is true, the expected frequency in each
+cell is:
+\[
+E=
+\frac{
+(\text{group total})(\text{grade total})
+}{
+\text{student total}
+}.
+\]
+
+For group 1:
+\begin{align*}
+E_{1,F}
+&=
+\frac{30\cdot 38}{90}
+\\[2mm]
+&=12.67.
+\end{align*}
+
+\begin{align*}
+E_{1,G}
+&=
+\frac{30\cdot 37}{90}
+\\[2mm]
+&=12.33.
+\end{align*}
+
+\begin{align*}
+E_{1,VG}
+&=
+\frac{30\cdot 15}{90}
+\\[2mm]
+&=5.00.
+\end{align*}
+
+For group 2:
+\begin{align*}
+E_{2,F}
+&=
+\frac{60\cdot 38}{90}
+\\[2mm]
+&=25.33.
+\end{align*}
+
+\begin{align*}
+E_{2,G}
+&=
+\frac{60\cdot 37}{90}
+\\[2mm]
+&=24.67.
+\end{align*}
+
+\begin{align*}
+E_{2,VG}
+&=
+\frac{60\cdot 15}{90}
+\\[2mm]
+&=10.00.
+\end{align*}
+
+\textbf{3) Calculate the chi-square statistic}
+
+The notes use:
+\[
+\chi^2
+=
+\sum
+\frac{(O-E)^2}{E}.
+\]
+
+For group 1:
+\begin{align*}
+\frac{(15-12.67)^2}{12.67}
+&\approx 0.430.
+\end{align*}
+
+\begin{align*}
+\frac{(10-12.33)^2}{12.33}
+&\approx 0.440.
+\end{align*}
+
+\begin{align*}
+\frac{(5-5.00)^2}{5.00}
+&=0.
+\end{align*}
+
+For group 2:
+\begin{align*}
+\frac{(23-25.33)^2}{25.33}
+&\approx 0.214.
+\end{align*}
+
+\begin{align*}
+\frac{(27-24.67)^2}{24.67}
+&\approx 0.220.
+\end{align*}
+
+\begin{align*}
+\frac{(10-10.00)^2}{10.00}
+&=0.
+\end{align*}
+
+Add all terms:
+\begin{align*}
+\chi^2
+&\approx
+0.430+0.440+0
+\\
+&\quad
++0.214+0.220+0
+\\[2mm]
+&=
+1.304.
+\end{align*}
+
+\textbf{4) Degrees of freedom}
+
+The notes use:
+\[
+\text{df}
+=
+(\text{rows}-1)(\text{columns}-1).
+\]
+
+Here:
+\[
+\text{rows}=2,
+\qquad
+\text{columns}=3.
+\]
+
+So:
+\begin{align*}
+\text{df}
+&=
+(2-1)(3-1)
+\\[2mm]
+&=
+1\cdot 2
+\\[2mm]
+&=2.
+\end{align*}
+
+\textbf{5) Critical value}
+
+At 5\% significance level:
+\[
+\alpha=0.05.
+\]
+
+With:
+\[
+\text{df}=2,
+\]
+the notes use the chi-square table value:
+\[
+\chi^2_{0.05,2}=5.991.
+\]
+
+Compare:
+\[
+1.304<5.991.
+\]
+
+The test statistic is less than the rejection value.
+Therefore we do not reject \(H_0\).
+
+The notes conclude that \(H_0\) is correct:
+the grade distribution is equal across both groups.
+
+\textbf{English clarification:}
+In hypothesis-test language, this means we do not
+have enough evidence at the 5\% level to say that
+the grade distributions are different.
+
+\subsubsection*{Final answer}
+
+\[
+\chi^2_{\text{obs}}\approx 1.304.
+\]
+
+\[
+\text{df}=2.
+\]
+
+\[
+\chi^2_{0.05,2}=5.991.
+\]
+
+Since:
+\[
+1.304<5.991,
+\]
+we do not reject:
+\[
+H_0:
+\text{same grade distribution in both groups.}
+\]
+
+\subsubsection*{What to remember}
+
+For expected frequencies in a contingency table:
+\[
+E=
+\frac{
+(\text{row total})(\text{column total})
+}{
+\text{grand total}
+}.
+\]
+
+For a chi-square test:
+\[
+\chi^2
+=
+\sum
+\frac{(O-E)^2}{E}.
+\]
+
+Degrees of freedom:
+\[
+\text{df}
+=
+(\text{rows}-1)(\text{columns}-1).
+\]
+
+If:
+\[
+\chi^2_{\text{obs}}
+<
+\chi^2_{\text{critical}},
+\]
+we do not reject \(H_0\).
+
+\end{document}

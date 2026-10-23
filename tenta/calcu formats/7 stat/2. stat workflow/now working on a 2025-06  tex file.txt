@@ -1,0 +1,19 @@
+now working on a 2025-06  tex file
+
+
+EXAM_ID = "2025-06" 
+QUESTION = "Uppgift 3"
+
+Update only:
+
+2025-06_compiled_notes.tex 
+
+Do not create md/png/pdf/log/folder files.
+
+I am providing:
+1. original question (check img given) 
+2. Yacoub's notes (check img given) 
+3. Obid's notes (check img given) 
+
+Put the original question on top, then compile Yacoub + Obid notes underneath into clean beginner-friendly LaTeX.
+

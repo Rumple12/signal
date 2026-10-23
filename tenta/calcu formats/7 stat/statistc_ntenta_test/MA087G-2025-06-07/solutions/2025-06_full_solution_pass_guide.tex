@@ -1,0 +1,1107 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75em}
+
+\title{MA087G Mathematical Statistics\\Beginner-Friendly Full Solution Guide\\2025-06-07}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Source notes before solving}
+The official exam PDF was image-only. Normal text extraction found no text, but the rendered page images were readable.
+
+Per request, this folder does not include an extraction log or mistake bank. The guide below uses the updated beginner-friendly style.
+
+\section*{Uppgift 1}
+
+\subsection*{What this question is really asking}
+There is a jar with:
+\[
+10 \text{ red balls} \quad \text{and} \quad 10 \text{ white balls}.
+\]
+We choose 5 balls without replacement. ``Without replacement'' means we do not put a ball back after drawing it.
+
+Event \(A\): all 5 balls are red.
+
+Event \(B\): we get at least one ball of each color. So \(B\) means at least one red and at least one white.
+
+We must calculate:
+\[
+P(A),\quad P(B),\quad P(A\cup B),\quad P(A\mid B^c).
+\]
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item We draw several balls from a finite group.
+    \item It says ``utan återläggning'', meaning without replacement.
+    \item The order of the balls does not matter.
+\end{itemize}
+
+This is a combinations/hypergeometric problem. We count possible groups of 5 balls.
+
+\subsection*{Tiny theory needed}
+When order does not matter, use combinations:
+\[
+\binom{n}{k}.
+\]
+This means ``choose \(k\) objects from \(n\) objects''.
+
+The total number of possible draws is:
+\[
+\binom{20}{5},
+\]
+because there are 20 balls total and we choose 5.
+
+The probability is:
+\[
+\frac{\text{number of favorable groups}}{\text{number of all possible groups}}.
+\]
+
+\subsection*{Formula and what everything means}
+Combination formula:
+\[
+\binom{n}{k}=\frac{n!}{k!(n-k)!}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(n\) is how many objects we choose from.
+    \item \(k\) is how many objects we choose.
+    \item The exclamation mark means factorial, for example \(5!=5\cdot4\cdot3\cdot2\cdot1\).
+\end{itemize}
+
+Conditional probability:
+\[
+P(A\mid B^c)=\frac{P(A\cap B^c)}{P(B^c)}.
+\]
+Here \(B^c\) means ``not \(B\)''.
+
+\subsection*{Step-by-step solution}
+The total number of ways to choose 5 balls from 20 is:
+\[
+\binom{20}{5}=15504.
+\]
+
+\textbf{Part a: Calculate \(P(A)\).}
+
+Event \(A\) means all 5 balls are red. There are 10 red balls, so the number of favorable choices is:
+\[
+\binom{10}{5}=252.
+\]
+Therefore:
+\begin{align*}
+P(A)
+&=\frac{\binom{10}{5}}{\binom{20}{5}}\\
+&=\frac{252}{15504}\\
+&=\frac{21}{1292}\\
+&\approx 0.0163.
+\end{align*}
+So all red is quite unlikely.
+
+\textbf{Part b: Calculate \(P(B)\).}
+
+Event \(B\) means at least one of each color.
+
+Instead of counting all mixed cases directly, use the complement. Not \(B\), written \(B^c\), means we do not have both colors. That can only happen in two ways:
+\[
+\text{all red} \quad \text{or} \quad \text{all white}.
+\]
+The probability of all red is the same as the probability of all white:
+\[
+\frac{\binom{10}{5}}{\binom{20}{5}}.
+\]
+So:
+\begin{align*}
+P(B^c)
+&=P(\text{all red})+P(\text{all white})\\
+&=2\cdot \frac{\binom{10}{5}}{\binom{20}{5}}\\
+&=2\cdot \frac{252}{15504}\\
+&=\frac{504}{15504}.
+\end{align*}
+Then:
+\begin{align*}
+P(B)
+&=1-P(B^c)\\
+&=1-\frac{504}{15504}\\
+&=\frac{15000}{15504}\\
+&=\frac{625}{646}\\
+&\approx 0.9675.
+\end{align*}
+
+\textbf{Part c: Calculate \(P(A\cup B)\).}
+
+The symbol \(\cup\) means ``or''. So \(A\cup B\) means:
+\[
+A \text{ happens or } B \text{ happens}.
+\]
+
+Event \(A\) is all red. Event \(B\) is at least one red and at least one white.
+
+These cannot happen at the same time. If all balls are red, then we do not have a white ball. So:
+\[
+A\cap B=\varnothing.
+\]
+That means:
+\[
+P(A\cap B)=0.
+\]
+Use:
+\begin{align*}
+P(A\cup B)
+&=P(A)+P(B)-P(A\cap B)\\
+&=P(A)+P(B)-0.
+\end{align*}
+Insert the values:
+\begin{align*}
+P(A\cup B)
+&=\frac{21}{1292}+\frac{625}{646}\\
+&=\frac{21}{1292}+\frac{1250}{1292}\\
+&=\frac{1271}{1292}\\
+&\approx 0.9837.
+\end{align*}
+
+Another way to see it: \(A\cup B\) is everything except all white.
+
+\textbf{Part d: Calculate \(P(A\mid B^c)\).}
+
+We want the probability of \(A\), given that \(B\) did not happen.
+
+Remember:
+\[
+B^c=\text{all red or all white}.
+\]
+Event \(A\) is all red. If \(A\) happens, then \(B^c\) definitely happens. So:
+\[
+A\cap B^c=A.
+\]
+Use the conditional probability formula:
+\begin{align*}
+P(A\mid B^c)
+&=\frac{P(A\cap B^c)}{P(B^c)}\\
+&=\frac{P(A)}{P(B^c)}.
+\end{align*}
+Now insert values:
+\begin{align*}
+P(A\mid B^c)
+&=\frac{\frac{252}{15504}}{\frac{504}{15504}}\\
+&=\frac{252}{504}\\
+&=\frac{1}{2}.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{P(A)=\frac{21}{1292}\approx 0.0163}
+\]
+\[
+\boxed{P(B)=\frac{625}{646}\approx 0.9675}
+\]
+\[
+\boxed{P(A\cup B)=\frac{1271}{1292}\approx 0.9837}
+\]
+\[
+\boxed{P(A\mid B^c)=\frac{1}{2}}
+\]
+
+\subsection*{What to memorize for the exam}
+If the problem says ``without replacement'' and order does not matter, think combinations:
+\[
+\frac{\text{good combinations}}{\text{all combinations}}.
+\]
+
+\subsection*{Common trap}
+Do not use a binomial formula with \(p=1/2\) here. The draws are without replacement, so the probability changes after each draw. Combinations handle this cleanly.
+
+\subsection*{Repeated exam pattern}
+This is a new pattern in the processed folders so far: hypergeometric/combinations without replacement. It still connects to the probability-event thinking from 2026-01 Uppgift 1 and 2025-08 Uppgift 1.
+
+\section*{Uppgift 2}
+
+\subsection*{What this question is really asking}
+We are given a function:
+\[
+f(x)=
+\begin{cases}
+\dfrac{a}{\sqrt{x}}, & 0<x\le 4,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+We need to make it into a density function, then calculate the CDF, a probability, expected value, and standard deviation.
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It says ``täthetsfunktion'', meaning density function.
+    \item It asks for \(F_X\), the distribution function.
+    \item It asks for \(P(X\le 1)\), expected value, and standard deviation.
+\end{itemize}
+
+So we use integrals.
+
+\subsection*{Tiny theory needed}
+A density must have total area \(1\):
+\[
+\int f(x)\,dx=1.
+\]
+
+The CDF is:
+\[
+F_X(x)=P(X\le x).
+\]
+For a continuous variable, we find it by integrating the density up to \(x\).
+
+\subsection*{Formula and what everything means}
+Density condition:
+\[
+\int_0^4 \frac{a}{\sqrt{x}}\,dx=1.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(a\) is the unknown constant.
+    \item \(\sqrt{x}=x^{1/2}\).
+    \item \(\frac{1}{\sqrt{x}}=x^{-1/2}\).
+\end{itemize}
+
+Expected value:
+\[
+E(X)=\int x f(x)\,dx.
+\]
+Variance:
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+Standard deviation:
+\[
+D(X)=\sqrt{V(X)}.
+\]
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Find \(a\).}
+
+Use the total area condition:
+\begin{align*}
+\int_0^4 \frac{a}{\sqrt{x}}\,dx&=1.
+\end{align*}
+Write \(\frac{1}{\sqrt{x}}\) as \(x^{-1/2}\):
+\begin{align*}
+a\int_0^4 x^{-1/2}\,dx&=1.
+\end{align*}
+Integrate:
+\[
+\int x^{-1/2}\,dx=2x^{1/2}=2\sqrt{x}.
+\]
+So:
+\begin{align*}
+a[2\sqrt{x}]_0^4&=1\\
+a(2\sqrt{4}-2\sqrt{0})&=1\\
+a(4-0)&=1\\
+4a&=1\\
+a&=\frac{1}{4}.
+\end{align*}
+
+\textbf{Part b: Find \(F_X(x)\).}
+
+There are three regions:
+\begin{itemize}[leftmargin=*]
+    \item If \(x\le 0\), then \(F_X(x)=0\).
+    \item If \(0<x\le 4\), integrate from \(0\) to \(x\).
+    \item If \(x>4\), then \(F_X(x)=1\).
+\end{itemize}
+
+For \(0<x\le 4\):
+\begin{align*}
+F_X(x)
+&=\int_0^x \frac{1}{4\sqrt{t}}\,dt\\
+&=\frac{1}{4}\int_0^x t^{-1/2}\,dt\\
+&=\frac{1}{4}[2\sqrt{t}]_0^x\\
+&=\frac{1}{2}\sqrt{x}.
+\end{align*}
+Therefore:
+\[
+F_X(x)=
+\begin{cases}
+0, & x\le 0,\\[1mm]
+\dfrac{\sqrt{x}}{2}, & 0<x\le 4,\\[2mm]
+1, & x>4.
+\end{cases}
+\]
+
+\textbf{Part c: Calculate \(P(X\le 1)\).}
+
+Use the CDF:
+\begin{align*}
+P(X\le 1)
+&=F_X(1)\\
+&=\frac{\sqrt{1}}{2}\\
+&=\frac{1}{2}.
+\end{align*}
+
+\textbf{Part d: Expected value and standard deviation.}
+
+First:
+\begin{align*}
+E(X)
+&=\int_0^4 x\cdot \frac{1}{4\sqrt{x}}\,dx\\
+&=\frac{1}{4}\int_0^4 x^{1/2}\,dx\\
+&=\frac{1}{4}\left[\frac{2}{3}x^{3/2}\right]_0^4\\
+&=\frac{1}{6}\cdot 4^{3/2}\\
+&=\frac{1}{6}\cdot 8\\
+&=\frac{4}{3}.
+\end{align*}
+
+Now calculate \(E(X^2)\):
+\begin{align*}
+E(X^2)
+&=\int_0^4 x^2\cdot \frac{1}{4\sqrt{x}}\,dx\\
+&=\frac{1}{4}\int_0^4 x^{3/2}\,dx\\
+&=\frac{1}{4}\left[\frac{2}{5}x^{5/2}\right]_0^4\\
+&=\frac{1}{10}\cdot 4^{5/2}\\
+&=\frac{1}{10}\cdot 32\\
+&=\frac{16}{5}.
+\end{align*}
+
+Variance:
+\begin{align*}
+V(X)
+&=E(X^2)-[E(X)]^2\\
+&=\frac{16}{5}-\left(\frac{4}{3}\right)^2\\
+&=\frac{16}{5}-\frac{16}{9}\\
+&=\frac{144}{45}-\frac{80}{45}\\
+&=\frac{64}{45}.
+\end{align*}
+
+Standard deviation:
+\begin{align*}
+D(X)
+&=\sqrt{\frac{64}{45}}\\
+&=\frac{8}{3\sqrt{5}}\\
+&\approx 1.19.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{a=\frac{1}{4}}
+\]
+\[
+\boxed{
+F_X(x)=
+\begin{cases}
+0, & x\le 0,\\
+\frac{\sqrt{x}}{2}, & 0<x\le 4,\\
+1, & x>4
+\end{cases}}
+\]
+\[
+\boxed{P(X\le 1)=\frac{1}{2}}
+\]
+\[
+\boxed{E(X)=\frac{4}{3}},\qquad
+\boxed{D(X)=\sqrt{\frac{64}{45}}\approx 1.19}
+\]
+
+\subsection*{What to memorize for the exam}
+For density questions, first normalize, then build the CDF, then calculate moments:
+\[
+\int f(x)\,dx=1,\qquad F_X(x)=\int f(t)\,dt.
+\]
+
+\subsection*{Common trap}
+Do not say \(E(X)=1\) just because \(P(X\le 1)=1/2\). Probability and expected value are different things.
+
+\subsection*{Repeated exam pattern}
+This is the same pattern as 2026-01 Uppgift 2 and 2025-08 Uppgift 2: continuous density normalization, CDF, probability, expected value, and standard deviation.
+
+\section*{Uppgift 3}
+
+\subsection*{What this question is really asking}
+We have:
+\[
+X\sim \operatorname{Exp}(2),\qquad Y\sim \operatorname{Exp}(3),
+\]
+and \(X,Y\) are independent.
+
+We must calculate one exponential probability, mean and variance of \(3X+Y\), the CDF of \(4X+1\), and a probability involving \(\max(X,Y)\).
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It says \(\operatorname{Exp}(2)\) and \(\operatorname{Exp}(3)\).
+    \item It says independent.
+    \item It asks about linear combinations and \(\max\).
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+If \(X\sim \operatorname{Exp}(\lambda)\), then:
+\[
+P(X>t)=e^{-\lambda t},
+\]
+\[
+F_X(t)=P(X\le t)=1-e^{-\lambda t},\quad t\ge 0,
+\]
+\[
+E(X)=\frac{1}{\lambda},\qquad V(X)=\frac{1}{\lambda^2}.
+\]
+
+\subsection*{Formula and what everything means}
+For \(X\sim\operatorname{Exp}(2)\):
+\[
+P(X>t)=e^{-2t}.
+\]
+Here \(2\) is the rate.
+
+For a linear combination:
+\[
+E(3X+Y)=3E(X)+E(Y).
+\]
+If independent:
+\[
+V(3X+Y)=3^2V(X)+V(Y).
+\]
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Calculate \(P(1\le X<3)\).}
+
+For exponential variables, interval probability is:
+\[
+P(1\le X<3)=F_X(3)-F_X(1).
+\]
+Using survival is even faster:
+\[
+P(1\le X<3)=P(X\ge 1)-P(X\ge 3).
+\]
+So:
+\begin{align*}
+P(1\le X<3)
+&=e^{-2\cdot1}-e^{-2\cdot3}\\
+&=e^{-2}-e^{-6}\\
+&\approx 0.1329.
+\end{align*}
+
+\textbf{Part b: Calculate \(E(3X+Y)\) and \(V(3X+Y)\).}
+
+For \(X\sim\operatorname{Exp}(2)\):
+\[
+E(X)=\frac{1}{2},\qquad V(X)=\frac{1}{2^2}=\frac{1}{4}.
+\]
+For \(Y\sim\operatorname{Exp}(3)\):
+\[
+E(Y)=\frac{1}{3},\qquad V(Y)=\frac{1}{3^2}=\frac{1}{9}.
+\]
+
+Expected value:
+\begin{align*}
+E(3X+Y)
+&=3E(X)+E(Y)\\
+&=3\cdot \frac{1}{2}+\frac{1}{3}\\
+&=\frac{3}{2}+\frac{1}{3}\\
+&=\frac{9}{6}+\frac{2}{6}\\
+&=\frac{11}{6}.
+\end{align*}
+
+Variance:
+\begin{align*}
+V(3X+Y)
+&=3^2V(X)+V(Y)\\
+&=9\cdot \frac{1}{4}+\frac{1}{9}\\
+&=\frac{9}{4}+\frac{1}{9}\\
+&=\frac{81}{36}+\frac{4}{36}\\
+&=\frac{85}{36}.
+\end{align*}
+
+\textbf{Part c: Find the CDF of \(4X+1\).}
+
+Let:
+\[
+W=4X+1.
+\]
+We want:
+\[
+F_W(w)=P(W\le w).
+\]
+Substitute \(W=4X+1\):
+\begin{align*}
+F_W(w)
+&=P(4X+1\le w).
+\end{align*}
+Solve the inequality for \(X\):
+\begin{align*}
+4X+1&\le w\\
+4X&\le w-1\\
+X&\le \frac{w-1}{4}.
+\end{align*}
+Since \(X\ge 0\), the smallest possible value of \(W=4X+1\) is \(1\). So if \(w<1\), then:
+\[
+F_W(w)=0.
+\]
+If \(w\ge 1\):
+\begin{align*}
+F_W(w)
+&=P\left(X\le \frac{w-1}{4}\right)\\
+&=1-e^{-2\cdot (w-1)/4}\\
+&=1-e^{-(w-1)/2}.
+\end{align*}
+So:
+\[
+F_W(w)=
+\begin{cases}
+0, & w<1,\\
+1-e^{-(w-1)/2}, & w\ge 1.
+\end{cases}
+\]
+
+\textbf{Part d: Calculate \(P(\max\{X,Y\}\le 1)\).}
+
+The maximum is at most 1 only if both variables are at most 1:
+\[
+\max\{X,Y\}\le 1
+\]
+means:
+\[
+X\le 1 \text{ and } Y\le 1.
+\]
+Because \(X\) and \(Y\) are independent:
+\begin{align*}
+P(\max\{X,Y\}\le 1)
+&=P(X\le 1)P(Y\le 1).
+\end{align*}
+Now:
+\[
+P(X\le 1)=1-e^{-2},
+\]
+and:
+\[
+P(Y\le 1)=1-e^{-3}.
+\]
+Therefore:
+\begin{align*}
+P(\max\{X,Y\}\le 1)
+&=(1-e^{-2})(1-e^{-3})\\
+&\approx 0.8216.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{P(1\le X<3)=e^{-2}-e^{-6}\approx 0.1329}
+\]
+\[
+\boxed{E(3X+Y)=\frac{11}{6}},\qquad
+\boxed{V(3X+Y)=\frac{85}{36}}
+\]
+\[
+\boxed{
+F_{4X+1}(w)=
+\begin{cases}
+0, & w<1,\\
+1-e^{-(w-1)/2}, & w\ge 1
+\end{cases}}
+\]
+\[
+\boxed{P(\max\{X,Y\}\le 1)=(1-e^{-2})(1-e^{-3})\approx 0.8216}
+\]
+
+\subsection*{What to memorize for the exam}
+For exponential:
+\[
+F(t)=1-e^{-\lambda t},\qquad P(X>t)=e^{-\lambda t}.
+\]
+For maximum:
+\[
+\max(X,Y)\le c
+\]
+means both \(X\le c\) and \(Y\le c\).
+
+\subsection*{Common trap}
+Do not treat \(\max(X,Y)\le 1\) as only one variable being below 1. Both must be below 1.
+
+\subsection*{Repeated exam pattern}
+Part b repeats the linear-combination expectation/variance pattern from 2025-08 Uppgift 3c and 2026-01 Uppgift 4b. Part d repeats the maximum pattern from 2025-08 Uppgift 3b.
+
+\section*{Uppgift 4}
+
+\subsection*{What this question is really asking}
+This is a maximum likelihood question. We have a density with an unknown parameter \(a\):
+\[
+f_X(x)=
+\begin{cases}
+\dfrac{x}{a}e^{-x^2/(2a)}, & x\ge 0,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+We need to derive the ML estimate of \(a\).
+
+\subsection*{How to recognize this type of question}
+The clue is:
+\[
+\text{``Härled ML-skattningen av \(a\)''}.
+\]
+That means:
+\[
+\text{write likelihood, take log, differentiate, solve.}
+\]
+
+\subsection*{Tiny theory needed}
+For independent observations \(x_1,\ldots,x_n\), the likelihood is the product of the densities:
+\[
+L(a)=\prod_{i=1}^n f_X(x_i).
+\]
+We take the log because products become sums, which are easier to differentiate.
+
+\subsection*{Formula and what everything means}
+Likelihood:
+\[
+L(a)=\prod_{i=1}^n \frac{x_i}{a}e^{-x_i^2/(2a)}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(x_i\) is one observed value.
+    \item \(n\) is the number of observations.
+    \item \(a\) is the unknown parameter.
+\end{itemize}
+
+\subsection*{Step-by-step solution}
+Start with:
+\begin{align*}
+L(a)
+&=\prod_{i=1}^n \frac{x_i}{a}e^{-x_i^2/(2a)}.
+\end{align*}
+Separate the product:
+\begin{align*}
+L(a)
+&=\left(\prod_{i=1}^n x_i\right)a^{-n}
+\exp\left(-\frac{1}{2a}\sum_{i=1}^n x_i^2\right).
+\end{align*}
+
+Now take the natural log:
+\begin{align*}
+\ell(a)
+&=\ln L(a)\\
+&=\sum_{i=1}^n \ln x_i - n\ln a-\frac{1}{2a}\sum_{i=1}^n x_i^2.
+\end{align*}
+
+The first term \(\sum \ln x_i\) does not contain \(a\), so its derivative is 0.
+
+Differentiate:
+\begin{align*}
+\ell'(a)
+&=-\frac{n}{a}+\frac{1}{2a^2}\sum_{i=1}^n x_i^2.
+\end{align*}
+
+Set the derivative equal to zero:
+\begin{align*}
+-\frac{n}{a}+\frac{1}{2a^2}\sum_{i=1}^n x_i^2&=0.
+\end{align*}
+Move the first term:
+\begin{align*}
+\frac{1}{2a^2}\sum_{i=1}^n x_i^2&=\frac{n}{a}.
+\end{align*}
+Multiply both sides by \(2a^2\):
+\begin{align*}
+\sum_{i=1}^n x_i^2&=2na.
+\end{align*}
+Solve for \(a\):
+\begin{align*}
+\hat a_{ML}
+&=\frac{1}{2n}\sum_{i=1}^n x_i^2.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{\hat a_{ML}=\frac{1}{2n}\sum_{i=1}^n x_i^2}
+\]
+
+\subsection*{What to memorize for the exam}
+For ML:
+\[
+L \rightarrow \ln L \rightarrow \text{differentiate} \rightarrow \text{set equal to zero} \rightarrow \text{solve}.
+\]
+
+\subsection*{Common trap}
+Do not forget that \(a\) appears both in \(1/a\) and in the exponential. Both parts affect the derivative.
+
+\subsection*{Repeated exam pattern}
+This is the same broad ML pattern as 2026-01 Uppgift 5 and 2025-08 Uppgift 4. The density is new, but the ML workflow is the same.
+
+\section*{Uppgift 5}
+
+\subsection*{What this question is really asking}
+We have the same 8 normal observations as in 2025-08:
+\[
+13.4,\;14.1,\;15.1,\;14.3,\;14.9,\;13.9,\;14.4,\;14.0.
+\]
+We need two 95\% confidence intervals for the mean \(\mu\):
+\begin{itemize}[leftmargin=*]
+    \item part a: when \(\sigma=0.5\) is known,
+    \item part b: when \(\sigma\) is unknown.
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It says ``konfidensintervall för \(\mu\)'', so we estimate a mean.
+    \item Part a gives \(\sigma=0.5\), so use a \(z\)-interval.
+    \item Part b says \(\sigma\) is unknown, so use a \(t\)-interval with sample standard deviation \(s\).
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+Known \(\sigma\):
+\[
+\bar{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}.
+\]
+
+Unknown \(\sigma\):
+\[
+\bar{x}\pm t_{\alpha/2,n-1}\frac{s}{\sqrt{n}}.
+\]
+
+\subsection*{Formula and what everything means}
+\[
+\bar{x}=\frac{\sum x_i}{n}.
+\]
+\(\bar{x}\) is the sample average.
+
+\[
+\frac{\sigma}{\sqrt{n}}
+\quad \text{or} \quad
+\frac{s}{\sqrt{n}}
+\]
+is the standard error. It tells us how much the sample average typically varies.
+
+\subsection*{Step-by-step solution}
+We are given:
+\[
+n=8,\qquad \sum x_i=114.1,\qquad \sum x_i^2=1629.45.
+\]
+
+First calculate the sample mean:
+\begin{align*}
+\bar{x}
+&=\frac{114.1}{8}\\
+&=14.2625.
+\end{align*}
+
+\textbf{Part a: 95\% interval when \(\sigma=0.5\) is known.}
+
+For 95\%, use:
+\[
+z_{0.975}=1.96.
+\]
+Standard error:
+\begin{align*}
+\frac{\sigma}{\sqrt{n}}
+&=\frac{0.5}{\sqrt{8}}\\
+&\approx 0.1768.
+\end{align*}
+Margin of error:
+\begin{align*}
+1.96\cdot 0.1768&\approx 0.3465.
+\end{align*}
+Interval:
+\begin{align*}
+14.2625\pm 0.3465.
+\end{align*}
+So:
+\[
+(13.916,\;14.609).
+\]
+
+\textbf{Part b: 95\% interval when \(\sigma\) is unknown.}
+
+Now we need the sample standard deviation \(s\).
+
+First calculate:
+\begin{align*}
+\sum x_i^2-n\bar{x}^2
+&=1629.45-8(14.2625)^2\\
+&=1629.45-1627.35125\\
+&=2.09875.
+\end{align*}
+Then:
+\begin{align*}
+s^2
+&=\frac{2.09875}{8-1}\\
+&=\frac{2.09875}{7}\\
+&\approx 0.2998.
+\end{align*}
+So:
+\[
+s=\sqrt{0.2998}\approx 0.5476.
+\]
+
+Degrees of freedom:
+\[
+n-1=7.
+\]
+For 95\%:
+\[
+t_{0.975,7}\approx 2.365.
+\]
+Standard error:
+\begin{align*}
+\frac{s}{\sqrt{n}}
+&=\frac{0.5476}{\sqrt{8}}\\
+&\approx 0.1936.
+\end{align*}
+Margin of error:
+\begin{align*}
+2.365\cdot 0.1936&\approx 0.458.
+\end{align*}
+Interval:
+\begin{align*}
+14.2625\pm 0.458.
+\end{align*}
+So:
+\[
+(13.805,\;14.720).
+\]
+
+\subsection*{Answer}
+\[
+\boxed{\text{Known }\sigma=0.5:\ (13.916,\;14.609)}
+\]
+\[
+\boxed{\text{Unknown }\sigma:\ (13.805,\;14.720)}
+\]
+
+\subsection*{What to memorize for the exam}
+If \(\sigma\) is known, use \(z\). If \(\sigma\) is unknown, calculate \(s\) and use \(t\).
+
+\subsection*{Common trap}
+Part a and part b look almost the same, but the critical value changes:
+\[
+z=1.96 \quad \text{versus} \quad t_{0.975,7}=2.365.
+\]
+
+\subsection*{Repeated exam pattern}
+Part b is the same confidence-interval-for-mean-with-unknown-\(\sigma\) pattern as 2026-01 Uppgift 6a. The data are also reused from 2025-08 Uppgift 5, but here the interval is for \(\mu\), not \(\sigma\).
+
+\section*{Uppgift 6}
+
+\subsection*{What this question is really asking}
+A seller claims the average plant height is:
+\[
+\mu=70\text{ cm}.
+\]
+The farmer can reject the delivery if:
+\[
+\mu<70.
+\]
+So we test whether the true mean is smaller than 70.
+
+We know:
+\[
+\sigma=10.
+\]
+So this is a known-\(\sigma\) \(z\)-test.
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It asks whether the farmer can reject the delivery.
+    \item It says the farmer suspects \(\mu<70\).
+    \item It gives \(\sigma=10\), so use \(z\), not \(t\).
+    \item The risk is 5\%, so the significance level is \(\alpha=0.05\).
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+We set up:
+\[
+H_0:\mu=70
+\]
+against:
+\[
+H_1:\mu<70.
+\]
+This is a left-tailed test because the alternative says ``less than''.
+
+For a left-tailed 5\% test, the critical value is:
+\[
+-1.645.
+\]
+We reject \(H_0\) if:
+\[
+z<-1.645.
+\]
+
+\subsection*{Formula and what everything means}
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(\bar{x}\) is the sample average.
+    \item \(\mu_0=70\) is the value in the null hypothesis.
+    \item \(\sigma=10\) is the known standard deviation.
+    \item \(n\) is sample size.
+\end{itemize}
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: \(n=100\), \(\bar{x}=68\).}
+
+Hypotheses:
+\[
+H_0:\mu=70,\qquad H_1:\mu<70.
+\]
+
+Calculate the standard error:
+\begin{align*}
+\frac{\sigma}{\sqrt{n}}
+&=\frac{10}{\sqrt{100}}\\
+&=\frac{10}{10}\\
+&=1.
+\end{align*}
+
+Calculate the test statistic:
+\begin{align*}
+z
+&=\frac{68-70}{1}\\
+&=-2.
+\end{align*}
+
+Compare with the critical value:
+\[
+-2<-1.645.
+\]
+So we reject \(H_0\).
+
+In words: the sample mean is low enough that the farmer can reject the delivery at 5\% significance.
+
+\textbf{Part b: \(n=200\), \(\bar{x}=69\).}
+
+Use the same hypotheses:
+\[
+H_0:\mu=70,\qquad H_1:\mu<70.
+\]
+
+Standard error:
+\begin{align*}
+\frac{10}{\sqrt{200}}
+&\approx 0.7071.
+\end{align*}
+
+Test statistic:
+\begin{align*}
+z
+&=\frac{69-70}{10/\sqrt{200}}\\
+&=\frac{-1}{0.7071}\\
+&\approx -1.414.
+\end{align*}
+
+Compare with:
+\[
+-1.645.
+\]
+Since:
+\[
+-1.414>-1.645,
+\]
+we do not reject \(H_0\).
+
+In words: the sample mean is lower than 70, but not low enough to reject at the 5\% level.
+
+\subsection*{Answer}
+\[
+\boxed{H_0:\mu=70,\qquad H_1:\mu<70}
+\]
+\[
+\boxed{\text{Part a: }z=-2,\text{ reject }H_0.\text{ The farmer can reject the delivery.}}
+\]
+\[
+\boxed{\text{Part b: }z\approx -1.414,\text{ do not reject }H_0.\text{ The farmer cannot reject the delivery.}}
+\]
+
+\subsection*{What to memorize for the exam}
+Known \(\sigma\) means use:
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+If the alternative is \(\mu<\mu_0\), it is a left-tailed test.
+
+\subsection*{Common trap}
+Do not reject just because \(\bar{x}<70\). It must be far enough below 70 compared with the standard error.
+
+\subsection*{Repeated exam pattern}
+This is the same known-\(\sigma\) mean-test pattern as 2025-08 Uppgift 6, but here the test is left-tailed instead of right-tailed.
+
+\section*{Mini-cheatsheet from this exam}
+
+\subsection*{Combinations without replacement}
+\[
+P=\frac{\text{good combinations}}{\text{all combinations}}.
+\]
+\[
+\binom{n}{k}=\frac{n!}{k!(n-k)!}.
+\]
+
+\subsection*{Density and CDF}
+\[
+\int f(x)\,dx=1.
+\]
+\[
+F_X(x)=P(X\le x)=\int_{-\infty}^{x}f(t)\,dt.
+\]
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+
+\subsection*{Exponential distribution}
+\[
+X\sim\operatorname{Exp}(\lambda):
+\quad
+F_X(x)=1-e^{-\lambda x},\quad
+P(X>x)=e^{-\lambda x}.
+\]
+\[
+E(X)=\frac{1}{\lambda},\qquad V(X)=\frac{1}{\lambda^2}.
+\]
+
+\subsection*{Linear combinations}
+\[
+E(aX+bY)=aE(X)+bE(Y).
+\]
+If independent:
+\[
+V(aX+bY)=a^2V(X)+b^2V(Y).
+\]
+
+\subsection*{Maximum}
+\[
+\max(X,Y)\le c
+\]
+means:
+\[
+X\le c \text{ and } Y\le c.
+\]
+
+\subsection*{Maximum likelihood}
+\[
+L \rightarrow \ln L \rightarrow \text{differentiate} \rightarrow \text{set equal to zero} \rightarrow \text{solve}.
+\]
+
+\subsection*{Confidence interval for mean}
+Known \(\sigma\):
+\[
+\bar{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}.
+\]
+Unknown \(\sigma\):
+\[
+\bar{x}\pm t_{\alpha/2,n-1}\frac{s}{\sqrt{n}}.
+\]
+
+\subsection*{Hypothesis test for mean, known sigma}
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+Left-tailed 5\% test:
+\[
+\text{reject if }z<-1.645.
+\]
+
+\end{document}

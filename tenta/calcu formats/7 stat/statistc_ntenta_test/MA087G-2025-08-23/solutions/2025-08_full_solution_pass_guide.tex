@@ -1,0 +1,1261 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75em}
+
+\title{MA087G Mathematical Statistics\\Beginner-Friendly Full Solution Guide\\2025-08-23}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Source notes before solving}
+The official exam PDF was image-only. That means normal text extraction found no text, but the rendered page images were readable.
+
+One small source warning:
+\begin{itemize}[leftmargin=*]
+    \item In Uppgift 3c, the printed expression is visually a little unclear. The sensible reading, also used by student attempts, is \(Y=X_2-2X_1\). I solve that version. If the expression were read literally as \(Y=X_2-2X_2=-X_2\), then \(E(Y)=-2\) still, but \(V(Y)=2\) instead of \(10\).
+\end{itemize}
+
+\section*{Uppgift 1}
+
+\subsection*{What this question is really asking}
+We have two events, \(A\) and \(B\). An event just means something that may or may not happen.
+
+The question gives probabilities involving \(A^c\) and \(B^c\). The little \(c\) means ``not''. So:
+\[
+A^c=\text{not } A,\qquad B^c=\text{not } B.
+\]
+
+We must find \(P(A)\) and \(P(B)\), meaning the probability that \(A\) happens and the probability that \(B\) happens.
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item The question contains events \(A\), \(B\), \(A^c\), and \(B^c\).
+    \item It gives conditional probabilities like \(P(A^c\mid B^c)\).
+    \item It gives a union probability \(P(A^c\cup B^c)\).
+\end{itemize}
+
+So this is a probability algebra question. We should translate each line into formulas and solve for the missing probabilities.
+
+\subsection*{Tiny theory needed}
+The symbol \(P(A^c\mid B^c)\) means:
+
+\[
+\text{probability that \(A\) does not happen, given that \(B\) does not happen.}
+\]
+
+The formula for conditional probability is:
+\[
+P(A^c\mid B^c)=\frac{P(A^c\cap B^c)}{P(B^c)}.
+\]
+
+The symbol \(\cap\) means ``and''. So \(A^c\cap B^c\) means ``not \(A\) and not \(B\)''.
+
+The symbol \(\cup\) means ``or''. The formula for an ``or'' probability is:
+\[
+P(A^c\cup B^c)=P(A^c)+P(B^c)-P(A^c\cap B^c).
+\]
+
+We subtract the overlap once because otherwise it gets counted twice.
+
+\subsection*{Formula and what everything means}
+We will use:
+\[
+P(A^c\mid B^c)=\frac{P(A^c\cap B^c)}{P(B^c)}
+\]
+and
+\[
+P(B^c\mid A^c)=\frac{P(A^c\cap B^c)}{P(A^c)}.
+\]
+
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(P(A^c\cap B^c)\) is the probability that neither \(A\) nor \(B\) happens.
+    \item \(P(A^c)\) is the probability that \(A\) does not happen.
+    \item \(P(B^c)\) is the probability that \(B\) does not happen.
+    \item \(P(A)=1-P(A^c)\), because \(A\) either happens or does not happen.
+    \item \(P(B)=1-P(B^c)\), for the same reason.
+\end{itemize}
+
+\subsection*{Step-by-step solution}
+Let
+\[
+x=P(A^c\cap B^c).
+\]
+This is just a shortcut so we do not have to write the long expression all the time.
+
+The first given probability is:
+\[
+P(A^c\mid B^c)=0.6.
+\]
+Use the conditional probability formula:
+\begin{align*}
+0.6
+&=\frac{P(A^c\cap B^c)}{P(B^c)}\\
+&=\frac{x}{P(B^c)}.
+\end{align*}
+This says \(x\) is \(60\%\) of \(P(B^c)\). Solve for \(P(B^c)\):
+\begin{align*}
+0.6P(B^c)&=x\\
+P(B^c)&=\frac{x}{0.6}
+=\frac{5x}{3}.
+\end{align*}
+
+The second given probability is:
+\[
+P(B^c\mid A^c)=0.4.
+\]
+Again use conditional probability:
+\begin{align*}
+0.4
+&=\frac{P(A^c\cap B^c)}{P(A^c)}\\
+&=\frac{x}{P(A^c)}.
+\end{align*}
+Now solve for \(P(A^c)\):
+\begin{align*}
+0.4P(A^c)&=x\\
+P(A^c)&=\frac{x}{0.4}
+=\frac{5x}{2}.
+\end{align*}
+
+The third given probability is:
+\[
+P(A^c\cup B^c)=0.8.
+\]
+Now use the union formula:
+\begin{align*}
+P(A^c\cup B^c)
+&=P(A^c)+P(B^c)-P(A^c\cap B^c).
+\end{align*}
+Insert what we know:
+\begin{align*}
+0.8
+&=\frac{5x}{2}+\frac{5x}{3}-x.
+\end{align*}
+Now put everything over the same denominator, \(6\):
+\begin{align*}
+0.8
+&=\frac{15x}{6}+\frac{10x}{6}-\frac{6x}{6}\\
+&=\frac{19x}{6}.
+\end{align*}
+Solve for \(x\):
+\begin{align*}
+x
+&=0.8\cdot \frac{6}{19}\\
+&=\frac{4}{5}\cdot \frac{6}{19}\\
+&=\frac{24}{95}.
+\end{align*}
+
+Now find \(P(A^c)\):
+\begin{align*}
+P(A^c)
+&=\frac{5x}{2}\\
+&=\frac{5}{2}\cdot \frac{24}{95}\\
+&=\frac{60}{95}
+=\frac{12}{19}.
+\end{align*}
+So
+\begin{align*}
+P(A)
+&=1-P(A^c)\\
+&=1-\frac{12}{19}\\
+&=\frac{7}{19}.
+\end{align*}
+
+Now find \(P(B^c)\):
+\begin{align*}
+P(B^c)
+&=\frac{5x}{3}\\
+&=\frac{5}{3}\cdot \frac{24}{95}\\
+&=\frac{40}{95}
+=\frac{8}{19}.
+\end{align*}
+So
+\begin{align*}
+P(B)
+&=1-P(B^c)\\
+&=1-\frac{8}{19}\\
+&=\frac{11}{19}.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{P(A)=\frac{7}{19}\approx 0.368}
+\]
+\[
+\boxed{P(B)=\frac{11}{19}\approx 0.579}
+\]
+
+\subsection*{What to memorize for the exam}
+When you see conditional probabilities with complements, introduce a small unknown for the overlap, for example:
+\[
+x=P(A^c\cap B^c).
+\]
+Then rewrite the conditional probabilities using fractions.
+
+\subsection*{Common trap}
+Do not think \(P(A^c\mid B^c)\) means \(P(A^c)\cdot P(B^c)\). Conditional probability is a fraction, not multiplication.
+
+\subsection*{Repeated exam pattern}
+This is the same basic pattern as 2026-01, Uppgift 1: conditional probability with complements. The numbers and wording changed, but the method is the same: translate the probability statements, use conditional probability formulas, and solve for the missing probabilities.
+
+\section*{Uppgift 2}
+
+\subsection*{What this question is really asking}
+The question gives a function \(f(x)\). We must make it into a probability density function.
+
+A density function is used for a continuous random variable, meaning a variable that can take values on an interval, not just separate values like \(0,1,2\).
+
+We need to:
+\begin{itemize}[leftmargin=*]
+    \item find \(a\), the missing constant,
+    \item find the distribution function \(F_X(x)\),
+    \item calculate \(P(X>1)\),
+    \item calculate expected value and standard deviation.
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item The question says ``täthetsfunktion'', which means density function.
+    \item The function is given on an interval \(0<x<3\).
+    \item It asks for \(F_X\), which is the distribution function/CDF.
+    \item It asks for expected value and standard deviation.
+\end{itemize}
+
+So we should use integrals. For continuous variables, sums become integrals.
+
+\subsection*{Tiny theory needed}
+The density is:
+\[
+f(x)=
+\begin{cases}
+ax^2, & 0<x<3,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+For \(f\) to be a density, the total area under the curve must be \(1\). That is because total probability is always \(1\).
+
+So we need:
+\[
+\int_{-\infty}^{\infty} f(x)\,dx=1.
+\]
+But \(f(x)=0\) outside \(0<x<3\), so we only integrate from \(0\) to \(3\).
+
+\subsection*{Formula and what everything means}
+Density condition:
+\[
+\int_0^3 f(x)\,dx=1.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(f(x)\) is the density.
+    \item The integral means area under the curve.
+    \item The answer must be \(1\), because all probabilities together add to \(1\).
+\end{itemize}
+
+Distribution function:
+\[
+F_X(x)=P(X\le x)=\int_{-\infty}^{x} f(t)\,dt.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(F_X(x)\) means probability that \(X\) is at most \(x\).
+    \item \(t\) is just a dummy integration letter. It plays the same role as \(x\), but avoids confusion.
+\end{itemize}
+
+Expected value:
+\[
+E(X)=\int x f(x)\,dx.
+\]
+This is the average value of \(X\) in the long run.
+
+Variance:
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+Standard deviation:
+\[
+D(X)=\sqrt{V(X)}.
+\]
+The standard deviation tells us roughly how spread out \(X\) is.
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Find \(a\).}
+
+Use the density condition:
+\begin{align*}
+\int_0^3 ax^2\,dx&=1.
+\end{align*}
+The constant \(a\) can be moved outside the integral:
+\begin{align*}
+a\int_0^3 x^2\,dx&=1.
+\end{align*}
+Now integrate \(x^2\):
+\begin{align*}
+\int x^2\,dx=\frac{x^3}{3}.
+\end{align*}
+So:
+\begin{align*}
+a\left[\frac{x^3}{3}\right]_0^3&=1\\
+a\left(\frac{3^3}{3}-\frac{0^3}{3}\right)&=1\\
+a\left(\frac{27}{3}\right)&=1\\
+9a&=1\\
+a&=\frac{1}{9}.
+\end{align*}
+
+\textbf{Part b: Find \(F_X(x)\).}
+
+There are three regions:
+\begin{itemize}[leftmargin=*]
+    \item If \(x\le 0\), then we are before the density starts, so \(F_X(x)=0\).
+    \item If \(0<x<3\), integrate from \(0\) to \(x\).
+    \item If \(x\ge 3\), we have passed the whole density, so \(F_X(x)=1\).
+\end{itemize}
+
+For \(0<x<3\):
+\begin{align*}
+F_X(x)
+&=\int_0^x \frac{1}{9}t^2\,dt\\
+&=\frac{1}{9}\left[\frac{t^3}{3}\right]_0^x\\
+&=\frac{1}{9}\left(\frac{x^3}{3}-0\right)\\
+&=\frac{x^3}{27}.
+\end{align*}
+
+So:
+\[
+F_X(x)=
+\begin{cases}
+0, & x\le 0,\\[1mm]
+\dfrac{x^3}{27}, & 0<x<3,\\[2mm]
+1, & x\ge 3.
+\end{cases}
+\]
+
+\textbf{Part c: Calculate \(P(X>1)\).}
+
+The CDF gives \(P(X\le 1)\), so use:
+\[
+P(X>1)=1-P(X\le 1)=1-F_X(1).
+\]
+Now insert \(x=1\):
+\begin{align*}
+F_X(1)&=\frac{1^3}{27}=\frac{1}{27}.
+\end{align*}
+Therefore:
+\begin{align*}
+P(X>1)
+&=1-\frac{1}{27}\\
+&=\frac{27}{27}-\frac{1}{27}\\
+&=\frac{26}{27}.
+\end{align*}
+
+\textbf{Part d: Expected value and standard deviation.}
+
+First calculate \(E(X)\):
+\begin{align*}
+E(X)
+&=\int_0^3 x f(x)\,dx\\
+&=\int_0^3 x\cdot \frac{1}{9}x^2\,dx\\
+&=\frac{1}{9}\int_0^3 x^3\,dx\\
+&=\frac{1}{9}\left[\frac{x^4}{4}\right]_0^3\\
+&=\frac{1}{9}\cdot \frac{3^4}{4}\\
+&=\frac{1}{9}\cdot \frac{81}{4}\\
+&=\frac{9}{4}.
+\end{align*}
+So the average value is \(9/4=2.25\).
+
+Now calculate \(E(X^2)\), because we need it for the variance:
+\begin{align*}
+E(X^2)
+&=\int_0^3 x^2 f(x)\,dx\\
+&=\int_0^3 x^2\cdot \frac{1}{9}x^2\,dx\\
+&=\frac{1}{9}\int_0^3 x^4\,dx\\
+&=\frac{1}{9}\left[\frac{x^5}{5}\right]_0^3\\
+&=\frac{1}{9}\cdot \frac{3^5}{5}\\
+&=\frac{1}{9}\cdot \frac{243}{5}\\
+&=\frac{27}{5}.
+\end{align*}
+
+Now variance:
+\begin{align*}
+V(X)
+&=E(X^2)-[E(X)]^2\\
+&=\frac{27}{5}-\left(\frac{9}{4}\right)^2\\
+&=\frac{27}{5}-\frac{81}{16}.
+\end{align*}
+Use common denominator \(80\):
+\begin{align*}
+V(X)
+&=\frac{432}{80}-\frac{405}{80}\\
+&=\frac{27}{80}.
+\end{align*}
+Standard deviation:
+\begin{align*}
+D(X)
+&=\sqrt{V(X)}\\
+&=\sqrt{\frac{27}{80}}\\
+&\approx 0.581.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{a=\frac{1}{9}}
+\]
+\[
+\boxed{
+F_X(x)=
+\begin{cases}
+0, & x\le 0,\\
+\frac{x^3}{27}, & 0<x<3,\\
+1, & x\ge 3
+\end{cases}}
+\]
+\[
+\boxed{P(X>1)=\frac{26}{27}\approx 0.963}
+\]
+\[
+\boxed{E(X)=\frac{9}{4}=2.25},\qquad
+\boxed{D(X)=\sqrt{\frac{27}{80}}\approx 0.581.}
+\]
+
+\subsection*{What to memorize for the exam}
+For density questions:
+\begin{itemize}[leftmargin=*]
+    \item First make the total area equal to \(1\).
+    \item Then build the CDF by integrating the density.
+    \item For \(P(X>c)\), use \(1-F(c)\).
+    \item For standard deviation, calculate variance first.
+\end{itemize}
+
+\subsection*{Common trap}
+Do not forget the CDF pieces outside the interval. A CDF is not only \(\frac{x^3}{27}\). It must also be \(0\) before the interval and \(1\) after the interval.
+
+\subsection*{Repeated exam pattern}
+This is the same basic pattern as 2026-01, Uppgift 2: continuous density normalization, CDF, probability, expected value, and standard deviation. The density function changed, but the workflow is the same.
+
+\section*{Uppgift 3}
+
+\subsection*{What this question is really asking}
+We have two independent Poisson random variables:
+\[
+X_1,\;X_2\sim \operatorname{Po}(2).
+\]
+This means both variables count something, and the average count is \(2\).
+
+We need to calculate:
+\begin{itemize}[leftmargin=*]
+    \item one exact Poisson probability,
+    \item one interval Poisson probability,
+    \item a probability involving the maximum of \(X_1\) and \(X_2\),
+    \item expected value and variance for a linear combination.
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item The notation \(\operatorname{Po}(\mu)\) means Poisson distribution.
+    \item The question says \(\mu=2\), so the Poisson mean is \(2\).
+    \item It says \(X_1\) and \(X_2\) are independent, so probabilities involving both variables can be multiplied.
+    \item The word \(\max\) means the largest of the two values.
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+For a Poisson variable \(X\sim\operatorname{Po}(\mu)\), the probability of exactly \(k\) is:
+\[
+P(X=k)=\frac{\mu^k}{k!}e^{-\mu}.
+\]
+
+For Poisson:
+\[
+E(X)=\mu,\qquad V(X)=\mu.
+\]
+So for \(\mu=2\):
+\[
+E(X_1)=E(X_2)=2,\qquad V(X_1)=V(X_2)=2.
+\]
+
+If \(X_1\) and \(X_2\) are independent, then:
+\[
+P(X_1\le 2,\;X_2\le 2)=P(X_1\le 2)P(X_2\le 2).
+\]
+
+\subsection*{Formula and what everything means}
+Poisson formula:
+\[
+P(X=k)=\frac{\mu^k}{k!}e^{-\mu}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(k\) is the exact number we want.
+    \item \(\mu\) is the average count.
+    \item \(k!\) means \(k\cdot(k-1)\cdots 1\). For example, \(3!=3\cdot2\cdot1=6\).
+    \item \(e\) is the calculator number \(2.71828...\).
+\end{itemize}
+
+For variance of a linear combination:
+\[
+V(aX+bY)=a^2V(X)+b^2V(Y)
+\]
+when \(X\) and \(Y\) are independent. The coefficients are squared, so negative signs disappear in variance.
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Calculate \(P(X_1=1)\).}
+
+Here \(k=1\) and \(\mu=2\):
+\begin{align*}
+P(X_1=1)
+&=\frac{2^1}{1!}e^{-2}\\
+&=2e^{-2}\\
+&\approx 0.271.
+\end{align*}
+
+Now calculate \(P(1\le X_1<4)\). Since \(X_1\) is a count, this means:
+\[
+X_1=1,\;2,\;\text{or }3.
+\]
+So:
+\begin{align*}
+P(1\le X_1<4)
+&=P(X_1=1)+P(X_1=2)+P(X_1=3).
+\end{align*}
+Calculate each part:
+\begin{align*}
+P(X_1=1)&=\frac{2^1}{1!}e^{-2}=2e^{-2},\\
+P(X_1=2)&=\frac{2^2}{2!}e^{-2}=\frac{4}{2}e^{-2}=2e^{-2},\\
+P(X_1=3)&=\frac{2^3}{3!}e^{-2}=\frac{8}{6}e^{-2}=\frac{4}{3}e^{-2}.
+\end{align*}
+Add them:
+\begin{align*}
+P(1\le X_1<4)
+&=\left(2+2+\frac{4}{3}\right)e^{-2}\\
+&=\frac{16}{3}e^{-2}\\
+&\approx 0.722.
+\end{align*}
+
+\textbf{Part b: Calculate \(P(\max(X_1,X_2)\le 2)\).}
+
+The maximum is at most \(2\) only if both variables are at most \(2\). So:
+\[
+\max(X_1,X_2)\le 2
+\]
+means:
+\[
+X_1\le 2 \text{ and } X_2\le 2.
+\]
+Because \(X_1\) and \(X_2\) are independent:
+\[
+P(\max(X_1,X_2)\le 2)=P(X_1\le 2)P(X_2\le 2).
+\]
+They have the same distribution, so these two probabilities are equal:
+\[
+P(\max(X_1,X_2)\le 2)=[P(X_1\le 2)]^2.
+\]
+
+Now calculate \(P(X_1\le 2)\):
+\begin{align*}
+P(X_1\le 2)
+&=P(X_1=0)+P(X_1=1)+P(X_1=2)\\
+&=\frac{2^0}{0!}e^{-2}+\frac{2^1}{1!}e^{-2}+\frac{2^2}{2!}e^{-2}\\
+&=(1+2+2)e^{-2}\\
+&=5e^{-2}.
+\end{align*}
+Therefore:
+\begin{align*}
+P(\max(X_1,X_2)\le 2)
+&=(5e^{-2})^2\\
+&=25e^{-4}\\
+&\approx 0.458.
+\end{align*}
+
+\textbf{Part c: Calculate \(E(Y)\) and \(V(Y)\).}
+
+Using the intended reading \(Y=X_2-2X_1\):
+\[
+Y=X_2-2X_1.
+\]
+
+Expected value is linear. That means we can move constants outside:
+\begin{align*}
+E(Y)
+&=E(X_2-2X_1)\\
+&=E(X_2)-2E(X_1).
+\end{align*}
+Since both means are \(2\):
+\begin{align*}
+E(Y)
+&=2-2\cdot 2\\
+&=2-4\\
+&=-2.
+\end{align*}
+
+For variance, we square the coefficients:
+\begin{align*}
+V(Y)
+&=V(X_2-2X_1)\\
+&=V(X_2)+(-2)^2V(X_1).
+\end{align*}
+The minus sign disappears because \((-2)^2=4\):
+\begin{align*}
+V(Y)
+&=2+4\cdot 2\\
+&=2+8\\
+&=10.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{P(X_1=1)=2e^{-2}\approx 0.271}
+\]
+\[
+\boxed{P(1\le X_1<4)=\frac{16}{3}e^{-2}\approx 0.722}
+\]
+\[
+\boxed{P(\max(X_1,X_2)\le 2)=25e^{-4}\approx 0.458}
+\]
+\[
+\boxed{E(Y)=-2,\qquad V(Y)=10}
+\]
+for the intended reading \(Y=X_2-2X_1\).
+
+\subsection*{What to memorize for the exam}
+For Poisson:
+\[
+P(X=k)=\frac{\mu^k}{k!}e^{-\mu},\qquad E(X)=\mu,\qquad V(X)=\mu.
+\]
+For a maximum:
+\[
+\max(X_1,X_2)\le c
+\]
+means both variables are \(\le c\).
+
+\subsection*{Common trap}
+Variance can never be negative. When calculating \(V(X_2-2X_1)\), the \(-2\) must be squared:
+\[
+(-2)^2=4.
+\]
+So the variance contribution is \(4V(X_1)\), not \(-2V(X_1)\).
+
+\subsection*{Repeated exam pattern}
+The Poisson parts are a new pattern in the processed folders so far. The linear-combination variance idea is related to 2026-01, Uppgift 4b: coefficients must be squared when working with variance.
+
+\section*{Uppgift 4}
+
+\subsection*{What this question is really asking}
+This is a maximum likelihood question, usually shortened to ML.
+
+We are given a density:
+\[
+f_X(x)=\theta x^{\theta-1},\qquad 0<x<1.
+\]
+The unknown parameter is \(\theta\). The question wants the ML estimate of \(\theta\), meaning the value of \(\theta\) that makes the observed sample most likely.
+
+\subsection*{How to recognize this type of question}
+The clue is the phrase:
+\[
+\text{``Ange ML-skattningen av \(\theta\)''}.
+\]
+That tells us immediately:
+\begin{itemize}[leftmargin=*]
+    \item write the likelihood,
+    \item take the logarithm,
+    \item differentiate,
+    \item set the derivative equal to zero,
+    \item solve for \(\theta\).
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+The likelihood is the product of the density values at all observed data points:
+\[
+L(\theta)=\prod_{i=1}^n f_X(x_i).
+\]
+The product sign \(\prod\) just means multiply:
+\[
+\prod_{i=1}^n f_X(x_i)=f_X(x_1)f_X(x_2)\cdots f_X(x_n).
+\]
+
+We take logarithms because products are annoying, but logs turn products into sums. This makes differentiation much easier.
+
+\subsection*{Formula and what everything means}
+The density is:
+\[
+f_X(x_i)=\theta x_i^{\theta-1}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(x_i\) is one observed value in the sample.
+    \item \(n\) is the number of observations.
+    \item \(\theta\) is the unknown number we are estimating.
+    \item \(L(\theta)\) is the likelihood, a function of \(\theta\).
+\end{itemize}
+
+ML recipe:
+\[
+\ell(\theta)=\ln L(\theta),
+\]
+then solve:
+\[
+\ell'(\theta)=0.
+\]
+
+\subsection*{Step-by-step solution}
+Start with the likelihood:
+\begin{align*}
+L(\theta)
+&=\prod_{i=1}^n \theta x_i^{\theta-1}.
+\end{align*}
+There is one \(\theta\) for every observation, so multiplying them gives \(\theta^n\):
+\begin{align*}
+L(\theta)
+&=\theta^n\prod_{i=1}^n x_i^{\theta-1}.
+\end{align*}
+
+Now take the natural log:
+\begin{align*}
+\ell(\theta)
+&=\ln L(\theta)\\
+&=\ln\left(\theta^n\prod_{i=1}^n x_i^{\theta-1}\right).
+\end{align*}
+Use log rules:
+\begin{align*}
+\ell(\theta)
+&=n\ln\theta+\sum_{i=1}^n \ln\left(x_i^{\theta-1}\right).
+\end{align*}
+Another log rule says \(\ln(a^b)=b\ln(a)\):
+\begin{align*}
+\ell(\theta)
+&=n\ln\theta+\sum_{i=1}^n(\theta-1)\ln x_i\\
+&=n\ln\theta+(\theta-1)\sum_{i=1}^n \ln x_i.
+\end{align*}
+
+Now differentiate with respect to \(\theta\):
+\begin{align*}
+\ell'(\theta)
+&=\frac{n}{\theta}+\sum_{i=1}^n \ln x_i.
+\end{align*}
+Set the derivative equal to zero:
+\begin{align*}
+\frac{n}{\theta}+\sum_{i=1}^n \ln x_i&=0.
+\end{align*}
+Move the sum to the other side:
+\begin{align*}
+\frac{n}{\theta}&=-\sum_{i=1}^n \ln x_i.
+\end{align*}
+Now solve for \(\theta\):
+\begin{align*}
+\theta
+&=\frac{n}{-\sum_{i=1}^n \ln x_i}\\
+&=-\frac{n}{\sum_{i=1}^n \ln x_i}.
+\end{align*}
+
+Since every \(x_i\) is between \(0\) and \(1\), every \(\ln x_i\) is negative. So the denominator is negative, and the minus sign makes the estimate positive.
+
+\subsection*{Answer}
+\[
+\boxed{\hat{\theta}_{ML}=-\frac{n}{\sum_{i=1}^n \ln x_i}}
+\]
+
+\subsection*{What to memorize for the exam}
+For ML questions:
+\[
+\text{likelihood} \rightarrow \text{log-likelihood} \rightarrow \text{differentiate} \rightarrow \text{set equal to zero}.
+\]
+That is the exam routine almost every time.
+
+\subsection*{Common trap}
+Do not stop after writing the likelihood. Most points come from taking the log, differentiating, and solving for the parameter.
+
+\subsection*{Repeated exam pattern}
+This is the same broad ML pattern as 2026-01, Uppgift 5. The distribution is different, but the solving recipe is the same: build \(L\), take \(\ln L\), differentiate, solve.
+
+\section*{Uppgift 5}
+
+\subsection*{What this question is really asking}
+We have 8 measurements that are assumed to come from a normal distribution:
+\[
+N(\mu,\sigma).
+\]
+The question asks about \(\sigma^2\) and \(\sigma\).
+
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(\sigma^2\) is the variance, which measures spread.
+    \item \(\sigma\) is the standard deviation, which is the square root of the variance.
+\end{itemize}
+
+Part a asks for point estimates, meaning one best guess number for each.
+
+Part b asks for a 90\% confidence interval for \(\sigma\), meaning an interval of plausible values for the true standard deviation.
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item The data are assumed normal.
+    \item The question asks about \(\sigma\), not \(\mu\).
+    \item A confidence interval for \(\sigma\) uses the chi-square distribution, not the normal distribution.
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+For sample variance, we use:
+\[
+s^2=\frac{1}{n-1}\left(\sum_{i=1}^n x_i^2-n\bar{x}^2\right).
+\]
+
+This formula uses:
+\begin{itemize}[leftmargin=*]
+    \item \(\sum x_i\), the sum of the observations,
+    \item \(\sum x_i^2\), the sum of squared observations,
+    \item \(\bar{x}\), the sample mean,
+    \item \(n-1\), because this is the usual unbiased estimate of variance.
+\end{itemize}
+
+For a confidence interval for \(\sigma\), we first make an interval for \(\sigma^2\), then take square roots.
+
+\subsection*{Formula and what everything means}
+Sample mean:
+\[
+\bar{x}=\frac{\sum x_i}{n}.
+\]
+Here \(\bar{x}\) is the average of the observed data.
+
+Sample variance:
+\[
+s^2=\frac{\sum x_i^2-n\bar{x}^2}{n-1}.
+\]
+Here \(s^2\) estimates \(\sigma^2\).
+
+Confidence interval for \(\sigma^2\):
+\[
+\left(
+\frac{(n-1)s^2}{\chi^2_{0.95,n-1}},
+\frac{(n-1)s^2}{\chi^2_{0.05,n-1}}
+\right).
+\]
+For a 90\% interval, we put \(5\%\) in each tail, so we use \(0.95\) and \(0.05\) chi-square values.
+
+\subsection*{Step-by-step solution}
+We are given:
+\[
+n=8,\qquad \sum_{i=1}^8 x_i=114.1,\qquad \sum_{i=1}^8 x_i^2=1629.45.
+\]
+
+\textbf{Part a: Point estimate of \(\sigma^2\) and \(\sigma\).}
+
+First calculate the sample mean:
+\begin{align*}
+\bar{x}
+&=\frac{114.1}{8}\\
+&=14.2625.
+\end{align*}
+
+Now calculate the numerator of the variance:
+\begin{align*}
+\sum x_i^2-n\bar{x}^2
+&=1629.45-8(14.2625)^2.
+\end{align*}
+Calculate the square:
+\[
+(14.2625)^2=203.41890625.
+\]
+Multiply by \(8\):
+\[
+8(14.2625)^2=1627.35125.
+\]
+Subtract:
+\begin{align*}
+1629.45-1627.35125&=2.09875.
+\end{align*}
+Now divide by \(n-1=7\):
+\begin{align*}
+s^2
+&=\frac{2.09875}{7}\\
+&\approx 0.2998.
+\end{align*}
+So:
+\[
+\hat{\sigma}^2=s^2\approx 0.2998.
+\]
+Now take the square root to estimate \(\sigma\):
+\begin{align*}
+s
+&=\sqrt{0.2998}\\
+&\approx 0.5476.
+\end{align*}
+
+\textbf{Part b: 90\% confidence interval for \(\sigma\).}
+
+We use \(n-1=7\) degrees of freedom.
+
+From a chi-square table:
+\[
+\chi^2_{0.95,7}\approx 14.067,\qquad
+\chi^2_{0.05,7}\approx 2.167.
+\]
+
+Also:
+\[
+(n-1)s^2=7\cdot 0.2998=2.09875.
+\]
+So the interval for \(\sigma^2\) is:
+\begin{align*}
+\left(
+\frac{2.09875}{14.067},
+\frac{2.09875}{2.167}
+\right)
+&\approx (0.1492,\;0.9683).
+\end{align*}
+
+But the question asks for \(\sigma\), not \(\sigma^2\). So take square roots of both endpoints:
+\begin{align*}
+\sigma
+&\in \left(\sqrt{0.1492},\sqrt{0.9683}\right)\\
+&\approx (0.386,\;0.984).
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{\hat{\sigma}^2=s^2\approx 0.2998}
+\]
+\[
+\boxed{\hat{\sigma}=s\approx 0.5476}
+\]
+\[
+\boxed{\text{90\% confidence interval for }\sigma:\ (0.386,\;0.984)}
+\]
+
+\subsection*{What to memorize for the exam}
+If the question asks for an interval for \(\sigma\) or \(\sigma^2\) from normal data, think:
+\[
+\text{chi-square distribution}.
+\]
+Do not use a \(z\)-interval or \(t\)-interval for \(\sigma\).
+
+\subsection*{Common trap}
+A very common mistake is to calculate a confidence interval for the mean \(\mu\). But this question asks for \(\sigma\), the spread. That is a different formula.
+
+\subsection*{Repeated exam pattern}
+No exact earlier matching pattern found yet. Track this as a new pattern: point estimate and chi-square confidence interval for normal standard deviation.
+
+\section*{Uppgift 6}
+
+\subsection*{What this question is really asking}
+This question is about testing whether the average passenger weight has increased.
+
+Old belief:
+\[
+\mu=80.
+\]
+Now we want to test whether:
+\[
+\mu>80.
+\]
+
+We know the population standard deviation:
+\[
+\sigma=10.
+\]
+Because \(\sigma\) is known, this is a \(z\)-test.
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It says ``testa'', so this is a hypothesis test.
+    \item It asks whether the mean has increased, so the alternative is \(>\).
+    \item It gives \(\sigma=10\), so use a normal \(z\)-test instead of a \(t\)-test.
+    \item Part c asks how large \(n\) must be to detect an increase with 80\% probability. That is a power/sample-size question.
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+A hypothesis test compares two ideas:
+\begin{itemize}[leftmargin=*]
+    \item \(H_0\): the default idea, usually ``no increase''.
+    \item \(H_1\): the thing we are looking for evidence of.
+\end{itemize}
+
+Here we are looking for evidence that the mean is larger than \(80\), so:
+\[
+H_0:\mu=80,\qquad H_1:\mu>80.
+\]
+
+The test statistic tells us how many standard errors the observed mean is above \(80\).
+
+\subsection*{Formula and what everything means}
+The \(z\)-test statistic is:
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(\bar{x}\) is the sample average.
+    \item \(\mu_0\) is the mean in the null hypothesis, here \(80\).
+    \item \(\sigma\) is the known standard deviation, here \(10\).
+    \item \(n\) is the sample size.
+    \item \(\sigma/\sqrt{n}\) is the standard error, meaning the typical spread of the sample average.
+\end{itemize}
+
+For a one-sided 5\% test:
+\[
+z_{0.95}\approx 1.645.
+\]
+We reject \(H_0\) if the test statistic is bigger than \(1.645\).
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Set up the hypotheses.}
+
+The old mean is \(80\), and we are checking if the mean has increased. So:
+\[
+H_0:\mu=80
+\]
+and
+\[
+H_1:\mu>80.
+\]
+
+The significance level is \(5\%\). That means we allow a \(5\%\) risk of falsely saying there is an increase when there is not.
+
+\textbf{Part b: Perform the test for \(n=100\) and \(\bar{x}=83\).}
+
+Insert the values:
+\[
+\bar{x}=83,\qquad \mu_0=80,\qquad \sigma=10,\qquad n=100.
+\]
+
+First calculate the standard error:
+\begin{align*}
+\frac{\sigma}{\sqrt{n}}
+&=\frac{10}{\sqrt{100}}\\
+&=\frac{10}{10}\\
+&=1.
+\end{align*}
+
+Now calculate the \(z\)-value:
+\begin{align*}
+z
+&=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}\\
+&=\frac{83-80}{1}\\
+&=3.
+\end{align*}
+
+Compare with the critical value:
+\[
+1.645.
+\]
+Since:
+\[
+3>1.645,
+\]
+we reject \(H_0\).
+
+In plain language: the sample mean \(83\) is far enough above \(80\) that we say there is evidence the average weight has increased.
+
+\textbf{Part c: Find \(n\) for 80\% probability of detecting \(\mu=82\).}
+
+The test rejects when:
+\[
+\bar{X}>80+1.645\frac{10}{\sqrt{n}}.
+\]
+This is the rejection boundary. The sample mean must be above this number to reject \(H_0\).
+
+Now assume the true mean is actually:
+\[
+\mu=82.
+\]
+Then:
+\[
+\bar{X}\sim N\left(82,\frac{10}{\sqrt{n}}\right).
+\]
+We want:
+\[
+P(\text{reject }H_0)>0.80.
+\]
+Using the rejection rule:
+\[
+P\left(\bar{X}>80+1.645\frac{10}{\sqrt{n}}\right)>0.80.
+\]
+
+Standardize this probability. Subtract the true mean \(82\), then divide by the standard error \(10/\sqrt{n}\):
+\[
+P\left(
+Z>
+\frac{80+1.645\frac{10}{\sqrt{n}}-82}{10/\sqrt{n}}
+\right)>0.80.
+\]
+
+The problem tells us:
+\[
+\Phi(0.84)\approx 0.80.
+\]
+That means:
+\[
+P(Z>-0.84)\approx 0.80.
+\]
+So we need the cutoff inside the probability to be at most \(-0.84\):
+\[
+\frac{80+1.645\frac{10}{\sqrt{n}}-82}{10/\sqrt{n}}\le -0.84.
+\]
+Simplify the top:
+\[
+80-82=-2.
+\]
+So:
+\[
+\frac{-2+1.645\frac{10}{\sqrt{n}}}{10/\sqrt{n}}\le -0.84.
+\]
+Split the fraction into two parts:
+\begin{align*}
+\frac{-2}{10/\sqrt{n}}+1.645&\le -0.84.
+\end{align*}
+Since dividing by \(10/\sqrt{n}\) is the same as multiplying by \(\sqrt{n}/10\):
+\begin{align*}
+-\frac{2\sqrt{n}}{10}+1.645&\le -0.84\\
+-0.2\sqrt{n}+1.645&\le -0.84.
+\end{align*}
+Move \(1.645\) to the right:
+\begin{align*}
+-0.2\sqrt{n}&\le -0.84-1.645\\
+-0.2\sqrt{n}&\le -2.485.
+\end{align*}
+Divide by \(-0.2\). Because we divide by a negative number, the inequality sign flips:
+\begin{align*}
+\sqrt{n}&\ge 12.425.
+\end{align*}
+Square both sides:
+\begin{align*}
+n&\ge (12.425)^2\\
+n&\ge 154.38.
+\end{align*}
+The sample size must be a whole number, and it must be large enough, so round up:
+\[
+n=155.
+\]
+
+\subsection*{Answer}
+\[
+\boxed{H_0:\mu=80,\qquad H_1:\mu>80}
+\]
+\[
+\boxed{z=3}
+\]
+\[
+\boxed{\text{Reject }H_0\text{ at the 5\% level. There is evidence that the mean has increased.}}
+\]
+\[
+\boxed{n=155\text{ is needed for about 80\% power when }\mu=82.}
+\]
+
+\subsection*{What to memorize for the exam}
+If the population standard deviation \(\sigma\) is known, use:
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+If the question says ``has increased'', use a right-tailed test:
+\[
+H_1:\mu>\mu_0.
+\]
+
+\subsection*{Common trap}
+In part c, do not plug in \(\bar{x}=83\). Part c is not about the old sample anymore. It asks how large \(n\) must be if the true mean is \(82\).
+
+\subsection*{Repeated exam pattern}
+This is related to 2026-01, Uppgift 6 because both are hypothesis tests for a mean. The difference is that this question has known \(\sigma\) and a one-sided alternative, so it uses a \(z\)-test instead of a \(t\)-test.
+
+\section*{Mini-cheatsheet from this exam}
+
+\subsection*{Probability}
+Complement:
+\[
+P(A)=1-P(A^c).
+\]
+Conditional probability:
+\[
+P(A\mid B)=\frac{P(A\cap B)}{P(B)}.
+\]
+Union:
+\[
+P(A\cup B)=P(A)+P(B)-P(A\cap B).
+\]
+
+\subsection*{Continuous density}
+To make a density:
+\[
+\int f(x)\,dx=1.
+\]
+CDF:
+\[
+F(x)=P(X\le x)=\int_{-\infty}^{x}f(t)\,dt.
+\]
+Right-tail probability:
+\[
+P(X>c)=1-F(c).
+\]
+Variance:
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+
+\subsection*{Poisson}
+If \(X\sim \operatorname{Po}(\mu)\):
+\[
+P(X=k)=\frac{\mu^k}{k!}e^{-\mu}.
+\]
+\[
+E(X)=\mu,\qquad V(X)=\mu.
+\]
+For independent variables:
+\[
+P(X_1\le c,\;X_2\le c)=P(X_1\le c)P(X_2\le c).
+\]
+
+\subsection*{Maximum likelihood}
+Standard ML workflow:
+\[
+L(\theta)\rightarrow \ln L(\theta)\rightarrow \text{differentiate}\rightarrow \text{set equal to zero}.
+\]
+
+\subsection*{Variance and standard deviation}
+Sample mean:
+\[
+\bar{x}=\frac{\sum x_i}{n}.
+\]
+Sample variance:
+\[
+s^2=\frac{\sum x_i^2-n\bar{x}^2}{n-1}.
+\]
+Standard deviation:
+\[
+s=\sqrt{s^2}.
+\]
+
+\subsection*{Confidence interval for \(\sigma\)}
+For normal data:
+\[
+\left(
+\sqrt{\frac{(n-1)s^2}{\chi^2_{0.95,n-1}}},
+\sqrt{\frac{(n-1)s^2}{\chi^2_{0.05,n-1}}}
+\right)
+\]
+for a 90\% interval.
+
+\subsection*{Hypothesis test for mean, known \(\sigma\)}
+\[
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+Right-tailed 5\% test:
+\[
+\text{reject if } z>1.645.
+\]
+
+\subsection*{Power/sample size trick}
+First write the rejection boundary, then calculate the probability of crossing that boundary under the new true mean.
+
+\end{document}

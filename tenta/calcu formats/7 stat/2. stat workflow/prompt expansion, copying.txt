@@ -1,0 +1,44 @@
+prompt expansion, copying
+
+
+
+STRICT NOTE-COPYING RULE:
+The solution must come from Yacoub's notes and Obid's notes, not from your own solving.
+
+Treat Yacoub's and Obid's notes as the source of truth.
+
+Your first job is to transcribe/copy our solution notes as faithfully as possible into clean LaTeX.
+
+Do NOT “solve it yourself”.... only when we lazilly skipped something, insert faithful content to complete the solution if something was skipped or unclear
+Do NOT replace our method with a better method.
+Do NOT rewrite the solution into your own independent answer.
+Do NOT add a new approach unless it is clearly already present in Yacoub's or Obid's notes.
+
+When compiling the solution:
+- preserve the exact mathematical steps from Yacoub and Obid
+- preserve the same order of reasoning as much as possible
+- preserve formulas, substitutions, values, and final answers from the notes
+- convert messy handwriting into clean LaTeX
+- make the notes readable, but do not change the actual solution logic
+- if both Yacoub and Obid write the same step, merge it neatly
+- if one of them has an extra explanation, include it
+- if one of them skips a step, only fill the missing step if it is obviously implied
+
+If the notes are missing key information:
+- do NOT invent a full new solution
+- add a short English clarification only where needed to complete the solution
+- clearly mark it as an added clarification
+
+Use this format when adding missing explanation:
+
+\textbf{English clarification:}
+[short explanation of the missing step]
+
+If the missing information is mathematical and not clearly implied by the notes, patch that specific part and leave the rest the same
+% UNCERTAIN: this step is missing from both Yacoub's and Obid's notes.
+
+The goal is:
+1. copy Yacoub + Obid notes faithfully
+2. clean them into narrow LaTeX
+3. add only small English clarification when the notes are too lazy/skipped
+4. never produce a fresh independent ChatGPT/Codex solution

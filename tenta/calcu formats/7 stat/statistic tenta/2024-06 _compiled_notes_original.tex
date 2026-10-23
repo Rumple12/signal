@@ -1,0 +1,2622 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[paperwidth=384pt,paperheight=900pt,margin=10pt]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=12pt}
+\setlist[enumerate]{leftmargin=14pt}
+
+\sloppy
+\allowdisplaybreaks
+\emergencystretch=2em
+
+\begin{document}
+
+\section*{Uppgift 1}
+
+\subsection*{Original question}
+I ett stort land kandiderar Lena och Mats för att
+bli president.
+För enkelhetens skull antar vi att alla
+röstberättigade medborgare vet vilken kandidat de
+föredrar (\(L\) eller \(M\)) och att ingen vill lägga
+ner sin röst.
+Vi vill undersöka huruvida den politiska läggningen
+hänger ihop med omständigheten att man är vegetarian
+\((V)\) eller inte (ej \(V\)).
+Följande sannolikheter är kända:
+
+\[
+P(L\cap V)=0.15,
+\qquad
+P(M\cap V)=0.05,
+\qquad
+P(L)=0.47.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm sannolikheterna
+\(P(V)\), \(P(\text{ej }V)\) och \(P(L\mid V)\).
+\hfill (1.5p)
+
+\item Bestäm sannolikheten \(P(L\cup V)\).
+\hfill (1p)
+
+\item Är händelserna \(L\) och \(V\) oberoende?
+\hfill (1p)
+
+\item Man har frågat 10 personer (utan att utesluta
+att samma person har frågats flera gånger) om deras
+matvanor.
+Vad är sannolikheten att fler än 5 har svarat att de
+inte är vegetarianer?
+\hfill (2.5p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes split people by two things:
+which candidate they vote for,
+and whether they are vegetarian.
+
+Then the notes use:
+\begin{itemize}
+\item conditional probability,
+\item union formula,
+\item independence check,
+\item binomial distribution for 10 people.
+\end{itemize}
+
+\subsubsection*{Given information}
+\[
+P(L\cap V)=0.15.
+\]
+
+\[
+P(M\cap V)=0.05.
+\]
+
+\[
+P(L)=0.47.
+\]
+
+\[
+L=\text{votes for Lena},
+\qquad
+M=\text{votes for Mats}.
+\]
+
+\[
+V=\text{vegetarian}.
+\]
+
+\[
+V^c=\text{not vegetarian}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Find \(P(V)\)}
+
+The notes say:
+\[
+P(V)
+=
+\text{all }V\text{ with }L
++
+\text{all }V\text{ with }M.
+\]
+
+So:
+
+\begin{align*}
+P(V)
+&=P(L\cap V)+P(M\cap V) \\[2mm]
+&=0.15+0.05 \\[2mm]
+&=0.20.
+\end{align*}
+
+So 20\% are vegetarian.
+
+\textbf{a) Find \(P(\text{ej }V)\)}
+
+\begin{align*}
+P(V^c)
+&=1-P(V) \\[2mm]
+&=1-0.20 \\[2mm]
+&=0.80.
+\end{align*}
+
+So 80\% are not vegetarian.
+
+\textbf{a) Find \(P(L\mid V)\)}
+
+The notes use the conditional formula:
+
+\[
+P(L\mid V)
+=
+\frac{P(L\cap V)}{P(V)}.
+\]
+
+Substitute:
+
+\begin{align*}
+P(L\mid V)
+&=
+\frac{0.15}{0.20} \\[2mm]
+&=0.75.
+\end{align*}
+
+The notes explain this as:
+knowing the person is vegetarian,
+there is a 75\% chance they vote for \(L\).
+
+\textbf{b) Find \(P(L\cup V)\)}
+
+I ett stort land kandiderar Lena och Mats för att
+bli president.
+För enkelhetens skull antar vi att alla
+röstberättigade medborgare vet vilken kandidat de
+föredrar (\(L\) eller \(M\)) och att ingen vill lägga
+ner sin röst.
+Vi vill undersöka huruvida den politiska läggningen
+hänger ihop med omständigheten att man är vegetarian
+\((V)\) eller inte (ej \(V\)).
+Följande sannolikheter är kända:
+
+\[
+P(L\cap V)=0.15,
+\qquad
+P(M\cap V)=0.05,
+\qquad
+P(L)=0.47.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm sannolikheterna
+\(P(V)\), \(P(\text{ej }V)\) och \(P(L\mid V)\).
+\hfill (1.5p)
+
+\item Bestäm sannolikheten \(P(L\cup V)\).
+\hfill (1p)
+
+\item Är händelserna \(L\) och \(V\) oberoende?
+\hfill (1p)
+
+\item Man har frågat 10 personer (utan att utesluta
+att samma person har frågats flera gånger) om deras
+matvanor.
+Vad är sannolikheten att fler än 5 har svarat att de
+inte är vegetarianer?
+\hfill (2.5p)
+\end{enumerate}
+
+The notes use the union formula:
+
+\[
+P(L\cup V)
+=P(L)+P(V)-P(L\cap V).
+\]
+
+Substitute:
+
+\begin{align*}
+P(L\cup V)
+&=0.47+0.20-0.15 \\[2mm]
+&=0.52.
+\end{align*}
+
+\textbf{Explanation from the notes}
+
+Intersection means:
+people who voted \(L\) and are vegetarian.
+
+Union means:
+people who voted \(L\) or are vegetarian,
+combined.
+
+\textbf{c) Check independence}
+
+I ett stort land kandiderar Lena och Mats för att
+bli president.
+För enkelhetens skull antar vi att alla
+röstberättigade medborgare vet vilken kandidat de
+föredrar (\(L\) eller \(M\)) och att ingen vill lägga
+ner sin röst.
+Vi vill undersöka huruvida den politiska läggningen
+hänger ihop med omständigheten att man är vegetarian
+\((V)\) eller inte (ej \(V\)).
+Följande sannolikheter är kända:
+
+\[
+P(L\cap V)=0.15,
+\qquad
+P(M\cap V)=0.05,
+\qquad
+P(L)=0.47.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm sannolikheterna
+\(P(V)\), \(P(\text{ej }V)\) och \(P(L\mid V)\).
+\hfill (1.5p)
+
+\item Bestäm sannolikheten \(P(L\cup V)\).
+\hfill (1p)
+
+\item Är händelserna \(L\) och \(V\) oberoende?
+\hfill (1p)
+
+\item Man har frågat 10 personer (utan att utesluta
+att samma person har frågats flera gånger) om deras
+matvanor.
+Vad är sannolikheten att fler än 5 har svarat att de
+inte är vegetarianer?
+\hfill (2.5p)
+\end{enumerate}
+
+The notes check independence by comparing:
+
+\[
+P(L\cap V)
+\quad \text{and} \quad
+P(L)\cdot P(V).
+\]
+
+Use the values:
+
+\begin{align*}
+P(L)\cdot P(V)
+&=0.47\cdot 0.20 \\[2mm]
+&=0.094.
+\end{align*}
+
+But:
+
+\[
+P(L\cap V)=0.15.
+\]
+
+Compare:
+
+\[
+0.15\neq 0.094.
+\]
+
+Therefore:
+
+\[
+L \text{ and } V
+\text{ are dependent.}
+\]
+
+\textbf{d) More than 5 are not vegetarian}
+
+I ett stort land kandiderar Lena och Mats för att
+bli president.
+För enkelhetens skull antar vi att alla
+röstberättigade medborgare vet vilken kandidat de
+föredrar (\(L\) eller \(M\)) och att ingen vill lägga
+ner sin röst.
+Vi vill undersöka huruvida den politiska läggningen
+hänger ihop med omständigheten att man är vegetarian
+\((V)\) eller inte (ej \(V\)).
+Följande sannolikheter är kända:
+
+\[
+P(L\cap V)=0.15,
+\qquad
+P(M\cap V)=0.05,
+\qquad
+P(L)=0.47.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm sannolikheterna
+\(P(V)\), \(P(\text{ej }V)\) och \(P(L\mid V)\).
+\hfill (1.5p)
+
+\item Bestäm sannolikheten \(P(L\cup V)\).
+\hfill (1p)
+
+\item Är händelserna \(L\) och \(V\) oberoende?
+\hfill (1p)
+
+\item Man har frågat 10 personer (utan att utesluta
+att samma person har frågats flera gånger) om deras
+matvanor.
+Vad är sannolikheten att fler än 5 har svarat att de
+inte är vegetarianer?
+\hfill (2.5p)
+\end{enumerate}
+
+The notes use:
+
+\[
+n=10.
+\]
+
+From part a):
+
+\[
+P(V^c)=0.80.
+\]
+
+Let:
+
+\[
+X=\text{number of not vegetarian persons}.
+\]
+
+Then:
+
+\[
+X\sim \operatorname{Bin}(10,0.80).
+\]
+
+We need:
+
+\[
+P(X>5).
+\]
+
+That means:
+
+\[
+X=6,7,8,9,10.
+\]
+
+The binomial formula is:
+
+\[
+P(X=k)
+=
+\binom{n}{k}
+p^k(1-p)^{n-k}.
+\]
+
+For example, the notes calculate \(X=6\):
+
+\begin{align*}
+P(X=6)
+&=
+\binom{10}{6}
+0.80^6(0.20)^4 \\[2mm]
+&=210\cdot 0.26214\cdot 0.0016 \\[2mm]
+&\approx 0.0881.
+\end{align*}
+
+The notes list:
+
+\[
+P(X=6)=0.0881.
+\]
+
+\[
+P(X=7)=0.2013.
+\]
+
+\[
+P(X=8)=0.3020.
+\]
+
+\[
+P(X=9)=0.2684.
+\]
+
+\[
+P(X=10)=0.1074.
+\]
+
+Add them:
+
+\begin{align*}
+P(X>5)
+&=P(X=6)+P(X=7)+P(X=8) \\
+&\quad +P(X=9)+P(X=10) \\[2mm]
+&=0.0881+0.2013+0.3020 \\
+&\quad +0.2684+0.1074 \\[2mm]
+&=0.9672.
+\end{align*}
+
+So the notes conclude:
+
+\[
+P(X>5)=0.9672.
+\]
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(V)=0.20,
+\qquad
+P(\text{ej }V)=0.80.
+\]
+
+\[
+P(L\mid V)=0.75.
+\]
+
+\item
+\[
+P(L\cup V)=0.52.
+\]
+
+\item
+\[
+L \text{ and } V
+\text{ are dependent.}
+\]
+
+\item
+\[
+P(X>5)=0.9672.
+\]
+
+There is a 96.72\% chance that more than 5 out of
+10 are not vegetarian.
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For conditional probability:
+
+\[
+P(A\mid B)
+=
+\frac{P(A\cap B)}{P(B)}.
+\]
+
+For a union:
+
+\[
+P(A\cup B)
+=P(A)+P(B)-P(A\cap B).
+\]
+
+For independence:
+
+\[
+P(A\cap B)=P(A)P(B).
+\]
+
+For repeated yes/no trials:
+
+\[
+X\sim \operatorname{Bin}(n,p).
+\]
+
+\[
+P(X=k)
+=
+\binom{n}{k}p^k(1-p)^{n-k}.
+\]
+
+\section*{Uppgift 2}
+
+\subsection*{Original question}
+Den stokastiska variabeln \(X\) har täthetsfunktionen
+
+\[
+f_X(x)=
+\begin{cases}
+x+1, & -1\le x<0,\\
+-x+1, & 0\le x\le 1,\\
+0, & \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Verifiera att \(f_X\) uppfyller kraven på en
+täthetsfunktion.
+\hfill (1.5p)
+
+\item Beräkna \(P(X\le 0.5)\).
+\hfill (1p)
+
+\item Bestäm väntevärde och varians för \(X\).
+\hfill (2.5p)
+
+\item Låt \(Y\) vara en stokastisk variabel som är
+likformigt fördelad på intervallet \((-1,1)\) och som
+är oberoende av \(X\).
+Beräkna \(P(\max(X,Y)\le 0)\).
+\hfill (2p)
+
+\item Bestäm \(V(X+Y)\).
+\hfill (1p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes start by checking that the given function is
+a valid probability density function.
+
+For a valid density function, the notes use two checks:
+\begin{itemize}
+\item \(f(x)\ge 0\) for all \(x\),
+\item the total probability is \(1\).
+\end{itemize}
+
+\subsubsection*{Given information}
+\[
+f_X(x)=
+\begin{cases}
+x+1, & -1\le x<0,\\
+-x+1, & 0\le x\le 1,\\
+0, & \text{annars}.
+\end{cases}
+\]
+
+\[
+X=\text{stokastisk variabel}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Verify that \(f_X\) is a density}
+
+The notes say that a density function must satisfy:
+
+\[
+f_X(x)\ge 0
+\quad \text{for all }x.
+\]
+
+and:
+
+\[
+\int_{-\infty}^{\infty} f_X(x)\,dx=1.
+\]
+
+\textbf{Check 1: non-negativity}
+
+On the interval:
+
+\[
+-1\le x<0
+\]
+
+we have:
+
+\[
+f_X(x)=x+1.
+\]
+
+The notes say the lowest value is at \(x=-1\):
+
+\begin{align*}
+f_X(-1)
+&=-1+1 \\[2mm]
+&=0.
+\end{align*}
+
+As \(x\) increases from \(-1\) to \(0\),
+the function increases positively.
+So this part is never negative.
+
+On the interval:
+
+\[
+0\le x\le 1
+\]
+
+we have:
+
+\[
+f_X(x)=-x+1.
+\]
+
+The notes say the highest value is at \(x=0\):
+
+\begin{align*}
+f_X(0)
+&=-0+1 \\[2mm]
+&=1.
+\end{align*}
+
+At the end of the interval:
+
+\begin{align*}
+f_X(1)
+&=-1+1 \\[2mm]
+&=0.
+\end{align*}
+
+So this part is also never negative.
+
+Outside these intervals:
+
+\[
+f_X(x)=0.
+\]
+
+Therefore:
+
+\[
+f_X(x)\ge 0
+\quad \text{for all }x.
+\]
+
+\textbf{Check 2: total probability}
+
+The notes then check that the total area is \(1\).
+
+\begin{align*}
+\int_{-\infty}^{\infty} f_X(x)\,dx
+&=
+\int_{-1}^{0}(x+1)\,dx \\
+&\quad+
+\int_{0}^{1}(-x+1)\,dx.
+\end{align*}
+
+First part:
+
+\begin{align*}
+\int_{-1}^{0}(x+1)\,dx
+&=
+\left[
+\frac{x^2}{2}+x
+\right]_{-1}^{0} \\[2mm]
+&=0-
+\left(
+\frac{1}{2}-1
+\right) \\[2mm]
+&=\frac{1}{2}.
+\end{align*}
+
+Second part:
+
+\begin{align*}
+\int_{0}^{1}(-x+1)\,dx
+&=
+\left[
+-\frac{x^2}{2}+x
+\right]_{0}^{1} \\[2mm]
+&=
+-\frac{1}{2}+1 \\[2mm]
+&=\frac{1}{2}.
+\end{align*}
+
+Add the two areas:
+
+\begin{align*}
+\frac{1}{2}+\frac{1}{2}
+&=1.
+\end{align*}
+
+So the total area under the density is \(1\).
+
+Therefore \(f_X\) is a valid density function.
+
+\textbf{b) Calculate \(P(X\le 0.5)\)}
+
+Den stokastiska variabeln \(X\) har täthetsfunktionen
+
+\[
+f_X(x)=
+\begin{cases}
+x+1, & -1\le x<0,\\
+-x+1, & 0\le x\le 1,\\
+0, & \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Verifiera att \(f_X\) uppfyller kraven på en
+täthetsfunktion.
+\hfill (1.5p)
+
+\item Beräkna \(P(X\le 0.5)\).
+\hfill (1p)
+
+\item Bestäm väntevärde och varians för \(X\).
+\hfill (2.5p)
+
+\item Låt \(Y\) vara en stokastisk variabel som är
+likformigt fördelad på intervallet \((-1,1)\) och som
+är oberoende av \(X\).
+Beräkna \(P(\max(X,Y)\le 0)\).
+\hfill (2p)
+
+\item Bestäm \(V(X+Y)\).
+\hfill (1p)
+\end{enumerate}
+
+The notes split the integral at \(0\), because the
+formula for \(f_X\) changes there:
+
+\begin{align*}
+P(X\le 0.5)
+&=
+\int_{-1}^{0}(x+1)\,dx \\
+&\quad+
+\int_{0}^{0.5}(-x+1)\,dx.
+\end{align*}
+
+The first part is already known from part a):
+
+\[
+\int_{-1}^{0}(x+1)\,dx=\frac{1}{2}.
+\]
+
+Now calculate the second part:
+
+\begin{align*}
+\int_{0}^{0.5}(-x+1)\,dx
+&=
+\left[
+-\frac{x^2}{2}+x
+\right]_{0}^{0.5} \\[2mm]
+&=
+-\frac{0.5^2}{2}+0.5 \\[2mm]
+&=
+-0.125+0.5 \\[2mm]
+&=0.375.
+\end{align*}
+
+Add the two parts:
+
+\begin{align*}
+P(X\le 0.5)
+&=0.5+0.375 \\[2mm]
+&=0.875.
+\end{align*}
+
+\textbf{c) Expected value and variance}
+
+Den stokastiska variabeln \(X\) har täthetsfunktionen
+
+\[
+f_X(x)=
+\begin{cases}
+x+1, & -1\le x<0,\\
+-x+1, & 0\le x\le 1,\\
+0, & \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Verifiera att \(f_X\) uppfyller kraven på en
+täthetsfunktion.
+\hfill (1.5p)
+
+\item Beräkna \(P(X\le 0.5)\).
+\hfill (1p)
+
+\item Bestäm väntevärde och varians för \(X\).
+\hfill (2.5p)
+
+\item Låt \(Y\) vara en stokastisk variabel som är
+likformigt fördelad på intervallet \((-1,1)\) och som
+är oberoende av \(X\).
+Beräkna \(P(\max(X,Y)\le 0)\).
+\hfill (2p)
+
+\item Bestäm \(V(X+Y)\).
+\hfill (1p)
+\end{enumerate}
+
+The notes calculate:
+
+\[
+E[X]
+=
+\int x f_X(x)\,dx.
+\]
+
+Because \(f_X\) is piecewise:
+
+\begin{align*}
+E[X]
+&=
+\int_{-1}^{0}x(x+1)\,dx \\
+&\quad+
+\int_{0}^{1}x(-x+1)\,dx.
+\end{align*}
+
+Rewrite inside the integrals:
+
+\begin{align*}
+E[X]
+&=
+\int_{-1}^{0}(x^2+x)\,dx \\
+&\quad+
+\int_{0}^{1}(-x^2+x)\,dx.
+\end{align*}
+
+Calculate:
+
+\begin{align*}
+E[X]
+&=
+\left[
+\frac{x^3}{3}
++\frac{x^2}{2}
+\right]_{-1}^{0} \\
+&\quad+
+\left[
+-\frac{x^3}{3}
++\frac{x^2}{2}
+\right]_{0}^{1} \\[2mm]
+&=
+-\frac{1}{6}
++\frac{1}{6} \\[2mm]
+&=0.
+\end{align*}
+
+So:
+
+\[
+E[X]=0.
+\]
+
+For the variance, the notes first find \(E[X^2]\):
+
+\begin{align*}
+E[X^2]
+&=
+\int_{-1}^{0}x^2(x+1)\,dx \\
+&\quad+
+\int_{0}^{1}x^2(-x+1)\,dx.
+\end{align*}
+
+Rewrite:
+
+\begin{align*}
+E[X^2]
+&=
+\int_{-1}^{0}(x^3+x^2)\,dx \\
+&\quad+
+\int_{0}^{1}(-x^3+x^2)\,dx.
+\end{align*}
+
+Calculate:
+
+\begin{align*}
+E[X^2]
+&=
+\left[
+\frac{x^4}{4}
++\frac{x^3}{3}
+\right]_{-1}^{0} \\
+&\quad+
+\left[
+-\frac{x^4}{4}
++\frac{x^3}{3}
+\right]_{0}^{1} \\[2mm]
+&=
+\frac{1}{12}
++\frac{1}{12} \\[2mm]
+&=
+\frac{1}{6}.
+\end{align*}
+
+The notes then use:
+
+\[
+\operatorname{Var}(X)
+=
+E[X^2]-(E[X])^2.
+\]
+
+So:
+
+\begin{align*}
+\operatorname{Var}(X)
+&=
+\frac{1}{6}-0^2 \\[2mm]
+&=
+\frac{1}{6}.
+\end{align*}
+
+The notes also write the standard deviation:
+
+\begin{align*}
+\sigma_X
+&=
+\sqrt{\frac{1}{6}} \\[2mm]
+&=
+\frac{\sqrt{6}}{6}.
+\end{align*}
+
+\textbf{d) Calculate \(P(\max(X,Y)\le 0)\)}
+
+Den stokastiska variabeln \(X\) har täthetsfunktionen
+
+\[
+f_X(x)=
+\begin{cases}
+x+1, & -1\le x<0,\\
+-x+1, & 0\le x\le 1,\\
+0, & \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Verifiera att \(f_X\) uppfyller kraven på en
+täthetsfunktion.
+\hfill (1.5p)
+
+\item Beräkna \(P(X\le 0.5)\).
+\hfill (1p)
+
+\item Bestäm väntevärde och varians för \(X\).
+\hfill (2.5p)
+
+\item Låt \(Y\) vara en stokastisk variabel som är
+likformigt fördelad på intervallet \((-1,1)\) och som
+är oberoende av \(X\).
+Beräkna \(P(\max(X,Y)\le 0)\).
+\hfill (2p)
+
+\item Bestäm \(V(X+Y)\).
+\hfill (1p)
+\end{enumerate}
+
+The notes rewrite the event:
+
+\[
+\max(X,Y)\le 0
+\]
+
+means:
+
+\[
+X\le 0
+\quad \text{and} \quad
+Y\le 0.
+\]
+
+So:
+
+\[
+P(\max(X,Y)\le 0)
+=
+P(X\le 0,\ Y\le 0).
+\]
+
+The question says \(X\) and \(Y\) are independent.
+The notes use:
+
+\[
+P(X\le 0,\ Y\le 0)
+=
+P(X\le 0)\cdot P(Y\le 0).
+\]
+
+From the earlier area calculation:
+
+\[
+P(X\le 0)=\frac{1}{2}.
+\]
+
+Since \(Y\) is uniformly distributed on \((-1,1)\),
+exactly half of the interval is below \(0\):
+
+\[
+P(Y\le 0)=\frac{1}{2}.
+\]
+
+Therefore:
+
+\begin{align*}
+P(\max(X,Y)\le 0)
+&=
+\frac{1}{2}\cdot\frac{1}{2} \\[2mm]
+&=
+\frac{1}{4}.
+\end{align*}
+
+\textbf{e) Calculate \(V(X+Y)\)}
+
+Den stokastiska variabeln \(X\) har täthetsfunktionen
+
+\[
+f_X(x)=
+\begin{cases}
+x+1, & -1\le x<0,\\
+-x+1, & 0\le x\le 1,\\
+0, & \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Verifiera att \(f_X\) uppfyller kraven på en
+täthetsfunktion.
+\hfill (1.5p)
+
+\item Beräkna \(P(X\le 0.5)\).
+\hfill (1p)
+
+\item Bestäm väntevärde och varians för \(X\).
+\hfill (2.5p)
+
+\item Låt \(Y\) vara en stokastisk variabel som är
+likformigt fördelad på intervallet \((-1,1)\) och som
+är oberoende av \(X\).
+Beräkna \(P(\max(X,Y)\le 0)\).
+\hfill (2p)
+
+\item Bestäm \(V(X+Y)\).
+\hfill (1p)
+\end{enumerate}
+
+The notes say that we already know:
+
+\[
+\operatorname{Var}(X)=\frac{1}{6}.
+\]
+
+Now find \(\operatorname{Var}(Y)\).
+For a uniform distribution \(U(a,b)\), the notes use:
+
+\[
+\operatorname{Var}(Y)
+=
+\frac{(b-a)^2}{12}.
+\]
+
+Here:
+
+\[
+a=-1,
+\qquad
+b=1.
+\]
+
+So:
+
+\begin{align*}
+\operatorname{Var}(Y)
+&=
+\frac{(1-(-1))^2}{12} \\[2mm]
+&=
+\frac{2^2}{12} \\[2mm]
+&=
+\frac{4}{12} \\[2mm]
+&=
+\frac{1}{3}.
+\end{align*}
+
+The notes also warn that
+\(P(Y\le 0)\) and \(\operatorname{Var}(Y)\)
+are different concepts.
+
+Since \(X\) and \(Y\) are independent:
+
+\begin{align*}
+\operatorname{Var}(X+Y)
+&=
+\operatorname{Var}(X)
++
+\operatorname{Var}(Y) \\[2mm]
+&=
+\frac{1}{6}
++
+\frac{1}{3} \\[2mm]
+&=
+\frac{1}{2}.
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+f_X
+\text{ is a valid density function.}
+\]
+
+\item
+\[
+P(X\le 0.5)=0.875.
+\]
+
+\item
+\[
+E[X]=0,
+\qquad
+\operatorname{Var}(X)=\frac{1}{6}.
+\]
+
+\item
+\[
+P(\max(X,Y)\le 0)=\frac{1}{4}.
+\]
+
+\item
+\[
+V(X+Y)=\frac{1}{2}.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+A density function must satisfy:
+
+\[
+f(x)\ge 0
+\quad \text{for all }x.
+\]
+
+and:
+
+\[
+\int_{-\infty}^{\infty} f(x)\,dx=1.
+\]
+
+For a piecewise density, check each interval separately.
+
+For independent variables:
+
+\[
+P(A\cap B)=P(A)P(B).
+\]
+
+For independent variables:
+
+\[
+\operatorname{Var}(X+Y)
+=
+\operatorname{Var}(X)
++
+\operatorname{Var}(Y).
+\]
+
+For \(Y\sim U(a,b)\):
+
+\[
+\operatorname{Var}(Y)
+=
+\frac{(b-a)^2}{12}.
+\]
+
+\section*{Uppgift 3}
+
+\subsection*{Original question}
+Man kastar en tärning två gånger och noterar resultaten i tur och ordning.
+Kasten kan anses som oberoende. Utfallsrummet kan då beskrivas att bestå av
+utfallen \((i,j)\) där \(i\) är resultatet av första och \(j\) resultatet
+av andra kastet, \(i,j=1,2,\ldots,6\).
+
+\begin{enumerate}[label=\alph*)]
+\item
+Låt \(X\) vara den stokastiska variabeln med
+\[
+X(i,j)=|i-j|
+\]
+(t.ex. antar \(X\) värdet 3 om första kastet är en etta och andra kastet
+är en fyra ty \(X(1,4)=|1-4|=3\)).
+Bestäm sannolikheten \(P(X=4)\).
+
+\item
+Bestäm sannolikhetsfunktionen för \(X\) och beräkna \(E(X)\).
+
+\item
+I ett spel vinner spelaren 3 kronor om \(X\) minst är lika med 4 och
+förlorar en krona annars. Lönar spelet sig för spelaren på lång sikt?
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+We throw one die two times.
+The ordered result is written as \((i,j)\).
+The random variable is the distance between the two throws:
+
+\[
+X=|i-j|.
+\]
+
+So \(X\) is discrete.
+That means we count outcomes instead of integrating.
+
+\subsubsection*{Given information}
+\begin{itemize}
+\item
+First throw: \(i=1,2,3,4,5,6\).
+\item
+Second throw: \(j=1,2,3,4,5,6\).
+\item
+The throws are independent.
+\item
+Total number of ordered outcomes:
+\[
+6\cdot 6=36.
+\]
+\item
+Possible values of \(X\):
+\[
+0,1,2,3,4,5.
+\]
+\item
+Win condition in the game:
+\[
+X\ge 4.
+\]
+\end{itemize}
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Find \(P(X=4)\)}
+
+We need all ordered pairs where the difference is 4.
+
+\begin{align*}
+(1,5)&:\ |1-5|=4,\\
+(5,1)&:\ |5-1|=4,\\
+(2,6)&:\ |2-6|=4,\\
+(6,2)&:\ |6-2|=4.
+\end{align*}
+
+So there are 4 cases where \(X=4\).
+There are 36 outcomes in total.
+
+\begin{align*}
+P(X=4)
+&=
+\frac{4}{36}\\[2mm]
+&=
+\frac{1}{9}.
+\end{align*}
+
+\textbf{b) Probability mass function for \(X\)}
+
+Man kastar en tärning två gånger och noterar resultaten i tur och ordning.
+Kasten kan anses som oberoende. Utfallsrummet kan då beskrivas att bestå av
+utfallen \((i,j)\) där \(i\) är resultatet av första och \(j\) resultatet
+av andra kastet, \(i,j=1,2,\ldots,6\).
+
+\begin{enumerate}[label=\alph*)]
+\item
+Låt \(X\) vara den stokastiska variabeln med
+\[
+X(i,j)=|i-j|
+\]
+(t.ex. antar \(X\) värdet 3 om första kastet är en etta och andra kastet
+är en fyra ty \(X(1,4)=|1-4|=3\)).
+Bestäm sannolikheten \(P(X=4)\).
+
+\item
+Bestäm sannolikhetsfunktionen för \(X\) och beräkna \(E(X)\).
+
+\item
+I ett spel vinner spelaren 3 kronor om \(X\) minst är lika med 4 och
+förlorar en krona annars. Lönar spelet sig för spelaren på lång sikt?
+\end{enumerate}
+
+The notes count how many pairs give each possible value of \(X\).
+
+For \(X=0\), both dice are the same:
+
+\[
+(1,1),(2,2),(3,3),
+(4,4),(5,5),(6,6).
+\]
+
+So:
+
+\[
+P(X=0)=\frac{6}{36}.
+\]
+
+For \(X=1\), the notes list 10 outcomes:
+
+\[
+(1,2),(2,1),(2,3),(3,2),(3,4),
+\]
+\[
+(4,3),(5,4),(4,5),(5,6),(6,5).
+\]
+
+So:
+
+\[
+P(X=1)=\frac{10}{36}.
+\]
+
+The remaining counted outcomes are:
+
+\[
+P(X=2)=\frac{8}{36},
+\]
+\[
+P(X=3)=\frac{6}{36},
+\]
+\[
+P(X=4)=\frac{4}{36},
+\]
+\[
+P(X=5)=\frac{2}{36}.
+\]
+
+So the probability mass function is:
+
+\begin{align*}
+p_X(0)&=\frac{6}{36},\\
+p_X(1)&=\frac{10}{36},\\
+p_X(2)&=\frac{8}{36},\\
+p_X(3)&=\frac{6}{36},\\
+p_X(4)&=\frac{4}{36},\\
+p_X(5)&=\frac{2}{36}.
+\end{align*}
+
+\textbf{Calculate \(E(X)\)}
+
+The notes use:
+
+\[
+E(X)=\sum x\cdot P(X=x).
+\]
+
+\begin{align*}
+E(X)
+&=
+0\cdot\frac{6}{36}
++1\cdot\frac{10}{36}\\
+&\quad
++2\cdot\frac{8}{36}
++3\cdot\frac{6}{36}\\
+&\quad
++4\cdot\frac{4}{36}
++5\cdot\frac{2}{36}\\[2mm]
+&=
+\frac{0+10+16+18+16+10}{36}\\[2mm]
+&=
+\frac{70}{36}\\[2mm]
+&=
+\frac{35}{18}\\[2mm]
+&\approx
+1.94.
+\end{align*}
+
+\textbf{c) Long-run profit of the game}
+
+Man kastar en tärning två gånger och noterar resultaten i tur och ordning.
+Kasten kan anses som oberoende. Utfallsrummet kan då beskrivas att bestå av
+utfallen \((i,j)\) där \(i\) är resultatet av första och \(j\) resultatet
+av andra kastet, \(i,j=1,2,\ldots,6\).
+
+\begin{enumerate}[label=\alph*)]
+\item
+Låt \(X\) vara den stokastiska variabeln med
+\[
+X(i,j)=|i-j|
+\]
+(t.ex. antar \(X\) värdet 3 om första kastet är en etta och andra kastet
+är en fyra ty \(X(1,4)=|1-4|=3\)).
+Bestäm sannolikheten \(P(X=4)\).
+
+\item
+Bestäm sannolikhetsfunktionen för \(X\) och beräkna \(E(X)\).
+
+\item
+I ett spel vinner spelaren 3 kronor om \(X\) minst är lika med 4 och
+förlorar en krona annars. Lönar spelet sig för spelaren på lång sikt?
+\end{enumerate}
+
+The notes say:
+
+\begin{itemize}
+\item
+Win scenario: \(X\ge 4\), win 3 kr.
+\item
+Lose scenario: \(X<4\), lose 1 kr.
+\end{itemize}
+
+First find the chance of winning:
+
+\begin{align*}
+P(X\ge 4)
+&=
+P(X=4)+P(X=5)\\[2mm]
+&=
+\frac{4}{36}
++
+\frac{2}{36}\\[2mm]
+&=
+\frac{6}{36}\\[2mm]
+&=
+\frac{1}{6}.
+\end{align*}
+
+So the chance of losing is:
+
+\begin{align*}
+P(X<4)
+&=
+1-P(X\ge 4)\\[2mm]
+&=
+1-\frac{1}{6}\\[2mm]
+&=
+\frac{5}{6}.
+\end{align*}
+
+Now calculate expected profit per game.
+
+\begin{align*}
+E(W)
+&=
+(\text{win amount})P(\text{win})\\
+&\quad+
+(\text{loss amount})P(\text{loss})\\[2mm]
+&=
+3\cdot\frac{1}{6}
++
+(-1)\cdot\frac{5}{6}\\[2mm]
+&=
+\frac{3}{6}
+-
+\frac{5}{6}\\[2mm]
+&=
+-\frac{2}{6}\\[2mm]
+&=
+-\frac{1}{3}.
+\end{align*}
+
+Because the expected profit is negative, the player will not gain money
+in the long run.
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(X=4)=\frac{1}{9}.
+\]
+
+\item
+\[
+p_X(0)=\frac{6}{36},
+\quad
+p_X(1)=\frac{10}{36},
+\]
+\[
+p_X(2)=\frac{8}{36},
+\quad
+p_X(3)=\frac{6}{36},
+\]
+\[
+p_X(4)=\frac{4}{36},
+\quad
+p_X(5)=\frac{2}{36}.
+\]
+
+\[
+E(X)=\frac{35}{18}\approx 1.94.
+\]
+
+\item
+\[
+E(W)=-\frac{1}{3}.
+\]
+
+The game does not pay off for the player in the long run.
+\end{enumerate}
+
+\subsubsection*{What to remember}
+When a random variable is discrete, use a probability mass function:
+
+\[
+p_X(x)=P(X=x).
+\]
+
+For dice problems, count outcomes:
+
+\[
+P(\text{event})
+=
+\frac{\text{number of good outcomes}}
+{\text{number of all outcomes}}.
+\]
+
+Expected value for a discrete variable is:
+
+\[
+E(X)=\sum x\cdot P(X=x).
+\]
+
+For a game, check if it is profitable by calculating expected profit.
+If the expected profit is negative, it is bad for the player in the long run.
+
+\section*{Uppgift 4}
+
+\subsection*{Original question}
+
+Vi studerar mätningar som är fördelade enligt
+\(N(\mu,0.5)\) där \(\mu\) är det exakta värdet
+och \(\sigma = 0.5\) återspeglar mätinstrumentets
+precision.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(X \le 10.375)\) för en mätning
+\(X \in N(\mu,0.5)\) där \(\mu = 10\). \((1p)\)
+
+\item Antag att vi har ett stickprov
+\(x_1,\ldots,x_5\) av 5 observerade mätningar som
+antas komma från \(N(\mu,0.5)\) med samma \(\mu\).
+Utifrån stickprovet har vi beräknat \(\bar{x}=9.6\),
+bestäm ett (två-sidigt) 95\%-konfidensintervall
+för \(\mu\). \((2p)\)
+
+\item Testa hypotesen \(\mu = 10\) på
+5\% signifikansnivå. \((1p)\)
+
+\item Testa hypotesen \(\mu \le 10\) på
+5\% signifikansnivå. \((2p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We use the normal distribution with known
+\(\sigma=0.5\). First we standardize to a
+\(Z\)-score. Then we use the \(Z\)-table.
+
+For the interval and tests, we use the sample data
+from part b):
+\[
+\bar{x}=9.6,\qquad n=5,\qquad \sigma=0.5.
+\]
+
+\subsubsection*{Given information}
+
+\[
+X \sim N(\mu,0.5)
+\]
+
+\[
+\sigma = 0.5
+\]
+
+For part a):
+\[
+\mu = 10,
+\qquad
+X \le 10.375.
+\]
+
+For parts b)--d):
+\[
+n=5,
+\qquad
+\bar{x}=9.6.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Find \(P(X \le 10.375)\)}
+
+The notes standardize \(X\) to a \(Z\)-score:
+\[
+Z=\frac{X-\mu}{\sigma}.
+\]
+
+Substitute the numbers:
+\begin{align*}
+z
+&=
+\frac{10.375-10}{0.5}
+\\[2mm]
+&=
+\frac{0.375}{0.5}
+\\[2mm]
+&=0.75.
+\end{align*}
+
+So
+\begin{align*}
+P(X \le 10.375)
+&=
+P(Z \le 0.75).
+\end{align*}
+
+From the \(Z\)-table, read row \(0.7\) and
+column \(0.05\):
+\[
+P(Z \le 0.75)=0.7734.
+\]
+
+\textbf{b) 95\% confidence interval for \(\mu\)}
+
+Vi studerar mätningar som är fördelade enligt
+\(N(\mu,0.5)\) där \(\mu\) är det exakta värdet
+och \(\sigma = 0.5\) återspeglar mätinstrumentets
+precision.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(X \le 10.375)\) för en mätning
+\(X \in N(\mu,0.5)\) där \(\mu = 10\). \((1p)\)
+
+\item Antag att vi har ett stickprov
+\(x_1,\ldots,x_5\) av 5 observerade mätningar som
+antas komma från \(N(\mu,0.5)\) med samma \(\mu\).
+Utifrån stickprovet har vi beräknat \(\bar{x}=9.6\),
+bestäm ett (två-sidigt) 95\%-konfidensintervall
+för \(\mu\). \((2p)\)
+
+\item Testa hypotesen \(\mu = 10\) på
+5\% signifikansnivå. \((1p)\)
+
+\item Testa hypotesen \(\mu \le 10\) på
+5\% signifikansnivå. \((2p)\)
+\end{enumerate}
+
+From the question and notes:
+\[
+n=5,\qquad \sigma=0.5,\qquad \bar{x}=9.6.
+\]
+
+It is a two-sided 95\% confidence interval.
+So 5\% is outside the interval, split into
+2.5\% in each tail.
+
+The notes use:
+\[
+z_{0.025}\approx 1.96.
+\]
+
+First calculate the standard error:
+\begin{align*}
+SE
+&=
+\frac{\sigma}{\sqrt{n}}
+\\[2mm]
+&=
+\frac{0.5}{\sqrt{5}}
+\\[2mm]
+&\approx 0.2236.
+\end{align*}
+
+Then calculate the margin of error:
+\begin{align*}
+ME
+&=
+z\cdot SE
+\\[2mm]
+&=
+1.96\cdot 0.2236
+\\[2mm]
+&\approx 0.436.
+\end{align*}
+
+The interval is:
+\[
+\bar{x}\pm ME.
+\]
+
+Substitute:
+\begin{align*}
+9.6 \pm 0.436
+&=
+\bigl[
+9.6-0.436,\,
+9.6+0.436
+\bigr]
+\\[2mm]
+&=
+[9.164,\,10.036].
+\end{align*}
+
+\textbf{English clarification:}
+The note image writes the final interval as
+\([9.112,\,10.038]\), but the written calculation
+\(9.6\pm 0.436\) gives \([9.164,\,10.036]\).
+The method from the notes is kept here.
+% UNCERTAIN: The handwritten final lower endpoint looks like 9.112,
+% but 9.6 - 0.436 = 9.164.
+
+\textbf{c) Test \(\mu=10\) at 5\% significance}
+
+Vi studerar mätningar som är fördelade enligt
+\(N(\mu,0.5)\) där \(\mu\) är det exakta värdet
+och \(\sigma = 0.5\) återspeglar mätinstrumentets
+precision.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(X \le 10.375)\) för en mätning
+\(X \in N(\mu,0.5)\) där \(\mu = 10\). \((1p)\)
+
+\item Antag att vi har ett stickprov
+\(x_1,\ldots,x_5\) av 5 observerade mätningar som
+antas komma från \(N(\mu,0.5)\) med samma \(\mu\).
+Utifrån stickprovet har vi beräknat \(\bar{x}=9.6\),
+bestäm ett (två-sidigt) 95\%-konfidensintervall
+för \(\mu\). \((2p)\)
+
+\item Testa hypotesen \(\mu = 10\) på
+5\% signifikansnivå. \((1p)\)
+
+\item Testa hypotesen \(\mu \le 10\) på
+5\% signifikansnivå. \((2p)\)
+\end{enumerate}
+
+The notes set up the two-sided hypotheses:
+\[
+H_0:\mu=10
+\]
+\[
+H_1:\mu\ne 10.
+\]
+
+Use the sample data from part b).
+The test statistic is:
+\[
+Z=
+\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+
+Substitute:
+\begin{align*}
+Z
+&=
+\frac{9.6-10}{0.5/\sqrt{5}}
+\\[2mm]
+&=
+\frac{-0.4}{0.2236}
+\\[2mm]
+&\approx -1.789.
+\end{align*}
+
+For a two-sided 5\% test, the notes use the
+critical values:
+\[
+-1.96
+\quad\text{and}\quad
+1.96.
+\]
+
+The test statistic is inside the interval:
+\[
+-1.96 < -1.789 < 1.96.
+\]
+
+So the notes conclude that \(\mu=10\) is accepted.
+
+\textbf{English clarification:}
+In hypothesis-test language, this means we do not
+reject \(H_0\) at the 5\% level.
+
+\textbf{d) Test \(\mu \le 10\) at 5\% significance}
+
+Vi studerar mätningar som är fördelade enligt
+\(N(\mu,0.5)\) där \(\mu\) är det exakta värdet
+och \(\sigma = 0.5\) återspeglar mätinstrumentets
+precision.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(X \le 10.375)\) för en mätning
+\(X \in N(\mu,0.5)\) där \(\mu = 10\). \((1p)\)
+
+\item Antag att vi har ett stickprov
+\(x_1,\ldots,x_5\) av 5 observerade mätningar som
+antas komma från \(N(\mu,0.5)\) med samma \(\mu\).
+Utifrån stickprovet har vi beräknat \(\bar{x}=9.6\),
+bestäm ett (två-sidigt) 95\%-konfidensintervall
+för \(\mu\). \((2p)\)
+
+\item Testa hypotesen \(\mu = 10\) på
+5\% signifikansnivå. \((1p)\)
+
+\item Testa hypotesen \(\mu \le 10\) på
+5\% signifikansnivå. \((2p)\)
+\end{enumerate}
+
+The notes say this is the same as before, but now
+the hypothesis is one-sided:
+\[
+H_0:\mu\le 10
+\]
+\[
+H_1:\mu>10.
+\]
+
+This is a right-tailed test.
+
+From part c), we still have:
+\[
+Z\approx -1.789.
+\]
+
+For a right-tailed 5\% test, the notes use:
+\[
+z_{0.05}=1.645.
+\]
+
+Reject \(H_0\) if the test statistic is bigger
+than \(1.645\).
+
+But:
+\[
+-1.789 < 1.645.
+\]
+
+So the notes conclude that \(H_0\) is accepted.
+
+\textbf{English clarification:}
+In hypothesis-test language, this means we do not
+reject \(H_0:\mu\le 10\) at the 5\% level.
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(X\le 10.375)=0.7734.
+\]
+
+\item
+Using the written method:
+\[
+9.6\pm 0.436
+= [9.164,\,10.036].
+\]
+% UNCERTAIN: Handwritten final answer appears to show
+% [9.112, 10.038], but this does not match 9.6 +/- 0.436.
+
+\item
+\[
+Z\approx -1.789.
+\]
+Since \(-1.789\) lies between \(-1.96\) and \(1.96\),
+we do not reject \(H_0:\mu=10\).
+
+\item
+\[
+Z\approx -1.789.
+\]
+Since \(-1.789<1.645\), we do not reject
+\(H_0:\mu\le 10\).
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+When \(\sigma\) is known, the notes use the
+\(Z\)-formula:
+\[
+Z=
+\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+
+For a 95\% two-sided interval:
+\[
+\bar{x}
+\pm
+1.96\cdot
+\frac{\sigma}{\sqrt{n}}.
+\]
+
+For a right-tailed 5\% test, compare the test
+statistic with:
+\[
+1.645.
+\]
+
+\section*{Uppgift 5}
+
+\subsection*{Original question}
+
+Antag att vi har ett stickprov
+\[
+0<x_1,\ldots,x_n<1
+\]
+från en kontinuerlig fördelning med täthetsfunktionen
+
+\[
+f(x)=
+\begin{cases}
+\theta x^{\theta-1},
+& 0<x<1,\\
+0,
+& \text{annars},
+\end{cases}
+\]
+
+där \(\theta>0\).
+
+\begin{enumerate}[label=\alph*)]
+\item Ange likelihoodfunktionen \(L(\theta)\).
+\hfill \((1.5p)\)
+
+\item Bestäm ML-skattningen
+\(\theta^*_{\text{obs}}\) av \(\theta\).
+\hfill \((4.5p)\)
+\end{enumerate}
+
+\textit{Tipps:} I stället för att maximera
+\(L(\theta)\) kan man maximera \(\ln L(\theta)\).
+Kan du motivera detta?
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We have a sample
+\[
+0<x_1,\ldots,x_n<1.
+\]
+
+The notes first build the likelihood by multiplying
+the density values:
+\[
+L(\theta)=\prod_{i=1}^{n} f(x_i).
+\]
+
+Then the notes use \(\ln(L(\theta))\), because the
+logarithm turns products and powers into sums.
+That makes the derivative easier.
+
+\subsubsection*{Given information}
+
+\[
+f(x)=
+\begin{cases}
+\theta x^{\theta-1},
+& 0<x<1,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\[
+\theta>0.
+\]
+
+\[
+0<x_i<1
+\quad
+\text{for all }i.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Likelihood function}
+
+The notes write:
+\[
+L(\theta)
+=
+\prod_{i=1}^{n} f(x_i).
+\]
+
+Since every observation satisfies \(0<x_i<1\),
+we use:
+\[
+f(x_i)=\theta x_i^{\theta-1}.
+\]
+
+So:
+\begin{align*}
+L(\theta)
+&=
+\prod_{i=1}^{n}
+\left(
+\theta x_i^{\theta-1}
+\right)
+\\[2mm]
+&=
+\prod_{i=1}^{n}\theta
+\cdot
+\prod_{i=1}^{n}
+x_i^{\theta-1}
+\\[2mm]
+&=
+\theta^n
+\prod_{i=1}^{n}
+x_i^{\theta-1}.
+\end{align*}
+
+Therefore:
+\[
+L(\theta)
+=
+\theta^n
+\prod_{i=1}^{n}
+x_i^{\theta-1},
+\qquad
+\theta>0.
+\]
+
+\textbf{b) ML estimate}
+
+Antag att vi har ett stickprov
+\[
+0<x_1,\ldots,x_n<1
+\]
+från en kontinuerlig fördelning med täthetsfunktionen
+
+\[
+f(x)=
+\begin{cases}
+\theta x^{\theta-1},
+& 0<x<1,\\
+0,
+& \text{annars},
+\end{cases}
+\]
+
+där \(\theta>0\).
+
+\begin{enumerate}[label=\alph*)]
+\item Ange likelihoodfunktionen \(L(\theta)\).
+\hfill \((1.5p)\)
+
+\item Bestäm ML-skattningen
+\(\theta^*_{\text{obs}}\) av \(\theta\).
+\hfill \((4.5p)\)
+\end{enumerate}
+
+\textit{Tipps:} I stället för att maximera
+\(L(\theta)\) kan man maximera \(\ln L(\theta)\).
+Kan du motivera detta?
+
+The notes say that \(\ln\) helps remove the annoying
+exponents, so we use:
+\[
+\ln(L(\theta)).
+\]
+
+Start from the likelihood:
+\[
+L(\theta)
+=
+\theta^n
+\prod_{i=1}^{n}
+x_i^{\theta-1}.
+\]
+
+Take logarithms:
+\begin{align*}
+\ln(L(\theta))
+&=
+\ln\left(
+\theta^n
+\prod_{i=1}^{n}
+x_i^{\theta-1}
+\right)
+\\[2mm]
+&=
+\ln(\theta^n)
++
+\ln\left(
+\prod_{i=1}^{n}
+x_i^{\theta-1}
+\right).
+\end{align*}
+
+Use the log rules from the notes:
+\[
+\ln(AB)=\ln(A)+\ln(B),
+\]
+\[
+\ln(\theta^n)=n\ln(\theta),
+\]
+\[
+\ln\left(\prod f(x_i)\right)
+=
+\sum \ln(f(x_i)).
+\]
+
+Then:
+\begin{align*}
+\ln(L(\theta))
+&=
+n\ln(\theta)
++
+\sum_{i=1}^{n}
+\ln\left(
+x_i^{\theta-1}
+\right)
+\\[2mm]
+&=
+n\ln(\theta)
++
+\sum_{i=1}^{n}
+(\theta-1)\ln(x_i)
+\\[2mm]
+&=
+n\ln(\theta)
++
+(\theta-1)
+\sum_{i=1}^{n}
+\ln(x_i).
+\end{align*}
+
+Now differentiate with respect to \(\theta\):
+\begin{align*}
+\frac{d}{d\theta}
+\ln(L(\theta))
+&=
+\frac{d}{d\theta}
+\left[
+n\ln(\theta)
++
+(\theta-1)
+\sum_{i=1}^{n}
+\ln(x_i)
+\right]
+\\[2mm]
+&=
+\frac{n}{\theta}
++
+1\cdot
+\sum_{i=1}^{n}
+\ln(x_i)
+\\[2mm]
+&=
+\frac{n}{\theta}
++
+\sum_{i=1}^{n}
+\ln(x_i).
+\end{align*}
+
+Set the derivative equal to zero:
+\begin{align*}
+\frac{n}{\theta}
++
+\sum_{i=1}^{n}
+\ln(x_i)
+&=0.
+\end{align*}
+
+Move the sum to the other side:
+\begin{align*}
+\frac{n}{\theta}
+&=
+-
+\sum_{i=1}^{n}
+\ln(x_i).
+\end{align*}
+
+Solve for \(\theta\):
+\begin{align*}
+\theta^*_{\text{obs}}
+&=
+\frac{n}
+{
+-
+\sum_{i=1}^{n}
+\ln(x_i)
+}.
+\end{align*}
+
+Equivalently:
+\[
+\theta^*_{\text{obs}}
+=
+-
+\frac{n}
+{
+\sum_{i=1}^{n}
+\ln(x_i)
+}.
+\]
+
+\textbf{English clarification:}
+Since \(0<x_i<1\), we have \(\ln(x_i)<0\).
+Therefore
+\[
+-
+\sum_{i=1}^{n}\ln(x_i)
+\]
+is positive, so the estimate is allowed because
+\(\theta>0\).
+
+\textbf{Why we may maximize \(\ln L(\theta)\)}
+
+The logarithm is strictly increasing. That means it
+keeps the same order:
+\[
+L(\theta_1)>L(\theta_2)
+\quad \Longleftrightarrow \quad
+\ln L(\theta_1)>\ln L(\theta_2).
+\]
+
+So the \(\theta\) that maximizes \(L(\theta)\) also
+maximizes \(\ln L(\theta)\).
+
+\textbf{English clarification:}
+To check that the critical point is a maximum:
+\begin{align*}
+\frac{d^2}{d\theta^2}
+\ln(L(\theta))
+&=
+-
+\frac{n}{\theta^2}
+\\[2mm]
+&<0.
+\end{align*}
+
+So the log-likelihood is concave in \(\theta\), and
+the critical point gives the maximum.
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+L(\theta)
+=
+\theta^n
+\prod_{i=1}^{n}
+x_i^{\theta-1},
+\qquad
+\theta>0.
+\]
+
+\item
+\[
+\theta^*_{\text{obs}}
+=
+\frac{n}
+{
+-
+\sum_{i=1}^{n}
+\ln(x_i)
+}
+=
+-
+\frac{n}
+{
+\sum_{i=1}^{n}
+\ln(x_i)
+}.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+Likelihood for independent observations:
+\[
+L(\theta)
+=
+\prod_{i=1}^{n} f(x_i).
+\]
+
+The logarithm is useful because:
+\[
+\ln(AB)=\ln(A)+\ln(B),
+\]
+\[
+\ln(a^b)=b\ln(a).
+\]
+
+For ML estimation:
+\begin{enumerate}
+\item Write \(L(\theta)\).
+\item Take \(\ln(L(\theta))\).
+\item Differentiate with respect to \(\theta\).
+\item Set the derivative equal to zero.
+\item Solve for \(\theta\).
+\end{enumerate}
+
+\section*{Uppgift 6}
+
+\subsection*{Original question}
+
+En informatiker har implementerat en
+slumptalsgenerator avsedd att generera en diskret
+likformig sannolikhetsfördelning på de hela talen
+\[
+\{1,2,3,4,5,6\}.
+\]
+I en testkörning skapade informatikern 1000 slumptal
+med hjälp av slumptalsgeneratorn erhöll följande
+resultat:
+
+\[
+\begin{array}{c|c}
+\text{Slumptal} & \text{Frekvens}\\
+\hline
+1 & 166\\
+2 & 168\\
+3 & 167\\
+4 & 184\\
+5 & 158\\
+6 & 157
+\end{array}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Formulera en rimlig nollhypotes för att avgöra
+om slumpgeneratorn fungerar. \((1.5p)\)
+
+\item Genomför ett test av nollhypotesen på
+5\% signifikansnivå. \((2.5p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We test if the random number generator is fair.
+If it is fair, each number \(1,2,3,4,5,6\)
+should have the same chance.
+
+The notes use a chi-square goodness-of-fit test.
+We compare:
+\[
+\text{observed frequencies}
+\]
+with:
+\[
+\text{expected frequencies}.
+\]
+
+\subsubsection*{Given information}
+
+The generator should give numbers:
+\[
+1,2,3,4,5,6.
+\]
+
+The test was run:
+\[
+n=1000
+\]
+times.
+
+Observed frequencies:
+\[
+O_1=166,\quad O_2=168,\quad O_3=167,
+\]
+\[
+O_4=184,\quad O_5=158,\quad O_6=157.
+\]
+
+Significance level:
+\[
+\alpha=0.05.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Formulate the hypotheses}
+
+The notes say that if the generator is working as
+intended, all numbers should have the same chance.
+
+So the null hypothesis is:
+\[
+H_0:
+p(1)=p(2)=p(3)=p(4)=p(5)=p(6)
+=\frac{1}{6}.
+\]
+
+The alternative hypothesis is the opposite:
+\[
+H_1:
+\text{the probabilities are not all equal.}
+\]
+
+\textbf{b) Chi-square test at 5\% level}
+
+En informatiker har implementerat en
+slumptalsgenerator avsedd att generera en diskret
+likformig sannolikhetsfördelning på de hela talen
+\[
+\{1,2,3,4,5,6\}.
+\]
+I en testkörning skapade informatikern 1000 slumptal
+med hjälp av slumptalsgeneratorn erhöll följande
+resultat:
+
+\[
+\begin{array}{c|c}
+\text{Slumptal} & \text{Frekvens}\\
+\hline
+1 & 166\\
+2 & 168\\
+3 & 167\\
+4 & 184\\
+5 & 158\\
+6 & 157
+\end{array}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Formulera en rimlig nollhypotes för att avgöra
+om slumpgeneratorn fungerar. \((1.5p)\)
+
+\item Genomför ett test av nollhypotesen på
+5\% signifikansnivå. \((2.5p)\)
+\end{enumerate}
+
+If the generator is fair, each number should appear
+\(\frac{1}{6}\) of the time out of 1000 trials.
+
+So the expected frequency for each number is:
+\begin{align*}
+E_i
+&=
+n\cdot p
+\\[2mm]
+&=
+1000\cdot \frac{1}{6}
+\\[2mm]
+&\approx 166.67.
+\end{align*}
+
+The notes use the chi-square test statistic:
+\[
+\chi^2
+=
+\sum
+\frac{(O-E)^2}{E}.
+\]
+
+Here \(O\) is the observed frequency from the table,
+and \(E\) is the expected frequency.
+
+Now compare each observed frequency with \(166.67\).
+
+For number \(1\):
+\begin{align*}
+\frac{(166-166.67)^2}{166.67}
+&\approx 0.003.
+\end{align*}
+
+For number \(2\):
+\begin{align*}
+\frac{(168-166.67)^2}{166.67}
+&\approx 0.011.
+\end{align*}
+
+For number \(3\):
+\begin{align*}
+\frac{(167-166.67)^2}{166.67}
+&\approx 0.001.
+\end{align*}
+
+For number \(4\):
+\begin{align*}
+\frac{(184-166.67)^2}{166.67}
+&\approx 1.803.
+\end{align*}
+
+For number \(5\):
+\begin{align*}
+\frac{(158-166.67)^2}{166.67}
+&\approx 0.451.
+\end{align*}
+
+For number \(6\):
+\begin{align*}
+\frac{(157-166.67)^2}{166.67}
+&\approx 0.561.
+\end{align*}
+
+Add all terms:
+\begin{align*}
+\chi^2
+&\approx
+0.003+0.011+0.001
+\\
+&\quad
++1.803+0.451+0.561
+\\[2mm]
+&\approx 2.83.
+\end{align*}
+
+\textbf{Degrees of freedom}
+
+The notes use:
+\[
+\text{df}
+=
+\text{number of categories}-1.
+\]
+
+There are 6 categories, so:
+\begin{align*}
+\text{df}
+&=
+6-1
+\\[2mm]
+&=5.
+\end{align*}
+
+\textbf{Critical value}
+
+From the chi-square table, for:
+\[
+\alpha=0.05,
+\qquad
+\text{df}=5,
+\]
+the notes use:
+\[
+\chi^2_{0.05,5}=11.07.
+\]
+
+Compare:
+\[
+2.83<11.07.
+\]
+
+The test statistic is less than the rejection limit.
+So the notes conclude that the original hypothesis is
+correct and the generator is fair.
+
+\textbf{English clarification:}
+In hypothesis-test language, this means we do not
+reject \(H_0\) at the 5\% significance level.
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+H_0:
+p(1)=p(2)=p(3)=p(4)=p(5)=p(6)
+=\frac{1}{6}.
+\]
+\[
+H_1:
+\text{the probabilities are not all equal.}
+\]
+
+\item
+\[
+E_i\approx 166.67
+\]
+for each number.
+
+\[
+\chi^2\approx 2.83.
+\]
+
+\[
+\text{df}=5,
+\qquad
+\chi^2_{0.05,5}=11.07.
+\]
+
+Since:
+\[
+2.83<11.07,
+\]
+we do not reject \(H_0\). The notes conclude that
+the random number generator is fair.
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For a chi-square goodness-of-fit test:
+\[
+\chi^2
+=
+\sum
+\frac{(O-E)^2}{E}.
+\]
+
+If there are \(k\) categories and no parameters are
+estimated from the data:
+\[
+\text{df}=k-1.
+\]
+
+If:
+\[
+\chi^2_{\text{obs}}
+<
+\chi^2_{\text{critical}},
+\]
+then we do not reject \(H_0\).
+
+\end{document}

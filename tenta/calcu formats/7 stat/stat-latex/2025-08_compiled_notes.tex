@@ -1,0 +1,2029 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=384pt,paperheight=900pt,margin=10pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=12pt}
+\setlist[enumerate]{leftmargin=14pt}
+
+\sloppy
+\allowdisplaybreaks
+\emergencystretch=2em
+
+\begin{document}
+
+\section*{Uppgift 1}
+
+\subsection*{Original question}
+Låt $A$ och $B$ vara två händelser sådana att
+$P(A^c\mid B^c)=0.6$, $P(B^c\mid A^c)=0.4$ och
+$P(A^c\cup B^c)=0.8$.
+Beräkna $P(A)$ och $P(B)$.
+\hfill (6p)
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+We are given conditional probabilities with complements:
+$A^c$ and $B^c$.
+
+The notes first rewrite the conditional probabilities using
+the formula
+
+\[
+P(E\mid F)
+=\frac{P(E\cap F)}{P(F)}.
+\]
+
+Then we use that
+
+\[
+A^c\cap B^c
+=
+B^c\cap A^c
+\]
+
+is the same intersection.
+
+Finally we use the union formula:
+
+\[
+P(A^c\cup B^c)
+=
+P(A^c)+P(B^c)-P(A^c\cap B^c).
+\]
+
+\subsubsection*{Given information}
+From the question:
+
+\[
+P(A^c\mid B^c)=0.6
+\]
+
+\[
+P(B^c\mid A^c)=0.4
+\]
+
+\[
+P(A^c\cup B^c)=0.8
+\]
+
+We want:
+
+\[
+P(A)\quad \text{and}\quad P(B).
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{1. Rewrite the first conditional probability}
+
+Using the conditional probability formula:
+
+\begin{align*}
+P(A^c\mid B^c)
+&=
+\frac{P(A^c\cap B^c)}
+{P(B^c)} \\[2mm]
+&=0.6
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(A^c\cap B^c)
+&=
+0.6P(B^c)
+\end{align*}
+
+\textbf{2. Rewrite the second conditional probability}
+
+\begin{align*}
+P(B^c\mid A^c)
+&=
+\frac{P(B^c\cap A^c)}
+{P(A^c)} \\[2mm]
+&=0.4
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(B^c\cap A^c)
+&=
+0.4P(A^c)
+\end{align*}
+
+But this is the same intersection:
+
+\[
+P(A^c\cap B^c)
+=
+P(B^c\cap A^c).
+\]
+
+So:
+
+\begin{align*}
+0.6P(B^c)
+&=
+0.4P(A^c)
+\end{align*}
+
+\textbf{3. Isolate one complement probability}
+
+The notes isolate it in two useful ways.
+
+First:
+
+\begin{align*}
+P(B^c)
+&=
+\frac{0.4}{0.6}P(A^c) \\[2mm]
+&=
+\frac{2}{3}P(A^c)
+\end{align*}
+
+Also:
+
+\begin{align*}
+P(A^c)
+&=
+\frac{0.6}{0.4}P(B^c) \\[2mm]
+&=
+\frac{3}{2}P(B^c)
+\end{align*}
+
+\textbf{4. Use the union formula to find $P(A)$}
+
+The union formula is:
+
+\begin{align*}
+P(A^c\cup B^c)
+&=
+P(A^c)+P(B^c)-P(A^c\cap B^c)
+\end{align*}
+
+Use
+
+\[
+P(B^c)=\frac{2}{3}P(A^c)
+\]
+
+and
+
+\[
+P(A^c\cap B^c)=0.4P(A^c).
+\]
+
+Then:
+
+\begin{align*}
+0.8
+&=
+P(A^c)
++\frac{2}{3}P(A^c)
+-0.4P(A^c) \\[2mm]
+0.8
+&=
+P(A^c)
+\left(
+1+\frac{2}{3}-0.4
+\right)
+\end{align*}
+
+Since $0.4=\frac{2}{5}$:
+
+\begin{align*}
+1+\frac{2}{3}-\frac{2}{5}
+&=
+\frac{15}{15}
++\frac{10}{15}
+-\frac{6}{15} \\[2mm]
+&=
+\frac{19}{15}
+\end{align*}
+
+So:
+
+\begin{align*}
+0.8
+&=
+P(A^c)\frac{19}{15} \\[2mm]
+P(A^c)
+&=
+\frac{0.8}{19/15} \\[2mm]
+&=
+\frac{12}{19}
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(A)
+&=
+1-P(A^c) \\[2mm]
+&=
+1-\frac{12}{19} \\[2mm]
+&=
+\frac{7}{19} \\[2mm]
+&\approx 0.37
+\end{align*}
+
+\textbf{5. Use the union formula to find $P(B)$}
+
+Now use the other replacement:
+
+\[
+P(A^c)=\frac{3}{2}P(B^c)
+\]
+
+and
+
+\[
+P(A^c\cap B^c)=0.6P(B^c).
+\]
+
+Then:
+
+\begin{align*}
+0.8
+&=
+\frac{3}{2}P(B^c)
++P(B^c)
+-0.6P(B^c) \\[2mm]
+0.8
+&=
+P(B^c)
+\left(
+\frac{3}{2}+1-0.6
+\right)
+\end{align*}
+
+The factor is:
+
+\begin{align*}
+\frac{3}{2}+1-0.6
+&=
+1.5+1-0.6 \\[2mm]
+&=1.9
+\end{align*}
+
+So:
+
+\begin{align*}
+0.8
+&=
+1.9P(B^c) \\[2mm]
+P(B^c)
+&=
+\frac{0.8}{1.9} \\[2mm]
+&=
+\frac{8}{19}
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(B)
+&=
+1-P(B^c) \\[2mm]
+&=
+1-\frac{8}{19} \\[2mm]
+&=
+\frac{11}{19} \\[2mm]
+&\approx 0.58
+\end{align*}
+
+\subsubsection*{Final answer}
+\[
+P(A)=\frac{7}{19}\approx 0.37.
+\]
+
+\[
+P(B)=\frac{11}{19}\approx 0.58.
+\]
+
+\subsubsection*{What to remember}
+Conditional probability:
+
+\[
+P(E\mid F)
+=
+\frac{P(E\cap F)}{P(F)}.
+\]
+
+Union formula:
+
+\[
+P(E\cup F)
+=
+P(E)+P(F)-P(E\cap F).
+\]
+
+Here the key trick is that
+
+\[
+A^c\cap B^c
+=
+B^c\cap A^c
+\]
+
+is the same overlap, so the two conditional formulas can be connected.
+
+\section*{Uppgift 2}
+
+\subsection*{Original question}
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+ax^2,
+& 0<x<3,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm $a$ så att $f$ bildar en täthetsfunktion för en s.v. $X$.
+\hfill (1.5p)
+
+\item
+Bestäm fördelningsfunktionen $F_X$.
+\hfill (1.5p)
+
+\item
+Beräkna $p(X>1)$.
+\hfill (1p)
+
+\item
+Beräkna väntevärde och standardavvikelse för $X$.
+\hfill (2p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes say that $f$ is a density function, or PDF.
+A PDF represents the density, and the total area under the graph
+must be $1$.
+
+First we choose $a$ so that the total area is $1$.
+Then we integrate the PDF from the lower limit up to $x$ to get
+the CDF.
+After that we use the CDF to calculate $P(X>1)$.
+Finally we calculate the expected value and standard deviation.
+
+\subsubsection*{Given information}
+The function is:
+
+\[
+f(x)=
+\begin{cases}
+ax^2,
+& 0<x<3,\\
+0,
+& \text{otherwise.}
+\end{cases}
+\]
+
+The interval where the density is nonzero is:
+
+\[
+0<x<3.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Find $a$}
+
+For a PDF, the total area must be $1$:
+
+\[
+\int_0^3 ax^2\,dx=1.
+\]
+
+Integrate:
+
+\begin{align*}
+\int_0^3 ax^2\,dx
+&=
+\left[
+a\frac{x^3}{3}
+\right]_0^3 \\[2mm]
+&=1
+\end{align*}
+
+Plug in the limits:
+
+\begin{align*}
+a\frac{3^3}{3}-0
+&=1 \\[2mm]
+a\frac{27}{3}
+&=1 \\[2mm]
+9a
+&=1 \\[2mm]
+a
+&=\frac{1}{9}
+\end{align*}
+
+So the PDF is:
+
+\[
+f(x)=\frac{1}{9}x^2,
+\qquad 0<x<3.
+\]
+
+\subsection*{Original question repeated for this part}
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+ax^2,
+& 0<x<3,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm $a$ så att $f$ bildar en täthetsfunktion för en s.v. $X$.
+\hfill (1.5p)
+
+\item
+Bestäm fördelningsfunktionen $F_X$.
+\hfill (1.5p)
+
+\item
+Beräkna $p(X>1)$.
+\hfill (1p)
+
+\item
+Beräkna väntevärde och standardavvikelse för $X$.
+\hfill (2p)
+\end{enumerate}
+
+\textbf{b) Find the CDF}
+
+The notes say the CDF is the probability up to a point $x$.
+The PDF represents the whole graph, while the CDF accumulates
+the area up to $x$.
+
+For $0<x<3$:
+
+\begin{align*}
+F_X(x)
+&=
+\int_0^x
+\frac{1}{9}t^2\,dt \\[2mm]
+&=
+\frac{1}{9}
+\left[
+\frac{t^3}{3}
+\right]_0^x \\[2mm]
+&=
+\frac{1}{9}
+\left(
+\frac{x^3}{3}-0
+\right) \\[2mm]
+&=
+\frac{x^3}{27}
+\end{align*}
+
+So:
+
+\[
+F_X(x)=
+\begin{cases}
+0,
+& x\leq 0,\\
+\dfrac{x^3}{27},
+& 0<x<3,\\
+1,
+& x\geq 3.
+\end{cases}
+\]
+
+\subsection*{Original question repeated for this part}
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+ax^2,
+& 0<x<3,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm $a$ så att $f$ bildar en täthetsfunktion för en s.v. $X$.
+\hfill (1.5p)
+
+\item
+Bestäm fördelningsfunktionen $F_X$.
+\hfill (1.5p)
+
+\item
+Beräkna $p(X>1)$.
+\hfill (1p)
+
+\item
+Beräkna väntevärde och standardavvikelse för $X$.
+\hfill (2p)
+\end{enumerate}
+
+\textbf{c) Calculate $P(X>1)$}
+
+The notes explain that $P(X>1)$ means the chance for the outcome
+of the random variable to be bigger than $1$.
+
+Use the CDF:
+
+\begin{align*}
+P(X>1)
+&=
+1-P(X\leq 1) \\[2mm]
+&=
+1-F_X(1)
+\end{align*}
+
+From part b:
+
+\[
+F_X(x)=\frac{x^3}{27}.
+\]
+
+Plug in $x=1$:
+
+\begin{align*}
+F_X(1)
+&=
+\frac{1^3}{27} \\[2mm]
+&=
+\frac{1}{27}
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(X>1)
+&=
+1-\frac{1}{27} \\[2mm]
+&=
+\frac{26}{27} \\[2mm]
+&\approx 0.963
+\end{align*}
+
+So the chance that the random variable gives an outcome bigger
+than $1$ is about $96.3\,\%$.
+
+\subsection*{Original question repeated for this part}
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+ax^2,
+& 0<x<3,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Bestäm $a$ så att $f$ bildar en täthetsfunktion för en s.v. $X$.
+\hfill (1.5p)
+
+\item
+Bestäm fördelningsfunktionen $F_X$.
+\hfill (1.5p)
+
+\item
+Beräkna $p(X>1)$.
+\hfill (1p)
+
+\item
+Beräkna väntevärde och standardavvikelse för $X$.
+\hfill (2p)
+\end{enumerate}
+
+\textbf{d) Expected value and standard deviation}
+
+The notes describe expected value as the center, or mean:
+
+\[
+\mu=E[X].
+\]
+
+Standard deviation tells how much the values vary from the mean.
+
+\textbf{Find $E[X]$}
+
+The notes say to multiply $x$ with the PDF:
+
+\begin{align*}
+E[X]
+&=
+\int_0^3
+x\left(\frac{1}{9}x^2\right)\,dx \\[2mm]
+&=
+\int_0^3
+\frac{1}{9}x^3\,dx \\[2mm]
+&=
+\frac{1}{9}
+\left[
+\frac{x^4}{4}
+\right]_0^3 \\[2mm]
+&=
+\frac{1}{9}
+\left(
+\frac{81}{4}-0
+\right) \\[2mm]
+&=
+\frac{81}{36} \\[2mm]
+&=
+\frac{9}{4} \\[2mm]
+&=2.25
+\end{align*}
+
+So:
+
+\[
+E[X]=2.25.
+\]
+
+\textbf{Find $E[X^2]$}
+
+For standard deviation, first use:
+
+\[
+\operatorname{Var}(X)
+=
+E[X^2]-(E[X])^2.
+\]
+
+The notes say to multiply $x^2$ with the PDF:
+
+\begin{align*}
+E[X^2]
+&=
+\int_0^3
+x^2\left(\frac{1}{9}x^2\right)\,dx \\[2mm]
+&=
+\int_0^3
+\frac{1}{9}x^4\,dx \\[2mm]
+&=
+\frac{1}{9}
+\left[
+\frac{x^5}{5}
+\right]_0^3 \\[2mm]
+&=
+\frac{1}{9}
+\left(
+\frac{243}{5}-0
+\right) \\[2mm]
+&=
+5.4
+\end{align*}
+
+Now calculate the variance:
+
+\begin{align*}
+\operatorname{Var}(X)
+&=
+E[X^2]-(E[X])^2 \\[2mm]
+&=
+5.4-(2.25)^2 \\[2mm]
+&=
+5.4-5.0625 \\[2mm]
+&=
+0.3375
+\end{align*}
+
+Then:
+
+\begin{align*}
+\sigma
+&=
+\sqrt{\operatorname{Var}(X)} \\[2mm]
+&=
+\sqrt{0.3375} \\[2mm]
+&\approx 0.581
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+a=\frac{1}{9}.
+\]
+
+\item
+\[
+F_X(x)=
+\begin{cases}
+0,
+& x\leq 0,\\
+\dfrac{x^3}{27},
+& 0<x<3,\\
+1,
+& x\geq 3.
+\end{cases}
+\]
+
+\item
+\[
+P(X>1)=\frac{26}{27}\approx 0.963.
+\]
+
+\item
+\[
+E[X]=2.25,
+\qquad
+\sigma\approx 0.581.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For a density function:
+
+\[
+\int f(x)\,dx=1.
+\]
+
+For a CDF:
+
+\[
+F_X(x)=P(X\leq x).
+\]
+
+For expected value:
+
+\[
+E[X]=\int x f(x)\,dx.
+\]
+
+For standard deviation:
+
+\[
+\sigma=
+\sqrt{E[X^2]-(E[X])^2}.
+\]
+
+\section*{Uppgift 3}
+
+\subsection*{Original question}
+Låt $X_1,X_2\in \operatorname{P}(\mu)$, där $\mu=2$ och antag att
+$X_1,X_2$ är oberoende s.v.
+
+\begin{enumerate}[label=\alph*)]
+\item
+Beräkna $P(X_1=1)$ och $P(1\leq X_1<4)$.
+
+\item
+Beräkna $P(\max(X_1,X_2)\leq 2)$.
+
+\item
+Låt $Y=X_1-2X_2$. Beräkna $E(Y)$ och $V(Y)$.
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes use the Poisson distribution.
+They describe it as a tool to predict the odds of random
+fluctuations.
+
+If we know the mean, the Poisson formula gives the chance that
+an exact event happens $k$ times in a specific window.
+
+The notes also remind us that for a Poisson random variable:
+
+\[
+E[X]=\mu,
+\qquad
+\operatorname{Var}(X)=\mu.
+\]
+
+Here:
+
+\[
+\mu=2.
+\]
+
+\subsubsection*{Given information}
+\[
+X_1,X_2\in \operatorname{P}(2)
+\]
+
+\[
+X_1 \text{ and } X_2
+\text{ are independent.}
+\]
+
+The Poisson formula is:
+
+\[
+P(X=k)=
+\frac{\mu^k e^{-\mu}}{k!}.
+\]
+
+With $\mu=2$:
+
+\[
+P(X=k)=
+\frac{2^k e^{-2}}{k!}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Calculate $P(X_1=1)$}
+
+Use the formula with $k=1$:
+
+\begin{align*}
+P(X_1=1)
+&=
+\frac{2^1 e^{-2}}{1!} \\[2mm]
+&=
+2e^{-2} \\[2mm]
+&\approx 0.2707
+\end{align*}
+
+\textbf{Calculate $P(1\leq X_1<4)$}
+
+Since $X_1$ is discrete:
+
+\[
+1\leq X_1<4
+\]
+
+means:
+
+\[
+X_1=1,2,3.
+\]
+
+So:
+
+\begin{align*}
+P(1\leq X_1<4)
+&=
+P(X_1=1)
++P(X_1=2)
++P(X_1=3)
+\end{align*}
+
+The notes write:
+
+\[
+P(X_1=1)\approx 0.2707.
+\]
+
+For $X_1=2$:
+
+\begin{align*}
+P(X_1=2)
+&=
+\frac{2^2e^{-2}}{2!} \\[2mm]
+&=
+2e^{-2} \\[2mm]
+&\approx 0.2707
+\end{align*}
+
+For $X_1=3$:
+
+\begin{align*}
+P(X_1=3)
+&=
+\frac{2^3e^{-2}}{3!} \\[2mm]
+&=
+\frac{8}{6}e^{-2} \\[2mm]
+&\approx 0.1804
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+P(1\leq X_1<4)
+&\approx
+0.2707+0.2707+0.1804 \\[2mm]
+&=0.7218
+\end{align*}
+
+\subsection*{Original question repeated for this part}
+Låt $X_1,X_2\in \operatorname{P}(\mu)$, där $\mu=2$ och antag att
+$X_1,X_2$ är oberoende s.v.
+
+\begin{enumerate}[label=\alph*)]
+\item
+Beräkna $P(X_1=1)$ och $P(1\leq X_1<4)$.
+
+\item
+Beräkna $P(\max(X_1,X_2)\leq 2)$.
+
+\item
+Låt $Y=X_1-2X_2$. Beräkna $E(Y)$ och $V(Y)$.
+\end{enumerate}
+
+\textbf{b) Calculate $P(\max(X_1,X_2)\leq 2)$}
+
+The notes explain this as:
+both $X_1$ and $X_2$ must be at most $2$.
+
+So:
+
+\[
+\max(X_1,X_2)\leq 2
+\]
+
+means:
+
+\[
+X_1\leq 2
+\quad \text{and}\quad
+X_2\leq 2.
+\]
+
+Because $X_1$ and $X_2$ are independent:
+
+\begin{align*}
+P(\max(X_1,X_2)\leq 2)
+&=
+P(X_1\leq 2)\cdot P(X_2\leq 2)
+\end{align*}
+
+Find $P(X\leq 2)$:
+
+\begin{align*}
+P(X\leq 2)
+&=
+P(X=0)+P(X=1)+P(X=2)
+\end{align*}
+
+The notes calculate:
+
+\begin{align*}
+P(X=0)
+&=
+\frac{2^0e^{-2}}{0!}
+=e^{-2} \\[2mm]
+P(X=1)
+&=
+2e^{-2} \\[2mm]
+P(X=2)
+&=
+2e^{-2}
+\end{align*}
+
+So:
+
+\begin{align*}
+P(X\leq 2)
+&=
+e^{-2}+2e^{-2}+2e^{-2} \\[2mm]
+&=
+5e^{-2}
+\end{align*}
+
+Thus:
+
+\begin{align*}
+P(\max(X_1,X_2)\leq 2)
+&=
+5e^{-2}\cdot 5e^{-2} \\[2mm]
+&=
+25e^{-4} \\[2mm]
+&\approx 0.4578
+\end{align*}
+
+\subsection*{Original question repeated for this part}
+Låt $X_1,X_2\in \operatorname{P}(\mu)$, där $\mu=2$ och antag att
+$X_1,X_2$ är oberoende s.v.
+
+\begin{enumerate}[label=\alph*)]
+\item
+Beräkna $P(X_1=1)$ och $P(1\leq X_1<4)$.
+
+\item
+Beräkna $P(\max(X_1,X_2)\leq 2)$.
+
+\item
+Låt $Y=X_1-2X_2$. Beräkna $E(Y)$ och $V(Y)$.
+\end{enumerate}
+
+\textbf{c) Calculate $E(Y)$ and $V(Y)$}
+
+The variable is:
+
+\[
+Y=X_1-2X_2.
+\]
+
+The notes split the plus/minus parts in the variable.
+
+For expectation:
+
+\[
+E(aX_1+bX_2)
+=
+aE[X_1]+bE[X_2].
+\]
+
+So:
+
+\begin{align*}
+E(Y)
+&=
+E(X_1-2X_2) \\[2mm]
+&=
+E(X_1)-2E(X_2) \\[2mm]
+&=
+1\cdot 2-2\cdot 2 \\[2mm]
+&=
+2-4 \\[2mm]
+&=-2
+\end{align*}
+
+For variance, since $X_1$ and $X_2$ are independent:
+
+\[
+\operatorname{Var}(aX_1+bX_2)
+=
+a^2\operatorname{Var}(X_1)
++b^2\operatorname{Var}(X_2).
+\]
+
+Use $\operatorname{Var}(X_1)=2$ and
+$\operatorname{Var}(X_2)=2$:
+
+\begin{align*}
+V(Y)
+&=
+\operatorname{Var}(X_1-2X_2) \\[2mm]
+&=
+1^2\operatorname{Var}(X_1)
++(-2)^2\operatorname{Var}(X_2) \\[2mm]
+&=
+1^2\cdot 2+4\cdot 2 \\[2mm]
+&=
+2+8 \\[2mm]
+&=10
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(X_1=1)=2e^{-2}\approx 0.2707.
+\]
+
+\[
+P(1\leq X_1<4)\approx 0.7218.
+\]
+
+\item
+\[
+P(\max(X_1,X_2)\leq 2)
+=25e^{-4}\approx 0.4578.
+\]
+
+\item
+\[
+E(Y)=-2,
+\qquad
+V(Y)=10.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For Poisson:
+
+\[
+P(X=k)=
+\frac{\mu^k e^{-\mu}}{k!}.
+\]
+
+For Poisson:
+
+\[
+E[X]=\mu,
+\qquad
+\operatorname{Var}(X)=\mu.
+\]
+
+For independent variables:
+
+\[
+P(X_1\leq 2,\ X_2\leq 2)
+=
+P(X_1\leq 2)P(X_2\leq 2).
+\]
+
+For variance of a linear combination:
+
+\[
+\operatorname{Var}(aX_1+bX_2)
+=
+a^2\operatorname{Var}(X_1)
++b^2\operatorname{Var}(X_2).
+\]
+
+\section*{Uppgift 4}
+
+\subsection*{Original question}
+Låt $x_1,x_2,\ldots,x_n$, där $0<x_i<1$ för alla $i$, vara ett
+stickprov från en fördelning med täthetsfunktion
+
+\[
+f_X(x)=
+\begin{cases}
+\theta x^{\theta-1},
+& 0<x<1,\\
+0,
+& \text{annars.}
+\end{cases}
+\]
+
+Ange ML-skattningen av $\theta$.
+\hfill (6p)
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes say we want to find the formula for $\theta$ that maximizes
+the probability of getting exactly the data we observed.
+
+This is maximum likelihood:
+
+\begin{itemize}
+\item build the likelihood function,
+\item take the logarithm,
+\item differentiate,
+\item set the derivative equal to zero,
+\item solve for $\theta$.
+\end{itemize}
+
+\subsubsection*{Given information}
+The data are:
+
+\[
+x_1,x_2,\ldots,x_n
+\]
+
+and each value satisfies:
+
+\[
+0<x_i<1.
+\]
+
+The density is:
+
+\[
+f_X(x)=\theta x^{\theta-1},
+\qquad 0<x<1.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{Step 1: Likelihood function}
+
+The notes use:
+
+\[
+L(\theta)
+=
+\prod_{i=1}^n f_X(x_i).
+\]
+
+Substitute the density:
+
+\begin{align*}
+L(\theta)
+&=
+\prod_{i=1}^n
+\left(\theta x_i^{\theta-1}\right)
+\end{align*}
+
+Apply the product rule:
+
+\begin{align*}
+L(\theta)
+&=
+\left(\prod_{i=1}^n \theta\right)
+\left(\prod_{i=1}^n x_i\right)^{\theta-1}
+\end{align*}
+
+Since there are $n$ copies of $\theta$:
+
+\begin{align*}
+L(\theta)
+&=
+\theta^n
+\left(\prod_{i=1}^n x_i\right)^{\theta-1}
+\end{align*}
+
+\textbf{Step 2: Log-likelihood}
+
+The notes take the logarithm:
+
+\begin{align*}
+\ln L(\theta)
+&=
+\ln\left[
+\theta^n
+\left(\prod_{i=1}^n x_i\right)^{\theta-1}
+\right]
+\end{align*}
+
+Use:
+
+\[
+\ln(A\cdot B)=\ln(A)+\ln(B)
+\]
+
+and:
+
+\[
+\ln(A^b)=b\ln(A).
+\]
+
+Then:
+
+\begin{align*}
+\ln L(\theta)
+&=
+\ln(\theta^n)
++\ln\left[
+\left(\prod_{i=1}^n x_i\right)^{\theta-1}
+\right] \\[2mm]
+&=
+n\ln\theta
++(\theta-1)
+\ln\left(\prod_{i=1}^n x_i\right)
+\end{align*}
+
+The notes also use:
+
+\[
+\ln\left(\prod x_i\right)
+=
+\sum \ln(x_i).
+\]
+
+So:
+
+\begin{align*}
+\ln L(\theta)
+&=
+n\ln\theta
++(\theta-1)
+\sum_{i=1}^n \ln(x_i)
+\end{align*}
+
+\textbf{Step 3: Differentiate}
+
+To find the maximum, take the derivative and set it equal to zero:
+
+\begin{align*}
+\frac{d}{d\theta}\ln L(\theta)
+&=
+\frac{d}{d\theta}
+\left[
+n\ln\theta
++(\theta-1)
+\sum_{i=1}^n \ln(x_i)
+\right]
+\end{align*}
+
+Differentiate:
+
+\begin{align*}
+\frac{d}{d\theta}\ln L(\theta)
+&=
+\frac{n}{\theta}
++1\cdot
+\sum_{i=1}^n \ln(x_i)
+\end{align*}
+
+\textbf{Step 4: Set equal to zero and solve}
+
+\begin{align*}
+\frac{n}{\theta}
++\sum_{i=1}^n \ln(x_i)
+&=0
+\end{align*}
+
+Move the sum to the other side:
+
+\begin{align*}
+\frac{n}{\theta}
+&=
+-\sum_{i=1}^n \ln(x_i)
+\end{align*}
+
+Solve for $\theta$:
+
+\begin{align*}
+\theta
+&=
+\frac{n}
+{-\sum_{i=1}^n \ln(x_i)}
+\end{align*}
+
+\subsubsection*{Final answer}
+\[
+\hat{\theta}_{\mathrm{ML}}
+=
+\frac{n}
+{-\sum_{i=1}^n \ln(x_i)}.
+\]
+
+\subsubsection*{What to remember}
+For ML estimation:
+
+\[
+L(\theta)=
+\prod_{i=1}^n f_X(x_i).
+\]
+
+Taking logs turns products into sums:
+
+\[
+\ln\left(\prod x_i\right)
+=
+\sum \ln(x_i).
+\]
+
+To maximize, differentiate the log-likelihood and set it equal to zero.
+
+\section*{Uppgift 5}
+
+\subsection*{Original question}
+Följande 8 observationer kan antas vara observationer från
+$N(\mu,\sigma)$:
+
+\[
+13.4,\;14.1,\;15.1,\;14.3,\;14.9,\;13.9,\;14.4,\;14.0.
+\]
+
+Beräkning ger att
+
+\[
+\sum_{i=1}^{8} x_i=114.1,
+\qquad
+\sum_{i=1}^{8} x_i^2=1629.45.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Ange en lämplig punktskattning av $\sigma^2$ och $\sigma$.
+\hfill (2p)
+
+\item
+Ange ett $90\,\%$ konfidensintervall för $\sigma$.
+\hfill (4p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes use descriptive statistics for a normal sample.
+First we estimate the variance and standard deviation from the sample.
+
+Then we build a $90\,\%$ confidence interval for $\sigma$.
+The notes first find the interval for $\sigma^2$ using the
+chi-square distribution, and then take square roots to get the
+interval for $\sigma$.
+
+\subsubsection*{Given information}
+From the question:
+
+\[
+n=8
+\]
+
+\[
+\sum x_i=114.1
+\]
+
+\[
+\sum x_i^2=1629.45
+\]
+
+For part b:
+
+\[
+90\,\%\text{ confidence}
+\]
+
+so
+
+\[
+\alpha=0.10.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Point estimate of $\sigma^2$ and $\sigma$}
+
+The notes use the sample variance:
+
+\[
+s^2
+=
+\frac{1}{n-1}
+\left(
+\sum x_i^2-n\bar{x}^{\,2}
+\right).
+\]
+
+\textbf{Step 1: Find the sample mean}
+
+\begin{align*}
+\bar{x}
+&=
+\frac{\sum x_i}{n} \\[2mm]
+&=
+\frac{114.1}{8} \\[2mm]
+&=
+14.2625 \\[2mm]
+&\approx 14.26
+\end{align*}
+
+\textbf{Step 2: Calculate the numerator}
+
+\begin{align*}
+\sum x_i^2-n\bar{x}^{\,2}
+&=
+1629.45
+-8(14.2625)^2 \\[2mm]
+&=
+2.09875
+\end{align*}
+
+\textbf{Step 3: Divide by $n-1$}
+
+\begin{align*}
+s^2
+&=
+\frac{2.09875}{8-1} \\[2mm]
+&=
+\frac{2.09875}{7} \\[2mm]
+&\approx 0.2998
+\end{align*}
+
+So the point estimate of $\sigma^2$ is:
+
+\[
+s^2\approx 0.2998.
+\]
+
+For $\sigma$, take the square root:
+
+\begin{align*}
+s
+&=
+\sqrt{0.2998} \\[2mm]
+&\approx 0.5476
+\end{align*}
+
+So the point estimate of $\sigma$ is:
+
+\[
+s\approx 0.5476.
+\]
+
+\subsection*{Original question repeated for this part}
+Följande 8 observationer kan antas vara observationer från
+$N(\mu,\sigma)$:
+
+\[
+13.4,\;14.1,\;15.1,\;14.3,\;14.9,\;13.9,\;14.4,\;14.0.
+\]
+
+Beräkning ger att
+
+\[
+\sum_{i=1}^{8} x_i=114.1,
+\qquad
+\sum_{i=1}^{8} x_i^2=1629.45.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item
+Ange en lämplig punktskattning av $\sigma^2$ och $\sigma$.
+\hfill (2p)
+
+\item
+Ange ett $90\,\%$ konfidensintervall för $\sigma$.
+\hfill (4p)
+\end{enumerate}
+
+\textbf{b) 90\% confidence interval for $\sigma$}
+
+The notes use the chi-square confidence interval for variance:
+
+\[
+\left[
+\frac{(n-1)s^2}{\chi^2_{\text{upper}}},
+\frac{(n-1)s^2}{\chi^2_{\text{lower}}}
+\right].
+\]
+
+Here:
+
+\[
+df=n-1=8-1=7.
+\]
+
+For a $90\,\%$ confidence interval:
+
+\[
+\alpha=0.10.
+\]
+
+Split the error into two tails:
+
+\[
+0.10/2=0.05.
+\]
+
+From the chi-square table with $df=7$, the notes use:
+
+\[
+\chi^2_{0.95}=14.067
+\]
+
+\[
+\chi^2_{0.05}=2.167
+\]
+
+Also, from part a:
+
+\[
+(n-1)s^2=2.09875.
+\]
+
+\textbf{Lower limit for $\sigma^2$}
+
+\begin{align*}
+\frac{(n-1)s^2}{\chi^2_{0.95}}
+&=
+\frac{2.09875}{14.067} \\[2mm]
+&\approx 0.1492
+\end{align*}
+
+\textbf{Upper limit for $\sigma^2$}
+
+\begin{align*}
+\frac{(n-1)s^2}{\chi^2_{0.05}}
+&=
+\frac{2.09875}{2.167} \\[2mm]
+&\approx 0.9685
+\end{align*}
+
+So the confidence interval for the variance is:
+
+\[
+\sigma^2\in [0.1492,\;0.9685].
+\]
+
+To get the interval for $\sigma$, take square roots:
+
+\begin{align*}
+\sigma
+&\in
+\left[
+\sqrt{0.1492},
+\sqrt{0.9685}
+\right] \\[2mm]
+&\approx
+[0.386,\;0.984].
+\end{align*}
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+\widehat{\sigma^2}=s^2\approx 0.2998.
+\]
+
+\[
+\hat{\sigma}=s\approx 0.5476.
+\]
+
+\item
+\[
+90\,\%\text{ confidence interval for }\sigma:
+\]
+
+\[
+\sigma\in[0.386,\;0.984].
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+Sample variance:
+
+\[
+s^2
+=
+\frac{1}{n-1}
+\left(
+\sum x_i^2-n\bar{x}^{\,2}
+\right).
+\]
+
+For a normal sample, a confidence interval for $\sigma^2$ uses
+the chi-square distribution:
+
+\[
+\left[
+\frac{(n-1)s^2}{\chi^2_{1-\alpha/2}},
+\frac{(n-1)s^2}{\chi^2_{\alpha/2}}
+\right].
+\]
+
+For $\sigma$, take the square root of both limits.
+
+\section*{Uppgift 6}
+
+\subsection*{Original question}
+Vikten av en flygpassagerare (inklusive handbagage) antas vara
+normalfördelad $N(\mu,\sigma)$. Under många år antogs $\mu=80$ kg,
+men man vill nu testa om medelvikten har ökat.
+Vi kan anta att $\sigma=10$.
+
+\begin{enumerate}[label=\alph*)]
+\item
+Undersök om $\mu>80$ genom att ställa upp ett lämpligt hypotestest,
+med signifikansnivån $5\,\%$ (nollhypotes och mothypotes ska vara
+tydligt formulerade).
+\hfill (2p)
+
+\item
+Utför ditt hypotestest i a) då $n=100$ och $\bar{x}=83$.
+\hfill (2p)
+
+\item
+Antag att man tror att medelvikten ökat med 2 kg
+(alltså $\mu=82$). Hur stort måste $n$ väljas för att kunna
+upptäcka denna ökning med $80\,\%$ sannolikhet?
+Alltså, hur stort måste $n$ väljas så att
+$P(\text{Förkasta }H_0)>0.8$, under antagandet att $\mu=82$?
+(Du kan här använda att $\Phi(0.84)\approx 0.8$.)
+\hfill (2p)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+
+\subsubsection*{What we are doing}
+The notes set up a hypothesis test for the mean weight.
+The old mean is $80$ kg, and we test if the mean has increased.
+
+Since $\sigma=10$ is known, the notes use a normal $z$ test.
+
+Part c is about statistical power:
+we choose $n$ large enough so that if the true mean is $82$,
+we reject $H_0$ with probability at least $80\,\%$.
+
+\subsubsection*{Given information}
+\[
+X\sim N(\mu,\sigma)
+\]
+
+\[
+\sigma=10
+\]
+
+Old assumed mean:
+
+\[
+\mu=80
+\]
+
+Significance level:
+
+\[
+\alpha=5\,\%=0.05
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Set up the hypothesis test}
+
+The notes write:
+
+\[
+H_0:\mu=80
+\]
+
+\[
+H_1:\mu>80
+\]
+
+This is a one-sided test, because the question asks if the mean
+weight has increased.
+
+The significance level is:
+
+\[
+\alpha=0.05.
+\]
+
+The notes explain this as:
+$H_0$ is rejected only when there is less than a $5\,\%$ chance that
+the result happened by luck.
+
+\subsection*{Original question repeated for this part}
+Vikten av en flygpassagerare (inklusive handbagage) antas vara
+normalfördelad $N(\mu,\sigma)$. Under många år antogs $\mu=80$ kg,
+men man vill nu testa om medelvikten har ökat.
+Vi kan anta att $\sigma=10$.
+
+\begin{enumerate}[label=\alph*)]
+\item
+Undersök om $\mu>80$ genom att ställa upp ett lämpligt hypotestest,
+med signifikansnivån $5\,\%$ (nollhypotes och mothypotes ska vara
+tydligt formulerade).
+\hfill (2p)
+
+\item
+Utför ditt hypotestest i a) då $n=100$ och $\bar{x}=83$.
+\hfill (2p)
+
+\item
+Antag att man tror att medelvikten ökat med 2 kg
+(alltså $\mu=82$). Hur stort måste $n$ väljas för att kunna
+upptäcka denna ökning med $80\,\%$ sannolikhet?
+Alltså, hur stort måste $n$ väljas så att
+$P(\text{Förkasta }H_0)>0.8$, under antagandet att $\mu=82$?
+(Du kan här använda att $\Phi(0.84)\approx 0.8$.)
+\hfill (2p)
+\end{enumerate}
+
+\textbf{b) Perform the test for $n=100$ and $\bar{x}=83$}
+
+Given:
+
+\[
+n=100,
+\qquad
+\bar{x}=83.
+\]
+
+The standard error is:
+
+\begin{align*}
+SE
+&=
+\frac{\sigma}{\sqrt{n}} \\[2mm]
+&=
+\frac{10}{\sqrt{100}} \\[2mm]
+&=
+\frac{10}{10} \\[2mm]
+&=1
+\end{align*}
+
+The $z$-score is:
+
+\begin{align*}
+z
+&=
+\frac{\bar{x}-\mu}{SE} \\[2mm]
+&=
+\frac{83-80}{1} \\[2mm]
+&=3
+\end{align*}
+
+For a one-sided $5\,\%$ test, the notes use the normal table:
+
+\[
+z_{0.95}\approx 1.645.
+\]
+
+Compare:
+
+\[
+3>1.645.
+\]
+
+So we reject $H_0$.
+
+There is evidence that the average weight has increased.
+
+\subsection*{Original question repeated for this part}
+Vikten av en flygpassagerare (inklusive handbagage) antas vara
+normalfördelad $N(\mu,\sigma)$. Under många år antogs $\mu=80$ kg,
+men man vill nu testa om medelvikten har ökat.
+Vi kan anta att $\sigma=10$.
+
+\begin{enumerate}[label=\alph*)]
+\item
+Undersök om $\mu>80$ genom att ställa upp ett lämpligt hypotestest,
+med signifikansnivån $5\,\%$ (nollhypotes och mothypotes ska vara
+tydligt formulerade).
+\hfill (2p)
+
+\item
+Utför ditt hypotestest i a) då $n=100$ och $\bar{x}=83$.
+\hfill (2p)
+
+\item
+Antag att man tror att medelvikten ökat med 2 kg
+(alltså $\mu=82$). Hur stort måste $n$ väljas för att kunna
+upptäcka denna ökning med $80\,\%$ sannolikhet?
+Alltså, hur stort måste $n$ väljas så att
+$P(\text{Förkasta }H_0)>0.8$, under antagandet att $\mu=82$?
+(Du kan här använda att $\Phi(0.84)\approx 0.8$.)
+\hfill (2p)
+\end{enumerate}
+
+\textbf{c) Required sample size}
+
+The notes say this is about statistical power.
+We want $n$ large enough so that, if the true mean is $82$,
+we catch it $80\,\%$ of the time.
+
+Given:
+
+\[
+\mu=82
+\]
+
+\[
+P(\text{reject }H_0)>0.8
+\]
+
+and
+
+\[
+\Phi(0.84)\approx 0.8.
+\]
+
+The rejection rule from the one-sided test is:
+
+\[
+\bar{x}>
+80+1.645\cdot \frac{10}{\sqrt{n}}.
+\]
+
+The notes write the power requirement as:
+
+\[
+P\left(
+\bar{x}>
+80+1.645\cdot \frac{10}{\sqrt{n}}
+\right)
+=0.8,
+\qquad \text{given }\mu=82.
+\]
+
+Standardize using $\mu=82$:
+
+\[
+P\left(
+Z>
+\frac{
+\left(80+1.645\cdot \frac{10}{\sqrt{n}}\right)-82
+}
+{10/\sqrt{n}}
+\right)
+=0.8.
+\]
+
+This becomes:
+
+\[
+P\left(
+Z>
+\frac{
+-2+1.645\cdot \frac{10}{\sqrt{n}}
+}
+{10/\sqrt{n}}
+\right)
+=0.8.
+\]
+
+\textbf{English clarification:}
+The notes stop here, but the next algebra step is directly implied.
+Since $P(Z>-0.84)\approx 0.8$, set the inside value equal to $-0.84$.
+
+\begin{align*}
+\frac{
+-2+1.645\cdot \frac{10}{\sqrt{n}}
+}
+{10/\sqrt{n}}
+&=-0.84
+\end{align*}
+
+Split the fraction:
+
+\begin{align*}
+\frac{-2}{10/\sqrt{n}}
++1.645
+&=-0.84 \\[2mm]
+-\frac{2\sqrt{n}}{10}
++1.645
+&=-0.84
+\end{align*}
+
+Move terms:
+
+\begin{align*}
+-\frac{2\sqrt{n}}{10}
+&=
+-0.84-1.645 \\[2mm]
+-\frac{2\sqrt{n}}{10}
+&=
+-2.485
+\end{align*}
+
+So:
+
+\begin{align*}
+\frac{2\sqrt{n}}{10}
+&=2.485 \\[2mm]
+\sqrt{n}
+&=
+\frac{2.485\cdot 10}{2} \\[2mm]
+&=12.425
+\end{align*}
+
+Square both sides:
+
+\begin{align*}
+n
+&=
+(12.425)^2 \\[2mm]
+&\approx 154.38
+\end{align*}
+
+Since $n$ must be a whole number:
+
+\[
+n=155.
+\]
+
+\subsubsection*{Final answer}
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+H_0:\mu=80,
+\qquad
+H_1:\mu>80.
+\]
+
+\item
+\[
+z=3.
+\]
+Since $3>1.645$, reject $H_0$.
+There is evidence that the mean weight has increased.
+
+\item
+\[
+n\geq 155.
+\]
+So choose
+\[
+n=155.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+For a one-sided test with known $\sigma$:
+
+\[
+z=
+\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.
+\]
+
+At significance level $5\,\%$ for an upper-tail test:
+
+\[
+z_{0.95}\approx 1.645.
+\]
+
+For power calculations, write the rejection rule in terms of
+$\bar{x}$, then standardize using the alternative mean.
+
+\end{document}

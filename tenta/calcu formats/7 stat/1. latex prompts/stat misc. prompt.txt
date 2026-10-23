@@ -1,0 +1,29 @@
+stat misc. prompt
+
+
+printing material
+-
+run an attempt first at question 1 to see if the format is correct
+taking my notes, obid notes
+-
+one question at a time 
+correct resolution
+-
+I wanna create a pdf for each test year, e.g pdf for 2026-01 where we take the questions in that test, 
+we include the test questions from the original test paper, and underneath you will write compiliatin of me and my friends me (yacoub) and my friend (obid)  notebook notes provided as image dumps. 
+You will awlays incude the question itself above the solution, the solution being a strict adherence to compilation of both of our notes and compilizing our comined notes for ideal latex notes in the pdf for each question. 
+So the 2026-01 pdf will incldue the question top of each solution, and the soltions being a neat compilation of our notes provided as dump ... 
+I will give you one question at a time per test, e.g 2026-01 question 1 itself, my notes for question 1 2026-01, and obid's notes for question 1 2026-01
+And you will continuesly update the pdf with the questions for 2026-01 itself in latex exactly copied from the original question for 2026-01 first question, and latex formatted neat compilation of my notes and my friend notes for 2026-01 question 1... 
+Once the pdf has all the question for the test, e.g test 2026-01  ... I will have a fully ready made tex file that has the latex of the entire 2026-01 test
+-
+(compiling our combined notes neatly in latex)
+taking question answer attempt note from me and obid, compiling question answers from me and obid and not inventing/hallucinating new theory more than what we already wrote ... sticking to our combined script perse ... sometimes yacoub has more notes for the qeustion, sometimes obid has notes. compile both our attempts at the question into an ideal compilation and clean latex notes to follow isntead of our messy notes, sticking strictly to what we wrote but writing it beautifuly
+* make sure not to invent any math and strictly follow our notes ... improve/enhance parts that 	are  skipped or done lazy
+* Parts where there is a number and a circle are used as a reference, like a circled 1 seen in two different pages are referencing each other, where the other circled 1 is explaining intext what is happening, make sure to track and note those reference number descriptions
+-
+(include the questions on top of each solution, always)
+Absolutely ensure to always include the question that we answered ontop of the each question ... retrieve the qeustion itself from the test paper and provide it above the solution always... always provide the question over the solution ... Provide the original question, do not change it at all
+-
+(keep it narrow to idealy fit in the calculator 384 width resolution)
+ensure the pdf is narrow to fit the 384 width resoltion calculator which the latex notes will go into ... don't go wide, awlays keep it more narrow and newline often with text... however keep the question itself absolutely untouched from its original format and width when you write it on top of the solution

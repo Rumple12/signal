@@ -1,0 +1,1502 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75em}
+
+\title{MA087G Mathematical Statistics\\Beginner-Friendly Full Solution Guide\\2026-01-07}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Source notes before solving}
+The official exam PDF was image-only. That means normal text extraction found no text, but the rendered page images were readable.
+
+Two details are important:
+\begin{itemize}[leftmargin=*]
+    \item Uppgift 2 has an internal mismatch. The main displayed density is \(f(x)=a x^2(2-x)\), but the printed fallback comment says \(f(x)=5x^3(2-x)/8\). I solve the main displayed density, because that is the actual formula in the question. I also give the fallback answers at the end of Uppgift 2.
+    \item Uppgift 4b does not explicitly say that \(X\) and \(Y\) are independent. To calculate the variance of the taxi cost, we need independence. I use the standard exam assumption that they are independent.
+\end{itemize}
+
+\section*{Uppgift 1}
+
+\subsection*{What this question is really asking}
+We have two events, \(A\) and \(B\). An event just means something that may or may not happen.
+
+The question gives three pieces of information:
+\[
+P(A^c\cap B^c)=0.60,\qquad P(A\cap B)=0.20,\qquad P(A^c\cap B)=0.10.
+\]
+
+The little \(c\) means ``not''. So:
+\[
+A^c=\text{not }A,\qquad B^c=\text{not }B.
+\]
+
+The question asks:
+\begin{itemize}[leftmargin=*]
+    \item Are \(A\) and \(B\) independent?
+    \item What is \(P(B\mid A^c)\), the probability that \(B\) happens given that \(A\) does not happen?
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It talks about two events \(A\) and \(B\).
+    \item It gives probabilities for combinations like \(A^c\cap B\).
+    \item It asks about independence.
+    \item It asks for a conditional probability, shown by the vertical bar \(\mid\).
+\end{itemize}
+
+So this is a two-event probability table problem. The safest beginner method is to fill in the four possible boxes:
+\[
+A\cap B,\quad A\cap B^c,\quad A^c\cap B,\quad A^c\cap B^c.
+\]
+
+\subsection*{Tiny theory needed}
+The symbol \(\cap\) means ``and''. For example:
+\[
+A\cap B=\text{\(A\) happens and \(B\) happens}.
+\]
+
+The symbol \(P(B\mid A^c)\) means:
+\[
+\text{probability of \(B\), if we already know that \(A\) did not happen}.
+\]
+
+The formula for conditional probability is:
+\[
+P(B\mid A^c)=\frac{P(B\cap A^c)}{P(A^c)}.
+\]
+
+Independence means that knowing one event happened does not change the probability of the other. The exam formula for checking independence is:
+\[
+P(A\cap B)=P(A)P(B).
+\]
+
+\subsection*{Formula and what everything means}
+For independence:
+\[
+P(A\cap B)=P(A)P(B).
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(P(A\cap B)\) is the probability that both happen.
+    \item \(P(A)\) is the probability that \(A\) happens.
+    \item \(P(B)\) is the probability that \(B\) happens.
+    \item If left side and right side are equal, they are independent.
+    \item If they are not equal, they are not independent.
+\end{itemize}
+
+For conditional probability:
+\[
+P(B\mid A^c)=\frac{P(B\cap A^c)}{P(A^c)}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item The top is the part where \(B\) happens and \(A\) does not happen.
+    \item The bottom is all cases where \(A\) does not happen.
+\end{itemize}
+
+\subsection*{Step-by-step solution}
+The four possible boxes must add to \(1\), because one of them must happen:
+\[
+P(A\cap B)+P(A\cap B^c)+P(A^c\cap B)+P(A^c\cap B^c)=1.
+\]
+
+We already know three boxes:
+\[
+P(A\cap B)=0.20,
+\]
+\[
+P(A^c\cap B)=0.10,
+\]
+\[
+P(A^c\cap B^c)=0.60.
+\]
+
+Find the missing box:
+\begin{align*}
+P(A\cap B^c)
+&=1-0.20-0.10-0.60\\
+&=1-0.90\\
+&=0.10.
+\end{align*}
+This means the probability that \(A\) happens but \(B\) does not happen is \(0.10\).
+
+Now find \(P(A)\). Event \(A\) happens in two boxes:
+\[
+A\cap B
+\]
+and
+\[
+A\cap B^c.
+\]
+So:
+\begin{align*}
+P(A)
+&=P(A\cap B)+P(A\cap B^c)\\
+&=0.20+0.10\\
+&=0.30.
+\end{align*}
+
+Now find \(P(B)\). Event \(B\) happens in two boxes:
+\[
+A\cap B
+\]
+and
+\[
+A^c\cap B.
+\]
+So:
+\begin{align*}
+P(B)
+&=P(A\cap B)+P(A^c\cap B)\\
+&=0.20+0.10\\
+&=0.30.
+\end{align*}
+
+Now check independence:
+\begin{align*}
+P(A)P(B)
+&=0.30\cdot 0.30\\
+&=0.09.
+\end{align*}
+But:
+\[
+P(A\cap B)=0.20.
+\]
+Since:
+\[
+0.20\neq 0.09,
+\]
+\(A\) and \(B\) are not independent.
+
+Now calculate \(P(B\mid A^c)\):
+\begin{align*}
+P(B\mid A^c)
+&=\frac{P(B\cap A^c)}{P(A^c)}.
+\end{align*}
+The top is given:
+\[
+P(B\cap A^c)=P(A^c\cap B)=0.10.
+\]
+The bottom \(P(A^c)\) means all cases where \(A\) does not happen:
+\begin{align*}
+P(A^c)
+&=P(A^c\cap B)+P(A^c\cap B^c)\\
+&=0.10+0.60\\
+&=0.70.
+\end{align*}
+Therefore:
+\begin{align*}
+P(B\mid A^c)
+&=\frac{0.10}{0.70}\\
+&=\frac{1}{7}\\
+&\approx 0.143.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{A \text{ and } B \text{ are not independent}}
+\]
+\[
+\boxed{P(B\mid A^c)=\frac{1}{7}\approx 0.143}
+\]
+
+\subsection*{What to memorize for the exam}
+For independence, always check:
+\[
+P(A\cap B)=P(A)P(B).
+\]
+For conditional probability, always use:
+\[
+P(\text{wanted}\mid \text{given})=
+\frac{P(\text{wanted and given})}{P(\text{given})}.
+\]
+
+\subsection*{Common trap}
+Do not compare \(P(A\cap B)\) with \(P(A)+P(B)\). Independence uses multiplication, not addition.
+
+\subsection*{Repeated exam pattern}
+This is the same broad pattern as 2025-08, Uppgift 1: two-event probability with complements and conditional probability. The numbers changed, but the solving method is the same.
+
+\section*{Uppgift 2}
+
+\subsection*{What this question is really asking}
+We are given a function \(f(x)\) and need to make it into a probability density function.
+
+A density function is used for a continuous random variable. Continuous means \(X\) can take values on an interval, like between \(0\) and \(2\), instead of only separate values like \(0,1,2\).
+
+The question asks us to:
+\begin{itemize}[leftmargin=*]
+    \item find the constant \(a\),
+    \item find the distribution function \(F_X(x)\),
+    \item calculate \(P(X>1)\),
+    \item calculate expected value and standard deviation.
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item The question says ``täthetsfunktion'', which means density function.
+    \item The function is given on an interval \(0\le x\le 2\).
+    \item It asks for \(F_X\), which is the distribution function/CDF.
+    \item It asks for expected value and standard deviation.
+\end{itemize}
+
+So this is an integral problem. For continuous random variables, probabilities are areas, and areas are found with integrals.
+
+\subsection*{Tiny theory needed}
+The displayed density is:
+\[
+f(x)=
+\begin{cases}
+a x^2(2-x), & 0\le x\le 2,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+For \(f\) to be a density, the total area under the curve must be \(1\):
+\[
+\int_{-\infty}^{\infty}f(x)\,dx=1.
+\]
+Since \(f(x)=0\) outside \(0\le x\le 2\), we only integrate from \(0\) to \(2\).
+
+The distribution function \(F_X(x)\) means:
+\[
+F_X(x)=P(X\le x).
+\]
+It tells us how much probability is to the left of \(x\).
+
+\subsection*{Formula and what everything means}
+Density condition:
+\[
+\int_0^2 f(x)\,dx=1.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(f(x)\) is the density.
+    \item The integral is the area under \(f(x)\).
+    \item The total area must equal \(1\), because total probability is \(100\%\).
+\end{itemize}
+
+CDF formula:
+\[
+F_X(x)=\int_{-\infty}^{x}f(t)\,dt.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(F_X(x)\) is probability up to \(x\).
+    \item \(t\) is only a temporary integration letter.
+\end{itemize}
+
+Expected value:
+\[
+E(X)=\int x f(x)\,dx.
+\]
+This is the long-run average value.
+
+Variance:
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+Standard deviation:
+\[
+D(X)=\sqrt{V(X)}.
+\]
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Find \(a\).}
+
+Use the density condition:
+\begin{align*}
+\int_0^2 a x^2(2-x)\,dx&=1.
+\end{align*}
+First expand inside the integral:
+\[
+x^2(2-x)=2x^2-x^3.
+\]
+So:
+\begin{align*}
+a\int_0^2(2x^2-x^3)\,dx&=1.
+\end{align*}
+Now integrate:
+\[
+\int 2x^2\,dx=\frac{2x^3}{3},
+\qquad
+\int x^3\,dx=\frac{x^4}{4}.
+\]
+So:
+\begin{align*}
+a\left[\frac{2x^3}{3}-\frac{x^4}{4}\right]_0^2&=1.
+\end{align*}
+Insert the upper limit \(2\):
+\begin{align*}
+\frac{2\cdot 2^3}{3}-\frac{2^4}{4}
+&=\frac{16}{3}-4\\
+&=\frac{16}{3}-\frac{12}{3}\\
+&=\frac{4}{3}.
+\end{align*}
+Insert the lower limit \(0\), which gives \(0\). Therefore:
+\begin{align*}
+a\cdot \frac{4}{3}&=1\\
+a&=\frac{3}{4}.
+\end{align*}
+
+\textbf{Part b: Find \(F_X(x)\).}
+
+The CDF must be piecewise:
+\begin{itemize}[leftmargin=*]
+    \item If \(x<0\), we are before the density starts, so \(F_X(x)=0\).
+    \item If \(0\le x\le 2\), integrate from \(0\) to \(x\).
+    \item If \(x>2\), we have passed the whole density, so \(F_X(x)=1\).
+\end{itemize}
+
+For \(0\le x\le 2\):
+\begin{align*}
+F_X(x)
+&=\int_0^x \frac{3}{4}t^2(2-t)\,dt\\
+&=\frac{3}{4}\int_0^x(2t^2-t^3)\,dt\\
+&=\frac{3}{4}\left[\frac{2t^3}{3}-\frac{t^4}{4}\right]_0^x\\
+&=\frac{3}{4}\left(\frac{2x^3}{3}-\frac{x^4}{4}\right).
+\end{align*}
+Now multiply in \(\frac{3}{4}\):
+\begin{align*}
+F_X(x)
+&=\frac{x^3}{2}-\frac{3x^4}{16}.
+\end{align*}
+
+Therefore:
+\[
+F_X(x)=
+\begin{cases}
+0, & x<0,\\[1mm]
+\dfrac{x^3}{2}-\dfrac{3x^4}{16}, & 0\le x\le 2,\\[2mm]
+1, & x>2.
+\end{cases}
+\]
+
+\textbf{Part c: Calculate \(P(X>1)\).}
+
+The CDF gives \(P(X\le 1)\). We want the opposite side:
+\[
+P(X>1)=1-P(X\le 1)=1-F_X(1).
+\]
+Calculate \(F_X(1)\):
+\begin{align*}
+F_X(1)
+&=\frac{1^3}{2}-\frac{3\cdot 1^4}{16}\\
+&=\frac{1}{2}-\frac{3}{16}\\
+&=\frac{8}{16}-\frac{3}{16}\\
+&=\frac{5}{16}.
+\end{align*}
+So:
+\begin{align*}
+P(X>1)
+&=1-\frac{5}{16}\\
+&=\frac{11}{16}.
+\end{align*}
+
+\textbf{Part d: Expected value and standard deviation.}
+
+First calculate \(E(X)\):
+\begin{align*}
+E(X)
+&=\int_0^2 x f(x)\,dx\\
+&=\int_0^2 x\cdot \frac{3}{4}x^2(2-x)\,dx\\
+&=\frac{3}{4}\int_0^2 x^3(2-x)\,dx\\
+&=\frac{3}{4}\int_0^2(2x^3-x^4)\,dx.
+\end{align*}
+Now integrate:
+\begin{align*}
+E(X)
+&=\frac{3}{4}\left[\frac{x^4}{2}-\frac{x^5}{5}\right]_0^2\\
+&=\frac{3}{4}\left(\frac{2^4}{2}-\frac{2^5}{5}\right)\\
+&=\frac{3}{4}\left(8-\frac{32}{5}\right)\\
+&=\frac{3}{4}\cdot \frac{8}{5}\\
+&=\frac{6}{5}.
+\end{align*}
+
+Now calculate \(E(X^2)\), because variance needs it:
+\begin{align*}
+E(X^2)
+&=\int_0^2 x^2 f(x)\,dx\\
+&=\int_0^2 x^2\cdot \frac{3}{4}x^2(2-x)\,dx\\
+&=\frac{3}{4}\int_0^2(2x^4-x^5)\,dx\\
+&=\frac{3}{4}\left[\frac{2x^5}{5}-\frac{x^6}{6}\right]_0^2\\
+&=\frac{3}{4}\left(\frac{64}{5}-\frac{64}{6}\right)\\
+&=\frac{3}{4}\left(\frac{64}{5}-\frac{32}{3}\right)\\
+&=\frac{8}{5}.
+\end{align*}
+
+Now variance:
+\begin{align*}
+V(X)
+&=E(X^2)-[E(X)]^2\\
+&=\frac{8}{5}-\left(\frac{6}{5}\right)^2\\
+&=\frac{8}{5}-\frac{36}{25}\\
+&=\frac{40}{25}-\frac{36}{25}\\
+&=\frac{4}{25}.
+\end{align*}
+Standard deviation:
+\begin{align*}
+D(X)
+&=\sqrt{V(X)}\\
+&=\sqrt{\frac{4}{25}}\\
+&=\frac{2}{5}.
+\end{align*}
+
+\subsection*{Answer}
+For the displayed density \(a x^2(2-x)\):
+\[
+\boxed{a=\frac{3}{4}}
+\]
+\[
+\boxed{
+F_X(x)=
+\begin{cases}
+0, & x<0,\\
+\frac{x^3}{2}-\frac{3x^4}{16}, & 0\le x\le 2,\\
+1, & x>2
+\end{cases}}
+\]
+\[
+\boxed{P(X>1)=\frac{11}{16}}
+\]
+\[
+\boxed{E(X)=\frac{6}{5}},\qquad
+\boxed{D(X)=\frac{2}{5}}.
+\]
+
+If the printed fallback density \(5x^3(2-x)/8\) was intended instead, then:
+\[
+F_X(x)=\frac{5x^4}{16}-\frac{x^5}{8},\qquad
+P(X>1)=\frac{13}{16},
+\]
+\[
+E(X)=\frac{4}{3},\qquad
+D(X)=\sqrt{\frac{8}{63}}.
+\]
+
+\subsection*{What to memorize for the exam}
+For density questions:
+\begin{itemize}[leftmargin=*]
+    \item First make total area equal to \(1\).
+    \item Then find the CDF by integrating the density.
+    \item For \(P(X>c)\), use \(1-F(c)\).
+    \item For standard deviation, calculate variance first.
+\end{itemize}
+
+\subsection*{Common trap}
+Do not write only the middle part of the CDF. A CDF must also say what happens before and after the interval.
+
+\subsection*{Repeated exam pattern}
+This is the same pattern as 2025-08, Uppgift 2: continuous density normalization, CDF, probability, expected value, and standard deviation. The density changed, but the solving recipe is identical.
+
+\section*{Uppgift 3}
+
+\subsection*{What this question is really asking}
+We have two independent exponential random variables:
+\[
+X\sim \operatorname{Exp}(0.04),\qquad Y\sim \operatorname{Exp}(0.05).
+\]
+
+The new variable is:
+\[
+Z=\min(X,Y).
+\]
+That means \(Z\) is whichever of \(X\) and \(Y\) happens first/smaller.
+
+The question asks:
+\begin{itemize}[leftmargin=*]
+    \item What distribution does \(Z\) have?
+    \item What is \(P(Z\ge 10)\)?
+    \item What is \(E(Z)\)?
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It says \(X\in \operatorname{Exp}(0.04)\) and \(Y\in \operatorname{Exp}(0.05)\).
+    \item It says independent, which means we may multiply probabilities.
+    \item It defines \(Z=\min(X,Y)\).
+\end{itemize}
+
+For a minimum, use survival probabilities. Survival means probability of being larger than a value.
+
+\subsection*{Tiny theory needed}
+If \(X\sim \operatorname{Exp}(\lambda)\), then:
+\[
+P(X>t)=e^{-\lambda t}.
+\]
+Here \(\lambda\) is the rate.
+
+For \(Z=\min(X,Y)\), the event \(Z>t\) means both variables are bigger than \(t\):
+\[
+Z>t
+\]
+means:
+\[
+X>t \text{ and } Y>t.
+\]
+
+Because \(X\) and \(Y\) are independent, we can multiply:
+\[
+P(X>t \text{ and } Y>t)=P(X>t)P(Y>t).
+\]
+
+\subsection*{Formula and what everything means}
+Exponential survival formula:
+\[
+P(X>t)=e^{-\lambda t}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(t\) is the time or value we compare against.
+    \item \(\lambda\) is the exponential rate.
+    \item \(e^{-\lambda t}\) gives the probability that the variable is still above \(t\).
+\end{itemize}
+
+For a minimum of independent exponentials:
+\[
+\min(\operatorname{Exp}(\lambda_1),\operatorname{Exp}(\lambda_2))
+\sim \operatorname{Exp}(\lambda_1+\lambda_2).
+\]
+In words: for the minimum, the rates add.
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Find the distribution of \(Z\).}
+
+Start with:
+\[
+Z=\min(X,Y).
+\]
+For \(z\ge 0\):
+\begin{align*}
+P(Z>z)
+&=P(\min(X,Y)>z).
+\end{align*}
+The minimum is greater than \(z\) only if both \(X\) and \(Y\) are greater than \(z\):
+\begin{align*}
+P(Z>z)
+&=P(X>z,\;Y>z).
+\end{align*}
+Since \(X\) and \(Y\) are independent:
+\begin{align*}
+P(Z>z)
+&=P(X>z)P(Y>z).
+\end{align*}
+Use the exponential survival formula:
+\begin{align*}
+P(X>z)&=e^{-0.04z},\\
+P(Y>z)&=e^{-0.05z}.
+\end{align*}
+Multiply:
+\begin{align*}
+P(Z>z)
+&=e^{-0.04z}e^{-0.05z}\\
+&=e^{-0.09z}.
+\end{align*}
+This is the survival function of an exponential variable with rate \(0.09\). Therefore:
+\[
+Z\sim \operatorname{Exp}(0.09).
+\]
+
+If we want the distribution function:
+\[
+F_Z(z)=P(Z\le z).
+\]
+Since:
+\[
+P(Z\le z)=1-P(Z>z),
+\]
+we get:
+\[
+F_Z(z)=
+\begin{cases}
+0, & z<0,\\
+1-e^{-0.09z}, & z\ge 0.
+\end{cases}
+\]
+
+\textbf{Part b: Calculate \(P(Z\ge 10)\).}
+
+For a continuous variable, \(P(Z\ge 10)\) and \(P(Z>10)\) are the same, because the probability of exactly \(10\) is \(0\).
+
+Use the survival function:
+\begin{align*}
+P(Z\ge 10)
+&=P(Z>10)\\
+&=e^{-0.09\cdot 10}\\
+&=e^{-0.9}\\
+&\approx 0.407.
+\end{align*}
+
+\textbf{Part c: Find \(E(Z)\).}
+
+For an exponential variable:
+\[
+E(Z)=\frac{1}{\lambda}.
+\]
+Here \(\lambda=0.09\), so:
+\begin{align*}
+E(Z)
+&=\frac{1}{0.09}\\
+&=\frac{100}{9}\\
+&\approx 11.11.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{Z\sim \operatorname{Exp}(0.09)}
+\]
+\[
+\boxed{P(Z\ge 10)=e^{-0.9}\approx 0.407}
+\]
+\[
+\boxed{E(Z)=\frac{100}{9}\approx 11.11}
+\]
+
+\subsection*{What to memorize for the exam}
+For independent exponential variables:
+\[
+\min(X,Y)\sim \operatorname{Exp}(\lambda_X+\lambda_Y).
+\]
+Minimum means the first one to happen, so the rates add.
+
+\subsection*{Common trap}
+Do not add the expected values of \(X\) and \(Y\). The minimum is not \(X+Y\). For the minimum, add the rates, not the means.
+
+\subsection*{Repeated exam pattern}
+No earlier matching pattern found yet in the processed folders. Track this as: minimum of independent exponential variables.
+
+\section*{Uppgift 4}
+
+\subsection*{What this question is really asking}
+This question has two separate parts.
+
+Part a is about a discrete random variable. Discrete means it can only take a few separate values:
+\[
+0,\quad 50,\quad 100.
+\]
+We need its distribution, expected value, and standard deviation.
+
+Part b is about a taxi cost built from two normally distributed variables:
+\[
+X=\text{distance in km},\qquad Y=\text{time in minutes}.
+\]
+We must find the probability that the total cost is between 150 kr and 200 kr.
+
+\subsection*{How to recognize this type of question}
+Part a clues:
+\begin{itemize}[leftmargin=*]
+    \item The possible outcomes are fixed amounts of money.
+    \item The text gives percentages and ratio information.
+    \item It asks for expected value and standard deviation.
+\end{itemize}
+
+Part b clues:
+\begin{itemize}[leftmargin=*]
+    \item The question says \(X\in N(3,1)\) and \(Y\in N(8,2)\).
+    \item That means normal distribution.
+    \item The cost is a linear expression: start fee plus km fee plus minute fee.
+\end{itemize}
+
+\subsection*{Tiny theory needed}
+For a discrete variable:
+\[
+E(X)=\sum xP(X=x).
+\]
+This means:
+
+multiply each value by its probability, then add.
+
+For variance:
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+Then:
+\[
+D(X)=\sqrt{V(X)}.
+\]
+
+For a linear combination of independent normal variables, the result is also normal.
+
+If:
+\[
+C=57+14X+9Y,
+\]
+then:
+\[
+E(C)=57+14E(X)+9E(Y).
+\]
+For variance:
+\[
+V(C)=14^2V(X)+9^2V(Y).
+\]
+We square the coefficients in variance.
+
+\subsection*{Formula and what everything means}
+Discrete expected value:
+\[
+E(X)=\sum xP(X=x).
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(x\) is a possible value.
+    \item \(P(X=x)\) is the probability of that value.
+    \item The sum means add all value-times-probability terms.
+\end{itemize}
+
+Normal standardization:
+\[
+z=\frac{x-\mu}{\sigma}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(x\) is the boundary value we are checking.
+    \item \(\mu\) is the mean/center.
+    \item \(\sigma\) is the standard deviation/spread.
+    \item \(z\) tells how many standard deviations away from the mean we are.
+\end{itemize}
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Distribution, expected value, and standard deviation.}
+
+The contribution can be:
+\[
+0,\quad 50,\quad 100.
+\]
+
+The question says \(46\%\) gave nothing:
+\[
+P(X=0)=0.46.
+\]
+
+So the remaining probability is:
+\begin{align*}
+1-0.46&=0.54.
+\end{align*}
+This \(0.54\) is split between 50 kr and 100 kr.
+
+The share giving 50 kr is twice as large as the share giving 100 kr. Let:
+\[
+P(X=100)=q.
+\]
+Then:
+\[
+P(X=50)=2q.
+\]
+Together they must add to \(0.54\):
+\begin{align*}
+q+2q&=0.54\\
+3q&=0.54\\
+q&=0.18.
+\end{align*}
+So:
+\[
+P(X=100)=0.18,
+\]
+and:
+\[
+P(X=50)=2q=2\cdot 0.18=0.36.
+\]
+
+The distribution is:
+\[
+\begin{array}{c|ccc}
+x & 0 & 50 & 100\\ \hline
+P(X=x) & 0.46 & 0.36 & 0.18
+\end{array}
+\]
+
+Now expected value:
+\begin{align*}
+E(X)
+&=0\cdot 0.46+50\cdot 0.36+100\cdot 0.18\\
+&=0+18+18\\
+&=36.
+\end{align*}
+So the average contribution is 36 kr.
+
+Now calculate \(E(X^2)\):
+\begin{align*}
+E(X^2)
+&=0^2\cdot 0.46+50^2\cdot 0.36+100^2\cdot 0.18\\
+&=0+2500\cdot 0.36+10000\cdot 0.18\\
+&=0+900+1800\\
+&=2700.
+\end{align*}
+
+Variance:
+\begin{align*}
+V(X)
+&=E(X^2)-[E(X)]^2\\
+&=2700-36^2\\
+&=2700-1296\\
+&=1404.
+\end{align*}
+
+Standard deviation:
+\begin{align*}
+D(X)
+&=\sqrt{1404}\\
+&\approx 37.47.
+\end{align*}
+
+\textbf{Part b: Taxi cost probability.}
+
+The cost has:
+\begin{itemize}[leftmargin=*]
+    \item 57 kr start fee,
+    \item 14 kr per km,
+    \item 9 kr per minute.
+\end{itemize}
+
+So the total cost is:
+\[
+C=57+14X+9Y.
+\]
+
+We use the standard convention \(N(\mu,\sigma)\), so:
+\[
+X\sim N(3,1),\qquad Y\sim N(8,2).
+\]
+This means:
+\[
+E(X)=3,\quad D(X)=1,
+\]
+and:
+\[
+E(Y)=8,\quad D(Y)=2.
+\]
+
+Find the mean of \(C\):
+\begin{align*}
+E(C)
+&=57+14E(X)+9E(Y)\\
+&=57+14\cdot 3+9\cdot 8\\
+&=57+42+72\\
+&=171.
+\end{align*}
+
+Now find the variance of \(C\). We assume \(X\) and \(Y\) are independent:
+\begin{align*}
+V(C)
+&=14^2V(X)+9^2V(Y).
+\end{align*}
+Since standard deviation of \(X\) is \(1\), variance is \(1^2=1\). Since standard deviation of \(Y\) is \(2\), variance is \(2^2=4\):
+\begin{align*}
+V(C)
+&=14^2\cdot 1+9^2\cdot 4\\
+&=196+324\\
+&=520.
+\end{align*}
+So:
+\[
+D(C)=\sqrt{520}\approx 22.80.
+\]
+
+Therefore:
+\[
+C\sim N(171,\sqrt{520}).
+\]
+
+We want:
+\[
+P(150\le C\le 200).
+\]
+Standardize both endpoints:
+\begin{align*}
+z_1
+&=\frac{150-171}{\sqrt{520}}\\
+&\approx -0.921,
+\end{align*}
+and
+\begin{align*}
+z_2
+&=\frac{200-171}{\sqrt{520}}\\
+&\approx 1.272.
+\end{align*}
+
+So:
+\begin{align*}
+P(150\le C\le 200)
+&=P(-0.921\le Z\le 1.272)\\
+&=\Phi(1.272)-\Phi(-0.921)\\
+&\approx 0.898-0.179\\
+&\approx 0.720.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{
+\begin{array}{c|ccc}
+x & 0 & 50 & 100\\ \hline
+P(X=x) & 0.46 & 0.36 & 0.18
+\end{array}}
+\]
+\[
+\boxed{E(X)=36\text{ kr}},\qquad
+\boxed{D(X)\approx 37.47\text{ kr}}
+\]
+\[
+\boxed{P(150\le C\le 200)\approx 0.720}
+\]
+
+\subsection*{What to memorize for the exam}
+For discrete variables:
+\[
+E(X)=\sum xP(X=x),\qquad V(X)=E(X^2)-[E(X)]^2.
+\]
+For linear normal combinations:
+\[
+\text{means add directly, variances add with squared coefficients.}
+\]
+
+\subsection*{Common trap}
+Do not add standard deviations directly. In part b, \(14X+9Y\) means the variance uses \(14^2\) and \(9^2\), not \(14\) and \(9\).
+
+\subsection*{Repeated exam pattern}
+Part a is a discrete-distribution-from-word-proportions pattern. Part b is the same linear-combination idea as 2025-08, Uppgift 3c, and the normal linear combination pattern tracked from this exam.
+
+\section*{Uppgift 5}
+
+\subsection*{What this question is really asking}
+This is a maximum likelihood question, often shortened to ML.
+
+The random variable \(X\) counts how many successful free throws happen before the first missed free throw.
+
+The probability function is:
+\[
+p_X(k)=p^k(1-p),\qquad k=0,1,2,\ldots
+\]
+The unknown number is \(p\), the probability of making one free throw.
+
+The question asks:
+\begin{itemize}[leftmargin=*]
+    \item Derive the ML estimate of \(p\).
+    \item Use the observed data to calculate the estimate.
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It says ``ML-skattning'', meaning maximum likelihood estimate.
+    \item A probability function with an unknown parameter \(p\) is given.
+    \item A sample \(x_1,\ldots,x_n\) is given.
+\end{itemize}
+
+So we use the ML routine:
+\[
+\text{likelihood} \rightarrow \text{log-likelihood} \rightarrow \text{differentiate} \rightarrow \text{solve}.
+\]
+
+\subsection*{Tiny theory needed}
+The likelihood is the probability of seeing the data, treated as a function of the unknown parameter \(p\).
+
+Because the observations are independent, we multiply their probabilities:
+\[
+L(p)=\prod_{i=1}^n p^{x_i}(1-p).
+\]
+
+We take logs because products are hard to differentiate, but logs turn products into sums.
+
+\subsection*{Formula and what everything means}
+Probability function:
+\[
+p_X(k)=p^k(1-p).
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(k\) is the number of successes before the first miss.
+    \item \(p\) is the probability of success on one shot.
+    \item \(1-p\) is the probability of the first miss.
+\end{itemize}
+
+Likelihood:
+\[
+L(p)=\prod_{i=1}^n p^{x_i}(1-p).
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(x_i\) is one observed result.
+    \item \(n\) is the number of observations.
+    \item \(\prod\) means multiply all the terms.
+\end{itemize}
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: Derive the ML estimate.}
+
+Start with the likelihood:
+\begin{align*}
+L(p)
+&=\prod_{i=1}^n p^{x_i}(1-p).
+\end{align*}
+All the powers of \(p\) combine:
+\[
+p^{x_1}p^{x_2}\cdots p^{x_n}=p^{x_1+x_2+\cdots+x_n}.
+\]
+Let:
+\[
+S=\sum_{i=1}^n x_i.
+\]
+This means \(S\) is the sum of all observed values.
+
+There is one \((1-p)\) factor for each observation, so there are \(n\) of them:
+\[
+(1-p)^n.
+\]
+Therefore:
+\[
+L(p)=p^S(1-p)^n.
+\]
+
+Now take the natural logarithm:
+\begin{align*}
+\ell(p)
+&=\ln L(p)\\
+&=\ln\left(p^S(1-p)^n\right).
+\end{align*}
+Use log rules:
+\begin{align*}
+\ell(p)
+&=S\ln p+n\ln(1-p).
+\end{align*}
+
+Now differentiate:
+\[
+\frac{d}{dp}(S\ln p)=\frac{S}{p}.
+\]
+Also:
+\[
+\frac{d}{dp}\bigl(n\ln(1-p)\bigr)=-\frac{n}{1-p}.
+\]
+So:
+\[
+\ell'(p)=\frac{S}{p}-\frac{n}{1-p}.
+\]
+
+Set the derivative equal to zero:
+\begin{align*}
+\frac{S}{p}-\frac{n}{1-p}&=0.
+\end{align*}
+Move the second term to the other side:
+\begin{align*}
+\frac{S}{p}&=\frac{n}{1-p}.
+\end{align*}
+Cross-multiply:
+\begin{align*}
+S(1-p)&=np.
+\end{align*}
+Expand the left side:
+\begin{align*}
+S-Sp&=np.
+\end{align*}
+Move the \(p\)-terms to the right:
+\begin{align*}
+S&=np+Sp\\
+S&=p(n+S).
+\end{align*}
+Solve for \(p\):
+\begin{align*}
+\hat p_{ML}
+&=\frac{S}{S+n}.
+\end{align*}
+Since \(S=\sum x_i\), we can write:
+\[
+\hat p_{ML}=\frac{\sum_{i=1}^n x_i}{\sum_{i=1}^n x_i+n}.
+\]
+
+\textbf{Part b: Insert the data.}
+
+The observed data are:
+\[
+2,\;0,\;9,\;1,\;6,\;7,\;5,\;3.
+\]
+There are:
+\[
+n=8
+\]
+observations.
+
+Add the observations:
+\begin{align*}
+S
+&=2+0+9+1+6+7+5+3\\
+&=33.
+\end{align*}
+
+Now insert \(S=33\) and \(n=8\):
+\begin{align*}
+\hat p_{ML}
+&=\frac{33}{33+8}\\
+&=\frac{33}{41}\\
+&\approx 0.805.
+\end{align*}
+
+\subsection*{Answer}
+\[
+\boxed{\hat p_{ML}=\frac{\sum_{i=1}^n x_i}{\sum_{i=1}^n x_i+n}}
+\]
+\[
+\boxed{\hat p_{ML}=\frac{33}{41}\approx 0.805}
+\]
+
+\subsection*{What to memorize for the exam}
+For ML questions, the routine is:
+\[
+L \rightarrow \ln L \rightarrow \text{differentiate} \rightarrow \text{set equal to zero} \rightarrow \text{solve}.
+\]
+For this specific distribution:
+\[
+\hat p=\frac{\sum x_i}{\sum x_i+n}.
+\]
+
+\subsection*{Common trap}
+Do not stop after writing the likelihood. The estimate comes from differentiating the log-likelihood and solving.
+
+\subsection*{Repeated exam pattern}
+This is the same broad ML pattern as 2025-08, Uppgift 4. The distribution is different, but the workflow is the same.
+
+\section*{Uppgift 6}
+
+\subsection*{What this question is really asking}
+This question is about a sample of daily parking income.
+
+We are given:
+\[
+n=30,\qquad \bar{x}=1260,\qquad s=150.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(n=30\) means 30 weekdays were observed.
+    \item \(\bar{x}=1260\) means the sample average was 1260 kr.
+    \item \(s=150\) means the sample standard deviation was 150 kr.
+\end{itemize}
+
+The question asks for:
+\begin{itemize}[leftmargin=*]
+    \item a 90\% confidence interval for the true mean daily income,
+    \item hypotheses for testing the consultant's claim \(\mu=1280\),
+    \item a hypothesis test at significance level 10\%.
+\end{itemize}
+
+\subsection*{How to recognize this type of question}
+The clues are:
+\begin{itemize}[leftmargin=*]
+    \item It says ``konfidensintervall'', so part a is a confidence interval.
+    \item It gives a sample mean and sample standard deviation.
+    \item It says the data are from a normal distribution.
+    \item It asks whether a claim about the mean can be rejected, so parts b and c are a hypothesis test.
+\end{itemize}
+
+Because the population standard deviation \(\sigma\) is not given, we use the \(t\)-distribution.
+
+\subsection*{Tiny theory needed}
+A confidence interval gives a range of plausible values for the true mean \(\mu\).
+
+Here we do not know the true standard deviation \(\sigma\). We only know the sample standard deviation \(s=150\). That is why we use a \(t\)-value instead of a normal \(z\)-value.
+
+A hypothesis test compares:
+\begin{itemize}[leftmargin=*]
+    \item \(H_0\): the default claim,
+    \item \(H_1\): the alternative.
+\end{itemize}
+
+The consultant claimed:
+\[
+\mu=1280.
+\]
+The question asks whether this claim is reasonable or can be rejected. Since it does not say specifically ``larger'' or ``smaller'', we use a two-sided test:
+\[
+H_1:\mu\ne 1280.
+\]
+
+\subsection*{Formula and what everything means}
+Confidence interval for mean with unknown \(\sigma\):
+\[
+\bar{x}\pm t_{\alpha/2,n-1}\frac{s}{\sqrt{n}}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(\bar{x}\) is the sample mean.
+    \item \(t_{\alpha/2,n-1}\) is the \(t\)-critical value.
+    \item \(n-1\) is degrees of freedom.
+    \item \(s\) is the sample standard deviation.
+    \item \(s/\sqrt{n}\) is the standard error, the spread of the sample mean.
+\end{itemize}
+
+Test statistic:
+\[
+T=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}.
+\]
+Here:
+\begin{itemize}[leftmargin=*]
+    \item \(\mu_0\) is the value claimed in \(H_0\), here \(1280\).
+    \item \(T\) tells how many standard errors the observed mean is from the claimed mean.
+\end{itemize}
+
+\subsection*{Step-by-step solution}
+\textbf{Part a: 90\% confidence interval.}
+
+Given:
+\[
+n=30,\qquad \bar{x}=1260,\qquad s=150.
+\]
+
+A 90\% interval means:
+\[
+\alpha=0.10.
+\]
+Because the interval has two sides, split this into two tails:
+\[
+\alpha/2=0.05.
+\]
+
+Degrees of freedom:
+\[
+n-1=30-1=29.
+\]
+
+From a \(t\)-table:
+\[
+t_{0.95,29}\approx 1.699.
+\]
+
+Now calculate the standard error:
+\begin{align*}
+\frac{s}{\sqrt{n}}
+&=\frac{150}{\sqrt{30}}\\
+&\approx \frac{150}{5.477}\\
+&\approx 27.386.
+\end{align*}
+
+Now calculate the margin of error:
+\begin{align*}
+1.699\cdot 27.386
+&\approx 46.53.
+\end{align*}
+
+So the confidence interval is:
+\begin{align*}
+1260\pm 46.53.
+\end{align*}
+Lower endpoint:
+\begin{align*}
+1260-46.53&=1213.47.
+\end{align*}
+Upper endpoint:
+\begin{align*}
+1260+46.53&=1306.53.
+\end{align*}
+So:
+\[
+(1213.47,\;1306.53).
+\]
+
+\textbf{Part b: State hypotheses.}
+
+The consultant claimed:
+\[
+\mu=1280.
+\]
+So the null hypothesis is:
+\[
+H_0:\mu=1280.
+\]
+
+The question asks whether the claim is reasonable or can be rejected. It does not say we only care about higher or lower, so use a two-sided alternative:
+\[
+H_1:\mu\ne 1280.
+\]
+
+\textbf{Part c: Perform the hypothesis test.}
+
+Use:
+\[
+T=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}.
+\]
+Insert values:
+\begin{align*}
+T
+&=\frac{1260-1280}{150/\sqrt{30}}\\
+&=\frac{-20}{27.386}\\
+&\approx -0.730.
+\end{align*}
+
+At significance level \(10\%\), with a two-sided test and \(29\) degrees of freedom, the critical values are:
+\[
+\pm t_{0.95,29}\approx \pm 1.699.
+\]
+
+The rejection regions are:
+\[
+T<-1.699
+\]
+or
+\[
+T>1.699.
+\]
+
+Our value is:
+\[
+T=-0.730.
+\]
+This is between \(-1.699\) and \(1.699\):
+\[
+-1.699<-0.730<1.699.
+\]
+So we do not reject \(H_0\).
+
+Plain-language check: the claimed value \(1280\) is inside the 90\% confidence interval:
+\[
+1213.47<1280<1306.53.
+\]
+So the consultant's claim is plausible from this sample.
+
+\subsection*{Answer}
+\[
+\boxed{\text{90\% confidence interval for }\mu:\ (1213.47,\;1306.53)\text{ kr}}
+\]
+\[
+\boxed{H_0:\mu=1280,\qquad H_1:\mu\ne 1280}
+\]
+\[
+\boxed{T\approx -0.730}
+\]
+\[
+\boxed{\text{Do not reject }H_0. \text{ The consultant's claim cannot be rejected.}}
+\]
+
+\subsection*{What to memorize for the exam}
+If the question gives \(s\), the sample standard deviation, and does not give the true \(\sigma\), use a \(t\)-method:
+\[
+\bar{x}\pm t\frac{s}{\sqrt{n}}.
+\]
+For a hypothesis test:
+\[
+T=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}.
+\]
+
+\subsection*{Common trap}
+Do not use a \(z\)-test just because the sample size is 30. The safer course-exam rule is: if \(\sigma\) is unknown and you use \(s\), use \(t\).
+
+\subsection*{Repeated exam pattern}
+This is related to 2025-08, Uppgift 6 because both are hypothesis tests for a mean. The difference is that 2026-01 uses unknown \(\sigma\) and a two-sided \(t\)-test, while 2025-08 uses known \(\sigma\) and a one-sided \(z\)-test.
+
+\section*{Mini-cheatsheet from this exam}
+
+\subsection*{Probability}
+Complement:
+\[
+P(A^c)=1-P(A).
+\]
+
+Conditional probability:
+\[
+P(B\mid A)=\frac{P(A\cap B)}{P(A)}.
+\]
+
+Independence:
+\[
+P(A\cap B)=P(A)P(B).
+\]
+
+\subsection*{Continuous density}
+To make a density:
+\[
+\int f(x)\,dx=1.
+\]
+
+CDF:
+\[
+F_X(x)=P(X\le x)=\int_{-\infty}^{x}f(t)\,dt.
+\]
+
+Right-tail probability:
+\[
+P(X>c)=1-F_X(c).
+\]
+
+Variance:
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+
+\subsection*{Exponential distribution}
+If \(X\sim \operatorname{Exp}(\lambda)\):
+\[
+P(X>t)=e^{-\lambda t},
+\qquad
+E(X)=\frac{1}{\lambda}.
+\]
+
+For independent exponentials:
+\[
+\min(X,Y)\sim \operatorname{Exp}(\lambda_X+\lambda_Y).
+\]
+
+\subsection*{Discrete variables}
+Expected value:
+\[
+E(X)=\sum xP(X=x).
+\]
+
+Second moment:
+\[
+E(X^2)=\sum x^2P(X=x).
+\]
+
+Variance:
+\[
+V(X)=E(X^2)-[E(X)]^2.
+\]
+
+\subsection*{Linear combinations}
+Mean:
+\[
+E(a+bX+cY)=a+bE(X)+cE(Y).
+\]
+
+Variance, if independent:
+\[
+V(a+bX+cY)=b^2V(X)+c^2V(Y).
+\]
+
+\subsection*{Normal standardization}
+\[
+z=\frac{x-\mu}{\sigma}.
+\]
+
+\subsection*{Maximum likelihood}
+ML workflow:
+\[
+L \rightarrow \ln L \rightarrow \text{differentiate} \rightarrow \text{set equal to zero} \rightarrow \text{solve}.
+\]
+
+For \(p_X(k)=p^k(1-p)\):
+\[
+\hat p=\frac{\sum x_i}{\sum x_i+n}.
+\]
+
+\subsection*{Confidence interval and test for mean, unknown sigma}
+Confidence interval:
+\[
+\bar{x}\pm t_{\alpha/2,n-1}\frac{s}{\sqrt{n}}.
+\]
+
+Test statistic:
+\[
+T=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}.
+\]
+
+\end{document}

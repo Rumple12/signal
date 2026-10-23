@@ -1,0 +1,2513 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[paperwidth=384pt,paperheight=900pt,margin=10pt]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=12pt}
+\setlist[enumerate]{leftmargin=14pt}
+
+\sloppy
+\allowdisplaybreaks
+\emergencystretch=2em
+
+\begin{document}
+
+\section*{Uppgift 1}
+
+\subsection*{Original question}
+
+För händelserna \(A\), \(B\) och \(C\) är följande
+sannolikheter kända:
+
+\[
+P(A)=\frac{1}{3},
+\qquad
+P(B)=\frac{1}{4},
+\qquad
+P(C)=\frac{1}{2}.
+\]
+
+Dessutom vet man att
+\[
+P(A\cup B\cup C)=1
+\]
+och att
+\[
+P(A\cap C)=P(B\cap C)=0.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bevisa att
+\[
+P(A\cup B)=\frac{1}{2}.
+\]
+\hfill \((2.5p)\)
+
+\item Bestäm \(P(A\cap B)\) och \(P(A\mid B)\).
+\hfill \((2p)\)
+
+\item Vilka par av händelserna \(A\), \(B\), \(C\)
+är oberoende? Motivera dina svar!
+\hfill \((1.5p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We use probability rules for unions,
+intersections, conditional probability, and
+independence.
+
+The notes notice that:
+\[
+P(A\cap C)=0,
+\qquad
+P(B\cap C)=0.
+\]
+
+So \(A\) and \(C\) are mutually exclusive, and
+\(B\) and \(C\) are mutually exclusive.
+
+\subsubsection*{Given information}
+
+\[
+P(A)=\frac{1}{3}.
+\]
+
+\[
+P(B)=\frac{1}{4}.
+\]
+
+\[
+P(C)=\frac{1}{2}.
+\]
+
+\[
+P(A\cup B\cup C)=1.
+\]
+
+\[
+P(A\cap C)=0.
+\]
+
+\[
+P(B\cap C)=0.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Show that \(P(A\cup B)=\frac12\)}
+
+The notes use that \(C\) does not overlap with
+\(A\) or \(B\).
+
+So \(C\) does not overlap with \(A\cup B\):
+\[
+(A\cup B)\cap C=\varnothing
+\]
+in probability.
+
+Therefore:
+\[
+P(A\cup B\cup C)
+=
+P(A\cup B)+P(C).
+\]
+
+Now insert the known values:
+\begin{align*}
+1
+&=
+P(A\cup B)
++
+\frac{1}{2}
+\\[2mm]
+P(A\cup B)
+&=
+1-\frac{1}{2}
+\\[2mm]
+&=
+\frac{1}{2}.
+\end{align*}
+
+So:
+\[
+P(A\cup B)=\frac{1}{2}.
+\]
+
+\textbf{Extra formula shown in the notes}
+
+The notes also write the full three-event union
+formula:
+\begin{align*}
+P(A\cup B\cup C)
+&=
+P(A)+P(B)+P(C)
+\\
+&\quad
+-P(A\cap B)
+-P(A\cap C)
+\\
+&\quad
+-P(B\cap C)
++P(A\cap B\cap C).
+\end{align*}
+
+For two events, the notes use:
+\[
+P(A\cup B)
+=
+P(A)+P(B)-P(A\cap B).
+\]
+
+\textbf{b) Find \(P(A\cap B)\)}
+
+För händelserna \(A\), \(B\) och \(C\) är följande
+sannolikheter kända:
+
+\[
+P(A)=\frac{1}{3},
+\qquad
+P(B)=\frac{1}{4},
+\qquad
+P(C)=\frac{1}{2}.
+\]
+
+Dessutom vet man att
+\[
+P(A\cup B\cup C)=1
+\]
+och att
+\[
+P(A\cap C)=P(B\cap C)=0.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bevisa att
+\[
+P(A\cup B)=\frac{1}{2}.
+\]
+\hfill \((2.5p)\)
+
+\item Bestäm \(P(A\cap B)\) och \(P(A\mid B)\).
+\hfill \((2p)\)
+
+\item Vilka par av händelserna \(A\), \(B\), \(C\)
+är oberoende? Motivera dina svar!
+\hfill \((1.5p)\)
+\end{enumerate}
+
+Use the two-event union formula:
+\[
+P(A\cup B)
+=
+P(A)+P(B)-P(A\cap B).
+\]
+
+Insert values from part a) and the question:
+\begin{align*}
+\frac{1}{2}
+&=
+\frac{1}{3}
++
+\frac{1}{4}
+-
+P(A\cap B).
+\end{align*}
+
+Move terms around:
+\begin{align*}
+P(A\cap B)
+&=
+\frac{1}{3}
++
+\frac{1}{4}
+-
+\frac{1}{2}
+\\[2mm]
+&=
+\frac{4}{12}
++
+\frac{3}{12}
+-
+\frac{6}{12}
+\\[2mm]
+&=
+\frac{1}{12}.
+\end{align*}
+
+So:
+\[
+P(A\cap B)=\frac{1}{12}.
+\]
+
+\textbf{b) Find \(P(A\mid B)\)}
+
+För händelserna \(A\), \(B\) och \(C\) är följande
+sannolikheter kända:
+
+\[
+P(A)=\frac{1}{3},
+\qquad
+P(B)=\frac{1}{4},
+\qquad
+P(C)=\frac{1}{2}.
+\]
+
+Dessutom vet man att
+\[
+P(A\cup B\cup C)=1
+\]
+och att
+\[
+P(A\cap C)=P(B\cap C)=0.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bevisa att
+\[
+P(A\cup B)=\frac{1}{2}.
+\]
+\hfill \((2.5p)\)
+
+\item Bestäm \(P(A\cap B)\) och \(P(A\mid B)\).
+\hfill \((2p)\)
+
+\item Vilka par av händelserna \(A\), \(B\), \(C\)
+är oberoende? Motivera dina svar!
+\hfill \((1.5p)\)
+\end{enumerate}
+
+The notes use the conditional probability formula:
+\[
+P(A\mid B)
+=
+\frac{P(A\cap B)}{P(B)}.
+\]
+
+Insert the values:
+\begin{align*}
+P(A\mid B)
+&=
+\frac{\frac{1}{12}}{\frac{1}{4}}
+\\[2mm]
+&=
+\frac{1}{12}\cdot 4
+\\[2mm]
+&=
+\frac{1}{3}.
+\end{align*}
+
+So:
+\[
+P(A\mid B)=\frac{1}{3}.
+\]
+
+\textbf{c) Which pairs are independent?}
+
+För händelserna \(A\), \(B\) och \(C\) är följande
+sannolikheter kända:
+
+\[
+P(A)=\frac{1}{3},
+\qquad
+P(B)=\frac{1}{4},
+\qquad
+P(C)=\frac{1}{2}.
+\]
+
+Dessutom vet man att
+\[
+P(A\cup B\cup C)=1
+\]
+och att
+\[
+P(A\cap C)=P(B\cap C)=0.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bevisa att
+\[
+P(A\cup B)=\frac{1}{2}.
+\]
+\hfill \((2.5p)\)
+
+\item Bestäm \(P(A\cap B)\) och \(P(A\mid B)\).
+\hfill \((2p)\)
+
+\item Vilka par av händelserna \(A\), \(B\), \(C\)
+är oberoende? Motivera dina svar!
+\hfill \((1.5p)\)
+\end{enumerate}
+
+The notes use this test:
+\[
+P(X\cap Y)
+=
+P(X)\cdot P(Y).
+\]
+
+If both sides are equal, the two events are
+independent.
+
+\textbf{Test 1: \(A\) and \(B\)}
+
+From part b):
+\[
+P(A\cap B)=\frac{1}{12}.
+\]
+
+Now calculate:
+\begin{align*}
+P(A)\cdot P(B)
+&=
+\frac{1}{3}\cdot\frac{1}{4}
+\\[2mm]
+&=
+\frac{1}{12}.
+\end{align*}
+
+They are equal:
+\[
+\frac{1}{12}=\frac{1}{12}.
+\]
+
+So:
+\[
+A \text{ and } B
+\text{ are independent.}
+\]
+
+\textbf{Test 2: \(A\) and \(C\)}
+
+From the question:
+\[
+P(A\cap C)=0.
+\]
+
+Now calculate:
+\begin{align*}
+P(A)\cdot P(C)
+&=
+\frac{1}{3}\cdot\frac{1}{2}
+\\[2mm]
+&=
+\frac{1}{6}.
+\end{align*}
+
+They are not equal:
+\[
+0\ne \frac{1}{6}.
+\]
+
+So:
+\[
+A \text{ and } C
+\text{ are not independent.}
+\]
+
+\textbf{English clarification:}
+The handwritten note labels this product like
+\(P(A)\cdot P(B)\), but the numbers used are
+\(\frac13\cdot\frac12\). That is the check for
+\(A\) and \(C\).
+
+\textbf{Test 3: \(B\) and \(C\)}
+
+From the question:
+\[
+P(B\cap C)=0.
+\]
+
+Now calculate:
+\begin{align*}
+P(B)\cdot P(C)
+&=
+\frac{1}{4}\cdot\frac{1}{2}
+\\[2mm]
+&=
+\frac{1}{8}.
+\end{align*}
+
+They are not equal:
+\[
+0\ne \frac{1}{8}.
+\]
+
+So:
+\[
+B \text{ and } C
+\text{ are not independent.}
+\]
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(A\cup B)=\frac{1}{2}.
+\]
+
+\item
+\[
+P(A\cap B)=\frac{1}{12}.
+\]
+
+\[
+P(A\mid B)=\frac{1}{3}.
+\]
+
+\item
+\[
+A \text{ and } B
+\text{ are independent.}
+\]
+
+\[
+A \text{ and } C
+\text{ are not independent.}
+\]
+
+\[
+B \text{ and } C
+\text{ are not independent.}
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For two events:
+\[
+P(A\cup B)
+=
+P(A)+P(B)-P(A\cap B).
+\]
+
+Conditional probability:
+\[
+P(A\mid B)
+=
+\frac{P(A\cap B)}{P(B)}.
+\]
+
+Independence test:
+\[
+P(X\cap Y)
+=
+P(X)P(Y).
+\]
+
+\section*{Uppgift 2}
+
+\subsection*{Original question}
+
+Ett spel börjar med ett tärningskast med resultatet
+\[
+k\in \{1,2,3,4,5,6\}.
+\]
+
+Om \(k\) är udda vinner spelaren \(k\) kronor.
+Om \(k\) är jämnt kastar han en gång till.
+Om andra kastet \(\ell\) är lika med 1 vinner han
+\(k\) kronor. Annars förlorar han \(k\) kronor.
+
+\begin{enumerate}[label=\alph*)]
+\item Visualisera alla spelförlopp genom ett
+träddiagram. \((2p)\)
+
+\item Betrakta den stokastiska variabeln \(X\) som
+beskriver spelets vinst (med negativa värden för
+förluster). Bestäm sannolikhetsfunktionen för \(X\).
+\((2p)\)
+
+\item Beräkna \(E(X)\) och tolka resultatet ur
+perspektivet för en spelare som upprepar spelet
+många gånger. \((2p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+The game starts with one die roll.
+Call the first result \(k\).
+
+The notes split the game into:
+\begin{itemize}
+\item odd \(k\): win directly,
+\item even \(k\): roll one more time,
+\item second roll \(\ell=1\): win,
+\item second roll \(\ell\ne 1\): lose.
+\end{itemize}
+
+The random variable \(X\) is the final profit.
+Wins are positive and losses are negative.
+
+\subsubsection*{Given information}
+
+\[
+k\in\{1,2,3,4,5,6\}.
+\]
+
+Odd first rolls:
+\[
+k\in\{1,3,5\}.
+\]
+
+Even first rolls:
+\[
+k\in\{2,4,6\}.
+\]
+
+For each die roll:
+\[
+P(\text{specific number})=\frac{1}{6}.
+\]
+
+For the second roll:
+\[
+P(\ell=1)=\frac{1}{6},
+\qquad
+P(\ell\ne 1)=\frac{5}{6}.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Tree diagram}
+
+The notes draw the game tree. Written in narrow form,
+the same tree is:
+
+\begin{itemize}
+\item
+First roll \(k=1\), probability \(\frac16\):
+\[
+X=1
+\quad\text{win}.
+\]
+
+\item
+First roll \(k=3\), probability \(\frac16\):
+\[
+X=3
+\quad\text{win}.
+\]
+
+\item
+First roll \(k=5\), probability \(\frac16\):
+\[
+X=5
+\quad\text{win}.
+\]
+
+\item
+First roll \(k=2\), probability \(\frac16\):
+\[
+\ell=1
+\text{ with probability }\frac16
+\Rightarrow X=2.
+\]
+\[
+\ell\ne 1
+\text{ with probability }\frac56
+\Rightarrow X=-2.
+\]
+
+\item
+First roll \(k=4\), probability \(\frac16\):
+\[
+\ell=1
+\text{ with probability }\frac16
+\Rightarrow X=4.
+\]
+\[
+\ell\ne 1
+\text{ with probability }\frac56
+\Rightarrow X=-4.
+\]
+
+\item
+First roll \(k=6\), probability \(\frac16\):
+\[
+\ell=1
+\text{ with probability }\frac16
+\Rightarrow X=6.
+\]
+\[
+\ell\ne 1
+\text{ with probability }\frac56
+\Rightarrow X=-6.
+\]
+\end{itemize}
+
+\textbf{b) Probability mass function for \(X\)}
+
+Ett spel börjar med ett tärningskast med resultatet
+\[
+k\in \{1,2,3,4,5,6\}.
+\]
+
+Om \(k\) är udda vinner spelaren \(k\) kronor.
+Om \(k\) är jämnt kastar han en gång till.
+Om andra kastet \(\ell\) är lika med 1 vinner han
+\(k\) kronor. Annars förlorar han \(k\) kronor.
+
+\begin{enumerate}[label=\alph*)]
+\item Visualisera alla spelförlopp genom ett
+träddiagram. \((2p)\)
+
+\item Betrakta den stokastiska variabeln \(X\) som
+beskriver spelets vinst (med negativa värden för
+förluster). Bestäm sannolikhetsfunktionen för \(X\).
+\((2p)\)
+
+\item Beräkna \(E(X)\) och tolka resultatet ur
+perspektivet för en spelare som upprepar spelet
+många gånger. \((2p)\)
+\end{enumerate}
+
+The notes say that \(X\) represents the final
+winnings.
+
+For odd first rolls \(1,3,5\), the player wins
+directly. So:
+\[
+P(X=1)=\frac16=\frac{6}{36},
+\]
+\[
+P(X=3)=\frac16=\frac{6}{36},
+\]
+\[
+P(X=5)=\frac16=\frac{6}{36}.
+\]
+
+For positive even wins \(2,4,6\), we need:
+\[
+\text{first roll is }k
+\quad\text{and}\quad
+\ell=1.
+\]
+
+So each such probability is:
+\[
+\frac16\cdot\frac16=\frac{1}{36}.
+\]
+
+Therefore:
+\[
+P(X=2)=\frac{1}{36},
+\]
+\[
+P(X=4)=\frac{1}{36},
+\]
+\[
+P(X=6)=\frac{1}{36}.
+\]
+
+For losses \(-2,-4,-6\), we need:
+\[
+\text{first roll is }k
+\quad\text{and}\quad
+\ell\ne 1.
+\]
+
+So each such probability is:
+\[
+\frac16\cdot\frac56=\frac{5}{36}.
+\]
+
+Therefore:
+\[
+P(X=-2)=\frac{5}{36},
+\]
+\[
+P(X=-4)=\frac{5}{36},
+\]
+\[
+P(X=-6)=\frac{5}{36}.
+\]
+
+\textbf{Sanity check from the notes}
+
+Add all probabilities:
+\begin{align*}
+&\frac{6+6+6+1+1+1+5+5+5}{36}
+\\[2mm]
+&=
+\frac{36}{36}
+\\[2mm]
+&=1.
+\end{align*}
+
+So the probability mass function makes sense.
+
+\textbf{c) Calculate \(E(X)\)}
+
+Ett spel börjar med ett tärningskast med resultatet
+\[
+k\in \{1,2,3,4,5,6\}.
+\]
+
+Om \(k\) är udda vinner spelaren \(k\) kronor.
+Om \(k\) är jämnt kastar han en gång till.
+Om andra kastet \(\ell\) är lika med 1 vinner han
+\(k\) kronor. Annars förlorar han \(k\) kronor.
+
+\begin{enumerate}[label=\alph*)]
+\item Visualisera alla spelförlopp genom ett
+träddiagram. \((2p)\)
+
+\item Betrakta den stokastiska variabeln \(X\) som
+beskriver spelets vinst (med negativa värden för
+förluster). Bestäm sannolikhetsfunktionen för \(X\).
+\((2p)\)
+
+\item Beräkna \(E(X)\) och tolka resultatet ur
+perspektivet för en spelare som upprepar spelet
+många gånger. \((2p)\)
+\end{enumerate}
+
+The notes use:
+\[
+E(X)=\sum xP(X=x).
+\]
+
+Put in all possible values:
+\begin{align*}
+E(X)
+&=
+1\left(\frac{6}{36}\right)
++3\left(\frac{6}{36}\right)
++5\left(\frac{6}{36}\right)
+\\
+&\quad
++2\left(\frac{1}{36}\right)
++4\left(\frac{1}{36}\right)
++6\left(\frac{1}{36}\right)
+\\
+&\quad
+-2\left(\frac{5}{36}\right)
+-4\left(\frac{5}{36}\right)
+-6\left(\frac{5}{36}\right).
+\end{align*}
+
+Now collect the positive and negative parts:
+\begin{align*}
+E(X)
+&=
+\frac{66-60}{36}
+\\[2mm]
+&=
+\frac{6}{36}
+\\[2mm]
+&=
+\frac{1}{6}.
+\end{align*}
+
+So:
+\[
+E(X)=\frac{1}{6}.
+\]
+
+The notes interpret this as:
+the player statistically makes
+\[
+\frac{1}{6}
+\]
+krona per game in the long run.
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+The tree has direct wins for:
+\[
+k=1,3,5.
+\]
+For:
+\[
+k=2,4,6,
+\]
+there is a second roll:
+\[
+\ell=1 \Rightarrow \text{win }k,
+\]
+\[
+\ell\ne 1 \Rightarrow \text{lose }k.
+\]
+
+\item
+\[
+P(X=1)=P(X=3)=P(X=5)=\frac{6}{36}.
+\]
+
+\[
+P(X=2)=P(X=4)=P(X=6)=\frac{1}{36}.
+\]
+
+\[
+P(X=-2)=P(X=-4)=P(X=-6)=\frac{5}{36}.
+\]
+
+\item
+\[
+E(X)=\frac{1}{6}.
+\]
+
+In the long run, the player wins on average
+\[
+\frac{1}{6}
+\]
+krona per game.
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For a discrete random variable:
+\[
+E(X)=\sum xP(X=x).
+\]
+
+For a path in a tree diagram, multiply the
+probabilities along the path.
+
+Always check that the probabilities add to:
+\[
+1.
+\]
+
+\section*{Uppgift 3}
+
+\subsection*{Original question}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+-x+\sqrt{3},
+& 0\le x\le a,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm konstanten \(a\ge 0\) sådan att
+\(f\) är en täthetsfunktion för en stokastisk
+variabel \(X\). \((2p)\)
+
+\item Beräkna
+\[
+p=P\left(X\le \frac{1}{\sqrt{3}}\right).
+\]
+\((1.5p)\)
+
+\item Antag att svaret i b) är \(p=0,8\)
+(vad man faktiskt får efter en grov avrundning).
+Om vi genomför 8 oberoende försök
+(som modelleras genom \(X\)) vad är sannolikheten
+att vi får ett resultat mindre än eller lika med
+\(\frac{1}{\sqrt{3}}\) fler än två gånger?
+\((2.5p)\)
+
+\item Fortsättning av c). Om vi fördubblar antalet
+av våra försök vad är då sannolikheten att vi inte
+får ett resultat mindre än eller lika med
+\(\frac{1}{\sqrt{3}}\) i vart och ett av försöken?
+\((2p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+First we choose \(a\) so that the total area under
+the density is \(1\).
+
+Then we calculate the probability in part b) by
+integrating the density.
+
+For parts c) and d), the notes use the binomial
+distribution with success probability \(p=0.8\).
+
+\subsubsection*{Given information}
+
+\[
+f(x)=
+\begin{cases}
+-x+\sqrt{3},
+& 0\le x\le a,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\[
+a\ge 0.
+\]
+
+For a density function:
+\[
+\int_{-\infty}^{\infty} f(x)\,dx=1.
+\]
+
+In parts c) and d), use:
+\[
+p=0.8.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Find \(a\)}
+
+Since \(f(x)=0\) outside \(0\le x\le a\), the notes
+write:
+\[
+\int_0^a
+(-x+\sqrt{3})\,dx
+=1.
+\]
+
+Integrate:
+\begin{align*}
+\int_0^a
+(-x+\sqrt{3})\,dx
+&=
+\left[
+-\frac{x^2}{2}
++x\sqrt{3}
+\right]_0^a
+\\[2mm]
+&=
+-\frac{a^2}{2}
++a\sqrt{3}.
+\end{align*}
+
+Set this equal to \(1\):
+\begin{align*}
+-\frac{a^2}{2}
++a\sqrt{3}
+&=1.
+\end{align*}
+
+Multiply by \(2\) to remove the fraction:
+\begin{align*}
+-a^2+2a\sqrt{3}
+&=2.
+\end{align*}
+
+Rearrange:
+\begin{align*}
+a^2-2a\sqrt{3}+2
+&=0.
+\end{align*}
+
+Use the quadratic formula:
+\begin{align*}
+a
+&=
+\sqrt{3}
+\pm
+\sqrt{(\sqrt{3})^2-2}
+\\[2mm]
+&=
+\sqrt{3}
+\pm
+\sqrt{3-2}
+\\[2mm]
+&=
+\sqrt{3}\pm 1.
+\end{align*}
+
+So the two algebraic candidates are:
+\[
+a=\sqrt{3}+1
+\quad\text{or}\quad
+a=\sqrt{3}-1.
+\]
+
+\textbf{English clarification:}
+The density must not become negative on its support.
+Since
+\[
+-x+\sqrt{3}\ge 0
+\]
+requires
+\[
+x\le \sqrt{3},
+\]
+we choose the smaller value:
+\[
+a=\sqrt{3}-1.
+\]
+
+\textbf{b) Calculate}
+\[
+p=P\left(X\le \frac{1}{\sqrt{3}}\right).
+\]
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+-x+\sqrt{3},
+& 0\le x\le a,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm konstanten \(a\ge 0\) sådan att
+\(f\) är en täthetsfunktion för en stokastisk
+variabel \(X\). \((2p)\)
+
+\item Beräkna
+\[
+p=P\left(X\le \frac{1}{\sqrt{3}}\right).
+\]
+\((1.5p)\)
+
+\item Antag att svaret i b) är \(p=0,8\)
+(vad man faktiskt får efter en grov avrundning).
+Om vi genomför 8 oberoende försök
+(som modelleras genom \(X\)) vad är sannolikheten
+att vi får ett resultat mindre än eller lika med
+\(\frac{1}{\sqrt{3}}\) fler än två gånger?
+\((2.5p)\)
+
+\item Fortsättning av c). Om vi fördubblar antalet
+av våra försök vad är då sannolikheten att vi inte
+får ett resultat mindre än eller lika med
+\(\frac{1}{\sqrt{3}}\) i vart och ett av försöken?
+\((2p)\)
+\end{enumerate}
+
+The notes integrate from \(0\) to
+\(\frac{1}{\sqrt{3}}\):
+\begin{align*}
+P\left(X\le \frac{1}{\sqrt{3}}\right)
+&=
+\int_0^{1/\sqrt{3}}
+(-x+\sqrt{3})\,dx.
+\end{align*}
+
+Use the same antiderivative as in part a):
+\begin{align*}
+P\left(X\le \frac{1}{\sqrt{3}}\right)
+&=
+\left[
+-\frac{x^2}{2}
++x\sqrt{3}
+\right]_0^{1/\sqrt{3}}.
+\end{align*}
+
+Substitute the upper limit:
+\begin{align*}
+p
+&=
+-
+\frac{(1/\sqrt{3})^2}{2}
++
+\frac{1}{\sqrt{3}}\sqrt{3}
+\\[2mm]
+&=
+-
+\frac{1/3}{2}
++1
+\\[2mm]
+&=
+-\frac{1}{6}
++1
+\\[2mm]
+&=
+\frac{5}{6}.
+\end{align*}
+
+So:
+\[
+p=\frac{5}{6}.
+\]
+
+\textbf{c) More than two successes in 8 trials}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+-x+\sqrt{3},
+& 0\le x\le a,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm konstanten \(a\ge 0\) sådan att
+\(f\) är en täthetsfunktion för en stokastisk
+variabel \(X\). \((2p)\)
+
+\item Beräkna
+\[
+p=P\left(X\le \frac{1}{\sqrt{3}}\right).
+\]
+\((1.5p)\)
+
+\item Antag att svaret i b) är \(p=0,8\)
+(vad man faktiskt får efter en grov avrundning).
+Om vi genomför 8 oberoende försök
+(som modelleras genom \(X\)) vad är sannolikheten
+att vi får ett resultat mindre än eller lika med
+\(\frac{1}{\sqrt{3}}\) fler än två gånger?
+\((2.5p)\)
+
+\item Fortsättning av c). Om vi fördubblar antalet
+av våra försök vad är då sannolikheten att vi inte
+får ett resultat mindre än eller lika med
+\(\frac{1}{\sqrt{3}}\) i vart och ett av försöken?
+\((2p)\)
+\end{enumerate}
+
+The question says to use:
+\[
+p=0.8.
+\]
+
+Let \(Y\) be the number of successes, where success
+means:
+\[
+X\le \frac{1}{\sqrt{3}}.
+\]
+
+Then:
+\[
+Y\sim \operatorname{Bin}(8,0.8).
+\]
+
+We want:
+\[
+P(Y>2).
+\]
+
+The notes use the complement:
+\[
+P(Y>2)=1-P(Y\le 2).
+\]
+
+So:
+\[
+P(Y>2)
+=
+1-
+\bigl(
+P(Y=0)+P(Y=1)+P(Y=2)
+\bigr).
+\]
+
+Use the binomial formula:
+\[
+P(Y=k)
+=
+\binom{n}{k}
+p^k(1-p)^{n-k}.
+\]
+
+Calculate the three terms:
+\begin{align*}
+P(Y=0)
+&=
+\binom{8}{0}
+(0.8)^0(0.2)^8
+\\[2mm]
+&=
+0.00000256.
+\end{align*}
+
+\begin{align*}
+P(Y=1)
+&=
+\binom{8}{1}
+(0.8)^1(0.2)^7
+\\[2mm]
+&=
+0.00008192.
+\end{align*}
+
+\begin{align*}
+P(Y=2)
+&=
+\binom{8}{2}
+(0.8)^2(0.2)^6
+\\[2mm]
+&=
+0.00114688.
+\end{align*}
+
+Add them:
+\begin{align*}
+P(Y\le 2)
+&=
+0.00000256
++0.00008192
+\\
+&\quad
++0.00114688
+\\[2mm]
+&=
+0.00123136.
+\end{align*}
+
+Subtract from \(1\):
+\begin{align*}
+P(Y>2)
+&=
+1-0.00123136
+\\[2mm]
+&=
+0.99876864.
+\end{align*}
+
+So the probability is approximately:
+\[
+0.9988.
+\]
+
+\textbf{d) Double the number of trials}
+
+Betrakta funktionen
+
+\[
+f(x)=
+\begin{cases}
+-x+\sqrt{3},
+& 0\le x\le a,\\
+0,
+& \text{annars}.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Bestäm konstanten \(a\ge 0\) sådan att
+\(f\) är en täthetsfunktion för en stokastisk
+variabel \(X\). \((2p)\)
+
+\item Beräkna
+\[
+p=P\left(X\le \frac{1}{\sqrt{3}}\right).
+\]
+\((1.5p)\)
+
+\item Antag att svaret i b) är \(p=0,8\)
+(vad man faktiskt får efter en grov avrundning).
+Om vi genomför 8 oberoende försök
+(som modelleras genom \(X\)) vad är sannolikheten
+att vi får ett resultat mindre än eller lika med
+\(\frac{1}{\sqrt{3}}\) fler än två gånger?
+\((2.5p)\)
+
+\item Fortsättning av c). Om vi fördubblar antalet
+av våra försök vad är då sannolikheten att vi inte
+får ett resultat mindre än eller lika med
+\(\frac{1}{\sqrt{3}}\) i vart och ett av försöken?
+\((2p)\)
+\end{enumerate}
+
+We double the number of trials:
+\[
+n=16.
+\]
+
+The notes interpret the question as the complement
+of getting a success in every single trial.
+
+So we calculate:
+\[
+1-P(Y=16).
+\]
+
+Here:
+\[
+Y\sim \operatorname{Bin}(16,0.8).
+\]
+
+Calculate the probability of success all 16 times:
+\begin{align*}
+P(Y=16)
+&=
+\binom{16}{16}
+(0.8)^{16}(0.2)^0
+\\[2mm]
+&=
+(0.8)^{16}
+\\[2mm]
+&\approx
+0.028147.
+\end{align*}
+
+Subtract from \(1\):
+\begin{align*}
+1-P(Y=16)
+&=
+1-0.028147
+\\[2mm]
+&=
+0.971853.
+\end{align*}
+
+So the probability is approximately:
+\[
+0.9719.
+\]
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+a=\sqrt{3}-1.
+\]
+
+\item
+\[
+p=P\left(X\le \frac{1}{\sqrt{3}}\right)
+=\frac{5}{6}.
+\]
+
+\item
+Using \(p=0.8\):
+\[
+P(Y>2)=0.99876864
+\approx 0.9988.
+\]
+
+\item
+With \(n=16\):
+\[
+1-(0.8)^{16}
+=0.971853
+\approx 0.9719.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For a density:
+\[
+\int f(x)\,dx=1.
+\]
+
+For binomial counting:
+\[
+Y\sim \operatorname{Bin}(n,p).
+\]
+
+\[
+P(Y=k)
+=
+\binom{n}{k}
+p^k(1-p)^{n-k}.
+\]
+
+For ``more than two'', it is often easier to use:
+\[
+P(Y>2)=1-P(Y\le 2).
+\]
+
+\section*{Uppgift 4}
+
+\subsection*{Original question}
+
+Betrakta normalfördelade stokastiska variabler
+\(X_1,X_2,X_3\) med väntevärde \(\mu=1\) och
+standardavvikelse \(\sigma=2\). Vi antar dessutom
+att \(X_1,X_2,X_3\) är oberoende.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(X_1=1)\) och
+\[
+P(|X_1|\le 1).
+\]
+\((2p)\)
+
+\item Beräkna
+\[
+P(\max(X_1,X_2,X_3)\le 1).
+\]
+\((2p)\)
+
+\item Låt
+\[
+Y=X_1-2X_2+3X_3.
+\]
+Bestäm \(E(Y)\) och \(V(Y)\). \((2p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We have three independent normal random variables:
+\[
+X_1,\ X_2,\ X_3.
+\]
+
+Each has:
+\[
+\mu=1,
+\qquad
+\sigma=2.
+\]
+
+The notes also write:
+\[
+V(X)=\sigma^2=2^2=4.
+\]
+
+\subsubsection*{Given information}
+
+\[
+X_i\sim N(1,2),
+\qquad
+i=1,2,3.
+\]
+
+\[
+E(X_i)=1.
+\]
+
+\[
+\operatorname{Var}(X_i)=4.
+\]
+
+\[
+X_1,X_2,X_3
+\text{ are independent.}
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) Calculate \(P(X_1=1)\)}
+
+The notes say that \(X_1\) follows a continuous
+normal distribution.
+
+For a continuous random variable, the probability of
+one exact value is zero:
+\[
+P(X_1=1)=0.
+\]
+
+The notes explain this as:
+the area under a single point on a curve is zero.
+
+\textbf{a) Calculate \(P(|X_1|\le 1)\)}
+
+The notes rewrite:
+\[
+|X_1|\le 1
+\]
+as:
+\[
+-1\le X_1\le 1.
+\]
+
+Now standardize using the \(Z\)-score formula:
+\[
+Z=\frac{X-\mu}{\sigma}.
+\]
+
+For the lower bound \(X=-1\):
+\begin{align*}
+Z
+&=
+\frac{-1-1}{2}
+\\[2mm]
+&=
+\frac{-2}{2}
+\\[2mm]
+&=-1.
+\end{align*}
+
+For the upper bound \(X=1\):
+\begin{align*}
+Z
+&=
+\frac{1-1}{2}
+\\[2mm]
+&=
+\frac{0}{2}
+\\[2mm]
+&=0.
+\end{align*}
+
+So:
+\begin{align*}
+P(-1\le X_1\le 1)
+&=
+P(-1\le Z\le 0).
+\end{align*}
+
+Use the \(Z\)-table:
+\[
+\Phi(0)=0.5.
+\]
+
+\[
+\Phi(1)=0.8413.
+\]
+
+The notes use:
+\[
+\Phi(-1)=1-\Phi(1).
+\]
+
+So:
+\begin{align*}
+\Phi(-1)
+&=
+1-0.8413
+\\[2mm]
+&=
+0.1587.
+\end{align*}
+
+Therefore:
+\begin{align*}
+P(-1\le Z\le 0)
+&=
+\Phi(0)-\Phi(-1)
+\\[2mm]
+&=
+0.5-0.1587
+\\[2mm]
+&=
+0.3413.
+\end{align*}
+
+So:
+\[
+P(|X_1|\le 1)=0.3413.
+\]
+
+\textbf{b) Calculate}
+\[
+P(\max(X_1,X_2,X_3)\le 1).
+\]
+
+Betrakta normalfördelade stokastiska variabler
+\(X_1,X_2,X_3\) med väntevärde \(\mu=1\) och
+standardavvikelse \(\sigma=2\). Vi antar dessutom
+att \(X_1,X_2,X_3\) är oberoende.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(X_1=1)\) och
+\[
+P(|X_1|\le 1).
+\]
+\((2p)\)
+
+\item Beräkna
+\[
+P(\max(X_1,X_2,X_3)\le 1).
+\]
+\((2p)\)
+
+\item Låt
+\[
+Y=X_1-2X_2+3X_3.
+\]
+Bestäm \(E(Y)\) och \(V(Y)\). \((2p)\)
+\end{enumerate}
+
+The notes rewrite the event:
+\[
+\max(X_1,X_2,X_3)\le 1
+\]
+as:
+\[
+X_1\le 1,\quad X_2\le 1,\quad X_3\le 1.
+\]
+
+Because the variables are independent, multiply the
+individual probabilities:
+\begin{align*}
+&P(X_1\le 1,\ X_2\le 1,\ X_3\le 1)
+\\[2mm]
+&=
+P(X_1\le 1)
+P(X_2\le 1)
+P(X_3\le 1).
+\end{align*}
+
+Since all variables have the same distribution:
+\[
+P(X_1\le 1)
+=
+P(X_2\le 1)
+=
+P(X_3\le 1).
+\]
+
+Standardize:
+\begin{align*}
+P(X_1\le 1)
+&=
+P\left(
+Z\le
+\frac{1-1}{2}
+\right)
+\\[2mm]
+&=
+P(Z\le 0)
+\\[2mm]
+&=
+0.5.
+\end{align*}
+
+Thus:
+\begin{align*}
+P(\max(X_1,X_2,X_3)\le 1)
+&=
+(0.5)^3
+\\[2mm]
+&=
+0.125.
+\end{align*}
+
+\textbf{c) Find \(E(Y)\)}
+
+Betrakta normalfördelade stokastiska variabler
+\(X_1,X_2,X_3\) med väntevärde \(\mu=1\) och
+standardavvikelse \(\sigma=2\). Vi antar dessutom
+att \(X_1,X_2,X_3\) är oberoende.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(X_1=1)\) och
+\[
+P(|X_1|\le 1).
+\]
+\((2p)\)
+
+\item Beräkna
+\[
+P(\max(X_1,X_2,X_3)\le 1).
+\]
+\((2p)\)
+
+\item Låt
+\[
+Y=X_1-2X_2+3X_3.
+\]
+Bestäm \(E(Y)\) och \(V(Y)\). \((2p)\)
+\end{enumerate}
+
+The notes use the formula:
+\[
+E(aX+bY)=aE(X)+bE(Y).
+\]
+
+Here:
+\[
+Y=X_1-2X_2+3X_3.
+\]
+
+So:
+\begin{align*}
+E(Y)
+&=
+E(X_1-2X_2+3X_3)
+\\[2mm]
+&=
+E(X_1)-2E(X_2)+3E(X_3).
+\end{align*}
+
+Since each mean is \(1\):
+\begin{align*}
+E(Y)
+&=
+1-2(1)+3(1)
+\\[2mm]
+&=
+1-2+3
+\\[2mm]
+&=
+2.
+\end{align*}
+
+\textbf{c) Find \(V(Y)\)}
+
+Betrakta normalfördelade stokastiska variabler
+\(X_1,X_2,X_3\) med väntevärde \(\mu=1\) och
+standardavvikelse \(\sigma=2\). Vi antar dessutom
+att \(X_1,X_2,X_3\) är oberoende.
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna \(P(X_1=1)\) och
+\[
+P(|X_1|\le 1).
+\]
+\((2p)\)
+
+\item Beräkna
+\[
+P(\max(X_1,X_2,X_3)\le 1).
+\]
+\((2p)\)
+
+\item Låt
+\[
+Y=X_1-2X_2+3X_3.
+\]
+Bestäm \(E(Y)\) och \(V(Y)\). \((2p)\)
+\end{enumerate}
+
+The notes say that because the variables are
+independent, we can add variances, but constants
+attached to variables must be squared:
+\[
+\operatorname{Var}(aX)=a^2\operatorname{Var}(X).
+\]
+
+So:
+\begin{align*}
+\operatorname{Var}(Y)
+&=
+\operatorname{Var}(X_1-2X_2+3X_3)
+\\[2mm]
+&=
+1^2\operatorname{Var}(X_1)
++(-2)^2\operatorname{Var}(X_2)
+\\
+&\quad
++3^2\operatorname{Var}(X_3).
+\end{align*}
+
+Since:
+\[
+\operatorname{Var}(X_i)=4,
+\]
+we get:
+\begin{align*}
+\operatorname{Var}(Y)
+&=
+1^2(4)+(-2)^2(4)+3^2(4)
+\\[2mm]
+&=
+1(4)+4(4)+9(4)
+\\[2mm]
+&=
+4+16+36
+\\[2mm]
+&=
+56.
+\end{align*}
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+\[
+P(X_1=1)=0.
+\]
+
+\[
+P(|X_1|\le 1)=0.3413.
+\]
+
+\item
+\[
+P(\max(X_1,X_2,X_3)\le 1)
+=0.125.
+\]
+
+\item
+\[
+E(Y)=2.
+\]
+
+\[
+V(Y)=56.
+\]
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For a continuous distribution:
+\[
+P(X=a)=0.
+\]
+
+Standardize normal values using:
+\[
+Z=\frac{X-\mu}{\sigma}.
+\]
+
+For independent events:
+\[
+P(A\cap B\cap C)=P(A)P(B)P(C).
+\]
+
+For independent random variables:
+\[
+\operatorname{Var}(aX+bY)
+=
+a^2\operatorname{Var}(X)
++
+b^2\operatorname{Var}(Y).
+\]
+
+\section*{Uppgift 5}
+
+\subsection*{Original question}
+
+Man har två oberoende observationer
+\[
+x_1=3
+\quad\text{och}\quad
+x_2=5
+\]
+av en stokastisk variabel \(X\) med täthetsfunktionen
+
+\[
+f_X(x)=
+\begin{cases}
+\dfrac{x}{a}
+e^{-\frac{x^2}{2a}},
+& x>0,\\
+0,
+& x\le 0,
+\end{cases}
+\]
+
+där \(a>0\). Bestäm ML-skattningen av \(a\).
+\((4p)\)
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+
+\subsubsection*{What we are doing}
+
+We have two independent observations:
+\[
+x_1=3,
+\qquad
+x_2=5.
+\]
+
+The notes build the likelihood function by
+multiplying the two density values.
+
+Then the notes take \(\ln\) of the likelihood to make
+the exponential part easier.
+
+\subsubsection*{Given information}
+
+\[
+f_X(x)=
+\begin{cases}
+\dfrac{x}{a}
+e^{-\frac{x^2}{2a}},
+& x>0,\\
+0,
+& x\le 0.
+\end{cases}
+\]
+
+\[
+a>0.
+\]
+
+\[
+x_1=3,
+\qquad
+x_2=5.
+\]
+
+The observations are independent, so:
+\[
+L(a)=f_X(x_1)\cdot f_X(x_2).
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{1) Build the likelihood}
+
+Since \(x_1>0\) and \(x_2>0\), use the first part of
+the density:
+\[
+f_X(x_i)
+=
+\frac{x_i}{a}
+e^{-\frac{x_i^2}{2a}}.
+\]
+
+The notes write:
+\begin{align*}
+L(a)
+&=
+f_X(x_1)\cdot f_X(x_2)
+\\[2mm]
+&=
+\left(
+\frac{x_1}{a}
+e^{-\frac{x_1^2}{2a}}
+\right)
+\left(
+\frac{x_2}{a}
+e^{-\frac{x_2^2}{2a}}
+\right).
+\end{align*}
+
+Multiply the factors:
+\begin{align*}
+L(a)
+&=
+\frac{x_1x_2}{a^2}
+e^{-\frac{x_1^2}{2a}}
+e^{-\frac{x_2^2}{2a}}
+\\[2mm]
+&=
+\frac{x_1x_2}{a^2}
+e^{
+-\frac{x_1^2+x_2^2}{2a}
+}.
+\end{align*}
+
+\textbf{English clarification:}
+The notes use the rule
+\[
+a e^b\cdot b e^c
+=ab e^{b+c}.
+\]
+Here that means the exponents are added.
+
+\textbf{2) Take logarithms}
+
+The notes take \(\ln\) on both sides to make the
+exponent less annoying:
+\[
+\ln(L(a))
+=
+\ln\left(
+\frac{x_1x_2}{a^2}
+e^{
+-\frac{x_1^2+x_2^2}{2a}
+}
+\right).
+\]
+
+Use the log rules from the notes:
+\[
+\ln\left(\frac{a}{b}\right)
+=
+\ln(a)-\ln(b),
+\]
+\[
+\ln(a^2)=2\ln(a),
+\]
+\[
+\ln(e^u)=u.
+\]
+
+Then:
+\begin{align*}
+\ln(L(a))
+&=
+\ln(x_1x_2)
+-
+\ln(a^2)
+-
+\frac{x_1^2+x_2^2}{2a}
+\\[2mm]
+&=
+\ln(x_1x_2)
+-
+2\ln(a)
+-
+\frac{x_1^2+x_2^2}{2a}.
+\end{align*}
+
+\textbf{3) Differentiate with respect to \(a\)}
+
+The notes differentiate the log-likelihood:
+\begin{align*}
+\frac{d}{da}\ln(L(a))
+&=
+\frac{d}{da}\ln(x_1x_2)
+-
+\frac{d}{da}2\ln(a)
+\\
+&\quad
+-
+\frac{d}{da}
+\left(
+\frac{x_1^2+x_2^2}{2a}
+\right)
+\\[2mm]
+&=
+0
+-
+\frac{2}{a}
++
+\frac{x_1^2+x_2^2}{2a^2}
+\\[2mm]
+&=
+-\frac{2}{a}
++
+\frac{x_1^2+x_2^2}{2a^2}.
+\end{align*}
+
+\textbf{4) Set derivative equal to zero}
+
+Set:
+\[
+-\frac{2}{a}
++
+\frac{x_1^2+x_2^2}{2a^2}
+=0.
+\]
+
+Now solve for \(a\):
+\begin{align*}
+\frac{x_1^2+x_2^2}{2a^2}
+&=
+\frac{2}{a}.
+\end{align*}
+
+Multiply both sides by \(2a^2\):
+\begin{align*}
+x_1^2+x_2^2
+&=
+4a.
+\end{align*}
+
+So:
+\[
+a
+=
+\frac{x_1^2+x_2^2}{4}.
+\]
+
+\textbf{5) Insert the observed values}
+
+The notes insert:
+\[
+x_1=3,
+\qquad
+x_2=5.
+\]
+
+Therefore:
+\begin{align*}
+a
+&=
+\frac{3^2+5^2}{4}
+\\[2mm]
+&=
+\frac{9+25}{4}
+\\[2mm]
+&=
+\frac{34}{4}
+\\[2mm]
+&=
+8.5.
+\end{align*}
+
+So the ML estimate is:
+\[
+\hat{a}_{ML}=8.5.
+\]
+
+\subsubsection*{Final answer}
+
+\[
+\hat{a}_{ML}
+=
+\frac{x_1^2+x_2^2}{4}.
+\]
+
+With \(x_1=3\) and \(x_2=5\):
+\[
+\hat{a}_{ML}=8.5.
+\]
+
+\subsubsection*{What to remember}
+
+For independent observations:
+\[
+L(a)=
+\prod_i f_X(x_i).
+\]
+
+Using \(\ln(L(a))\) makes products become sums and
+exponents easier to differentiate.
+
+For ML estimation:
+\[
+\frac{d}{da}\ln(L(a))=0.
+\]
+
+\section*{Uppgift 6}
+
+\subsection*{Original question}
+
+Vid en undersökning av guldhalten (mätt i
+ounce/dwt malm, men enheten spelar ingen roll för
+lösningen) från två olika brytplatser \(A\)
+respektive \(B\) i en gruva i Sydafrika insamlade
+man två oberoende stickprov. Efter en logaritmisk
+transformering av observationerna erhölls
+normalfördelningslika egenskaper. De logaritmerade
+värdena var
+
+\[
+\begin{array}{c|c}
+\text{Brytplats} & \ln(\text{guldhalt})\\
+\hline
+A(x_i) &
+7.03,\ 6.28,\ 5.51,\ 5.89,\ 5.48,\ 5.77,\ 6.62,\ 4.42\\
+B(y_i) &
+7.19,\ 4.71,\ 5.90,\ 6.21,\ 5.53,\ 5.88,\ 4.47,\ 7.57,\ 6.82,\ 5.62
+\end{array}
+\]
+
+Vi antar att \(x_i\) är observationer av
+\[
+X\in N(\mu_1,\sigma)
+\]
+och \(y_i\) är observationer av
+\[
+Y\in N(\mu_2,\sigma).
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna ett konfidensintervall med
+konfidensgrad 95\% för skillnaden mellan
+väntevärdena av de logaritmerade guldhalterna.
+\((4.5p)\)
+
+\item Testa hypotesen att väntevärdena är lika med
+signifikansnivå 5\%. \((1.5p)\)
+\end{enumerate}
+
+\subsection*{Compiled notes from Yacoub + Obid}
+% UNCERTAIN: The supplied note images are not visibly labelled by author,
+% so Yacoub's and Obid's notes are compiled together as the provided notes.
+% UNCERTAIN: Two supplied images about passenger weights and n=100 do not
+% match this gold-content question, so they are not used here.
+
+\subsubsection*{What we are doing}
+
+We compare the mean log-gold-content from two
+independent mines, \(A\) and \(B\).
+
+The question assumes both groups are normal-like and
+have the same unknown standard deviation \(\sigma\).
+So the notes use a pooled variance and a two-sample
+\(t\)-interval.
+
+\subsubsection*{Given information}
+
+Mine \(A\):
+\[
+n_A=8.
+\]
+
+\[
+\sum x_i=47.0.
+\]
+
+\[
+\bar{x}
+=
+\frac{47.0}{8}
+=5.875.
+\]
+
+\[
+s_A^2=0.6401.
+\]
+
+Mine \(B\):
+\[
+n_B=10.
+\]
+
+\[
+\sum y_i=59.9.
+\]
+
+\[
+\bar{y}
+=5.99.
+\]
+
+\[
+s_B^2=0.9990.
+\]
+
+The notes use:
+\[
+\text{df}=n_A+n_B-2=16.
+\]
+
+\subsubsection*{Step-by-step solution}
+
+\textbf{a) 95\% confidence interval for}
+\[
+\mu_1-\mu_2.
+\]
+
+\textbf{Step 1: Calculate pooled variance}
+
+The notes use:
+\[
+s_p^2
+=
+\frac{
+(n_A-1)s_A^2+(n_B-1)s_B^2
+}{
+n_A+n_B-2
+}.
+\]
+
+Substitute the note values:
+\begin{align*}
+s_p^2
+&=
+\frac{
+7(0.6401)+9(0.9990)
+}{
+8+10-2
+}
+\\[2mm]
+&=
+0.8420.
+\end{align*}
+
+So:
+\begin{align*}
+s_p
+&=
+\sqrt{0.8420}
+\\[2mm]
+&=
+0.9176.
+\end{align*}
+
+\textbf{Step 2: Find the critical \(t\)-value}
+
+For a 95\% confidence interval:
+\[
+\alpha=0.05.
+\]
+
+Two-sided means:
+\[
+\frac{\alpha}{2}=0.025.
+\]
+
+With:
+\[
+\text{df}=16,
+\]
+the notes use:
+\[
+t_{0.025,16}=2.120.
+\]
+
+\textbf{Step 3: Calculate margin of error}
+
+The notes use:
+\[
+ME
+=
+t\cdot s_p
+\sqrt{
+\frac{1}{n_A}
++
+\frac{1}{n_B}
+}.
+\]
+
+Substitute:
+\begin{align*}
+ME
+&=
+2.120\cdot 0.9176
+\sqrt{
+\frac{1}{8}
++
+\frac{1}{10}
+}
+\\[2mm]
+&=
+0.9226.
+\end{align*}
+
+\textbf{Step 4: Build the interval}
+
+The difference in sample means is:
+\begin{align*}
+\bar{x}-\bar{y}
+&=
+5.875-5.99
+\\[2mm]
+&=
+-0.115.
+\end{align*}
+
+The interval is:
+\[
+(\bar{x}-\bar{y})\pm ME.
+\]
+
+So:
+\begin{align*}
+-0.115\pm 0.9226
+&=
+[-1.0376,\ 0.8076].
+\end{align*}
+
+\textbf{b) Test equal means at 5\% significance}
+
+Vid en undersökning av guldhalten (mätt i
+ounce/dwt malm, men enheten spelar ingen roll för
+lösningen) från två olika brytplatser \(A\)
+respektive \(B\) i en gruva i Sydafrika insamlade
+man två oberoende stickprov. Efter en logaritmisk
+transformering av observationerna erhölls
+normalfördelningslika egenskaper. De logaritmerade
+värdena var
+
+\[
+\begin{array}{c|c}
+\text{Brytplats} & \ln(\text{guldhalt})\\
+\hline
+A(x_i) &
+7.03,\ 6.28,\ 5.51,\ 5.89,\ 5.48,\ 5.77,\ 6.62,\ 4.42\\
+B(y_i) &
+7.19,\ 4.71,\ 5.90,\ 6.21,\ 5.53,\ 5.88,\ 4.47,\ 7.57,\ 6.82,\ 5.62
+\end{array}
+\]
+
+Vi antar att \(x_i\) är observationer av
+\[
+X\in N(\mu_1,\sigma)
+\]
+och \(y_i\) är observationer av
+\[
+Y\in N(\mu_2,\sigma).
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Beräkna ett konfidensintervall med
+konfidensgrad 95\% för skillnaden mellan
+väntevärdena av de logaritmerade guldhalterna.
+\((4.5p)\)
+
+\item Testa hypotesen att väntevärdena är lika med
+signifikansnivå 5\%. \((1.5p)\)
+\end{enumerate}
+
+The hypothesis is:
+\[
+H_0:\mu_1=\mu_2.
+\]
+
+Equivalently:
+\[
+H_0:\mu_1-\mu_2=0.
+\]
+
+The alternative is:
+\[
+H_1:\mu_1\ne \mu_2.
+\]
+
+\textbf{English clarification:}
+This is the same two-sided comparison as the
+confidence interval in part a).
+
+Since the 95\% confidence interval is:
+\[
+[-1.0376,\ 0.8076],
+\]
+and \(0\) lies inside this interval, we do not reject
+\(H_0\).
+
+So the notes' result means that at the 5\% level,
+there is not enough evidence to say that the two
+log-mean gold contents are different.
+
+\subsubsection*{Final answer}
+
+\begin{enumerate}[label=\alph*)]
+\item
+The 95\% confidence interval for
+\(\mu_1-\mu_2\) is:
+\[
+[-1.0376,\ 0.8076].
+\]
+
+\item
+Since \(0\) is inside the interval, we do not reject:
+\[
+H_0:\mu_1=\mu_2.
+\]
+
+At 5\% significance, the notes do not show a
+significant difference between the two means.
+\end{enumerate}
+
+\subsubsection*{What to remember}
+
+For two independent normal samples with common
+unknown \(\sigma\), use pooled variance:
+\[
+s_p^2
+=
+\frac{
+(n_A-1)s_A^2+(n_B-1)s_B^2
+}{
+n_A+n_B-2
+}.
+\]
+
+The confidence interval for \(\mu_1-\mu_2\) is:
+\[
+(\bar{x}-\bar{y})
+\pm
+t\cdot s_p
+\sqrt{
+\frac{1}{n_A}
++
+\frac{1}{n_B}
+}.
+\]
+
+If \(0\) is inside the confidence interval for
+\(\mu_1-\mu_2\), then we do not reject equal means.
+
+\end{document}

@@ -1,0 +1,5 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is '2026-01_compiled_notes.blg'
+[258] biber-MSWIN64:342> INFO - === 
+[726] Utils.pm:479> ERROR - Cannot find '2026-01_compiled_notes.bcf'!
+[726] Biber.pm:137> INFO - ERRORS: 1
