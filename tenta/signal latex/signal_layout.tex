@@ -1,0 +1,44 @@
+% Shared layout only. Exam questions and solutions live in one dated source.
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,graphicx,xcolor}
+\usepackage[protrusion=false]{microtype}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage[paperwidth=384pt,paperheight=900pt,margin=10pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+\setlength{\abovedisplayshortskip}{4pt}
+\setlength{\belowdisplayshortskip}{4pt}
+\setlength{\jot}{4pt}
+\setlist[itemize]{leftmargin=13pt,labelsep=4pt,itemsep=2pt,topsep=3pt,parsep=0pt}
+\raggedright
+\graphicspath{{\SignalSupportPath assets/}}
+\newcommand{\noteheading}[1]{\par\Needspace{5\baselineskip}\vspace{6pt}\textbf{#1}\par\nopagebreak}
+\newcommand{\stepheading}[1]{\par\Needspace{10\baselineskip}\vspace{4pt}\textbf{#1}\par\nopagebreak}
+\newcommand{\SignalQuestion}[2]{\expandafter\gdef\csname SignalQuestion@#1\endcsname{#2}}
+\newcommand{\SignalSolution}[3]{\expandafter\gdef\csname SignalSolution@#1#2\endcsname{#3}}
+\newcommand{\SignalLegacy}[3]{\expandafter\gdef\csname SignalLegacy@#1#2\endcsname{#3}}
+\newcommand{\SignalRender}[2]{%
+  \ifcsname SignalLegacy@#1#2\endcsname
+    \csname SignalLegacy@#1#2\endcsname
+  \else
+    {\fontsize{14}{17}\selectfont\textbf{Uppgift #1(#2)}}\hfill
+    {\small\SignalExamID}\par
+    \textbf{Original question}\par
+    \csname SignalQuestion@#1\endcsname
+    \par\vspace{5pt}\hrule\vspace{7pt}
+    {\fontsize{12}{15}\selectfont\textbf{Solution for part (#2)}}\par
+    \csname SignalSolution@#1#2\endcsname
+  \fi
+}
+\definecolor{sensorred}{RGB}{219,52,63}
+\definecolor{sensorgreen}{RGB}{48,151,82}
+\definecolor{sensorblue}{RGB}{40,81,175}
+\definecolor{reconstructed}{RGB}{180,115,85}
+\newcommand{\SensorCell}[2]{\colorbox{#1}{\makebox[12pt][c]{\color{white}\strut #2}}}
+\newcommand{\SensorSample}[3]{\colorbox{#1}{\parbox[c][25pt][c]{72pt}{\centering\color{white}#2\\#3}}}

@@ -1,0 +1,332 @@
+% Authoritative notes for this exact exam date. Keep every completed question here.
+% The older month-only TeX file becomes a compatibility entry point to this file.
+% SIGNAL_EXAM {"id":"2026-08-18","pdf":"tenta/signal tenta/2026-08/2026-08 exam.pdf","pdf_sha256":"f0a44d790df6c154ef9165ac0467ddb8210c23b567860b64c8790bc2cc4c90c8","date_verified":true}
+% SIGNAL_QUESTION {"number":2,"parts":["a","b"],"pdf_page":2,"required_figures":1,"required_question_text":[]}
+% SIGNAL_PART {"question":2,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/exaam/exaam/IMG_20261024_154103.jpg","source_sha256":"f42141fc7ecb802d8cce22fef52c628e04d699ab8563a9fb9f87cc3814f4f804","content_verified":true,"slug":"difference-equation","output_directory":"tenta/signal tenta/signal calc/1 - random question","filename":"68b-difference-equation.png","required_solution_text":["Final answer for part b)"]}
+% SIGNAL_QUESTION {"number":6,"parts":["a","b"],"pdf_page":4,"required_figures":1,"required_question_text":["Digital camera sensors typically capture only one color component (red, green, or blue) per pixel using a Bayer filter array like the one shown below. To reconstruct a full-color image, the missing color values at each pixel are interpolated from neighboring pixels.","Explain why the demosaicing (debayering) process necessarily involves a trade-off between color fidelity and spatial resolution.","Describe in general terms how a simple demosaicing algorithm reconstructs full RGB values from a Bayer-pattern image. Hint: refer to how missing color values at each pixel are handled."],"figure_crops":[{"pdf_page":4,"image_index":0,"box":[480,2050,1770,2590],"asset":"assets/2026-08-18_Q06_bayer-original.png"}]}
+% SIGNAL_PART {"question":6,"part":"a","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/signal calc/6/6 68a.jpg","source_sha256":"9db99889ea52282c00d32df95c3c7b3ae0ae17a6aca99748e3d4c35cff9e3b79","content_verified":true,"user_authorized":"2026-10-25: Use the existing typed solutions","slug":"bayer","topic":"7 Cameras Bayer and demosaicing","required_solution_text":["First: Understand the Bayer filter array","Step 1: Understand the two concepts","Step 2: Understand why there is a trade-off","Step 3: Understand the fundamental limitation","Final answer for part (a)","200","100","50"]}
+% SIGNAL_PART {"question":6,"part":"b","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/signal calc/6/6 68b.jpg","source_sha256":"886681aec0f9e752823b0e81d58741176aa875e9fc7a8d67613005da9a51e6ab","content_verified":true,"user_authorized":"2026-10-25: Use the existing typed solutions","slug":"demosaicing","topic":"7 Cameras Bayer and demosaicing","required_solution_text":["Step 1: Keep the measured color","Step 2: Estimate missing colors from neighbors","Step 2a: Red value","Step 2b: Green value","Step 2c: Blue value","Step 3: Combine the values","Step 4: Repeat for every pixel","Final answer for part (b)","180","115","85","460","340"]}
+%
+% HANDWRITING CHECK, Q06: IMG_20261024_155408.jpg contains a dated fragment:
+% circled 6, 26-08-18, 'Variation 1', 'Ctrl+f', 'chat gpt', and
+% 'Since each pixel measures only one color!!'. No completed (a)/(b) is present.
+% UNCERTAINTY: the keyword after 'Ctrl+f' has been crossed out and is not fully
+% readable. It is not guessed or silently restored. No math is transcribed from
+% the unrelated Q03(c) section above it or the 2026-01/2025-08 sections below it.
+% The crop 2026-08/6 68 f.png duplicates that fragment. The image 6 68.jpg is
+% about compression and is not used for this Bayer question.
+% USER OVERRIDE: the user explicitly approved the existing typed solutions.
+% Q06 transcribes those sources, not an invented completion of the handwriting.
+% Source order, examples, values, interpolation method and final answers retained.
+% Repeated summaries are consolidated. The explicit 460/4 and 340/4 sums are
+% small directly implied arithmetic steps. No additional reasoning was required.
+\providecommand{\SignalSupportPath}{}
+\input{\SignalSupportPath signal_layout.tex}
+\newcommand{\SignalExamID}{2026-08-18}
+
+% Preserved prior completed Question 2(b), migrated without deleting its solution.
+\SignalLegacy{2}{b}{%
+{\fontsize{14}{17}\selectfont\textbf{Uppgift 2b}}\hfill
+{\small 2026-08-18}\par
+\textbf{Original question}\par
+\includegraphics[width=\linewidth]{68-q2-question.png}\par
+
+\vspace{5pt}
+{\fontsize{12}{15}\selectfont\textbf{Compiled notes}}\par
+
+\noteheading{What we are doing}
+We want the difference equation.
+Read each path, then add the input and feedback terms.
+
+\noteheading{Step-by-step solution}
+\stepheading{1. Check delays and feedback}
+Each $T$ delays the signal by one sample.\par
+Previous outputs return to the sum, so there is feedback.
+This feedback makes the system \textbf{IIR}.\par
+Only present and past values are used, so it is \textbf{causal}.
+
+\stepheading{2. Read the input paths}
+Count the delays before each gain:
+\[
+\begin{aligned}
+  0\text{ delays:}\quad &1\cdot x(n)=x(n)\\
+  1\text{ delay:}\quad &2\cdot x(n-1)\\
+  3\text{ delays:}\quad &1\cdot x(n-3)=x(n-3).
+\end{aligned}
+\]
+There is no branch into the sum after the second $T$.
+So there is no $x(n-2)$ term.\par
+Add the three input terms:
+\[
+\begin{aligned}
+\text{Input sum}
+  &=x(n)+2x(n-1)\\
+  &\quad+x(n-3).
+\end{aligned}
+\]
+
+\stepheading{3. Read the feedback paths}
+Now start from $y(n)$ and follow the return paths:
+\[
+\begin{aligned}
+  1\text{ delay:}\quad &0.3y(n-1)\\
+  3\text{ delays:}\quad &-0.1y(n-3).
+\end{aligned}
+\]
+Again, there is no branch into the sum after the second $T$.
+So there is no $y(n-2)$ term.\par
+Keep the minus sign from the lower gain:
+\[
+\begin{aligned}
+\text{Feedback sum}
+  &=0.3y(n-1)\\
+  &\quad-0.1y(n-3).
+\end{aligned}
+\]
+
+\stepheading{4. Combine at the output}
+The final $+$ adds the input sum and feedback sum.
+So the output becomes:
+
+\noteheading{Final answer for part b)}
+\[
+\boxed{\begin{aligned}
+y(n)&=x(n)\\
+    &\quad+2x(n-1)+x(n-3)\\
+    &\quad+0.3y(n-1)\\
+    &\quad-0.1y(n-3).
+\end{aligned}}
+\]
+
+\noteheading{What to remember}
+Count every $T$ before a branch enters a sum.
+Keep the sign of each gain.
+}
+
+
+\SignalQuestion{6}{%
+\textbf{6.} Digital camera sensors typically capture only one color component
+(red, green, or blue) per pixel using a Bayer filter array like the one shown
+below. To reconstruct a full-color image, the missing color values at each pixel
+are interpolated from neighboring pixels.
+\begin{center}
+\includegraphics[width=0.94\linewidth]{2026-08-18_Q06_bayer-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=4pt,topsep=2pt]
+\item Explain why the demosaicing (debayering) process necessarily involves a
+trade-off between color fidelity and spatial resolution.\hfill(2p)
+\item Describe in general terms how a simple demosaicing algorithm reconstructs
+full RGB values from a Bayer-pattern image. \textit{Hint: refer to how missing
+color values at each pixel are handled.}\hfill(2p)
+\end{enumerate}
+}
+
+\SignalSolution{6}{a}{%
+\noteheading{What we are doing}
+We explain why reconstructing a full-color image creates a trade-off between
+color fidelity and spatial resolution.
+
+\stepheading{First: Understand the Bayer filter array}
+A normal RGB image has three color values at every pixel:
+\[
+\text{Pixel}=(R,G,B).
+\]
+For example, a pixel might have:
+\[
+(R,G,B)=(200,100,50).
+\]
+Most conventional camera sensors using a Bayer filter array measure only
+\textbf{one color per pixel}: red, green, or blue.
+
+Example: RGGB Bayer pattern.
+\begin{center}
+\setlength{\tabcolsep}{0.5pt}
+\begin{tabular}{cccccc}
+\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}\\[1pt]
+\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}\\[1pt]
+\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}\\[1pt]
+\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}\\[1pt]
+\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}\\[1pt]
+\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}
+\end{tabular}
+\end{center}
+Each square represents a sensor pixel that measures only the indicated color.
+The pattern contains:
+\begin{itemize}
+\item 50\% green pixels;
+\item 25\% red pixels;
+\item 25\% blue pixels.
+\end{itemize}
+Green is sampled more frequently because it is particularly important for
+perceived image brightness and detail.
+
+\textbf{The problem:} How can we produce a full RGB image if each pixel measures
+only one of the three colors?
+
+The solution is called \textbf{demosaicing} (or debayering).
+Demosaicing estimates the two missing color values at each pixel using
+measurements from neighboring pixels.
+
+\stepheading{Step 1: Understand the two concepts}
+\textbf{Color fidelity} means how accurately the reconstructed image represents
+the true colors of the scene.
+For example, a red object should appear red, without unwanted green or blue
+artifacts.
+
+\textbf{Spatial resolution} means how well an image preserves small details,
+sharp edges, and fine textures.
+For example, the ability to distinguish thin lines or small text.
+
+\stepheading{Step 2: Understand why there is a trade-off}
+Imagine that the camera captures a sharp boundary between a red object and a
+blue object.
+Since each pixel measures only one color, the camera must estimate the missing
+colors using neighboring pixels.
+This creates two possible problems:
+
+\textbf{Option 1: Preserve sharp details.}
+If the algorithm preserves sharp edges and fine textures, its color estimates
+may be inaccurate, producing false colors or colored edge artifacts.
+
+\textbf{Option 2: Prioritize accurate, smooth colors.}
+If the algorithm averages neighboring pixels more strongly to reduce color
+artifacts, it may blur edges and remove fine details.
+
+\stepheading{Step 3: Understand the fundamental limitation}
+Each pixel measures only one color component, so the missing two components
+must be estimated.
+Consequently, we cannot always reconstruct both the exact colors and all the
+original fine details, especially where colors change rapidly.
+The algorithm must balance:
+\[
+\text{Color accuracy}\quad\longleftrightarrow\quad\text{Spatial detail}.
+\]
+
+\noteheading{Final answer for part (a)}
+Demosaicing involves a trade-off because each sensor pixel measures only one
+color component, so the other two must be estimated from neighboring pixels.
+Preserving sharp spatial details may introduce incorrect colors or artifacts,
+while smoothing to improve color fidelity may blur edges and reduce spatial
+resolution.
+}
+
+\SignalSolution{6}{b}{%
+\noteheading{What we are doing}
+We describe how to reconstruct the missing RGB values from the Bayer pattern.
+
+\stepheading{Step 1: Keep the measured color}
+Each pixel already has one measured color, and we keep that value.
+For example, at a red pixel:
+\[
+R=180.
+\]
+We do not yet know the green and blue values:
+\[
+(R,G,B)=(180,?,?).
+\]
+We must calculate the missing values.
+
+\stepheading{Step 2: Estimate missing colors from neighbors}
+A simple method is called \textbf{bilinear interpolation}.
+Estimate a missing color by averaging nearby pixels that actually measured
+that color.
+Consider this $3\times3$ neighborhood centered on a red pixel:
+\begin{center}
+\setlength{\tabcolsep}{1pt}
+\begin{tabular}{ccc}
+\SensorSample{sensorblue}{B}{70}&\SensorSample{sensorgreen}{G}{100}&\SensorSample{sensorblue}{B}{90}\\[2pt]
+\SensorSample{sensorgreen}{G}{110}&\SensorSample{sensorred}{R}{180}&\SensorSample{sensorgreen}{G}{130}\\[2pt]
+\SensorSample{sensorblue}{B}{80}&\SensorSample{sensorgreen}{G}{120}&\SensorSample{sensorblue}{B}{100}
+\end{tabular}
+\end{center}
+The center pixel is red. These numbers are example measured intensities.
+We want to reconstruct the center pixel's full RGB value.
+
+\stepheading{Step 2a: Red value}
+The red value is already measured:
+\[
+\boxed{R=180}.
+\]
+
+\stepheading{Step 2b: Green value}
+The nearest green pixels are above, below, left, and right of the center pixel.
+Average these four values:
+\[
+\begin{aligned}
+G&=\frac{100+120+110+130}{4}\\
+ &=\frac{460}{4}\\
+ &=115.
+\end{aligned}
+\]
+
+\stepheading{Step 2c: Blue value}
+The nearest blue pixels are at the four diagonal positions.
+Average them:
+\[
+\begin{aligned}
+B&=\frac{70+90+80+100}{4}\\
+ &=\frac{340}{4}\\
+ &=85.
+\end{aligned}
+\]
+
+\stepheading{Step 3: Combine the values}
+We now have all three color components:
+\[
+\boxed{(R,G,B)=(180,115,85)}.
+\]
+The original sensor pixel measured only red, but after demosaicing it has a
+complete RGB representation.
+
+\begin{center}
+\colorbox{reconstructed}{\rule{0pt}{20pt}\hspace{24pt}}
+\end{center}
+Reconstructed pixel: $R=180$, $G=115$, $B=85$.
+This is the resulting color in our example.
+
+\stepheading{Step 4: Repeat for every pixel}
+The same principle is used throughout the image, but the missing components
+depend on the pixel's original color.
+
+\textbf{Red pixel:} Keep $R$.
+Estimate $G$ from horizontal/vertical green neighbors.
+Estimate $B$ from diagonal blue neighbors.
+
+\textbf{Blue pixel:} Keep $B$.
+Estimate $G$ from horizontal/vertical green neighbors.
+Estimate $R$ from diagonal red neighbors.
+
+\textbf{Green pixel:} Keep $G$.
+Estimate $R$ from two neighboring red pixels.
+Estimate $B$ from two neighboring blue pixels, using the appropriate
+horizontal/vertical direction.
+
+At image boundaries, where some neighboring pixels are unavailable, the
+algorithm requires special handling.
+After processing all pixels, we obtain a complete RGB image.
+
+\noteheading{What to remember}
+Demosaicing estimates information that was never measured at each pixel.
+It uses neighboring pixels and assumes nearby colors are usually similar.
+This works reasonably well in smooth image regions, but can create errors
+near sharp edges and fine textures.
+
+\noteheading{Final answer for part (b)}
+A simple demosaicing algorithm uses interpolation to estimate the two missing
+color components at each pixel.
+The measured color is preserved, while the missing colors are calculated by
+averaging neighboring pixels of the corresponding color.
+For example, at a red pixel, green is estimated from the four adjacent green
+pixels and blue from the four diagonal blue pixels.
+Repeat this process across the image to reconstruct full RGB values.
+}
+
+\begin{document}
+\ifdefined\SignalSelectedQuestion
+  \SignalRender{\SignalSelectedQuestion}{\SignalSelectedPart}
+\else
+  \SignalRender{2}{b}\clearpage
+  \SignalRender{6}{a}\clearpage
+  \SignalRender{6}{b}
+\fi
+\end{document}
