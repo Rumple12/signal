@@ -1,0 +1,14 @@
+# Temporary software installed only to render the calculator notes.
+/tmp/q03c-python/
+
+# Compiled page previews; final images and TeX sources live under tenta/.
+/tmp/pdfs/
+/tmp/**/*.aux
+/tmp/**/*.log
+/tmp/**/check-*.png
+/tmp/**/review-*.png
+/tmp/q03c-answer/main.pdf
+
+# Python caches. Authored scripts and plot data remain included.
+__pycache__/
+*.py[cod]
