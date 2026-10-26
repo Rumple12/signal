@@ -1,0 +1,1175 @@
+% Authoritative notes for 2024-10-29. Completed Uppgift 1 through Uppgift 9.
+% Personal Question 1 notebook files were not found in the recursive search.
+% The user explicitly authorized: "Use the graded exam answers".
+% Use the premade signal calc/1 - random question folder and short -l image filenames.
+% SIGNAL_EXAM {"id":"2024-10-29","pdf":"tenta/signal tenta/2024-10/2024-10 exam.pdf","pdf_sha256":"dee5fdda46d0d242c6b70379e4b2ade29e4bf9237113343ad49acf8c6e7ebe93","date_verified":true}
+% SIGNAL_QUESTION {"number":1,"parts":["a","b","c","d","e"],"pdf_page":2,"required_figures":0,"required_question_text":["What does the following signal processing concepts mean? Be clear, concise, and relevant.","Sampling (1p)","Quantization (1p)","Impulse response (1p)","Frequency response (1p)","Windowing (1p)"],"folder_number":1}
+% SIGNAL_PART {"question":1,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2024-10/graded references/7YEQWBVX0000_Grade-D.pdf","source_sha256":"64b276b3e8277758a55f5da5cac161675290bcfa23ed099aeb5d918a25b9b68c","source_page":4,"source_label":"User-approved graded exam answer, not personal notebook","source_mark":"1/1","user_authorized":"2026-10-25: Use the graded exam answers","content_verified":true,"slug":"sampling","required_solution_text":["Sampling","predetermined sampling frequency","Final answer","regular time intervals"]}
+% SIGNAL_PART {"question":1,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","source_sha256":"c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4","source_page":4,"source_label":"User-approved graded exam answer, not personal notebook","source_mark":"1/1","user_authorized":"2026-10-25: Use the graded exam answers","content_verified":true,"slug":"quantization","required_solution_text":["Quantization","English clarification:","256","16","Final answer"]}
+% SIGNAL_PART {"question":1,"part":"c","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2024-10/graded references/7YEQWBVX0000_Grade-D.pdf","source_sha256":"64b276b3e8277758a55f5da5cac161675290bcfa23ed099aeb5d918a25b9b68c","source_page":4,"source_label":"User-approved graded exam answer, not personal notebook","source_mark":"1/1","user_authorized":"2026-10-25: Use the graded exam answers","content_verified":true,"slug":"impulse_response","required_solution_text":["Impulse response","English clarification:","Starting from rest","unit impulse","Final answer"]}
+% SIGNAL_PART {"question":1,"part":"d","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","source_sha256":"c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4","source_page":5,"source_label":"User-approved graded exam answer, not personal notebook","source_mark":"1/1","user_authorized":"2026-10-25: Use the graded exam answers","content_verified":true,"slug":"frequency_response","required_solution_text":["Frequency response","amplitude","phase","Final answer"]}
+% SIGNAL_PART {"question":1,"part":"e","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","source_sha256":"c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4","source_page":5,"source_label":"User-approved graded exam answer, not personal notebook","source_mark":"1/1","user_authorized":"2026-10-25: Use the graded exam answers","content_verified":true,"slug":"windowing","required_solution_text":["Windowing","rectangular, Hann, and Hamming","English clarification:","spectral leakage","Final answer"]}
+%
+% SIGNAL_QUESTION {"number":2,"parts":["a","b"],"pdf_page":2,"required_figures":0,"required_question_text":["A time-discrete signal","is defined as","Convolve s(n) with the filter defined using the impulse response","Show your calculations and provide the resulting sequence and any assumptions.","Identify the operation that this filter approximates and explain the reasoning behind your answer.","(3p)","(2p)"],"folder_number":2}
+% SIGNAL_PART {"question":2,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2024-10/graded references/NVIXOOBS0000_Grade-D.pdf","source_sha256":"e173bdc16a9d62cc7ca94b495e0ab4b494006ade971a4f102830263e3d32e3d0","source_page":5,"source_label":"Approved graded working, incomplete tail explicitly completed using the included example solutions","source_mark":"2/3 before completion","completion_source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","completion_page":2,"user_authorized":"Continuation of the user-approved graded-reference workflow","content_verified":true,"slug":"convolution","required_solution_text":["Full linear convolution","English clarification:","y(0)","y(1)","y(2)","y(3)","y(4)","y(5)","y(6)","Final answer"]}
+% SIGNAL_PART {"question":2,"part":"b","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","source_sha256":"c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4","source_page":2,"source_label":"Included example-solutions sheet in the approved graded exam material","user_authorized":"Continuation of the user-approved graded-reference workflow","content_verified":true,"slug":"differentiation","required_solution_text":["Differentiation","English clarification:","constant","Final answer","finite-difference"]}
+%
+% SIGNAL_QUESTION {"number":3,"parts":["a","b"],"pdf_page":3,"required_figures":1,"required_question_text":["A time discrete system is defined as below.","Describe the system based on its impulse response behavior.","Present the system","difference equation.","(1p)","(2p)"],"figure_crops":[{"pdf_page":3,"image_index":0,"box":[420,470,1560,1140],"asset":"assets/2024-10-29_Q03_block-original.png"}],"folder_number":2}
+% SIGNAL_PART {"question":3,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/2/2 68a.jpg","source_sha256":"046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa","source_exam_id":"2026-08-18","source_question":2,"source_part":"a","source_label":"User's own cross-year block-diagram notes, matched by actual topology and task","adaptation":"Target diagram has feedback gains -3 and +2 rather than +0.3 and -0.1","content_verified":true,"slug":"iir","required_solution_text":["Look for delays","Look for feedback","previous outputs","Final answer","IIR"]}
+% SIGNAL_PART {"question":3,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/2/2 68b.jpg","source_sha256":"a15862f32f2ec45c2e20937d2bdb5fb37d9973d6f5d6e36d0d2f8f42fdad6318","source_exam_id":"2026-08-18","source_question":2,"source_part":"b","source_label":"User's own handwritten input-group plus feedback-group method","adaptation":"Preserve grouping and collection method; read -3 and +2 from the 2024 target diagram","content_verified":true,"slug":"difference_equation","required_solution_text":["Input group","Feedback group","Combine at the output","Final answer","one sample"]}
+%
+% SIGNAL_QUESTION {"number":4,"folder_number":4,"subject":"Sampled spectrum periodicity and minimum sampling frequency","parts":["a","b"],"pdf_page":3,"required_figures":1,"required_question_text":["A signal","have been sampled using","50 kHz.","The amplitude spectrum of the sampled signal is shown in the figure below for a limited normalized frequency range.","Sketch the amplitude spectrum for an extended normalized frequency range by extending axis to","What is the lowest sampling frequency in Hz that the signal","could be sampled in while still being possible to be reconstructed exactly? Motivate.","(2p)","(3p)"],"figure_crops":[{"pdf_page":3,"image_index":0,"box":[880,2070,1590,2640],"asset":"assets/2024-10-29_Q04_spectrum-original.png"}]}
+% SIGNAL_PART {"question":4,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/4/4 68.jpg","source_sha256":"b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76","source_exam_id":"2026-08-18","source_question":4,"source_part":"a","source_label":"User's own handwritten spectrum-extension and Nyquist method","adaptation":"Same spectrum shape and cutoff 3pi/4; target sampling rate 50 kHz replaces source 100 kHz. Source results 37500/75000 Hz become 18750/37500 Hz.","content_verified":true,"slug":"spectrum_extension","required_solution_text":["Mirror around zero","Repeat every","Final answer","same shape"]}
+% SIGNAL_PART {"question":4,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/4/4 68.jpg","source_sha256":"b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76","source_exam_id":"2026-08-18","source_question":4,"source_part":"b","source_label":"User's own handwritten spectrum-extension and Nyquist method","adaptation":"Same spectrum shape and cutoff 3pi/4; target sampling rate 50 kHz replaces source 100 kHz. Source results 37500/75000 Hz become 18750/37500 Hz.","content_verified":true,"slug":"minimum_sampling","required_solution_text":["Read the highest normalized frequency","Convert to Hz","Apply the sampling theorem","18,750","37,500","Final answer"]}
+%
+% SIGNAL_QUESTION {"number":5,"folder_number":5,"subject":"LTI amplitude and phase spectra","parts":["a","b"],"pdf_page":4,"required_figures":4,"required_question_text":["An LTI system","is defined by its amplification and phase-shift below. A signal","is fed to the system, giving the output","Give the mathematical relation between amplitudes and phases of the input and the output.","Draw the amplitude spectrum and phase spectrum for the output","(2p)","(4p)"],"figure_crops":[{"pdf_page":4,"image_index":0,"box":[520,700,1040,1110],"asset":"assets/2024-10-29_Q05_input-amplitude-original.png"},{"pdf_page":4,"image_index":0,"box":[1240,700,1760,1110],"asset":"assets/2024-10-29_Q05_input-phase-original.png"},{"pdf_page":4,"image_index":0,"box":[520,1120,1040,1540],"asset":"assets/2024-10-29_Q05_system-amplitude-original.png"},{"pdf_page":4,"image_index":0,"box":[1240,1120,1760,1540],"asset":"assets/2024-10-29_Q05_system-phase-original.png"}]}
+% SIGNAL_PART {"question":5,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/5/5 68a.jpg","source_sha256":"2036b48360aa8ed50cb5e164435d55775101c9e22df06f7dbda64fb919caf8e6","source_exam_id":"2026-08-18","source_question":5,"source_part":"a","source_label":"User's own LTI amplitude-multiplication and phase-addition notes","adaptation":"Preserve own method; read target amplitudes X=(0,4,4,0), H=(20,20,10,10) at f=(0,10,20,30). Target output=(0,80,40,0). Both phase graphs are exact negatives on the signal support.","content_verified":true,"slug":"lti_amplitude_phase","required_solution_text":["Multiply amplitudes","Add phases","Final answer","Frequency stays the same"]}
+% SIGNAL_PART {"question":5,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/5/5 68b.jpg","source_sha256":"4aaf8144974f87c773a5c7c1fcc0182c48f833d7e07cdc43b962b29a8b74433d","source_exam_id":"2026-08-18","source_question":5,"source_part":"b","source_label":"User's own LTI amplitude-multiplication and phase-addition notes","adaptation":"Preserve own method; read target amplitudes X=(0,4,4,0), H=(20,20,10,10) at f=(0,10,20,30). Target output=(0,80,40,0). Both phase graphs are exact negatives on the signal support.","content_verified":true,"slug":"output_spectra","required_solution_text":["Calculate the key values","Draw the amplitude spectrum","Add the phase graphs","Final answer","English clarification:","undefined"]}
+%
+% SIGNAL_QUESTION {"number":6,"folder_number":6,"subject":"Window functions: frequency separation and spectral leakage","parts":["a","b"],"pdf_page":4,"required_figures":4,"required_question_text":["The plots below show the frequency spectra (i to iv) of different window functions with varying window lengths employed in spectrogram analysis.","Based on these spectra, which window function achieves the best frequency separation? Justify your selection.","Which window function best minimizes spectral leakage (where unwanted frequency components appear away from the main frequency)? Motivate.","(2p)"],"figure_crops":[{"pdf_page":4,"image_index":0,"box":[580,2140,1170,2675],"asset":"assets/2024-10-29_Q06_window-i-original.png"},{"pdf_page":4,"image_index":0,"box":[1235,2130,1835,2675],"asset":"assets/2024-10-29_Q06_window-ii-original.png"},{"pdf_page":4,"image_index":0,"box":[580,2675,1170,3210],"asset":"assets/2024-10-29_Q06_window-iii-original.png"},{"pdf_page":4,"image_index":0,"box":[1235,2675,1835,3210],"asset":"assets/2024-10-29_Q06_window-iv-original.png"}]}
+% SIGNAL_PART {"question":6,"part":"a","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","source_sha256":"c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4","source_page":3,"source_label":"Previously authorized graded-reference fallback; personal handwriting is incomplete","user_authorized":"Continuation of the user-approved graded-reference workflow; own notes inspected first","personal_handwriting":"tenta/signal tenta/2025-08/6 58.png","personal_handwriting_status":"Unfinished 2025-08-20 time-resolution reminder and sketches; no completed answer","personal_typed_reference":"tenta/signal tenta/signal calc/6/6 58a.jpg","personal_typed_reference_sha256":"6d89c5c5ed51941852a7641e1286b7bec7d2bd9b6b1bc09f318f508ddefb5088","adaptation":"2025 part (a) asks time resolution; target part (a) asks frequency separation and selects iii. Part (b) retains iv for the smallest visible side lobes. Do not identify typed personal references as handwriting.","content_verified":true,"slug":"frequency_separation","required_solution_text":["Compare the main lobes","Window (iii)","narrowest main lobe","Final answer","frequency separation"]}
+% SIGNAL_PART {"question":6,"part":"b","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","source_sha256":"c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4","source_page":3,"source_label":"Previously authorized graded-reference fallback; personal handwriting is incomplete","user_authorized":"Continuation of the user-approved graded-reference workflow; own notes inspected first","personal_handwriting":"tenta/signal tenta/2025-08/6 58.png","personal_handwriting_status":"Unfinished 2025-08-20 time-resolution reminder and sketches; no completed answer","personal_typed_reference":"tenta/signal tenta/signal calc/6/6 58b.jpg","personal_typed_reference_sha256":"4055aac0afe0cee473120f6eb09e7c7446a8b2cbfcfc5ca6fae6ea56aa223f3f","adaptation":"2025 part (a) asks time resolution; target part (a) asks frequency separation and selects iii. Part (b) retains iv for the smallest visible side lobes. Do not identify typed personal references as handwriting.","content_verified":true,"slug":"spectral_leakage","required_solution_text":["Compare the side lobes","Window (iv)","smallest visible side lobes","Final answer","spectral leakage"]}
+%
+% SIGNAL_QUESTION {"number":7,"folder_number":7,"subject":"Image filtering and sharpening: 2D frequency-selective properties","unlettered":true,"parts":[""],"pdf_page":5,"required_figures":1,"required_question_text":["A two-dimensional linear system can partially be described by the figure below. Based on the information in the figure, describe the system","frequency selective properties.","(3p)"],"figure_crops":[{"pdf_page":5,"image_index":0,"box":[880,530,1830,1240],"asset":"assets/2024-10-29_Q07_surface-original.png"}]}
+% SIGNAL_PART {"question":7,"part":"","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","source_sha256":"c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4","source_page":3,"source_label":"Previously authorized graded-reference fallback for the target-specific response-surface interpretation","user_authorized":"Continuation of user-approved graded-reference workflow; personal notes inspected first","personal_reference":"tenta/signal tenta/signal calc/7/7 68.jpg","personal_reference_sha256":"64a3ba141bf30b3c34ad0684ed29a0f9faaad9661f109817e476acdd96738ab0","personal_reference_origin":"2026-08-18 Question 7, kernel interpretation and sharpening","adaptation":"Personal kernel notes support the image-filtering subject and preservation/sharpening explanation; they are not an exact handwritten solution of this response-surface question. DC gain 1 and higher-frequency amplification are verified from the target and Q7 example answer.","content_verified":true,"slug":"high_frequency_emphasis","required_solution_text":["Read the low frequencies","Read the higher frequencies","Effect on an image","Final answer","High-frequency emphasis","sharpening","overall brightness"]}
+%
+% SIGNAL_QUESTION {"number":8,"folder_number":7,"subject":"Image-filter kernel interpretation and matching","unlettered":true,"parts":[""],"pdf_page":5,"required_figures":6,"required_question_text":["The closeup image below has been filtered with 4 different filters.","Match the following kernels (1","5) with the corresponding filtered results (i","v). Justify your choices by explaining how the filter kernels affect the image.","(5p)"],"figure_crops":[{"pdf_page":5,"image_index":0,"box":[410,1855,720,2160],"asset":"assets/2024-10-29_Q08_input-original.png"},{"pdf_page":5,"image_index":0,"box":[340,2650,665,3005],"asset":"assets/2024-10-29_Q08_result-i-original.png"},{"pdf_page":5,"image_index":0,"box":[715,2650,1035,3005],"asset":"assets/2024-10-29_Q08_result-ii-original.png"},{"pdf_page":5,"image_index":0,"box":[1080,2650,1405,3005],"asset":"assets/2024-10-29_Q08_result-iii-original.png"},{"pdf_page":5,"image_index":0,"box":[1440,2650,1765,3005],"asset":"assets/2024-10-29_Q08_result-iv-original.png"},{"pdf_page":5,"image_index":0,"box":[1800,2650,2125,3005],"asset":"assets/2024-10-29_Q08_result-v-original.png"}]}
+% SIGNAL_PART {"question":8,"part":"","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/7/7 68.jpg","source_sha256":"64a3ba141bf30b3c34ad0684ed29a0f9faaad9661f109817e476acdd96738ab0","source_exam_id":"2026-08-18","source_question":7,"source_label":"User's own handwritten kernel interpretations; same five target kernels and images","adaptation":"Keep center-only dimming, averaging, directional edges, Laplacian edges and sharpening reasoning. Correct the handwritten averaging block label to target kernel 4; later notes separately identify target kernel 2 as vertical edges. Target matches 1->ii,2->iv,3->v,4->iii,5->i.","content_verified":true,"slug":"kernel_matching","required_solution_text":["Only the center pixel","Average the neighbors","Find vertical edges","Find edges in all directions","Sharpen the image","Final answer","English clarification:","1","ii","2","iv","3","v","4","iii","5","i"]}
+%
+% SIGNAL_QUESTION {"number":9,"folder_number":7,"subject":"2D image-filter kernel / point spread function recovery","unlettered":true,"parts":[""],"pdf_page":6,"required_figures":2,"required_question_text":["Given the two matrices representing the input","and output","of a linear 2D filter: describe the","point spread function (PSF) or kernel","that transforms","Assume boundary conditions are zero, meaning pixels outside the matrix boundaries of","are zero.","(6p)"],"figure_crops":[{"pdf_page":6,"image_index":0,"box":[370,650,1110,1250],"asset":"assets/2024-10-29_Q09_input-matrix-original.png"},{"pdf_page":6,"image_index":0,"box":[1270,650,2020,1250],"asset":"assets/2024-10-29_Q09_output-matrix-original.png"}]}
+% SIGNAL_PART {"question":9,"part":"","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf","source_sha256":"c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4","source_page":3,"source_label":"Previously authorized graded-reference fallback: scaled impulse responses and overlap subtraction","user_authorized":"Continuation of user-approved graded-reference workflow; own subject notes inspected first","personal_reference":"tenta/signal tenta/signal calc/7/7 68.jpg","personal_reference_status":"Related kernel-pattern and coefficient-sum notes; no matching handwritten PSF recovery example found.","adaptation":"Follow reference impulse-superposition method; show explicit overlap subtraction and divide by 112. Independently solve all 36 matrix equations with exact arithmetic and verify the unique nine kernel coefficients.","content_verified":true,"slug":"psf_recovery","required_solution_text":["Read one scaled impulse response","Find the center and direct neighbors","Remove the overlapping contributions","Check an overlapping output","Final answer","112","224","64","58","cross-shaped averaging kernel"]}
+%
+% Q1 source mapping: selected handwritten answers all have a visible 1/1 mark.
+% Supporting example-solutions text: Z6EHWWR50000_Grade-B.pdf, PDF page 2, Q1 only.
+% (a) preserves the handwritten S(t) -> S(n) arrow and fixed-frequency explanation.
+% (b) preserves the 8-bit -> 4-bit image example. 2^8=256 and 2^4=16 are labeled
+% English clarification, rather than being attributed to the handwriting.
+% (c) uses 7YEQWBVX's explicit impulse-input definition (1/1). The B paper's
+% alternative c answer received 0.5/1 and omits that specific input; not copied.
+% Unit-impulse notation and initial rest are explicitly English clarification.
+% (d) preserves the B paper's amplitude/phase explanation in the frequency domain.
+% (e) preserves the B paper's truncation/shorter interval explanation and all three
+% named window examples. Multiplication notation and leakage purpose are labeled
+% English clarification, supported by the included Q1 example-solutions sheet.
+% UNCERTAINTY CHECK: no unreadable essential symbols in the selected sources.
+% Rejected alternatives are documented in the question report. In particular,
+% POOANQLN0000_Grade-C.pdf has an F on its actual cover; filename not relied upon.
+\providecommand{\SignalSupportPath}{}
+\input{\SignalSupportPath signal_layout.tex}
+\newcommand{\SignalExamID}{2024-10-29}
+
+\SignalQuestion{1}{%
+\textbf{1.} What does the following signal processing concepts mean?
+Be clear, concise, and relevant.
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=2pt,topsep=3pt]
+\item Sampling\hfill(1p)
+\item Quantization\hfill(1p)
+\item Impulse response\hfill(1p)
+\item Frequency response\hfill(1p)
+\item Windowing\hfill(1p)
+\end{enumerate}
+}
+
+\SignalSolution{1}{a}{%
+\textit{Graded reference answer: 1/1 point.}\par
+\stepheading{Sampling}
+Turn a continuous signal into a discrete signal by taking sample points at a
+predetermined sampling frequency:
+\[
+S(t)\longrightarrow S(n).
+\]
+\noteheading{Final answer}
+Sampling converts a continuous-time signal into a discrete-time signal by
+taking measurements at regular time intervals.
+\noteheading{Remember}
+Sampling makes the time axis discrete.
+}
+
+\SignalSolution{1}{b}{%
+\textit{Graded reference answer: 1/1 point.}\par
+\stepheading{Quantization}
+Quantization changes the set of possible values a signal can take.
+The graded answer gives this image example:
+\[
+\text{8-bit pixel values}\longrightarrow\text{4-bit pixel values}.
+\]
+\textbf{English clarification:} A bit depth of $B$ permits $2^B$ levels:
+\[
+\begin{aligned}
+\text{8 bits:}\quad 2^8&=256\text{ levels},\\
+\text{4 bits:}\quad 2^4&=16\text{ levels}.
+\end{aligned}
+\]
+\noteheading{Final answer}
+Quantization maps a continuous range of signal values to a finite set of
+discrete levels.
+\noteheading{Remember}
+Quantization makes signal values discrete.
+}
+
+\SignalSolution{1}{c}{%
+\textit{Graded reference answer: 1/1 point.}\par
+\stepheading{Impulse response}
+The impulse response is a system's response, or output, to an impulse input.
+\par
+\textbf{English clarification:} Starting from rest, a unit impulse at the input
+gives the impulse response at the output:
+\[
+\begin{aligned}
+x[n]&=\delta[n],\\
+y[n]&=h[n].
+\end{aligned}
+\]
+\noteheading{Final answer}
+The impulse response $h[n]$ is the output produced by a unit impulse input.
+\noteheading{Remember}
+Unit impulse in; impulse response out.
+}
+
+\SignalSolution{1}{d}{%
+\textit{Graded reference answer: 1/1 point.}\par
+\stepheading{Frequency response}
+The frequency response describes how a system responds to an input signal
+in the frequency domain.
+For each frequency component, it tells us:
+\begin{itemize}
+\item how its amplitude is changed;
+\item how its phase is shifted.
+\end{itemize}
+\noteheading{Final answer}
+Frequency response describes the amplitude change and phase shift that a
+system applies at different frequencies.
+\noteheading{Remember}
+Read amplitude change and phase shift as functions of frequency.
+}
+
+\SignalSolution{1}{e}{%
+\textit{Graded reference answer: 1/1 point.}\par
+\stepheading{Windowing}
+We often want to process a signal over a shorter time interval.
+Windowing truncates or limits the signal in a chosen way using a window function.
+\par
+Examples from the graded answer: rectangular, Hann, and Hamming windows.
+\par
+\textbf{English clarification:} Apply the window by multiplication:
+\[
+x_w[n]=x[n]w[n].
+\]
+Before Fourier analysis, the window can help control spectral leakage.
+\noteheading{Final answer}
+Windowing applies a window function to select and weight a finite segment
+of a signal for analysis.
+\noteheading{Remember}
+The window chooses and weights the time segment.
+}
+
+% Q2 provenance and corrections:
+% Original wording/values verified visually on exam PDF page 2, printed page 1.
+% NVIXOOBS0000, PDF page 5: preserve convolution sum, substitutions and n=0..4
+% order. Its five computed values are correct, but the final two samples are
+% missing. The source's crossed-out zero h(3) term is explicitly explained below.
+% Its boundary condition is written as an inconsistent chained inequality;
+% the intended zero extension is explicitly restated as English clarification.
+% Completion and complete seven-value sequence checked against the included
+% example-solutions sheet (Z6EHWWR50000, PDF page 2).
+% Independent exact rational convolution and the tap-difference formula agree.
+% Other handwritten candidates have missing tails, sign/arithmetic errors or
+% incorrect inversion/attenuation claims for b. They are not silently copied.
+% b uses the existing typed model answer's differentiation/change-emphasis
+% explanation. The tap algebra, DC cancellation and polarity are labelled
+% English clarification. No monotone high-pass response over all frequencies
+% is claimed: this central-difference kernel also vanishes at Nyquist.
+% Index origin is not marked in the question: first listed elements are taken
+% at n=0, as in the included model calculations; full zero-extended convolution.
+
+\SignalQuestion{2}{%
+\textbf{2.} A time-discrete signal $s(n)$ is defined as
+\[
+s(n)=\{3,7,10,3,-5\}.
+\]
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=4pt,topsep=3pt]
+\item Convolve $s(n)$ with the filter defined using the impulse response
+\[
+h(n)=\{-0.5,0,0.5\}
+\]
+Show your calculations and provide the resulting sequence and any assumptions.
+\hfill(3p)
+\item Identify the operation that this filter approximates and explain the
+reasoning behind your answer.\hfill(2p)
+\end{enumerate}
+}
+
+\SignalSolution{2}{a}{%
+\textit{Graded working, completed against the included example solutions.}\par
+\noteheading{What we are doing}
+Compute the convolution, one output sample at a time.
+
+\stepheading{1. Assumptions and output length}
+\textbf{English clarification:} Take the first listed elements at $n=0$.
+Use $s(n)=0$ outside $0\leq n\leq4$, and $h(n)=0$ outside $0\leq n\leq2$.
+
+\textbf{Full linear convolution} has:
+\[
+\begin{aligned}
+N_y&=N_s+N_h-1\\
+   &=5+3-1\\
+   &=7\text{ samples}.
+\end{aligned}
+\]
+The handwritten list stops at $n=4$.
+We must also include $n=5$ and $n=6$.
+
+\stepheading{2. Write the convolution sum}
+Multiply overlapping samples and add:
+\[
+y(n)=\sum_{k=-\infty}^{\infty}s(k)h(n-k).
+\]
+Only nonzero overlapping terms contribute.
+
+\stepheading{3. Calculate $y(0)$}
+Only the first samples overlap:
+\[
+\begin{aligned}
+y(0)&=s(0)h(0)\\
+    &=3(-0.5)\\
+    &=-1.5.
+\end{aligned}
+\]
+
+\stepheading{4. Calculate $y(1)$}
+There are two overlapping terms:
+\[
+\begin{aligned}
+y(1)&=s(0)h(1)+s(1)h(0)\\
+    &=3\cdot0+7(-0.5)\\
+    &=-3.5.
+\end{aligned}
+\]
+
+\stepheading{5. Calculate $y(2)$}
+Now all three filter taps overlap:
+\[
+\begin{aligned}
+y(2)&=s(0)h(2)+s(1)h(1)\\
+    &\quad+s(2)h(0)\\
+    &=3(0.5)+7\cdot0+10(-0.5)\\
+    &=1.5-5\\
+    &=-3.5.
+\end{aligned}
+\]
+
+\Needspace{145pt}
+\stepheading{6. Calculate $y(3)$}
+The source crosses out $s(0)h(3)$ because $h(3)=0$.
+The remaining terms give:
+\[
+\begin{aligned}
+y(3)&=s(1)h(2)+s(2)h(1)\\
+    &\quad+s(3)h(0)\\
+    &=7(0.5)+10\cdot0+3(-0.5)\\
+    &=3.5-1.5\\
+    &=2.
+\end{aligned}
+\]
+
+\stepheading{7. Calculate $y(4)$}
+Again, terms outside the filter support are zero:
+\[
+\begin{aligned}
+y(4)&=s(2)h(2)+s(3)h(1)\\
+    &\quad+s(4)h(0)\\
+    &=10(0.5)+3\cdot0+(-5)(-0.5)\\
+    &=5+2.5\\
+    &=7.5.
+\end{aligned}
+\]
+
+\stepheading{8. Calculate the missing tail: $y(5)$}
+\textbf{English clarification:} The input has ended, but the last filter taps
+still overlap it:
+\[
+\begin{aligned}
+y(5)&=s(3)h(2)+s(4)h(1)\\
+    &=3(0.5)+(-5)\cdot0\\
+    &=1.5.
+\end{aligned}
+\]
+
+\stepheading{9. Calculate the last sample: $y(6)$}
+Only the last input and filter samples overlap:
+\[
+\begin{aligned}
+y(6)&=s(4)h(2)\\
+    &=(-5)(0.5)\\
+    &=-2.5.
+\end{aligned}
+\]
+
+\noteheading{Final answer}
+For $n=0,1,\ldots,6$:
+\[
+\boxed{y(n)=\{-1.5,-3.5,-3.5,2,7.5,1.5,-2.5\}}.
+\]
+The output is zero outside this index range.
+
+\noteheading{Remember}
+Full convolution has $N_s+N_h-1$ samples.
+Do not discard the tail when the last filter taps still overlap the input.
+}
+
+\SignalSolution{2}{b}{%
+\textit{Reference: included example-solutions sheet.}\par
+\noteheading{Differentiation}
+The example solution identifies approximate differentiation: the filter
+emphasizes changes in the signal.
+
+\noteheading{English clarification:}
+Index the listed coefficients from $h(0)$ and keep their given order.
+The three taps give:
+\[
+\begin{aligned}
+y(n)&=-0.5s(n)\\
+    &\quad+0s(n-1)\\
+    &\quad+0.5s(n-2).
+\end{aligned}
+\]
+The middle tap is zero, leaving a scaled difference:
+\[
+y(n)=\frac{s(n-2)-s(n)}{2}.
+\]
+The given tap order takes an older sample minus a newer one, so it reverses the
+sign relative to the opposite difference. It still measures changes.
+
+\stepheading{Why constant levels disappear}
+In a constant region, $s(n)=s(n-2)=C$:
+\[
+\begin{aligned}
+y(n)&=-0.5C+0.5C\\
+    &=0.
+\end{aligned}
+\]
+Constant/DC levels cancel, while changes can produce a response.
+This explains the reference's high-pass interpretation near DC.
+
+\noteheading{Final answer}
+\textbf{Approximate differentiation: a finite-difference filter.}
+It suppresses constant levels and emphasizes changes in the signal.
+
+\noteheading{Remember}
+Opposite-sign taps compare samples; their zero sum cancels a constant level.
+}
+
+% Q3 provenance: own notes first, across years and question numbers.
+% The target Q3 is the same block-diagram family/topology as the user's
+% 2026-08-18 Q2 notes in signal calc/2, not the different problem in 3 68a/b/c.
+% Preserve: T = one delay; gains multiply; sums combine; read input group first,
+% feedback group second, combine at y(n), then collect output terms on the left.
+% Input taps stay 1,2,1 at delays 0,1,3. Target feedback taps are -3 and +2 at
+% delays 1,3, replacing +0.3 and -0.1 in the older notes. Delay-2 nodes have no tap.
+% The own-note aside about all previous exams being IIR is not generalized.
+% Secondary verification only: included example-solutions sheet in
+% Z6EHWWR50000_Grade-B.pdf, PDF page 2, Question 3. It is not the primary method.
+% SOURCE HEADER INCONSISTENCY: the target scan's running page header says
+% DT056A Visualization, despite the verified DT081A dated cover. The actual Q3
+% wording, diagram and gains match the Q3 entry in the included answer sheet.
+% No course header is presented as part of the original question transcription.
+% No unreadable target coefficients or unresolved mathematical uncertainty.
+
+\SignalQuestion{3}{%
+\textbf{3.} A time discrete system is defined as below.
+\begin{center}
+\includegraphics[width=0.96\linewidth]{2024-10-29_Q03_block-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=4pt,topsep=3pt]
+\item Describe the system based on its impulse response behavior.\hfill(1p)
+\item Present the system's difference equation.\hfill(2p)
+\end{enumerate}
+}
+
+\SignalSolution{3}{a}{%
+\textit{Adapted from your 2026-08-18 block-diagram notes.}\par
+\stepheading{1. Look for delays}
+Each $T$ delays the signal by one sample.
+
+\stepheading{2. Look for feedback}
+Start at $y(n)$ and follow the arrows going back to the sums.
+The output depends on previous outputs, so there is feedback.
+
+\stepheading{3. Decide FIR or IIR}
+\textbf{FIR:} finite impulse response.\par
+\textbf{IIR:} infinite impulse response.\par
+Here the output feeds back into the system through delayed branches.
+The impulse response can continue after the input impulse has ended.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{The system is IIR.}}
+\]
+
+\noteheading{Remember}
+Follow the return arrows from the output when checking for feedback.
+}
+
+\SignalSolution{3}{b}{%
+\textit{Your method: input group + feedback group, then combine.}\par
+\noteheading{Read the blocks}
+Each $T$ adds one sample of delay.
+Multiply each branch by its gain, then add the terms entering the sums.
+
+\stepheading{1. Input group}
+Follow the branches starting at $x(n)$:
+\[
+\begin{aligned}
+\text{No delay:}\quad &1\cdot x(n)=x(n),\\
+\text{One delay:}\quad &2x(n-1),\\
+\text{Three delays:}\quad &1\cdot x(n-3)=x(n-3).
+\end{aligned}
+\]
+There is no branch into a sum after the second $T$, so there is no $x(n-2)$ term.
+Add the input terms:
+\[
+\begin{aligned}
+\text{Input group}&=x(n)+2x(n-1)\\
+                &\quad+x(n-3).
+\end{aligned}
+\]
+
+\stepheading{2. Feedback group}
+Now start at $y(n)$ and follow the return branches.
+Use this exam's gains, $-3$ and $+2$:
+\[
+\begin{aligned}
+\text{One delay:}\quad &-3y(n-1),\\
+\text{Three delays:}\quad &2y(n-3).
+\end{aligned}
+\]
+The second delay has no branch into the sum, so there is no $y(n-2)$ term.
+Add the feedback terms:
+\[
+\text{Feedback group}=-3y(n-1)+2y(n-3).
+\]
+
+\stepheading{3. Combine at the output}
+The final $+$ adds your two groups:
+\[
+y(n)=\text{Input group}+\text{Feedback group}.
+\]
+Substitute the grouped terms:
+\[
+\begin{aligned}
+y(n)&=x(n)+2x(n-1)\\
+    &\quad+x(n-3)\\
+    &\quad-3y(n-1)+2y(n-3).
+\end{aligned}
+\]
+
+\stepheading{4. Collect the output terms}
+Move the feedback terms to the left.
+Their signs change.
+
+\noteheading{Final answer}
+\[
+\boxed{\begin{aligned}
+&y(n)+3y(n-1)-2y(n-3)\\
+&\quad=x(n)+2x(n-1)+x(n-3).
+\end{aligned}}
+\]
+
+\noteheading{Remember}
+Count delays to each tapped branch, keep the gain signs, then combine the groups.
+}
+
+
+% Q4 provenance: primary own handwritten signal calc/4/4 68.jpg (2026-08-18).
+% Preserve the source sequence: mirror about zero, repeat every 2pi; then read
+% cutoff, convert normalized frequency to Hz, and apply the sampling theorem.
+% Same graph shape as target; source fs=100 kHz becomes target fs=50 kHz.
+% Source 4 58a/b has a different shape/cutoff (7pi/8); its values are NOT reused.
+% Secondary example sheet: Z6EHWWR50000_Grade-B.pdf, p2, Q4. Its printed Hz
+% units omit the kilo factor despite fs=50 kHz. Correct units are derived below.
+% Original PDF p3 running header says DT056A Visualization, as recorded for Q3.
+% Original plot's flat-top knee is unlabeled. The sketch follows its visual
+% proportions without assigning it an exact frequency; cutoff is 3pi/4.
+\SignalQuestion{4}{%
+A signal $s(t)$ have been sampled using $f_s=50\,\mathrm{kHz}$.\par
+The amplitude spectrum of the sampled signal is shown in the figure below
+for a limited normalized frequency range.
+\begin{center}
+\includegraphics[width=205pt]{2024-10-29_Q04_spectrum-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*)]
+\item Sketch the amplitude spectrum for an extended normalized frequency range
+by extending axis to $-2\pi<\Omega<2\pi$.\hfill(2p)
+\item What is the lowest sampling frequency in Hz that the signal $s(t)$ could
+be sampled in while still being possible to be reconstructed exactly? Motivate.
+\hfill(3p)
+\end{enumerate}
+}
+
+\SignalSolution{4}{a}{%
+\textit{Method from your 2026-08-18 handwritten notes.}
+
+\stepheading{1. Mirror around zero}
+For the real-valued signal, mirror the given amplitude spectrum to the left.
+\[
+|H(e^{-j\Omega})|=|H(e^{j\Omega})|.
+\]
+Keep the flat top, the slope and the zero part.
+
+\stepheading{2. Repeat every $2\pi$}
+A discrete-time spectrum repeats with period $2\pi$.
+\[
+|H(e^{j(\Omega+2\pi)})|=|H(e^{j\Omega})|.
+\]
+Copy the same shape one period to the left and right.
+
+\stepheading{3. Sketch the extended spectrum}
+The central copy is mirrored; the edge pieces belong to the neighboring copies.
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(350,118)
+\thinlines
+\put(8,22){\vector(1,0){335}}
+\put(170,15){\vector(0,1){88}}
+\put(178,101){\makebox(0,0)[l]{$|H(e^{j\Omega})|$}}
+\put(344,12){\makebox(0,0){$\Omega$}}
+\put(162,86){\makebox(0,0)[r]{$1$}}
+\put(166,86){\line(1,0){8}}
+\put(14,19){\line(0,1){6}}
+\put(92,19){\line(0,1){6}}
+\put(248,19){\line(0,1){6}}
+\put(326,19){\line(0,1){6}}
+\put(14,8){\makebox(0,0){$-2\pi$}}
+\put(92,8){\makebox(0,0){$-\pi$}}
+\put(170,8){\makebox(0,0){$0$}}
+\put(248,8){\makebox(0,0){$\pi$}}
+\put(326,8){\makebox(0,0){$2\pi$}}
+\linethickness{0.9pt}
+\qbezier(14,86)(21.8,86)(29.6,86)
+\qbezier(29.6,86)(51.05,54)(72.5,22)
+\qbezier(72.5,22)(92,22)(111.5,22)
+\qbezier(111.5,22)(132.95,54)(154.4,86)
+\qbezier(154.4,86)(170,86)(185.6,86)
+\qbezier(185.6,86)(207.05,54)(228.5,22)
+\qbezier(228.5,22)(248,22)(267.5,22)
+\qbezier(267.5,22)(288.95,54)(310.4,86)
+\qbezier(310.4,86)(318.2,86)(326,86)
+\end{picture}
+\end{center}
+The central spectrum reaches zero at $\Omega=\pm3\pi/4$.
+It stays zero until the next copy starts at $\Omega=\pm5\pi/4$.
+
+\noteheading{Final answer}
+Mirror the given shape around $\Omega=0$, then repeat it every $2\pi$
+throughout $-2\pi<\Omega<2\pi$, as sketched above.
+
+\noteheading{Remember}
+Mirror first. Then shift the entire shape by $\pm2\pi$.
+}
+
+\SignalSolution{4}{b}{%
+\textit{Method from your 2026-08-18 notes; use $50\,\mathrm{kHz}$ here.}
+
+\stepheading{1. Read the highest normalized frequency}
+Read where the sloping line reaches zero:
+\[
+\Omega_{\max}=\frac{3\pi}{4}.
+\]
+The given sampling rate is
+\[
+f_s=50\,\mathrm{kHz}=50,000\,\mathrm{Hz}.
+\]
+
+\stepheading{2. Convert to Hz}
+Use the same conversion as in your notes:
+\[
+\Omega_{\max}=2\pi\frac{f_{\max}}{f_s}.
+\]
+Rearrange to find the highest signal frequency.
+\[
+\begin{aligned}
+f_{\max}&=\frac{f_s\Omega_{\max}}{2\pi}\\
+&=\frac{50,000\cdot(3\pi/4)}{2\pi}\\
+&=50,000\cdot\frac{3}{8}\\
+&=18,750\,\mathrm{Hz}.
+\end{aligned}
+\]
+
+\stepheading{3. Apply the sampling theorem}
+To reconstruct this bandlimited signal, sample at least twice its highest frequency.
+\[
+\begin{aligned}
+f_{s,\min}&=2f_{\max}\\
+&=2\cdot18,750\\
+&=37,500\,\mathrm{Hz}.
+\end{aligned}
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{f_{s,\min}=37,500\,\mathrm{Hz}}
+\]
+This is $37.5\,\mathrm{kHz}$. At this ideal limit the spectrum copies just meet
+where the plotted amplitude is zero, so no nonzero components overlap.
+
+\noteheading{Remember}
+Convert $\Omega$ to Hz first. Then double $f_{\max}$.
+The source notes use $100\,\mathrm{kHz}$; this question uses $50\,\mathrm{kHz}$.
+}
+
+
+% Q5 provenance: own handwritten signal calc/5/5 68a.jpg and 5 68b.jpg,
+% dated 2026-08-18. Preserve Y=XH, multiply amplitudes, add phases, then
+% evaluate key frequencies 0,10,20,30 and sketch the two output spectra.
+% Adapt the target graph values; source output (40,40,15,0) is NOT copied.
+% Target |X|=(0,4,4,0), |H|=(20,20,10,10), output=(0,80,40,0).
+% Exact target segments: |Y|=8f on [0,10]; 120-4f on [10,30].
+% Unlike the source's varying-factor interval, one target magnitude factor
+% is constant on every interval, so these straight output segments are exact.
+% Both target phases cancel on 0<f<30. Phase at zero amplitude is undefined;
+% this small clarification refines the handwritten all-zero phase sketch.
+% Secondary check only: Z6EHWWR50000_Grade-B.pdf, PDF p3, Q5.
+% Its all-f zero-phase shorthand is restricted here to the nonzero support.
+% Original PDF p4 running header repeats the DT056A Visualization typo already
+% recorded for Q3/Q4; actual target graphs and Q5 reference agree.
+\SignalQuestion{5}{%
+An LTI system $H(f)$ is defined by its amplification and phase-shift below.
+A signal $x(t)$ is fed to the system, giving the output $y(t)$.
+\begin{enumerate}[label=\alph*)]
+\item Give the mathematical relation between amplitudes and phases of the input
+and the output.\hfill(2p)
+\item Draw the amplitude spectrum and phase spectrum for the output $y(t)$.
+\hfill(4p)
+\end{enumerate}
+\begin{center}
+\includegraphics[width=174pt]{2024-10-29_Q05_input-amplitude-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{2024-10-29_Q05_input-phase-original.png}\par
+\vspace{5pt}
+\includegraphics[width=174pt]{2024-10-29_Q05_system-amplitude-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{2024-10-29_Q05_system-phase-original.png}
+\end{center}
+}
+
+\SignalSolution{5}{a}{%
+\textit{Method from your 2026-08-18 handwritten notes.}
+
+\stepheading{1. Write the LTI relation}
+In the frequency domain, multiply the input spectrum by the system response.
+\[
+Y(f)=X(f)H(f).
+\]
+
+\stepheading{2. Multiply amplitudes}
+At each frequency, multiply the two graph heights.
+\[
+|Y(f)|=|X(f)|\,|H(f)|.
+\]
+
+\stepheading{3. Add phases}
+At the same frequency, add the two phase values.
+\[
+\arg Y(f)=\arg X(f)+\arg H(f).
+\]
+Phase is taken modulo $2\pi$, wherever $Y(f)\ne0$.
+
+\noteheading{Final answer}
+\[
+\boxed{|Y(f)|=|X(f)|\,|H(f)|}
+\]
+\[
+\boxed{\arg Y(f)=\arg X(f)+\arg H(f)}
+\]
+
+\noteheading{Remember}
+Amplitude: multiply. Phase: add. Frequency stays the same.
+}
+
+\SignalSolution{5}{b}{%
+\textit{Your 2026-08-18 method, with the 2024 graph values.}
+
+\stepheading{1. Calculate the key values}
+Use $f=0,10,20,30$, as in your notes.
+Multiply the input height by the system height.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{r|r r|l}
+$f$ & $|X(f)|$ & $|H(f)|$ & $|Y(f)|$\\\hline
+0 & 0 & 20 & $0\cdot20=0$\\
+10 & 4 & 20 & $4\cdot20=80$\\
+20 & 4 & 10 & $4\cdot10=40$\\
+30 & 0 & 10 & $0\cdot10=0$
+\end{tabular}
+\end{center}
+
+\stepheading{2. Draw the amplitude spectrum}
+Plot the points and connect them:
+\[
+(0,0)\to(10,80)\to(20,40)\to(30,0).
+\]
+Here the straight lines are exact: one factor is constant on each interval.
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(350,125)
+\thinlines
+\put(38,22){\vector(1,0){300}}
+\put(38,16){\vector(0,1){94}}
+\put(43,115){\makebox(0,0)[l]{$|Y(f)|$}}
+\put(343,21){\makebox(0,0)[l]{$f$}}
+\put(26,22){\makebox(0,0)[r]{$0$}}
+\put(26,56){\makebox(0,0)[r]{$40$}}
+\put(26,90){\makebox(0,0)[r]{$80$}}
+\put(35,56){\line(1,0){6}}
+\put(35,90){\line(1,0){6}}
+\put(128,19){\line(0,1){6}}
+\put(218,19){\line(0,1){6}}
+\put(308,19){\line(0,1){6}}
+\put(38,8){\makebox(0,0){$0$}}
+\put(128,8){\makebox(0,0){$10$}}
+\put(218,8){\makebox(0,0){$20$}}
+\put(308,8){\makebox(0,0){$30$}}
+\linethickness{0.9pt}
+\qbezier(38,22)(83,56)(128,90)
+\qbezier(128,90)(218,56)(308,22)
+\put(128,90){\circle*{3}}
+\put(218,56){\circle*{3}}
+\end{picture}
+\end{center}
+For the plotted nonnegative frequencies:
+\[
+|Y(f)|=\begin{cases}
+8f, & 0\le f\le10,\\
+120-4f, & 10<f\le30,\\
+0, & f>30.
+\end{cases}
+\]
+
+\stepheading{3. Add the phase graphs}
+The system phase is the negative of the input phase over the signal band.
+For example, at $f=10$ and $f=20$:
+\[
+\frac{\pi}{4}+\left(-\frac{\pi}{4}\right)=0.
+\]
+The sloping sections also cancel point by point.
+So the output phase is a horizontal zero line for $0<f<30$.
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(350,85)
+\thinlines
+\put(38,42){\vector(1,0){300}}
+\put(38,24){\vector(0,1){48}}
+\put(46,77){\makebox(0,0)[l]{$\arg Y(f)$}}
+\put(343,42){\makebox(0,0)[l]{$f$}}
+\put(26,42){\makebox(0,0)[r]{$0$}}
+\put(128,39){\line(0,1){6}}
+\put(218,39){\line(0,1){6}}
+\put(38,25){\makebox(0,0){$0$}}
+\put(128,25){\makebox(0,0){$10$}}
+\put(218,25){\makebox(0,0){$20$}}
+\put(308,25){\makebox(0,0){$30$}}
+\linethickness{1.1pt}
+\put(38,42){\line(1,0){270}}
+\put(38,42){\color{white}\circle*{4}}
+\put(308,42){\color{white}\circle*{4}}
+\linethickness{0.6pt}
+\put(38,42){\circle{4}}
+\put(308,42){\circle{4}}
+\end{picture}
+\end{center}
+\textbf{English clarification:} phase is undefined where $|Y(f)|=0$,
+including $f=0$, $f=30$ and beyond the signal band.
+
+\noteheading{Final answer}
+Amplitude: peak $80$ at $f=10$, then fall through $40$ at $f=20$ to zero at $f=30$.
+\[
+\boxed{\arg Y(f)=0\quad(0<f<30)}
+\]
+
+\noteheading{Remember}
+Multiply graph heights. Add signed phase values at the same frequency.
+}
+
+
+% Q6 provenance: personal signal calc/6/6 58a/b.jpg are typed explanations,
+% not handwriting. Raw 2025-08/6 58.png is an unfinished handwritten note
+% dated 25-08-20, headed time resolution, without completed (a)/(b) answers.
+% The existing 6 61a/b references concern camera capture, and 6 68a/b concern
+% Bayer reconstruction; neither family is used for this window question.
+% Use previously authorized graded-reference fallback Z6EHWWR50000_Grade-B.pdf,
+% PDF page 3, Q6. Its choices iii (frequency separation) and iv (leakage) match
+% the target plots and the personal typed reference's conceptual comparison.
+% Critical adaptation: 2025 part (a) asks TIME resolution and selects iv;
+% 2024 part (a) asks FREQUENCY separation and selects iii. Do not copy iv to (a).
+% The reference's claim of exact zero outside the main lobe is not generalized:
+% retain the plot-supported wording smallest visible side lobes / least leakage.
+% Original scans repeat -pi at the right endpoint; crops preserve the original
+% axis labels, and no inference depends on that printing typo. The running
+% header repeats the DT056A Visualization typo recorded for Q3-Q5.
+\SignalQuestion{6}{%
+The plots below show the frequency spectra (i to iv) of different window
+functions with varying window lengths employed in spectrogram analysis.
+\begin{enumerate}[label=\alph*)]
+\item Based on these spectra, which window function achieves the best frequency
+separation? Justify your selection.\hfill(2p)
+\item Which window function best minimizes spectral leakage (where unwanted
+frequency components appear away from the main frequency)? Motivate.\hfill(2p)
+\end{enumerate}
+\begin{center}
+\includegraphics[width=174pt]{2024-10-29_Q06_window-i-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{2024-10-29_Q06_window-ii-original.png}\par
+\vspace{5pt}
+\includegraphics[width=174pt]{2024-10-29_Q06_window-iii-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{2024-10-29_Q06_window-iv-original.png}
+\end{center}
+}
+
+\SignalSolution{6}{a}{%
+\textit{Verified reference answer; your handwriting for this topic is unfinished.}
+
+\stepheading{1. Look at the main-lobe width}
+The main lobe is the central peak around $\Omega=0$.
+A narrower main lobe makes two nearby frequencies easier to distinguish.
+
+\stepheading{2. Compare the main lobes}
+Window (iii) has the narrowest main lobe of the four plots.
+It spreads each frequency component over the smallest frequency range.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{Window (iii)}}
+\]
+It gives the best frequency separation because it has the narrowest main lobe.
+
+\noteheading{Remember}
+Narrow main lobe $\Rightarrow$ better frequency separation.
+
+\textbf{Question check:} your 2025 notes ask about time resolution.
+This part asks about frequency separation.
+}
+
+\SignalSolution{6}{b}{%
+\textit{Verified reference answer; checked against your existing window notes.}
+
+\stepheading{1. Look at the side lobes}
+The small oscillations away from the central peak are the side lobes.
+Smaller side lobes mean less energy leaking into other frequencies.
+
+\stepheading{2. Compare the side lobes}
+Window (iv) has the smallest visible side lobes.
+Its curve stays closest to zero away from the central peak.
+
+Windows (i) and (iii) have clear oscillations outside the main lobe;
+window (ii) still shows small side lobes.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{Window (iv)}}
+\]
+It gives the least spectral leakage because it has the smallest visible side lobes.
+
+\noteheading{Remember}
+Main-lobe width $\Rightarrow$ frequency separation.\par
+Side-lobe level $\Rightarrow$ spectral leakage.
+}
+
+
+% Q7 is unlettered: keep an empty registry part and the filename 7 410-l.png.
+% Subject folder 7 is image filtering / sharpening, established by the user's
+% own 2026-08-18 kernel notes in signal calc/7/7 68.jpg. Folder 8 is histogram
+% and CDF contrast enhancement. No new folder or arbitrary number mapping.
+% Personal notes support the brightness-preserving sharpening interpretation,
+% but contain no exact solution to this response-surface question. The target
+% plot and previously approved Z6EHWWR50000_Grade-B.pdf p3 Q7 verify DC gain 1,
+% stronger amplification at higher spatial frequencies, and edge enhancement.
+% Do not identify that reference interpretation as personal handwriting.
+% No exact kernel, cutoff, directional symmetry, phase, or maximum gain is
+% inferred from this partial magnitude plot. DC is retained; high-frequency
+% emphasis / high-boost is the intended classification.
+% Original PDF p5 repeats the DT056A Visualization running-header typo already
+% recorded for Q3-Q6; dated DT081A cover and actual Q7 reference agree.
+\SignalQuestion{7}{%
+A two-dimensional linear system can partially be described by the figure below.
+Based on the information in the figure, describe the system's frequency
+selective properties.
+\begin{center}
+\includegraphics[width=280pt]{2024-10-29_Q07_surface-original.png}
+\end{center}
+\hfill(3p)
+}
+
+\SignalSolution{7}{}{%
+\textit{Reference checked; same sharpening idea as your kernel notes.}
+
+\stepheading{1. Read the low frequencies}
+Near $(u,v)=(0,0)$, the gain is about 1.
+\[
+|H(0,0)|=1.
+\]
+The average level is preserved, so overall brightness stays the same.
+
+\stepheading{2. Read the higher frequencies}
+The surface rises above 1 at higher spatial frequencies.
+These components are amplified more strongly.
+
+\stepheading{3. Effect on an image}
+Higher spatial frequencies represent fine detail and sharp changes, such as edges.
+Boosting them makes edges and details stronger.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{High-frequency emphasis}}
+\]
+Low frequencies are preserved while higher frequencies are amplified.
+Applied to an image, this gives sharpening and edge enhancement.
+
+\noteheading{Remember}
+Gain $1$: unchanged. Gain $>1$: amplified.
+}
+
+
+% Q8 provenance: user's own 2026-08-18 Q7 handwritten notes, signal calc/7/7 68.jpg,
+% checked together with the raw 7 68.jpg, 7 68-2.jpg and 7 68-3.jpg images.
+% Same target kernels and result images. Preserve own reasoning/order: center
+% only; averaging; vertical edges; Laplacian zero-sum edges; sum-one sharpening.
+% Own averaging block is labelled "7)2) -> iii" but describes identical weights
+% and a fractional prefactor, which is TARGET KERNEL 4. Later notes separately
+% identify kernel 2 -> iv. Correct this label explicitly, not silently.
+% Own "column of zeros makes black" is clarified using the zero coefficient sum:
+% constant regions cancel; vertical transitions remain. No new method replaces it.
+% Own "0 is black" means flat regions cancel; edge responses are not all zero.
+% Reference cross-check only: Z6EHWWR50000_Grade-B.pdf p3 Q8, all five matches.
+% Original question says four filters but lists five kernels and five results.
+% Preserve its wording and process all five. Original same-page header repeats
+% the DT056A Visualization typo previously recorded; dated exam/Q8 content agree.
+% Subject routing: actual Q8 goes into existing folder 7 with matching notes;
+% folder 8 is histogram/CDF contrast enhancement. Keep actual Q8 in filename.
+\SignalQuestion{8}{%
+The closeup image below has been filtered with 4 different filters.
+\begin{center}
+\includegraphics[width=88pt]{2024-10-29_Q08_input-original.png}
+\end{center}
+Match the following kernels (1--5) with the corresponding filtered results (i--v).
+Justify your choices by explaining how the filter kernels affect the image.
+
+\textbf{Kernels}
+\begin{center}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{ccc}
+$1)\ \begin{bmatrix}0&0&0\\0&0.5&0\\0&0&0\end{bmatrix}$ &
+$2)\ \begin{bmatrix}-1&0&1\\-1&0&1\\-1&0&1\end{bmatrix}$ &
+$3)\ \begin{bmatrix}0&-1&0\\-1&4&-1\\0&-1&0\end{bmatrix}$\\[7pt]
+$4)\ \dfrac19\begin{bmatrix}1&1&1\\1&1&1\\1&1&1\end{bmatrix}$ &
+$5)\ \begin{bmatrix}0&-1&0\\-1&5&-1\\0&-1&0\end{bmatrix}$ &
+\end{tabular}
+\end{center}
+\textbf{Filter results}
+\begin{center}
+\includegraphics[width=110pt]{2024-10-29_Q08_result-i-original.png}\hspace{6pt}%
+\includegraphics[width=110pt]{2024-10-29_Q08_result-ii-original.png}\hspace{6pt}%
+\includegraphics[width=110pt]{2024-10-29_Q08_result-iii-original.png}\par
+\vspace{4pt}
+\includegraphics[width=110pt]{2024-10-29_Q08_result-iv-original.png}\hspace{6pt}%
+\includegraphics[width=110pt]{2024-10-29_Q08_result-v-original.png}
+\end{center}
+\hfill(5p)
+}
+
+\SignalSolution{8}{}{%
+\textit{Your 2026-08-18 handwritten method; same kernels and pictures.}
+
+\stepheading{1. Only the center pixel: kernel 1}
+The center is $0.5$ and all neighbors have weight zero.
+So every pixel is halved; the picture becomes darker.
+\[
+\boxed{1\longrightarrow\mathrm{ii}}
+\]
+
+\stepheading{2. Average the neighbors: kernel 4}
+All nine weights are $1/9$, so the pixels are averaged.
+This blurs the picture.
+\[
+\text{Weight sum}=9\cdot\frac19=1.
+\]
+The average brightness is preserved.
+\[
+\boxed{4\longrightarrow\mathrm{iii}}
+\]
+\textbf{English clarification:} the averaging block in your notes is labelled 2;
+it describes kernel 4 in this question.
+
+\stepheading{3. Find vertical edges: kernel 2}
+The left column is negative, the right column positive, and the center column zero.
+It measures left-to-right changes, so vertical edges stand out.
+
+The weights sum to zero. Flat regions cancel, leaving edges on a dark background.
+\[
+\boxed{2\longrightarrow\mathrm{iv}}
+\]
+
+\stepheading{4. Find edges in all directions: kernel 3}
+This is the Laplacian kernel.
+The center is $4$ and its four neighbors are $-1$.
+\[
+\text{Weight sum}=4-4=0.
+\]
+Flat regions cancel. Edges remain on a dark background.
+\[
+\boxed{3\longrightarrow\mathrm{v}}
+\]
+
+\stepheading{5. Sharpen the image: kernel 5}
+This is the Laplacian kernel with $1$ added to the center.
+It keeps the original image and strengthens edges.
+\[
+\text{Weight sum}=5-4=1.
+\]
+Overall brightness is retained, while the picture becomes sharper.
+\[
+\boxed{5\longrightarrow\mathrm{i}}
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{\begin{aligned}
+1&\longrightarrow\mathrm{ii}\\
+2&\longrightarrow\mathrm{iv}\\
+3&\longrightarrow\mathrm{v}\\
+4&\longrightarrow\mathrm{iii}\\
+5&\longrightarrow\mathrm{i}
+\end{aligned}}
+\]
+
+\noteheading{Remember}
+Check the pattern for blur or edges. Check the sum for the response of flat regions:
+$0$ cancels them; $1$ keeps their level.
+}
+
+
+% Q9 provenance: no matching own handwritten PSF-recovery example was found.
+% The own folder-7 notes concern kernel interpretation (Q8), not inverse kernel
+% recovery. Use the previously authorized graded-reference fallback, included
+% example sheet Z6EHWWR50000_Grade-B.pdf p3 Q9: scaled impulse copies, subtract
+% overlapping contributions, divide by input amplitude. Arithmetic expanded below.
+% Recover first the top row from x(1,1)=112 with no other input contributions.
+% Its zero corner weights then remove diagonal overlaps in the selected cells.
+% Bottom-left: y(2,0)=112*h(1,-1)+80/8=10.
+% Bottom-right: y(2,2)=112*h(1,1)+224/8+64/8=36.
+% Independently solve all 36 same-window, zero-padded convolution equations:
+% design rank 9, unique solution, and exact reproduction of every given output.
+% No values in either original matrix are changed; original crops are retained.
+% Subject routing: actual Q9 goes into existing folder 7 (image filter kernels).
+% Original PDF p6 repeats the DT056A Visualization running-header typo already
+% recorded for Q3-Q8; the dated DT081A exam and Q9 reference agree.
+\SignalQuestion{9}{%
+Given the two matrices representing the input $x(i,j)$ and output $y(i,j)$ of a
+linear 2D filter: describe the $3\times3$ point spread function (PSF) or kernel
+$h(i,j)$ that transforms $x(i,j)$ into $y(i,j)$.
+Assume boundary conditions are zero, meaning pixels outside the matrix boundaries
+of $x(i,j)$ and $y(i,j)$ are zero.
+\begin{center}
+\includegraphics[width=250pt]{2024-10-29_Q09_input-matrix-original.png}\par
+\vspace{5pt}
+\includegraphics[width=250pt]{2024-10-29_Q09_output-matrix-original.png}
+\end{center}
+\hfill(6p)
+}
+
+\SignalSolution{9}{}{%
+\textit{Verified reference method, with the overlap calculations shown.}
+
+\stepheading{1. Read one scaled impulse response}
+An input pixel with value $A$ produces a copy of $A\,h$, centered at that pixel.
+Overlapping copies add together.
+
+Use $x(1,1)=112$. Its top output row is $(0,14,0)$;
+no other input contributes to those three cells.
+\[
+\text{Top kernel row}
+=\frac1{112}\begin{bmatrix}0&14&0\end{bmatrix}
+=\begin{bmatrix}0&\frac18&0\end{bmatrix}.
+\]
+
+\stepheading{2. Find the center and direct neighbors}
+The center output is $56$, so
+\[
+\text{Center weight}=\frac{56}{112}=\frac12.
+\]
+The left, right and lower neighbor outputs are $14$.
+The zero top-corner weights just found rule out diagonal overlaps at these cells.
+\[
+\text{Each direct-neighbor weight}
+=\frac{14}{112}=\frac18.
+\]
+
+\stepheading{3. Remove the overlapping contributions}
+The lower corners of the output patch also receive values from other input pixels.
+Subtract those first, then divide by $112$.
+
+At $y(2,0)=10$, the input value $80$ contributes $80/8=10$.
+\[
+\begin{aligned}
+\text{Lower-left weight}
+&=\frac{10-80/8}{112}\\
+&=\frac{10-10}{112}\\
+&=0.
+\end{aligned}
+\]
+At $y(2,2)=36$, the inputs $224$ and $64$ contribute $224/8$ and $64/8$.
+\[
+\begin{aligned}
+\text{Lower-right weight}
+&=\frac{36-224/8-64/8}{112}\\
+&=\frac{36-28-8}{112}\\
+&=0.
+\end{aligned}
+\]
+
+\stepheading{4. Check an overlapping output}
+At $(3,3)$, three neighboring inputs contribute:
+\[
+\begin{aligned}
+y(3,3)&=\frac{224}{8}+\frac{64}{8}+\frac{176}{8}\\
+&=28+8+22\\
+&=58.
+\end{aligned}
+\]
+This agrees with the given output matrix.
+
+\noteheading{Final answer}
+\[
+\boxed{h(i,j)=\begin{bmatrix}
+0&\frac18&0\\[3pt]
+\frac18&\frac12&\frac18\\[3pt]
+0&\frac18&0
+\end{bmatrix}}
+\]
+A cross-shaped averaging kernel: center weight $1/2$, four direct neighbors $1/8$,
+and zero corners. The weights sum to $1$.
+
+\noteheading{Remember}
+An impulse gives a scaled kernel. Subtract overlapping copies, then divide by the input value.
+}
+
+\begin{document}
+\ifdefined\SignalSelectedQuestion
+  \SignalRender{\SignalSelectedQuestion}{\SignalSelectedPart}
+\else
+  \SignalRender{1}{a}\clearpage
+  \SignalRender{1}{b}\clearpage
+  \SignalRender{1}{c}\clearpage
+  \SignalRender{1}{d}\clearpage
+  \SignalRender{1}{e}\clearpage
+  \SignalRender{2}{a}\clearpage
+  \SignalRender{2}{b}\clearpage
+  \SignalRender{3}{a}\clearpage
+  \SignalRender{3}{b}\clearpage
+  \SignalRender{4}{a}\clearpage
+  \SignalRender{4}{b}\clearpage
+  \SignalRender{5}{a}\clearpage
+  \SignalRender{5}{b}\clearpage
+  \SignalRender{6}{a}\clearpage
+  \SignalRender{6}{b}\clearpage
+  \SignalRender{7}{}\clearpage
+  \SignalRender{8}{}\clearpage
+  \SignalRender{9}{}
+\fi
+\end{document}

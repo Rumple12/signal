@@ -1,0 +1,2048 @@
+% Authoritative notes for 2025-10-28. Completed Uppgift 1(a-f), Uppgift 2(a-b), Uppgift 3(a-c), Uppgift 4(a-c), Uppgift 5(a-b), Uppgift 6(a-b), Uppgift 7(a-b), and Uppgift 8.
+% Keep all work local and use the existing subject folders.
+% SIGNAL_EXAM {"id":"2025-10-28","pdf":"tenta/signal tenta/2025-10/2025-10.pdf","pdf_sha256":"ebbf9e611f81dd0d2910648afbc3e71fb71ea34c527bcdc3f05566e1e59845d1","date_verified":true}
+% SIGNAL_QUESTION {"number":1,"folder_number":1,"subject":"Signal-processing concept definitions","parts":["a","b","c","d","e","f"],"pdf_page":2,"required_figures":0,"required_question_text":["What do the following signal processing concepts mean? Be clear, concise, and relevant.","Sampling theorem","Aliasing","Infinite Impulse Response (IIR)","Spectrum","Digital signal","Separability","(1p)"]}
+% SIGNAL_PART {"question":1,"status":"complete","content_verified":true,"part":"a","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 61a.jpg","source_sha256":"25fc5b319f6b93a1fb79731db7d1c6b8b24c1777f911e3b998111f42e313dd69","source_exam_id":"2026-01-07","source_question":4,"source_part":"a","source_label":"Own twice-highest-frequency method; precise reconstruction inequality checked against course","adaptation":"Retain own Nyquist rule and distinction between highest signal frequency and sampling frequency. Define theorem rather than just sampling. Lecture 2 p21 and October example sheet specify fs>2 fmax for ideal reconstruction; Nyquist rate is 2 fmax.","supporting_sources":[{"source":"lectures/Lecture 2 - Introduction II.pdf","page":21,"sha256":"ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad"}],"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_page":2,"slug":"sampling_theorem","required_solution_text":["Sampling theorem","band-limited","reconstructed ideally","highest frequency","Nyquist rate","Final answer"]}
+% SIGNAL_PART {"question":1,"status":"complete","content_verified":true,"part":"b","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 61b.jpg","source_sha256":"5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022","source_exam_id":"2026-01-07","source_question":4,"source_part":"b","source_label":"Own handwritten undersampling and folding example; exact previously verified January definition reused","adaptation":"Preserve 25 Hz sampled at 30 Hz -> 5 Hz example. Do not conflate aliasing with later low-pass filtering. Only target part changes from January Q1(e) to October Q1(b).","supporting_sources":[{"source":"lectures/Lecture 2 - Introduction II.pdf","page":21,"sha256":"ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad"}],"slug":"aliasing","required_solution_text":["Aliasing","indistinguishable","25","30","5","Final answer"]}
+% SIGNAL_PART {"question":1,"status":"complete","content_verified":true,"part":"c","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/2 electro map/2 68a.jpg","source_sha256":"046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa","source_exam_id":"2026-08-18","source_question":2,"source_part":"a","source_label":"Own FIR/IIR and feedback notes, supplemented by the exact impulse-duration definition from the course","adaptation":"Preserve previous-output feedback explanation. Define IIR by infinite impulse-response duration, not merely by feedback presence. Do not import an unsupported assumption that every IIR response decays to zero.","supporting_sources":[{"source":"lectures/Lecture 5 - Digital Filter Design.pdf","page":11,"sha256":"a9cb0d0d82aaffe3ed6bd224f1a77d7a35df282a5aaf3eec2f9a72636d77f115"}],"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_page":2,"slug":"iir","required_solution_text":["Infinite Impulse Response","continues indefinitely","previous outputs","feedback","Final answer","infinite duration"]}
+% SIGNAL_PART {"question":1,"status":"complete","content_verified":true,"part":"d","source_kind":"user-approved-typed","source":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","source_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","source_page":2,"source_label":"Included October example-solutions sheet; verified reference fallback, not personal handwriting","user_authorized":"Continuation of the established reference fallback when no matching own handwritten definition is available","personal_source_status":"Existing subject folders and raw-note inventory checked; no completed personal definition found for this concept.","supporting_sources":[{"source":"lectures/Lecture 4 - Time-Domain Analysis.pdf","page":9,"sha256":"9ed28834e1453acd86bc1eb804f1fae62f2b4596eeb4014e894f238e6f1346b9"}],"handwritten_reference_page":5,"handwritten_reference_role":"Additional reference only; aggregate Q1 mark 5.5/6 is not treated as proof that every formula is correct.","adaptation":"Retain frequency-domain representation and amplitude/phase meaning. Do not copy the handwritten H-for-X label, magnitude/power conflation or faulty phase formula.","slug":"spectrum","required_solution_text":["Spectrum","frequency domain","amplitudes and phases","Final answer","frequency content"]}
+% SIGNAL_PART {"question":1,"status":"complete","content_verified":true,"part":"e","source_kind":"user-approved-typed","source":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","source_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","source_page":2,"source_label":"Included October example-solutions sheet; verified reference fallback, not personal handwriting","user_authorized":"Continuation of the established reference fallback when no matching own handwritten definition is available","personal_source_status":"Existing subject folders and raw-note inventory checked; no completed personal definition found for this concept.","supporting_sources":[{"source":"lectures/Lecture 1 - Introduction.pdf","page":18,"sha256":"3ab437e126bedd011eaf0f6587e14c97323ec6e200de9fbc8497d3813c4bed3f"}],"handwritten_reference_page":5,"handwritten_reference_role":"Additional reference only; aggregate Q1 mark 5.5/6 is not treated as proof that every formula is correct.","adaptation":"Preserve sampled then quantized meaning. Define a digital signal, rather than only the analog-to-digital conversion process.","slug":"digital","required_solution_text":["Digital signal","discrete time","quantized amplitudes","Sampling","Quantization","Final answer"]}
+% SIGNAL_PART {"question":1,"status":"complete","content_verified":true,"part":"f","source_kind":"user-approved-typed","source":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","source_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","source_page":2,"source_label":"Included October example-solutions sheet; verified reference fallback, not personal handwriting","user_authorized":"Continuation of the established reference fallback when no matching own handwritten definition is available","personal_source_status":"Existing subject folders and raw-note inventory checked; no completed personal definition found for this concept.","supporting_sources":[{"source":"lectures/Lecture 10 - Spatial domain image processing III.pdf","page":3,"sha256":"dc825da0961148e286f782f27e9bdeeae79981df2ada0919b3fa7347a1be77d0"}],"handwritten_reference_page":5,"handwritten_reference_role":"Additional reference only; aggregate Q1 mark 5.5/6 is not treated as proof that every formula is correct.","adaptation":"Preserve successive 1D operations; use the reference/course 2D DCT row-then-column example, without the handwritten malformed DCT formula.","slug":"separable","required_solution_text":["Separability","successive one-dimensional operations","2D DCT","row","column","Final answer"]}
+
+\providecommand{\SignalSupportPath}{}
+\input{\SignalSupportPath signal_layout.tex}
+\newcommand{\SignalExamID}{2025-10-28}
+
+% Original question checked against PDF page 2, printed page 1.
+% Own notes take priority for a-c; verified reference/course fallback for d-f.
+
+% SIGNAL_QUESTION {"number":2,"folder_number":2,"subject":"Feedback block diagrams: FIR/IIR, causality and difference equation","parts":["a","b"],"pdf_page":2,"required_figures":1,"required_question_text":["A time discrete system is defined as below.","Using the block diagram, explain whether the system is FIR or IIR, causal or non-causal, and justify your answer based on its structure.","Derive the system","difference equation from the block diagram.","(2p)"],"figure_crops":[{"pdf_page":2,"image_index":0,"box":[856,2449,1649,2727],"asset":"assets/2025-10-28_Q02_block-original.png"}]}
+% SIGNAL_PART {"question":2,"status":"complete","source_kind":"handwritten","content_verified":true,"source_exam_id":"2026-08-18","source_question":2,"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_page":6,"verification_reference_question_mark":"4/4 total for Q2","verification_reference_role":"Verification only; own method takes priority.","part":"a","source":"tenta/signal tenta/signal calc/2 electro map/2 68a.jpg","source_sha256":"046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa","source_part":"a","source_label":"Own delay/feedback/IIR notes plus own January causality notes","supporting_sources":[{"source":"tenta/signal tenta/signal calc/2 electro map/2 61a.jpg","sha256":"8c7d143f2879f054c214de7215f641dfe21e3201fd3617f012593e40ec9ffd9e","source_exam_id":"2026-01-07","source_question":2,"source_part":"a"}],"adaptation":"Preserve delays -> feedback -> IIR -> causality reasoning. Target has one return delay and gains 0.3 and 0.4; nonzero loop gain 0.12 gives an infinite impulse response. Present x[n] and past y[n-1] only, so causal. Do not copy the personal aside that previous exams are always IIR.","slug":"iir_causal","required_solution_text":["Look for delays","Look for feedback","Decide FIR or IIR","Decide causality","previous outputs","0.12","Final answer","IIR and causal"]}
+% SIGNAL_PART {"question":2,"status":"complete","source_kind":"handwritten","content_verified":true,"source_exam_id":"2026-08-18","source_question":2,"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_page":6,"verification_reference_question_mark":"4/4 total for Q2","verification_reference_role":"Verification only; own method takes priority.","part":"b","source":"tenta/signal tenta/signal calc/2 electro map/2 68b.jpg","source_sha256":"a15862f32f2ec45c2e20937d2bdb5fb37d9973d6f5d6e36d0d2f8f42fdad6318","source_part":"b","source_label":"Own handwritten input-group plus feedback-group method; gain traced using own January notes","source_region":"Handwritten grouping/tracing, not the appended typed block with a coefficient discrepancy","supporting_sources":[{"source":"tenta/signal tenta/signal calc/2 electro map/2 61b.jpg","sha256":"01dd116bc0661650dc295a12df1ed933c03ac90ce40d7443695010f61703e85d","source_exam_id":"2026-01-07","source_question":2,"source_part":"b"}],"adaptation":"Retain input group, feedback group, combine and collect output terms. Target direct input has no delay. Return path is y[n] -> one T -> gain 0.3. External gain 0.4 multiplies the entire sum, so feedback coefficient is 0.12. January reference topology has a different delay/gain tap; do not copy its x[n-1] or two-delay terms.","slug":"difference_equation","required_solution_text":["Input group","Feedback group","Combine at the output","Collect the output terms","Final answer","0.4","0.12","whole sum"]}
+
+
+% SIGNAL_QUESTION {"number":3,"folder_number":3,"subject":"Difference equation: impulse response, output samples and magnitude sketch","parts":["a","b","c"],"pdf_page":3,"required_figures":0,"required_question_text":["Given a discrete-time system described by the difference equation","Identify the type of response that the system produces by the input","Calculate the first 3 samples of the output signal","by the input","Another system has the frequency function","Sketch the amplitude magnification","for frequency","(1p)","(2p)","(3p)"],"scope":"Part c explicitly concerns another system; do not derive its H from the recurrence in a/b."}
+% SIGNAL_PART {"question":3,"status":"complete","content_verified":true,"source_exam_id":"2026-08-18","source_question":3,"part":"a","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/3 y(n) x(n)/3 68a.jpg","source_sha256":"443843e564a3b608339312aeb56c05420d0bd88ae0f0563f0273ec3ca337bb26","source_part":"a","source_label":"Own unit-impulse -> impulse-response -> feedback explanation","adaptation":"Retain exact established January Q3(a) explanation, now with target coefficients and the extra input-delay term in the full original question. Impulse response is IIR; checked no cancellation of the second-order denominator.","slug":"impulse_response","required_solution_text":["Unit impulse input","Previous outputs are used","Final answer","impulse response","IIR"]}
+% SIGNAL_PART {"question":3,"status":"complete","content_verified":true,"source_exam_id":"2026-08-18","source_question":3,"part":"b","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/3 y(n) x(n)/3 68b.jpg","source_sha256":"0b1d40d23c93d1cd0aaf85417143d9ac7d7c139fbbde7400a280c582dfa50a2b","source_part":"b","source_label":"Own initial rest -> input values -> successive output method","adaptation":"Use x[n]=0.6^n cos(n), not source 0.1^n. Rearrange target to y(n)=x(n)-0.3x(n-1)-y(n-1)+0.5y(n-2). Retain initial rest and one sample at a time; use radians and 0.6^0=1. Do not copy October graded b, which starts with 0.6 and propagates errors.","slug":"output_samples","required_solution_text":["Assume initial rest","Write the input values","Calculate the samples","radians","0.975819","1.228751","Final answer"],"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_page":2,"rejected_reference_pages":[7],"reference_note":"Included typed example confirms 1,-0.98,1.23; handwritten p7 is incorrect."}
+% SIGNAL_PART {"question":3,"status":"complete","content_verified":true,"source_exam_id":"2026-08-18","source_question":3,"part":"c","source_kind":"user-approved-typed","source":"tenta/signal tenta/signal calc/3 y(n) x(n)/3 68c.jpg","source_sha256":"a63a22be09ef0f2470ba29de2ad64f819f42fc899efeba2959b067bf62975144","source_part":"c","source_label":"Existing completed typed magnitude-first reference; personal handwriting is unfinished","user_authorized":"Continuation of the already established typed-reference fallback for this unfinished handwritten part","personal_handwriting":"tenta/signal tenta/2026-08/3 68c.png","personal_handwriting_sha256":"837f72afa37b33f7c4d3ad74bf9b950b23bc258e8bacfe2ab63df62efe9ae8d2","personal_handwriting_status":"Only writes a different frequency function and sketch prompt; no completed handwritten magnitude calculation.","adaptation":"Keep magnitude -> denominator simplification -> key values -> sketch method. Target denominator is 1-exp(-jOmega)-0.5exp(-2jOmega), not source 1-0.5exp(-jOmega)-0.8exp(-2jOmega). Use actual target extrema, not reference quarter-period approximations.","slug":"magnitude_sketch","required_solution_text":["Take the magnitude","Simplify the denominator magnitude","Key points for the sketch","Sketch the curve","2.25","0.555","0.667","1.823","4.460","Final answer","Sketch correction:","separate system"],"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_page":2,"rejected_reference_pages":[7,8],"reference_note":"Handwritten p8 gives |H(pi)|=2 and pi-periodicity, both wrong. Target gain at pi is 2/3, period 2pi. Included typed sketch agrees with independently checked target values."}
+
+
+% SIGNAL_QUESTION {"number":4,"folder_number":4,"subject":"Sampling theorem, reconstruction images and anti-alias filter spectrum","parts":["a","b","c"],"pdf_page":3,"required_figures":1,"required_question_text":["is sampled and reconstructed according to the figure below.","What is the lowest sampling frequency","to enable a full reconstruction of","the signal with the same frequency contents?","If the signal is sampled with","reconstructed and filtered with an","ideal LP-filter with cut-off frequency","what frequencies does the","output signal","then contain. [Hint: there is aliasing]","Draw the amplitude spectrum for the signal","and sketch (in the same diagram) the frequency response for a real (non-ideal) antialiasing filter that allow full reconstruction of the signal.","(1p)","(2p)"],"figure_crops":[{"pdf_page":3,"image_index":0,"box":[735,2042,2002,2243],"asset":"assets/2025-10-28_Q04_reconstruction-original.png"}],"original_issue":"At fs=100Hz the 15/30Hz signal is not aliased. Reference includes 70/85Hz sampling images under a broad reconstruction/output-filter model, but reconstruction block is unspecified. State both that intended interpretation and ideal reconstruction explicitly."}
+% SIGNAL_PART {"question":4,"status":"complete","source_kind":"handwritten","content_verified":true,"source_exam_id":"2026-01-07","source_question":4,"supporting_sources":[{"source":"lectures/Lecture 2 - Introduction II.pdf","sha256":"ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad","pages":[19,21]}],"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,9],"part":"a","source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 61a.jpg","source_sha256":"25fc5b319f6b93a1fb79731db7d1c6b8b24c1777f911e3b998111f42e313dd69","source_part":"a","source_label":"Own angular-frequency -> Hz -> maximum -> double method","adaptation":"Change source frequencies 25/10Hz to target 30/15Hz. Nyquist rate is 60Hz; distinguish the limiting rate from strict fs>60Hz condition for general perfect reconstruction, following Lecture 2 p21.","slug":"sampling_frequency","required_solution_text":["Read the angular frequencies","Convert to Hz","Use the sampling theorem","60","Nyquist limit","Final answer"]}
+% SIGNAL_PART {"question":4,"status":"complete","source_kind":"handwritten","content_verified":true,"source_exam_id":"2026-01-07","source_question":4,"supporting_sources":[{"source":"lectures/Lecture 2 - Introduction II.pdf","sha256":"ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad","pages":[19,21]}],"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,9],"part":"b","source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 61b.jpg","source_sha256":"5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022","source_part":"b","source_label":"Own Nyquist-limit and frequency-check method; explicit correction of target hint/reference terminology","adaptation":"Keep compute fs/2 -> test each component -> assess output. Source fs=30Hz causes true folding of 25Hz; target fs=100Hz leaves 15/30Hz unchanged in the baseband. Explain reference 100-30=70 and 100-15=85 as images, not aliases. Give 15,30,70,85 only assuming the reconstruction stage retains images passed by fc=100; with ideal bandlimited reconstruction only15,30 remain.","slug":"reconstruction_images","required_solution_text":["Check the Nyquist limit","Check the sampling images","Apply the stated output low-pass","15,30,70,85","Clarification:","ideal reconstruction","not aliasing","Final answer"]}
+% SIGNAL_PART {"question":4,"status":"complete","source_kind":"handwritten","content_verified":true,"source_exam_id":"2026-01-07","source_question":4,"supporting_sources":[{"source":"lectures/Lecture 2 - Introduction II.pdf","sha256":"ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad","pages":[19,21]}],"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,9],"part":"c","source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 61c.jpg","source_sha256":"388e775f09671f5ac42bc36b20703897935295d7874a64d6828043a996954365","source_part":"c","source_label":"Own amplitude lines + smooth low-pass sketch, with spectrum convention labelled","adaptation":"Own notes use one-sided time-sinusoid amplitudes. Preserve 3 at15Hz and2 at30Hz explicitly, then mirror/halve to obtain full two-sided Fourier line weights1.5 at+-15 and1 at+-30. Use normalized filter gain near1, not a passband height tied to signal amplitude. For fs100, illustrate passband through30 and smooth transition toward strong attenuation by50. State pre-sampling anti-alias placement.","slug":"spectrum_antialias_filter","required_solution_text":["Place the spectral lines","Choose the low-pass response","Combined sketch","one-sided","two-sided","30","50","before sampling","Final answer"]}
+
+
+% SIGNAL_QUESTION {"number":5,"folder_number":5,"subject":"LTI sinusoid/DC response: gains, phase shifts and filter type","parts":["a","b"],"pdf_page":4,"required_figures":2,"required_question_text":["A linear, time-invariant (LTI) system is defined by the amplitude and phase spectra in the figure below.","The system input signal is","Decide the output signal","What kind of filter is the system?","(2p)","(1p)"],"figure_crops":[{"pdf_page":4,"image_index":0,"box":[440,515,1280,1170],"asset":"assets/2025-10-28_Q05_amplitude-original.png"},{"pdf_page":4,"image_index":0,"box":[1360,545,2185,1170],"asset":"assets/2025-10-28_Q05_phase-original.png"}]}
+% SIGNAL_PART {"question":5,"status":"complete","source_kind":"handwritten","content_verified":true,"source_question":5,"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,10],"verification_reference_role":"Verification only; own handwritten method is primary.","part":"a","source":"tenta/signal tenta/signal calc/5 dc, cos, sin/5 510a.jpg","source_sha256":"7738babc3aa31e21be7a3da3c0a6108226fc8d9c23160a2ea6dbe6527d93fe20","source_exam_id":"2025-10-28","source_part":"a","source_label":"Own exact October handwritten component -> gain -> phase -> output -> combine method","supporting_sources":[{"source":"tenta/signal tenta/2025-10/5 510.jpg","sha256":"7f4fd4f4312c173be64e92ef4a4427df7ed8c5644954f4d11f79ff32dc09518b"},{"source":"tenta/signal tenta/2025-10/5 510-2.jpg","sha256":"6b5c7f7aa7728c4e1a9cde42560a4a8dcee85ab84789debe19b9233ba58df26c"}],"adaptation":"Exact target question. Preserve split into cosine, sine and DC, read graph1 gain, graph2 phase, find slope, multiply amplitudes, add phases, combine. Correct omitted +pi intercept in cosine phase and the conflicting 0.25 gain on the continuation page; original graph and own first page give1/8=0.125. DC flips to-1. Sine output amplitude1/2.","corrections":["phi(omega)=pi-(pi/50)omega on the first slope; retain interceptpi","|H(23pi)|=1/8, so 4/8=1/2, not1"],"slug":"output_signal","required_solution_text":["Identify the input components","Read the amplitude gains","Read the phase shifts","Write the output components","Reading correction:","Phase correction:","0.125","72.26","1.48183","Final answer"]}
+% SIGNAL_PART {"question":5,"status":"complete","source_kind":"handwritten","content_verified":true,"source_question":5,"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,10],"verification_reference_role":"Verification only; own handwritten method is primary.","part":"b","source":"tenta/signal tenta/signal calc/5 dc, cos, sin/5 61b.jpg","source_sha256":"18ff39d15514e5c73c2ab3069d2cfe4d42edec4cab6414441f51ec905402e978","source_exam_id":"2026-01-07","source_part":"b","source_label":"Own filter-shape comparison notes, specifically the low-and-high-pass / middle-stop sketch","adaptation":"The main January question is low-pass, but the same page explicitly sketches and explains band-stop. Apply that own comparison method to the October graph: low/high frequency gains near1, middle attenuated. Call nonideal band-stop/band-reject; do not copy January low-pass final classification or claim complete cancellation of the middle band.","slug":"band_stop_filter","required_solution_text":["Low frequencies","Middle frequencies","High frequencies","Final answer","band-stop","attenuated"]}
+
+
+% SIGNAL_QUESTION {"number":6,"parts":["a","b"],"pdf_page":4,"required_figures":1,"required_question_text":["Digital camera sensors typically capture only one color component (red, green, or blue) per pixel using a Bayer filter array like the one shown below. To reconstruct a full-color image, the missing color values at each pixel are interpolated from neighboring pixels.","Explain why the demosaicing (debayering) process necessarily involves a trade-off between color fidelity and spatial resolution.","Describe in general terms how a simple demosaicing algorithm reconstructs full RGB values from a Bayer-pattern image. Hint: refer to how missing color values at each pixel are handled.","(2p)"],"figure_crops":[{"pdf_page":4,"image_index":0,"box":[460,1770,1960,2305],"asset":"assets/2025-10-28_Q06_bayer-original.png"}],"folder_number":6,"subject":"Bayer sensor sampling, color/detail trade-off and demosaicing"}
+% SIGNAL_PART {"question":6,"part":"a","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/signal calc/6 long theory rgb/6 68a.jpg","source_sha256":"9db99889ea52282c00d32df95c3c7b3ae0ae17a6aca99748e3d4c35cff9e3b79","content_verified":true,"user_authorized":"2026-10-25: Use the existing typed solutions; same original Bayer question reused for October2025.","slug":"bayer","required_solution_text":["First: Understand the Bayer filter array","Step 1: Understand the two concepts","Step 2: Understand why there is a trade-off","Step 3: Understand the fundamental limitation","Final answer for part (a)","200","100","50"],"source_exam_id":"2026-08-18","source_question":6,"source_part":"a","source_label":"Previously user-approved typed solution; no completed personal handwritten answer","personal_handwriting":"tenta/signal tenta/2026-08/6 68 f.png","personal_handwriting_sha256":"c903e2ccb0b1ec39eca785a8ddd7a5770c000e8ad0127bcf181dd5952ef1e0c1","personal_handwriting_status":"Dated incomplete fragment only: each pixel measures one color. No completed a or b.","adaptation":"Question wording and Bayer topic match the approved August question. Exact existing solution wording, method, example values, colored cells and final answer retained; only provenance annotation and target exam/date/figure change.","reused_source":"tenta/signal latex/2026-08-18_compiled_notes.tex","reused_source_sha256":"7b29787140a57701e9a71d63b3549033797bc348587c52869ee5897fe1824b0b","verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,11],"verification_reference_question_mark":"3/4 total for Q6; reference is verification, not source wording."}
+% SIGNAL_PART {"question":6,"part":"b","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/signal calc/6 long theory rgb/6 68b.jpg","source_sha256":"886681aec0f9e752823b0e81d58741176aa875e9fc7a8d67613005da9a51e6ab","content_verified":true,"user_authorized":"2026-10-25: Use the existing typed solutions; same original Bayer question reused for October2025.","slug":"demosaicing","required_solution_text":["Step 1: Keep the measured color","Step 2: Estimate missing colors from neighbors","Step 2a: Red value","Step 2b: Green value","Step 2c: Blue value","Step 3: Combine the values","Step 4: Repeat for every pixel","Final answer for part (b)","180","115","85","460","340"],"source_exam_id":"2026-08-18","source_question":6,"source_part":"b","source_label":"Previously user-approved typed solution; no completed personal handwritten answer","personal_handwriting":"tenta/signal tenta/2026-08/6 68 f.png","personal_handwriting_sha256":"c903e2ccb0b1ec39eca785a8ddd7a5770c000e8ad0127bcf181dd5952ef1e0c1","personal_handwriting_status":"Dated incomplete fragment only: each pixel measures one color. No completed a or b.","adaptation":"Question wording and Bayer topic match the approved August question. Exact existing solution wording, method, example values, colored cells and final answer retained; only provenance annotation and target exam/date/figure change.","reused_source":"tenta/signal latex/2026-08-18_compiled_notes.tex","reused_source_sha256":"7b29787140a57701e9a71d63b3549033797bc348587c52869ee5897fe1824b0b","verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,11],"verification_reference_question_mark":"3/4 total for Q6; reference is verification, not source wording."}
+
+
+% SIGNAL_QUESTION {"number":7,"folder_number":7,"subject":"2D high-pass frequency response and candidate output selection","parts":["a","b"],"pdf_page":5,"required_figures":6,"required_question_text":["The figure below shows the magnitude of the frequency response,","of a two-dimensional linear system.","From the shape of","describe how the filter treats","different spatial frequencies.","The image below is the input to the filter.","Which one of the following four candidate output images","most likely corresponds to the filtered result? Motivate your choice","(2p)","(3p)"],"figure_crops":[{"pdf_page":5,"image_index":0,"box":[415,520,1020,980],"asset":"assets/2025-10-28_Q07_surface-original.png"},{"pdf_page":5,"image_index":0,"box":[525,1188,800,1375],"asset":"assets/2025-10-28_Q07_input-original.png"},{"pdf_page":5,"image_index":0,"box":[515,1480,795,1735],"asset":"assets/2025-10-28_Q07_result-i-original.png"},{"pdf_page":5,"image_index":0,"box":[895,1480,1175,1735],"asset":"assets/2025-10-28_Q07_result-ii-original.png"},{"pdf_page":5,"image_index":0,"box":[1270,1480,1550,1735],"asset":"assets/2025-10-28_Q07_result-iii-original.png"},{"pdf_page":5,"image_index":0,"box":[1650,1480,1935,1735],"asset":"assets/2025-10-28_Q07_result-iv-original.png"}]}
+% SIGNAL_PART {"question":7,"status":"complete","source_kind":"handwritten","content_verified":true,"source_exam_id":"2025-10-28","source_question":7,"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,12],"verification_reference_question_mark":"5/5 total for Q7; supports the checked qualitative interpretation","scope_limit":"Magnitude-shape interpretation and most-likely candidate only; no exact kernel, phase, cutoff or pixelwise output is inferred.","part":"a","source":"tenta/signal tenta/2025-10/7 510-1.jpg","source_sha256":"233ba73587c855b315cb4ec9521afd6c0e6d0cb177e87a7801368cc939376452","source_part":"a","source_label":"Own exact October surface-gain, low/high spatial-frequency and image-effect method","supporting_sources":[{"source":"tenta/signal tenta/2025-10/7 510.jpg","sha256":"300b90e6ed3d6d4b55a1c8111c6deae60022778a05eab2abea0424efaf8a63a4","source_page":"1/3"}],"adaptation":"Preserve spatial frequencies -> surface height/gain -> center versus outer region -> image effect. Here central dip attenuates low frequencies and gain increases outward, boosting high-frequency edges/detail. Do not copy the opposite low-pass adaptation from the January notes.","slug":"high_pass_response","required_solution_text":["Read the spatial frequencies","Read the graph","Effect on an image","Final answer","High-pass","amplified","smooth"]}
+% SIGNAL_PART {"question":7,"status":"complete","source_kind":"handwritten","content_verified":true,"source_exam_id":"2025-10-28","source_question":7,"verification_reference":"tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf","verification_reference_sha256":"29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08","verification_reference_pages":[2,12],"verification_reference_question_mark":"5/5 total for Q7; supports the checked qualitative interpretation","scope_limit":"Magnitude-shape interpretation and most-likely candidate only; no exact kernel, phase, cutoff or pixelwise output is inferred.","part":"b","source":"tenta/signal tenta/2025-10/7 510-2.jpg","source_sha256":"6c0153933628275b363ef4c84179c913696cf21973f48eb379a8cfb333470b7b","source_part":"b","source_label":"Own compare-the-four-candidates method, with the incorrect selected image explicitly corrected","adaptation":"Preserve expected dark/edge-dominant appearance and comparison order i,ii,iii,iv. Own note selects ii and dismisses iii as dark; correct to iii using original candidate details, radial response and both reference example/graded explanation. Do not classify iv as band-pass from brightness alone.","correction":"Most likely image iii, not handwritten ii. Low frequencies are suppressed, so dark background is expected; compare retained edges in several orientations rather than brightness alone.","slug":"output_image","required_solution_text":["Predict the appearance","Compare the candidates","English clarification:","your notes chose","Final answer","Image (iii)","most likely","orientations"]}
+
+
+% SIGNAL_QUESTION {"number":8,"folder_number":8,"subject":"Castle image contrast enhancement: histograms, CDFs and equalization","unlettered":true,"parts":[""],"pdf_page":5,"required_figures":6,"required_question_text":["Contrast enhancement aims to improve the visual appearance of an image by modifying its intensity distribution.","The figure below shows an original image (a) and an enhanced version (b).","show different representations related to these two images.","Describe what information each of the plots","conveys and explain, using equations where relevant, how they are involved in producing the enhanced image (b).","(5p)"],"figure_crops":[{"pdf_page":5,"image_index":0,"box":[765,2245,1235,2650],"asset":"assets/2025-10-28_Q08_image-a-original.png"},{"pdf_page":5,"image_index":0,"box":[1238,2245,1705,2650],"asset":"assets/2025-10-28_Q08_image-b-original.png"},{"pdf_page":5,"image_index":0,"box":[775,2655,1200,2905],"asset":"assets/2025-10-28_Q08_hist-c-original.png"},{"pdf_page":5,"image_index":0,"box":[1238,2655,1670,2905],"asset":"assets/2025-10-28_Q08_hist-d-original.png"},{"pdf_page":5,"image_index":0,"box":[775,2910,1200,3170],"asset":"assets/2025-10-28_Q08_cdf-e-original.png"},{"pdf_page":5,"image_index":0,"box":[1238,2910,1670,3170],"asset":"assets/2025-10-28_Q08_cdf-f-original.png"}],"scope":"Single unlettered question. Image/plot labels a-f are not separate exam subparts."}
+% SIGNAL_PART {"question":8,"part":"","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/8 castle/8 68.jpg","source_sha256":"ecb29a9cadd5b58e1fcd8b69ea515e13db3be6c678001ee3c310a57318438d7a","source_exam_id":"2026-08-18","source_question":8,"source_label":"Own handwritten castle notes; explicitly authorized for this October redo","content_verified":true,"slug":"histogram_equalization","supporting_sources":[{"source":"tenta/signal tenta/2026-08/8 68.jpg","sha256":"ec185eb7da29c216a64be3bc042f642035bdbfc0400ee93799f29843dd42ace1"},{"source":"tenta/signal tenta/2026-08/8 68-2.jpg","sha256":"08f8aeb367eb6bf6cfc3afdd2de74d5827054ca2a53a46cca98e0038a8ba7bbe"},{"source":"tenta/signal tenta/2026-08/8 68-3.jpg","sha256":"13ada374e34e4e9736a5c1401c576d34554f17f39964b6cabb8ee1dd42b32321"},{"source":"tenta/signal tenta/2026-08/8 68-4.jpg","sha256":"5352423f7ddadf85083cfed0db80507f3b1bea67f3be9c2c4864e775ad8103fd"}],"adaptation":"Faithful concise transcription of c -> e -> s=(L-1)H(r) -> f -> d. Retain own transformation formula and define its symbols in words. Merge repetitions. Omit optional handwritten background examples and the previously added T(100)=102 calculation, sum formula, rounding notation, 8-bit specialization, and extra theory. Explicitly flag constant intensity wording: a straight cumulative plot indicates an even gray-level distribution, not identical pixels.","required_solution_text":["We need to explain plots","(c) Original histogram","(e) Original cumulative histogram","Transform the pixel values","(f) Enhanced cumulative histogram","(d) Enhanced histogram","cumulative proportion","Note correction:","every pixel has the same intensity","Final answer"],"user_authorized":"2026-10-26: Use my handwritten 8 68 notes for this redo.","source_policy":"Only personal handwriting supplies the solution; no lecture, graded paper or other generated solution used."}
+
+\SignalQuestion{1}{%
+What do the following signal processing concepts mean? Be clear, concise, and relevant.
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=3pt,topsep=4pt]
+\item Sampling theorem\hfill(1p)
+\item Aliasing\hfill(1p)
+\item Infinite Impulse Response (IIR)\hfill(1p)
+\item Spectrum\hfill(1p)
+\item Digital signal\hfill(1p)
+\item Separability\hfill(1p)
+\end{enumerate}
+}
+
+\SignalSolution{1}{a}{%
+\textit{Your twice-highest-frequency rule, checked against Lecture 2.}
+\stepheading{Sampling theorem}
+A band-limited signal can be reconstructed ideally from its samples if the
+sampling frequency is greater than twice its highest frequency.
+
+Here $f_{\max}$ is the highest frequency present in the signal.
+\noteheading{Final answer}
+\[
+\boxed{f_s>2f_{\max}}
+\]
+The Nyquist rate is $2f_{\max}$; sample above this rate for ideal reconstruction.
+}
+
+\SignalSolution{1}{b}{%
+\textit{Your 2026-01 handwritten folding example; definition checked against Lecture 2.}
+\stepheading{Aliasing}
+When the sampling rate is too low, different continuous-time frequencies become
+indistinguishable in the samples. A higher frequency can appear as a lower frequency.
+
+Example from your notes: a $25\,\mathrm{Hz}$ component sampled at $30\,\mathrm{Hz}$ folds to
+\[
+f_{\mathrm{alias}}=|25-30|=5\,\mathrm{Hz}.
+\]
+\noteheading{Final answer}
+Aliasing is frequency confusion caused by overlapping spectral copies during
+sampling, so the original signal cannot be recovered uniquely.
+\noteheading{Remember}
+Sampling too slowly can make a high frequency look lower.
+}
+
+\SignalSolution{1}{c}{%
+\textit{Your feedback notes; impulse-response duration checked in Lecture 5.}
+\stepheading{Infinite Impulse Response (IIR)}
+An IIR system's response to a unit impulse continues indefinitely.
+
+It is usually implemented recursively: the current output uses previous outputs
+(feedback), as in your block-diagram notes.
+\noteheading{Final answer}
+IIR means an impulse response of infinite duration.
+}
+
+\SignalSolution{1}{d}{%
+\textit{Verified reference definition, checked against Lecture 4.}
+\stepheading{Spectrum}
+A spectrum represents a signal in the frequency domain: which frequency
+components are present, with their amplitudes and phases.
+
+$|X(f)|$ gives the magnitude; $\arg X(f)$ gives the phase.
+\noteheading{Final answer}
+The spectrum describes the signal's frequency content.
+}
+
+\SignalSolution{1}{e}{%
+\textit{Verified reference definition, checked against Lecture 1.}
+\stepheading{Digital signal}
+A digital signal has discrete time and quantized amplitudes.
+Its sample values belong to a set of allowed levels and can be encoded as bits.
+
+\textbf{Sampling:} discrete time.\par
+\textbf{Quantization:} discrete amplitude levels.
+\noteheading{Final answer}
+Digital signal = discrete time + quantized amplitudes.
+}
+
+\SignalSolution{1}{f}{%
+\textit{Verified reference definition and course DCT example.}
+\stepheading{Separability}
+A multidimensional operation is separable if it can be carried out as
+successive one-dimensional operations.
+
+For example, a 2D DCT can be computed in two steps:
+\begin{enumerate}[label=\arabic*.,leftmargin=15pt,itemsep=2pt,topsep=3pt]
+\item Apply a 1D DCT to each row.
+\item Apply a 1D DCT to each column of the result.
+\end{enumerate}
+This gives the same result with fewer computations.
+\noteheading{Final answer}
+One multidimensional operation can be performed as successive 1D operations.
+}
+
+% Q2 own cross-year notes: delay -> feedback -> IIR -> causality;
+% input group + feedback group, apply shared gain, collect output terms.
+% One return delay, no input delay. The 0.4 block follows the sum.
+% Exact loop gain 0.4*0.3=0.12; h[n]=0.4*(0.12)^n for n>=0 at initial rest.
+\SignalQuestion{2}{%
+A time discrete system is defined as below.
+\begin{center}
+\includegraphics[width=320pt]{assets/2025-10-28_Q02_block-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=4pt,topsep=3pt]
+\item Using the block diagram, explain whether the system is FIR or IIR,
+causal or non-causal, and justify your answer based on its structure.\hfill(2p)
+\item Derive the system's difference equation from the block diagram.\hfill(2p)
+\end{enumerate}
+}
+
+\SignalSolution{2}{a}{%
+\textit{Your August feedback method and January causality notes, adapted here.}
+\stepheading{1. Look for delays}
+Each $T$ delays the signal by one sample.
+Here there is one delay in the return path.
+
+\stepheading{2. Look for feedback}
+Start at $y[n]$ and follow the arrows going back to the sum.
+The output depends on previous outputs, so there is feedback.
+
+\stepheading{3. Decide FIR or IIR}
+\textbf{FIR:} finite impulse response.\par
+\textbf{IIR:} infinite impulse response.\par
+The return signal passes gains $0.3$ and $0.4$ each time around the loop:
+\[
+0.4\cdot0.3=0.12.
+\]
+A single impulse keeps producing nonzero output samples,
+each scaled by $0.12$ from the previous one. The response continues indefinitely.
+
+\stepheading{4. Decide causality}
+Only the present input $x[n]$ and the previous output $y[n-1]$ are used.
+There are no future values, so the system is causal.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{The system is IIR and causal.}}
+\]
+
+\noteheading{Remember}
+Follow the return arrows for feedback. Check that only present and past values are used.
+}
+
+\SignalSolution{2}{b}{%
+\textit{Your method: input group + feedback group, then combine.}
+\noteheading{Read the blocks}
+Each $T$ adds one sample of delay.
+Multiply each branch by its gain, then add the terms entering the sum.
+
+\stepheading{1. Input group}
+The input reaches the sum directly, with no delay:
+\[
+\text{Input group}=x[n].
+\]
+
+\stepheading{2. Feedback group}
+Start at $y[n]$ and follow the return path:
+\[
+y[n]\xrightarrow{\ T\ }y[n-1]
+\xrightarrow{\ \times0.3\ }0.3y[n-1].
+\]
+So the feedback term entering the sum is
+\[
+\text{Feedback group}=0.3y[n-1].
+\]
+
+\stepheading{3. Combine at the output}
+Call the signal immediately after the sum $s[n]$:
+\[
+s[n]=x[n]+0.3y[n-1].
+\]
+The $0.4$ block multiplies the whole sum:
+\[
+\begin{aligned}
+y[n]&=0.4s[n]\\
+&=0.4\bigl(x[n]+0.3y[n-1]\bigr)\\
+&=0.4x[n]+0.12y[n-1].
+\end{aligned}
+\]
+
+\stepheading{4. Collect the output terms}
+Move the feedback term to the left. Its sign changes.
+
+\noteheading{Final answer}
+\[
+\boxed{y[n]-0.12y[n-1]=0.4x[n].}
+\]
+
+\noteheading{Remember}
+The gain after a sum acts on every term in that sum, including the feedback term.
+}
+
+% Q3 own handwriting for a/b; typed method only for unfinished c.
+% October graded handwritten b/c contain errors; do not copy their values/sketch.
+% Part c says ANOTHER system, so its supplied H is evaluated independently.
+\SignalQuestion{3}{%
+Given a discrete-time system described by the difference equation
+\[
+\begin{aligned}
+y(n)+y(n-1)&=x(n)+0.5y(n-2)\\
+&\quad-0.3x(n-1).
+\end{aligned}
+\]
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=5pt,topsep=3pt]
+\item Identify the type of response that the system produces by the input
+\[
+x(n)=\begin{cases}1,&n=0,\\0,&\text{otherwise}.\end{cases}
+\]
+\hfill(1p)
+\item Calculate the first 3 samples of the output signal $y(0),y(1),y(2)$ by the input
+\[
+x[n]=\begin{cases}0.6^n\cdot\cos[n],&n\geq0,\\0,&\text{otherwise}.\end{cases}
+\]
+\hfill(2p)
+\item Another system has the frequency function
+\[
+\begin{aligned}
+H(e^{j\Omega})&=\frac{Y(e^{j\Omega})}{X(e^{j\Omega})}\\
+&=\frac{1}{1-e^{-j\Omega}-0.5e^{-2j\Omega}}\\
+&=\frac{e^{2j\Omega}}{e^{2j\Omega}-e^{j\Omega}-0.5}.
+\end{aligned}
+\]
+Sketch the amplitude magnification $|H(e^{j\Omega})|$ for frequency
+$0\leq\Omega\leq2\pi$.\hfill(3p)
+\end{enumerate}
+}
+
+\SignalSolution{3}{a}{%
+\textit{Your unit-impulse explanation, adapted to this recurrence.}
+
+\stepheading{1. Unit impulse input}
+The input is $1$ at $n=0$ and $0$ otherwise:
+\[
+x(n)=\delta(n).
+\]
+Starting from rest, a unit impulse at the input gives the system's impulse response:
+\[
+y(n)=h(n).
+\]
+
+\stepheading{2. Previous outputs are used}
+The terms $y(n-1)$ and $y(n-2)$ feed previous outputs back into the calculation.
+The response continues after the input impulse has ended.
+
+\noteheading{Final answer}
+The output is the system's \textbf{impulse response} $h(n)$.
+This system has an \textbf{infinite impulse response (IIR)}.
+
+\noteheading{Remember}
+Unit impulse in $\Rightarrow$ impulse response out.
+}
+
+\SignalSolution{3}{b}{%
+\textit{Your method: initial rest, input values, then one output at a time.}
+\stepheading{1. Assume initial rest}
+No initial conditions are given. Use
+\[
+y(-1)=0,\qquad y(-2)=0.
+\]
+The input is zero for $n<0$, so $x(-1)=0$ too.
+Rearrange the given equation:
+\[
+\begin{aligned}
+y(n)&=x(n)-0.3x(n-1)\\
+&\quad-y(n-1)+0.5y(n-2).
+\end{aligned}
+\]
+
+\stepheading{2. Write the input values}
+Use radians for $\cos(n)$ and keep full calculator precision.
+\[
+\begin{aligned}
+x(0)&=0.6^0\cos(0)=1,\\
+x(1)&=0.6\cos(1)\approx0.324181384,\\
+x(2)&=0.36\cos(2)\approx-0.149812861.
+\end{aligned}
+\]
+\textbf{Input check:} $0.6^0=1$, so $x(0)=1$.
+
+\stepheading{3. Calculate the samples}
+Use each previous output in the next calculation.
+\[
+\begin{aligned}
+y(0)&=x(0)-0.3x(-1)\\
+&\quad-y(-1)+0.5y(-2)\\
+&=1-0-0+0\\
+&=1.
+\end{aligned}
+\]
+\[
+\begin{aligned}
+y(1)&=x(1)-0.3x(0)-y(0)+0.5y(-1)\\
+&=0.6\cos(1)-0.3-1+0\\
+&\approx-0.975819.
+\end{aligned}
+\]
+\[
+\begin{aligned}
+y(2)&=x(2)-0.3x(1)-y(1)+0.5y(0)\\
+&=0.36\cos(2)-0.18\cos(1)\\
+&\quad-\bigl(0.6\cos(1)-1.3\bigr)+0.5\\
+&=0.36\cos(2)-0.78\cos(1)+1.8\\
+&\approx1.228751.
+\end{aligned}
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{\begin{aligned}
+y(0)&=1,\\
+y(1)&\approx-0.975819,\\
+y(2)&\approx1.228751.
+\end{aligned}}
+\]
+
+\noteheading{Remember}
+Use radians, start from rest, and keep unrounded previous outputs.
+}
+
+\SignalSolution{3}{c}{%
+\textit{Magnitude-first method from your existing typed reference.}
+\textbf{Question check:} part (c) describes a separate system. Use its supplied $H$.
+
+\stepheading{1. Take the magnitude}
+Since $|e^{2j\Omega}|=1$, the numerator does not affect the magnitude.
+\[
+|H(e^{j\Omega})|=\frac{1}{|1-e^{-j\Omega}-0.5e^{-2j\Omega}|}.
+\]
+
+\stepheading{2. Simplify the denominator magnitude}
+Let $D=1-e^{-j\Omega}-0.5e^{-2j\Omega}$.
+Its real and imaginary parts are
+\[
+\begin{aligned}
+\operatorname{Re}D&=1-\cos\Omega-0.5\cos(2\Omega),\\
+\operatorname{Im}D&=\sin\Omega+0.5\sin(2\Omega).
+\end{aligned}
+\]
+Square and add:
+\[
+\begin{aligned}
+|D|^2&=(\operatorname{Re}D)^2+(\operatorname{Im}D)^2\\
+&=2.25-\cos\Omega-\cos(2\Omega).
+\end{aligned}
+\]
+
+\stepheading{3. Key points for the sketch}
+Substitute simple frequencies:
+\[
+\begin{array}{c|ccccc}
+\Omega&0&\pi/2&\pi&3\pi/2&2\pi\\ \hline
+|H|&2&2/\sqrt{13}&2/3&2/\sqrt{13}&2\\
+&2&0.555&0.667&0.555&2
+\end{array}
+\]
+The minima occur at $\cos\Omega=-1/4$:
+\[
+\begin{aligned}
+\Omega&\approx1.823,\ 4.460\ \text{rad},\\
+|H|_{\min}&=\sqrt{8/27}\approx0.544.
+\end{aligned}
+\]
+They are slightly after $\pi/2$ and before $3\pi/2$.
+
+\stepheading{4. Sketch the curve}
+Start at $2$, dip to $0.544$, rise to $2/3$ at $\pi$,
+dip again, then return to $2$ at $2\pi$.
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(340,175)
+{\color{black!18}\linethickness{0.3pt}
+\put(32,53.0000){\line(1,0){292}}
+\put(32,82.0000){\line(1,0){292}}
+\put(32,111.0000){\line(1,0){292}}
+\put(32,140.0000){\line(1,0){292}}
+\put(105,24){\line(0,1){127}}
+\put(178,24){\line(0,1){127}}
+\put(251,24){\line(0,1){127}}
+\put(324,24){\line(0,1){127}}
+}
+\linethickness{0.5pt}
+\put(32,24){\vector(1,0){300}}
+\put(32,24){\vector(0,1){132}}
+\put(5,165){\makebox(0,0)[l]{$|H(e^{j\Omega})|$}}
+\put(333,24){\makebox(0,0)[l]{$\Omega$}}
+\put(26,24.0000){\makebox(0,0)[r]{\scriptsize $0$}}
+\put(26,53.0000){\makebox(0,0)[r]{\scriptsize $0.5$}}
+\put(26,82.0000){\makebox(0,0)[r]{\scriptsize $1$}}
+\put(26,111.0000){\makebox(0,0)[r]{\scriptsize $1.5$}}
+\put(26,140.0000){\makebox(0,0)[r]{\scriptsize $2$}}
+\put(32,13){\makebox(0,0){\scriptsize $0$}}
+\put(105,13){\makebox(0,0){\scriptsize $\pi/2$}}
+\put(178,13){\makebox(0,0){\scriptsize $\pi$}}
+\put(251,13){\makebox(0,0){\scriptsize $3\pi/2$}}
+\put(324,13){\makebox(0,0){\scriptsize $2\pi$}}
+\linethickness{0.9pt}
+\qbezier[4](32.00000,140.00000)(32.20278,139.97793)(32.40556,139.95586)
+\qbezier[4](32.40556,139.95586)(32.60833,139.88980)(32.81111,139.82374)
+\qbezier[4](32.81111,139.82374)(33.01389,139.71416)(33.21667,139.60458)
+\qbezier[4](33.21667,139.60458)(33.41944,139.45225)(33.62222,139.29992)
+\qbezier[4](33.62222,139.29992)(33.82500,139.10589)(34.02778,138.91186)
+\qbezier[4](34.02778,138.91186)(34.23056,138.67746)(34.43333,138.44305)
+\qbezier[4](34.43333,138.44305)(34.63611,138.16983)(34.83889,137.89661)
+\qbezier[4](34.83889,137.89661)(35.04167,137.58635)(35.24444,137.27609)
+\qbezier[4](35.24444,137.27609)(35.44722,136.93076)(35.65000,136.58543)
+\qbezier[4](35.65000,136.58543)(35.85278,136.20713)(36.05556,135.82884)
+\qbezier[4](36.05556,135.82884)(36.25833,135.41983)(36.46111,135.01081)
+\qbezier[4](36.46111,135.01081)(36.66389,134.57339)(36.86667,134.13597)
+\qbezier[4](36.86667,134.13597)(37.06944,133.67252)(37.27222,133.20907)
+\qbezier[4](37.27222,133.20907)(37.47500,132.72200)(37.67778,132.23493)
+\qbezier[4](37.67778,132.23493)(37.88056,131.72664)(38.08333,131.21834)
+\qbezier[4](38.08333,131.21834)(38.28611,130.69120)(38.48889,130.16405)
+\qbezier[4](38.48889,130.16405)(38.69167,129.62038)(38.89444,129.07671)
+\qbezier[4](38.89444,129.07671)(39.09722,128.51877)(39.30000,127.96083)
+\qbezier[4](39.30000,127.96083)(39.50278,127.39079)(39.70556,126.82075)
+\qbezier[4](39.70556,126.82075)(39.90833,126.24068)(40.11111,125.66062)
+\qbezier[4](40.11111,125.66062)(40.31389,125.07250)(40.51667,124.48437)
+\qbezier[4](40.51667,124.48437)(40.71944,123.89004)(40.92222,123.29571)
+\qbezier[4](40.92222,123.29571)(41.12500,122.69691)(41.32778,122.09811)
+\qbezier[4](41.32778,122.09811)(41.53056,121.49645)(41.73333,120.89478)
+\qbezier[4](41.73333,120.89478)(41.93611,120.29174)(42.13889,119.68870)
+\qbezier[4](42.13889,119.68870)(42.34167,119.08565)(42.54444,118.48261)
+\qbezier[4](42.54444,118.48261)(42.74722,117.88080)(42.95000,117.27899)
+\qbezier[4](42.95000,117.27899)(43.15278,116.67955)(43.35556,116.08012)
+\qbezier[4](43.35556,116.08012)(43.55833,115.48407)(43.76111,114.88803)
+\qbezier[4](43.76111,114.88803)(43.96389,114.29630)(44.16667,113.70456)
+\qbezier[4](44.16667,113.70456)(44.36944,113.11795)(44.57222,112.53133)
+\qbezier[4](44.57222,112.53133)(44.77500,111.95056)(44.97778,111.36979)
+\qbezier[4](44.97778,111.36979)(45.18056,110.79549)(45.38333,110.22120)
+\qbezier[4](45.38333,110.22120)(45.58611,109.65392)(45.78889,109.08665)
+\qbezier[4](45.78889,109.08665)(45.99167,108.52688)(46.19444,107.96710)
+\qbezier[4](46.19444,107.96710)(46.39722,107.41523)(46.60000,106.86336)
+\qbezier[4](46.60000,106.86336)(46.80278,106.31973)(47.00556,105.77610)
+\qbezier[4](47.00556,105.77610)(47.20833,105.24099)(47.41111,104.70588)
+\qbezier[4](47.41111,104.70588)(47.61389,104.17952)(47.81667,103.65316)
+\qbezier[4](47.81667,103.65316)(48.01944,103.13573)(48.22222,102.61829)
+\qbezier[4](48.22222,102.61829)(48.42500,102.10993)(48.62778,101.60156)
+\qbezier[4](48.62778,101.60156)(48.83056,101.10235)(49.03333,100.60314)
+\qbezier[4](49.03333,100.60314)(49.23611,100.11316)(49.43889,99.62317)
+\qbezier[4](49.43889,99.62317)(49.64167,99.14243)(49.84444,98.66170)
+\qbezier[4](49.84444,98.66170)(50.04722,98.19022)(50.25000,97.71873)
+\qbezier[4](50.25000,97.71873)(50.45278,97.25648)(50.65556,96.79423)
+\qbezier[4](50.65556,96.79423)(50.85833,96.34116)(51.06111,95.88810)
+\qbezier[4](51.06111,95.88810)(51.26389,95.44415)(51.46667,95.00021)
+\qbezier[4](51.46667,95.00021)(51.66944,94.56531)(51.87222,94.13041)
+\qbezier[4](51.87222,94.13041)(52.07500,93.70446)(52.27778,93.27851)
+\qbezier[4](52.27778,93.27851)(52.48056,92.86140)(52.68333,92.44429)
+\qbezier[4](52.68333,92.44429)(52.88611,92.03591)(53.08889,91.62753)
+\qbezier[4](53.08889,91.62753)(53.29167,91.22775)(53.49444,90.82797)
+\qbezier[4](53.49444,90.82797)(53.69722,90.43665)(53.90000,90.04534)
+\qbezier[4](53.90000,90.04534)(54.10278,89.66235)(54.30556,89.27937)
+\qbezier[4](54.30556,89.27937)(54.50833,88.90457)(54.71111,88.52976)
+\qbezier[4](54.71111,88.52976)(54.91389,88.16300)(55.11667,87.79623)
+\qbezier[4](55.11667,87.79623)(55.31944,87.43736)(55.52222,87.07848)
+\qbezier[4](55.52222,87.07848)(55.72500,86.72733)(55.92778,86.37619)
+\qbezier[4](55.92778,86.37619)(56.13056,86.03262)(56.33333,85.68905)
+\qbezier[4](56.33333,85.68905)(56.53611,85.35291)(56.73889,85.01677)
+\qbezier[4](56.73889,85.01677)(56.94167,84.68790)(57.14444,84.35902)
+\qbezier[4](57.14444,84.35902)(57.34722,84.03726)(57.55000,83.71551)
+\qbezier[4](57.55000,83.71551)(57.75278,83.40071)(57.95556,83.08591)
+\qbezier[4](57.95556,83.08591)(58.15833,82.77792)(58.36111,82.46993)
+\qbezier[4](58.36111,82.46993)(58.56389,82.16860)(58.76667,81.86727)
+\qbezier[4](58.76667,81.86727)(58.96944,81.57244)(59.17222,81.27762)
+\qbezier[4](59.17222,81.27762)(59.37500,80.98915)(59.57778,80.70068)
+\qbezier[4](59.57778,80.70068)(59.78056,80.41843)(59.98333,80.13618)
+\qbezier[4](59.98333,80.13618)(60.18611,79.86000)(60.38889,79.58382)
+\qbezier[4](60.38889,79.58382)(60.59167,79.31357)(60.79444,79.04332)
+\qbezier[4](60.79444,79.04332)(60.99722,78.77886)(61.20000,78.51441)
+\qbezier[4](61.20000,78.51441)(61.40278,78.25561)(61.60556,77.99681)
+\qbezier[4](61.60556,77.99681)(61.80833,77.74354)(62.01111,77.49026)
+\qbezier[4](62.01111,77.49026)(62.21389,77.24238)(62.41667,76.99450)
+\qbezier[4](62.41667,76.99450)(62.61944,76.75189)(62.82222,76.50928)
+\qbezier[4](62.82222,76.50928)(63.02500,76.27182)(63.22778,76.03435)
+\qbezier[4](63.22778,76.03435)(63.43056,75.80191)(63.63333,75.56947)
+\qbezier[4](63.63333,75.56947)(63.83611,75.34193)(64.03889,75.11439)
+\qbezier[4](64.03889,75.11439)(64.24167,74.89164)(64.44444,74.66889)
+\qbezier[4](64.44444,74.66889)(64.64722,74.45082)(64.85000,74.23275)
+\qbezier[4](64.85000,74.23275)(65.05278,74.01924)(65.25556,73.80574)
+\qbezier[4](65.25556,73.80574)(65.45833,73.59669)(65.66111,73.38764)
+\qbezier[4](65.66111,73.38764)(65.86389,73.18295)(66.06667,72.97826)
+\qbezier[4](66.06667,72.97826)(66.26944,72.77783)(66.47222,72.57739)
+\qbezier[4](66.47222,72.57739)(66.67500,72.38111)(66.87778,72.18483)
+\qbezier[4](66.87778,72.18483)(67.08056,71.99260)(67.28333,71.80038)
+\qbezier[4](67.28333,71.80038)(67.48611,71.61212)(67.68889,71.42386)
+\qbezier[4](67.68889,71.42386)(67.89167,71.23948)(68.09444,71.05509)
+\qbezier[4](68.09444,71.05509)(68.29722,70.87449)(68.50000,70.69389)
+\qbezier[4](68.50000,70.69389)(68.70278,70.51699)(68.90556,70.34008)
+\qbezier[4](68.90556,70.34008)(69.10833,70.16679)(69.31111,69.99350)
+\qbezier[4](69.31111,69.99350)(69.51389,69.82375)(69.71667,69.65399)
+\qbezier[4](69.71667,69.65399)(69.91944,69.48768)(70.12222,69.32138)
+\qbezier[4](70.12222,69.32138)(70.32500,69.15845)(70.52778,68.99552)
+\qbezier[4](70.52778,68.99552)(70.73056,68.83589)(70.93333,68.67626)
+\qbezier[4](70.93333,68.67626)(71.13611,68.51985)(71.33889,68.36345)
+\qbezier[4](71.33889,68.36345)(71.54167,68.21020)(71.74444,68.05695)
+\qbezier[4](71.74444,68.05695)(71.94722,67.90679)(72.15000,67.75662)
+\qbezier[4](72.15000,67.75662)(72.35278,67.60948)(72.55556,67.46233)
+\qbezier[4](72.55556,67.46233)(72.75833,67.31814)(72.96111,67.17395)
+\qbezier[4](72.96111,67.17395)(73.16389,67.03265)(73.36667,66.89135)
+\qbezier[4](73.36667,66.89135)(73.56944,66.75287)(73.77222,66.61440)
+\qbezier[4](73.77222,66.61440)(73.97500,66.47869)(74.17778,66.34298)
+\qbezier[4](74.17778,66.34298)(74.38056,66.20998)(74.58333,66.07698)
+\qbezier[4](74.58333,66.07698)(74.78611,65.94664)(74.98889,65.81629)
+\qbezier[4](74.98889,65.81629)(75.19167,65.68854)(75.39444,65.56079)
+\qbezier[4](75.39444,65.56079)(75.59722,65.43558)(75.80000,65.31038)
+\qbezier[4](75.80000,65.31038)(76.00278,65.18766)(76.20556,65.06494)
+\qbezier[4](76.20556,65.06494)(76.40833,64.94466)(76.61111,64.82439)
+\qbezier[4](76.61111,64.82439)(76.81389,64.70650)(77.01667,64.58861)
+\qbezier[4](77.01667,64.58861)(77.21944,64.47307)(77.42222,64.35752)
+\qbezier[4](77.42222,64.35752)(77.62500,64.24427)(77.82778,64.13102)
+\qbezier[4](77.82778,64.13102)(78.03056,64.02002)(78.23333,63.90901)
+\qbezier[4](78.23333,63.90901)(78.43611,63.80022)(78.63889,63.69142)
+\qbezier[4](78.63889,63.69142)(78.84167,63.58479)(79.04444,63.47815)
+\qbezier[4](79.04444,63.47815)(79.24722,63.37364)(79.45000,63.26912)
+\qbezier[4](79.45000,63.26912)(79.65278,63.16669)(79.85556,63.06425)
+\qbezier[4](79.85556,63.06425)(80.05833,62.96385)(80.26111,62.86346)
+\qbezier[4](80.26111,62.86346)(80.46389,62.76506)(80.66667,62.66667)
+\qbezier[4](80.66667,62.66667)(80.86944,62.57023)(81.07222,62.47380)
+\qbezier[4](81.07222,62.47380)(81.27500,62.37930)(81.47778,62.28479)
+\qbezier[4](81.47778,62.28479)(81.68056,62.19218)(81.88333,62.09956)
+\qbezier[4](81.88333,62.09956)(82.08611,62.00880)(82.28889,61.91804)
+\qbezier[4](82.28889,61.91804)(82.49167,61.82911)(82.69444,61.74017)
+\qbezier[4](82.69444,61.74017)(82.89722,61.65303)(83.10000,61.56588)
+\qbezier[4](83.10000,61.56588)(83.30278,61.48049)(83.50556,61.39510)
+\qbezier[4](83.50556,61.39510)(83.70833,61.31144)(83.91111,61.22778)
+\qbezier[4](83.91111,61.22778)(84.11389,61.14581)(84.31667,61.06385)
+\qbezier[4](84.31667,61.06385)(84.51944,60.98355)(84.72222,60.90325)
+\qbezier[4](84.72222,60.90325)(84.92500,60.82459)(85.12778,60.74593)
+\qbezier[4](85.12778,60.74593)(85.33056,60.66888)(85.53333,60.59183)
+\qbezier[4](85.53333,60.59183)(85.73611,60.51636)(85.93889,60.44089)
+\qbezier[4](85.93889,60.44089)(86.14167,60.36698)(86.34444,60.29307)
+\qbezier[4](86.34444,60.29307)(86.54722,60.22069)(86.75000,60.14831)
+\qbezier[4](86.75000,60.14831)(86.95278,60.07744)(87.15556,60.00656)
+\qbezier[4](87.15556,60.00656)(87.35833,59.93717)(87.56111,59.86777)
+\qbezier[4](87.56111,59.86777)(87.76389,59.79983)(87.96667,59.73190)
+\qbezier[4](87.96667,59.73190)(88.16944,59.66539)(88.37222,59.59889)
+\qbezier[4](88.37222,59.59889)(88.57500,59.53380)(88.77778,59.46870)
+\qbezier[4](88.77778,59.46870)(88.98056,59.40500)(89.18333,59.34130)
+\qbezier[4](89.18333,59.34130)(89.38611,59.27896)(89.58889,59.21662)
+\qbezier[4](89.58889,59.21662)(89.79167,59.15563)(89.99444,59.09464)
+\qbezier[4](89.99444,59.09464)(90.19722,59.03498)(90.40000,58.97532)
+\qbezier[4](90.40000,58.97532)(90.60278,58.91696)(90.80556,58.85860)
+\qbezier[4](90.80556,58.85860)(91.00833,58.80153)(91.21111,58.74446)
+\qbezier[4](91.21111,58.74446)(91.41389,58.68865)(91.61667,58.63285)
+\qbezier[4](91.61667,58.63285)(91.81944,58.57830)(92.02222,58.52374)
+\qbezier[4](92.02222,58.52374)(92.22500,58.47042)(92.42778,58.41710)
+\qbezier[4](92.42778,58.41710)(92.63056,58.36499)(92.83333,58.31288)
+\qbezier[4](92.83333,58.31288)(93.03611,58.26197)(93.23889,58.21106)
+\qbezier[4](93.23889,58.21106)(93.44167,58.16133)(93.64444,58.11159)
+\qbezier[4](93.64444,58.11159)(93.84722,58.06303)(94.05000,58.01446)
+\qbezier[4](94.05000,58.01446)(94.25278,57.96704)(94.45556,57.91962)
+\qbezier[4](94.45556,57.91962)(94.65833,57.87333)(94.86111,57.82705)
+\qbezier[4](94.86111,57.82705)(95.06389,57.78188)(95.26667,57.73671)
+\qbezier[4](95.26667,57.73671)(95.46944,57.69264)(95.67222,57.64857)
+\qbezier[4](95.67222,57.64857)(95.87500,57.60560)(96.07778,57.56262)
+\qbezier[4](96.07778,57.56262)(96.28056,57.52072)(96.48333,57.47881)
+\qbezier[4](96.48333,57.47881)(96.68611,57.43797)(96.88889,57.39713)
+\qbezier[4](96.88889,57.39713)(97.09167,57.35733)(97.29444,57.31754)
+\qbezier[4](97.29444,57.31754)(97.49722,57.27878)(97.70000,57.24002)
+\qbezier[4](97.70000,57.24002)(97.90278,57.20228)(98.10556,57.16455)
+\qbezier[4](98.10556,57.16455)(98.30833,57.12782)(98.51111,57.09109)
+\qbezier[4](98.51111,57.09109)(98.71389,57.05537)(98.91667,57.01964)
+\qbezier[4](98.91667,57.01964)(99.11944,56.98489)(99.32222,56.95015)
+\qbezier[4](99.32222,56.95015)(99.52500,56.91638)(99.72778,56.88261)
+\qbezier[4](99.72778,56.88261)(99.93056,56.84981)(100.13333,56.81701)
+\qbezier[4](100.13333,56.81701)(100.33611,56.78515)(100.53889,56.75330)
+\qbezier[4](100.53889,56.75330)(100.74167,56.72239)(100.94444,56.69148)
+\qbezier[4](100.94444,56.69148)(101.14722,56.66151)(101.35000,56.63153)
+\qbezier[4](101.35000,56.63153)(101.55278,56.60247)(101.75556,56.57342)
+\qbezier[4](101.75556,56.57342)(101.95833,56.54527)(102.16111,56.51713)
+\qbezier[4](102.16111,56.51713)(102.36389,56.48989)(102.56667,56.46265)
+\qbezier[4](102.56667,56.46265)(102.76944,56.43630)(102.97222,56.40995)
+\qbezier[4](102.97222,56.40995)(103.17500,56.38448)(103.37778,56.35902)
+\qbezier[4](103.37778,56.35902)(103.58056,56.33442)(103.78333,56.30983)
+\qbezier[4](103.78333,56.30983)(103.98611,56.28611)(104.18889,56.26238)
+\qbezier[4](104.18889,56.26238)(104.39167,56.23952)(104.59444,56.21665)
+\qbezier[4](104.59444,56.21665)(104.79722,56.19463)(105.00000,56.17261)
+\qbezier[4](105.00000,56.17261)(105.20278,56.15143)(105.40556,56.13026)
+\qbezier[4](105.40556,56.13026)(105.60833,56.10991)(105.81111,56.08957)
+\qbezier[4](105.81111,56.08957)(106.01389,56.07005)(106.21667,56.05053)
+\qbezier[4](106.21667,56.05053)(106.41944,56.03182)(106.62222,56.01312)
+\qbezier[4](106.62222,56.01312)(106.82500,55.99523)(107.02778,55.97734)
+\qbezier[4](107.02778,55.97734)(107.23056,55.96025)(107.43333,55.94316)
+\qbezier[4](107.43333,55.94316)(107.63611,55.92687)(107.83889,55.91057)
+\qbezier[4](107.83889,55.91057)(108.04167,55.89507)(108.24444,55.87956)
+\qbezier[4](108.24444,55.87956)(108.44722,55.86484)(108.65000,55.85012)
+\qbezier[4](108.65000,55.85012)(108.85278,55.83617)(109.05556,55.82223)
+\qbezier[4](109.05556,55.82223)(109.25833,55.80905)(109.46111,55.79587)
+\qbezier[4](109.46111,55.79587)(109.66389,55.78346)(109.86667,55.77104)
+\qbezier[4](109.86667,55.77104)(110.06944,55.75938)(110.27222,55.74772)
+\qbezier[4](110.27222,55.74772)(110.47500,55.73682)(110.67778,55.72591)
+\qbezier[4](110.67778,55.72591)(110.88056,55.71574)(111.08333,55.70558)
+\qbezier[4](111.08333,55.70558)(111.28611,55.69615)(111.48889,55.68673)
+\qbezier[4](111.48889,55.68673)(111.69167,55.67804)(111.89444,55.66934)
+\qbezier[4](111.89444,55.66934)(112.09722,55.66138)(112.30000,55.65341)
+\qbezier[4](112.30000,55.65341)(112.50278,55.64617)(112.70556,55.63893)
+\qbezier[4](112.70556,55.63893)(112.90833,55.63240)(113.11111,55.62588)
+\qbezier[4](113.11111,55.62588)(113.31389,55.62006)(113.51667,55.61424)
+\qbezier[4](113.51667,55.61424)(113.71944,55.60914)(113.92222,55.60403)
+\qbezier[4](113.92222,55.60403)(114.12500,55.59962)(114.32778,55.59521)
+\qbezier[4](114.32778,55.59521)(114.53056,55.59150)(114.73333,55.58778)
+\qbezier[4](114.73333,55.58778)(114.93611,55.58476)(115.13889,55.58174)
+\qbezier[4](115.13889,55.58174)(115.34167,55.57941)(115.54444,55.57707)
+\qbezier[4](115.54444,55.57707)(115.74722,55.57542)(115.95000,55.57377)
+\qbezier[4](115.95000,55.57377)(116.15278,55.57279)(116.35556,55.57181)
+\qbezier[4](116.35556,55.57181)(116.55833,55.57151)(116.76111,55.57120)
+\qbezier[4](116.76111,55.57120)(116.96389,55.57157)(117.16667,55.57193)
+\qbezier[4](117.16667,55.57193)(117.36944,55.57295)(117.57222,55.57398)
+\qbezier[4](117.57222,55.57398)(117.77500,55.57567)(117.97778,55.57735)
+\qbezier[4](117.97778,55.57735)(118.18056,55.57969)(118.38333,55.58203)
+\qbezier[4](118.38333,55.58203)(118.58611,55.58502)(118.78889,55.58801)
+\qbezier[4](118.78889,55.58801)(118.99167,55.59164)(119.19444,55.59528)
+\qbezier[4](119.19444,55.59528)(119.39722,55.59956)(119.60000,55.60383)
+\qbezier[4](119.60000,55.60383)(119.80278,55.60875)(120.00556,55.61366)
+\qbezier[4](120.00556,55.61366)(120.20833,55.61921)(120.41111,55.62476)
+\qbezier[4](120.41111,55.62476)(120.61389,55.63093)(120.81667,55.63711)
+\qbezier[4](120.81667,55.63711)(121.01944,55.64391)(121.22222,55.65071)
+\qbezier[4](121.22222,55.65071)(121.42500,55.65813)(121.62778,55.66556)
+\qbezier[4](121.62778,55.66556)(121.83056,55.67359)(122.03333,55.68163)
+\qbezier[4](122.03333,55.68163)(122.23611,55.69028)(122.43889,55.69894)
+\qbezier[4](122.43889,55.69894)(122.64167,55.70820)(122.84444,55.71746)
+\qbezier[4](122.84444,55.71746)(123.04722,55.72732)(123.25000,55.73718)
+\qbezier[4](123.25000,55.73718)(123.45278,55.74765)(123.65556,55.75811)
+\qbezier[4](123.65556,55.75811)(123.85833,55.76918)(124.06111,55.78024)
+\qbezier[4](124.06111,55.78024)(124.26389,55.79189)(124.46667,55.80355)
+\qbezier[4](124.46667,55.80355)(124.66944,55.81579)(124.87222,55.82803)
+\qbezier[4](124.87222,55.82803)(125.07500,55.84086)(125.27778,55.85368)
+\qbezier[4](125.27778,55.85368)(125.48056,55.86709)(125.68333,55.88049)
+\qbezier[4](125.68333,55.88049)(125.88611,55.89448)(126.08889,55.90846)
+\qbezier[4](126.08889,55.90846)(126.29167,55.92301)(126.49444,55.93757)
+\qbezier[4](126.49444,55.93757)(126.69722,55.95269)(126.90000,55.96781)
+\qbezier[4](126.90000,55.96781)(127.10278,55.98349)(127.30556,55.99918)
+\qbezier[4](127.30556,55.99918)(127.50833,56.01542)(127.71111,56.03166)
+\qbezier[4](127.71111,56.03166)(127.91389,56.04846)(128.11667,56.06526)
+\qbezier[4](128.11667,56.06526)(128.31944,56.08261)(128.52222,56.09996)
+\qbezier[4](128.52222,56.09996)(128.72500,56.11785)(128.92778,56.13574)
+\qbezier[4](128.92778,56.13574)(129.13056,56.15418)(129.33333,56.17261)
+\qbezier[4](129.33333,56.17261)(129.53611,56.19158)(129.73889,56.21055)
+\qbezier[4](129.73889,56.21055)(129.94167,56.23006)(130.14444,56.24956)
+\qbezier[4](130.14444,56.24956)(130.34722,56.26959)(130.55000,56.28962)
+\qbezier[4](130.55000,56.28962)(130.75278,56.31017)(130.95556,56.33072)
+\qbezier[4](130.95556,56.33072)(131.15833,56.35179)(131.36111,56.37286)
+\qbezier[4](131.36111,56.37286)(131.56389,56.39444)(131.76667,56.41602)
+\qbezier[4](131.76667,56.41602)(131.96944,56.43811)(132.17222,56.46019)
+\qbezier[4](132.17222,56.46019)(132.37500,56.48278)(132.57778,56.50537)
+\qbezier[4](132.57778,56.50537)(132.78056,56.52846)(132.98333,56.55154)
+\qbezier[4](132.98333,56.55154)(133.18611,56.57512)(133.38889,56.59869)
+\qbezier[4](133.38889,56.59869)(133.59167,56.62276)(133.79444,56.64682)
+\qbezier[4](133.79444,56.64682)(133.99722,56.67136)(134.20000,56.69590)
+\qbezier[4](134.20000,56.69590)(134.40278,56.72091)(134.60556,56.74593)
+\qbezier[4](134.60556,56.74593)(134.80833,56.77141)(135.01111,56.79689)
+\qbezier[4](135.01111,56.79689)(135.21389,56.82283)(135.41667,56.84877)
+\qbezier[4](135.41667,56.84877)(135.61944,56.87517)(135.82222,56.90157)
+\qbezier[4](135.82222,56.90157)(136.02500,56.92841)(136.22778,56.95526)
+\qbezier[4](136.22778,56.95526)(136.43056,56.98255)(136.63333,57.00984)
+\qbezier[4](136.63333,57.00984)(136.83611,57.03756)(137.03889,57.06528)
+\qbezier[4](137.03889,57.06528)(137.24167,57.09343)(137.44444,57.12158)
+\qbezier[4](137.44444,57.12158)(137.64722,57.15015)(137.85000,57.17872)
+\qbezier[4](137.85000,57.17872)(138.05278,57.20771)(138.25556,57.23669)
+\qbezier[4](138.25556,57.23669)(138.45833,57.26608)(138.66111,57.29547)
+\qbezier[4](138.66111,57.29547)(138.86389,57.32526)(139.06667,57.35505)
+\qbezier[4](139.06667,57.35505)(139.26944,57.38523)(139.47222,57.41541)
+\qbezier[4](139.47222,57.41541)(139.67500,57.44597)(139.87778,57.47653)
+\qbezier[4](139.87778,57.47653)(140.08056,57.50746)(140.28333,57.53839)
+\qbezier[4](140.28333,57.53839)(140.48611,57.56969)(140.68889,57.60099)
+\qbezier[4](140.68889,57.60099)(140.89167,57.63265)(141.09444,57.66430)
+\qbezier[4](141.09444,57.66430)(141.29722,57.69630)(141.50000,57.72830)
+\qbezier[4](141.50000,57.72830)(141.70278,57.76064)(141.90556,57.79298)
+\qbezier[4](141.90556,57.79298)(142.10833,57.82565)(142.31111,57.85832)
+\qbezier[4](142.31111,57.85832)(142.51389,57.89130)(142.71667,57.92429)
+\qbezier[4](142.71667,57.92429)(142.91944,57.95758)(143.12222,57.99088)
+\qbezier[4](143.12222,57.99088)(143.32500,58.02447)(143.52778,58.05806)
+\qbezier[4](143.52778,58.05806)(143.73056,58.09194)(143.93333,58.12582)
+\qbezier[4](143.93333,58.12582)(144.13611,58.15997)(144.33889,58.19413)
+\qbezier[4](144.33889,58.19413)(144.54167,58.22855)(144.74444,58.26297)
+\qbezier[4](144.74444,58.26297)(144.94722,58.29765)(145.15000,58.33232)
+\qbezier[4](145.15000,58.33232)(145.35278,58.36724)(145.55556,58.40216)
+\qbezier[4](145.55556,58.40216)(145.75833,58.43731)(145.96111,58.47245)
+\qbezier[4](145.96111,58.47245)(146.16389,58.50782)(146.36667,58.54319)
+\qbezier[4](146.36667,58.54319)(146.56944,58.57876)(146.77222,58.61433)
+\qbezier[4](146.77222,58.61433)(146.97500,58.65010)(147.17778,58.68586)
+\qbezier[4](147.17778,58.68586)(147.38056,58.72181)(147.58333,58.75775)
+\qbezier[4](147.58333,58.75775)(147.78611,58.79387)(147.98889,58.82998)
+\qbezier[4](147.98889,58.82998)(148.19167,58.86624)(148.39444,58.90251)
+\qbezier[4](148.39444,58.90251)(148.59722,58.93891)(148.80000,58.97532)
+\qbezier[4](148.80000,58.97532)(149.00278,59.01184)(149.20556,59.04837)
+\qbezier[4](149.20556,59.04837)(149.40833,59.08501)(149.61111,59.12165)
+\qbezier[4](149.61111,59.12165)(149.81389,59.15839)(150.01667,59.19512)
+\qbezier[4](150.01667,59.19512)(150.21944,59.23193)(150.42222,59.26875)
+\qbezier[4](150.42222,59.26875)(150.62500,59.30563)(150.82778,59.34251)
+\qbezier[4](150.82778,59.34251)(151.03056,59.37943)(151.23333,59.41636)
+\qbezier[4](151.23333,59.41636)(151.43611,59.45332)(151.63889,59.49029)
+\qbezier[4](151.63889,59.49029)(151.84167,59.52726)(152.04444,59.56424)
+\qbezier[4](152.04444,59.56424)(152.24722,59.60122)(152.45000,59.63820)
+\qbezier[4](152.45000,59.63820)(152.65278,59.67516)(152.85556,59.71212)
+\qbezier[4](152.85556,59.71212)(153.05833,59.74905)(153.26111,59.78598)
+\qbezier[4](153.26111,59.78598)(153.46389,59.82285)(153.66667,59.85973)
+\qbezier[4](153.66667,59.85973)(153.86944,59.89654)(154.07222,59.93335)
+\qbezier[4](154.07222,59.93335)(154.27500,59.97007)(154.47778,60.00679)
+\qbezier[4](154.47778,60.00679)(154.68056,60.04340)(154.88333,60.08002)
+\qbezier[4](154.88333,60.08002)(155.08611,60.11651)(155.28889,60.15301)
+\qbezier[4](155.28889,60.15301)(155.49167,60.18936)(155.69444,60.22571)
+\qbezier[4](155.69444,60.22571)(155.89722,60.26190)(156.10000,60.29809)
+\qbezier[4](156.10000,60.29809)(156.30278,60.33410)(156.50556,60.37011)
+\qbezier[4](156.50556,60.37011)(156.70833,60.40592)(156.91111,60.44173)
+\qbezier[4](156.91111,60.44173)(157.11389,60.47733)(157.31667,60.51292)
+\qbezier[4](157.31667,60.51292)(157.51944,60.54828)(157.72222,60.58363)
+\qbezier[4](157.72222,60.58363)(157.92500,60.61873)(158.12778,60.65383)
+\qbezier[4](158.12778,60.65383)(158.33056,60.68865)(158.53333,60.72346)
+\qbezier[4](158.53333,60.72346)(158.73611,60.75799)(158.93889,60.79251)
+\qbezier[4](158.93889,60.79251)(159.14167,60.82671)(159.34444,60.86092)
+\qbezier[4](159.34444,60.86092)(159.54722,60.89478)(159.75000,60.92865)
+\qbezier[4](159.75000,60.92865)(159.95278,60.96216)(160.15556,60.99566)
+\qbezier[4](160.15556,60.99566)(160.35833,61.02879)(160.56111,61.06192)
+\qbezier[4](160.56111,61.06192)(160.76389,61.09465)(160.96667,61.12738)
+\qbezier[4](160.96667,61.12738)(161.16944,61.15969)(161.37222,61.19200)
+\qbezier[4](161.37222,61.19200)(161.57500,61.22387)(161.77778,61.25574)
+\qbezier[4](161.77778,61.25574)(161.98056,61.28715)(162.18333,61.31856)
+\qbezier[4](162.18333,61.31856)(162.38611,61.34949)(162.58889,61.38042)
+\qbezier[4](162.58889,61.38042)(162.79167,61.41084)(162.99444,61.44127)
+\qbezier[4](162.99444,61.44127)(163.19722,61.47118)(163.40000,61.50108)
+\qbezier[4](163.40000,61.50108)(163.60278,61.53045)(163.80556,61.55981)
+\qbezier[4](163.80556,61.55981)(164.00833,61.58862)(164.21111,61.61742)
+\qbezier[4](164.21111,61.61742)(164.41389,61.64564)(164.61667,61.67386)
+\qbezier[4](164.61667,61.67386)(164.81944,61.70148)(165.02222,61.72911)
+\qbezier[4](165.02222,61.72911)(165.22500,61.75611)(165.42778,61.78311)
+\qbezier[4](165.42778,61.78311)(165.63056,61.80947)(165.83333,61.83583)
+\qbezier[4](165.83333,61.83583)(166.03611,61.86153)(166.23889,61.88724)
+\qbezier[4](166.23889,61.88724)(166.44167,61.91226)(166.64444,61.93729)
+\qbezier[4](166.64444,61.93729)(166.84722,61.96162)(167.05000,61.98595)
+\qbezier[4](167.05000,61.98595)(167.25278,62.00957)(167.45556,62.03319)
+\qbezier[4](167.45556,62.03319)(167.65833,62.05607)(167.86111,62.07896)
+\qbezier[4](167.86111,62.07896)(168.06389,62.10110)(168.26667,62.12324)
+\qbezier[4](168.26667,62.12324)(168.46944,62.14462)(168.67222,62.16599)
+\qbezier[4](168.67222,62.16599)(168.87500,62.18659)(169.07778,62.20718)
+\qbezier[4](169.07778,62.20718)(169.28056,62.22698)(169.48333,62.24677)
+\qbezier[4](169.48333,62.24677)(169.68611,62.26576)(169.88889,62.28474)
+\qbezier[4](169.88889,62.28474)(170.09167,62.30290)(170.29444,62.32106)
+\qbezier[4](170.29444,62.32106)(170.49722,62.33838)(170.70000,62.35570)
+\qbezier[4](170.70000,62.35570)(170.90278,62.37216)(171.10556,62.38862)
+\qbezier[4](171.10556,62.38862)(171.30833,62.40422)(171.51111,62.41981)
+\qbezier[4](171.51111,62.41981)(171.71389,62.43453)(171.91667,62.44924)
+\qbezier[4](171.91667,62.44924)(172.11944,62.46306)(172.32222,62.47688)
+\qbezier[4](172.32222,62.47688)(172.52500,62.48980)(172.72778,62.50272)
+\qbezier[4](172.72778,62.50272)(172.93056,62.51473)(173.13333,62.52673)
+\qbezier[4](173.13333,62.52673)(173.33611,62.53781)(173.53889,62.54890)
+\qbezier[4](173.53889,62.54890)(173.74167,62.55904)(173.94444,62.56919)
+\qbezier[4](173.94444,62.56919)(174.14722,62.57840)(174.35000,62.58761)
+\qbezier[4](174.35000,62.58761)(174.55278,62.59587)(174.75556,62.60413)
+\qbezier[4](174.75556,62.60413)(174.95833,62.61143)(175.16111,62.61873)
+\qbezier[4](175.16111,62.61873)(175.36389,62.62508)(175.56667,62.63142)
+\qbezier[4](175.56667,62.63142)(175.76944,62.63680)(175.97222,62.64217)
+\qbezier[4](175.97222,62.64217)(176.17500,62.64658)(176.37778,62.65098)
+\qbezier[4](176.37778,62.65098)(176.58056,62.65441)(176.78333,62.65784)
+\qbezier[4](176.78333,62.65784)(176.98611,62.66029)(177.18889,62.66274)
+\qbezier[4](177.18889,62.66274)(177.39167,62.66421)(177.59444,62.66569)
+\qbezier[4](177.59444,62.66569)(177.79722,62.66618)(178.00000,62.66667)
+\qbezier[4](178.00000,62.66667)(178.20278,62.66618)(178.40556,62.66569)
+\qbezier[4](178.40556,62.66569)(178.60833,62.66421)(178.81111,62.66274)
+\qbezier[4](178.81111,62.66274)(179.01389,62.66029)(179.21667,62.65784)
+\qbezier[4](179.21667,62.65784)(179.41944,62.65441)(179.62222,62.65098)
+\qbezier[4](179.62222,62.65098)(179.82500,62.64658)(180.02778,62.64217)
+\qbezier[4](180.02778,62.64217)(180.23056,62.63680)(180.43333,62.63142)
+\qbezier[4](180.43333,62.63142)(180.63611,62.62508)(180.83889,62.61873)
+\qbezier[4](180.83889,62.61873)(181.04167,62.61143)(181.24444,62.60413)
+\qbezier[4](181.24444,62.60413)(181.44722,62.59587)(181.65000,62.58761)
+\qbezier[4](181.65000,62.58761)(181.85278,62.57840)(182.05556,62.56919)
+\qbezier[4](182.05556,62.56919)(182.25833,62.55904)(182.46111,62.54890)
+\qbezier[4](182.46111,62.54890)(182.66389,62.53781)(182.86667,62.52673)
+\qbezier[4](182.86667,62.52673)(183.06944,62.51473)(183.27222,62.50272)
+\qbezier[4](183.27222,62.50272)(183.47500,62.48980)(183.67778,62.47688)
+\qbezier[4](183.67778,62.47688)(183.88056,62.46306)(184.08333,62.44924)
+\qbezier[4](184.08333,62.44924)(184.28611,62.43453)(184.48889,62.41981)
+\qbezier[4](184.48889,62.41981)(184.69167,62.40422)(184.89444,62.38862)
+\qbezier[4](184.89444,62.38862)(185.09722,62.37216)(185.30000,62.35570)
+\qbezier[4](185.30000,62.35570)(185.50278,62.33838)(185.70556,62.32106)
+\qbezier[4](185.70556,62.32106)(185.90833,62.30290)(186.11111,62.28474)
+\qbezier[4](186.11111,62.28474)(186.31389,62.26576)(186.51667,62.24677)
+\qbezier[4](186.51667,62.24677)(186.71944,62.22698)(186.92222,62.20718)
+\qbezier[4](186.92222,62.20718)(187.12500,62.18659)(187.32778,62.16599)
+\qbezier[4](187.32778,62.16599)(187.53056,62.14462)(187.73333,62.12324)
+\qbezier[4](187.73333,62.12324)(187.93611,62.10110)(188.13889,62.07896)
+\qbezier[4](188.13889,62.07896)(188.34167,62.05607)(188.54444,62.03319)
+\qbezier[4](188.54444,62.03319)(188.74722,62.00957)(188.95000,61.98595)
+\qbezier[4](188.95000,61.98595)(189.15278,61.96162)(189.35556,61.93729)
+\qbezier[4](189.35556,61.93729)(189.55833,61.91226)(189.76111,61.88724)
+\qbezier[4](189.76111,61.88724)(189.96389,61.86153)(190.16667,61.83583)
+\qbezier[4](190.16667,61.83583)(190.36944,61.80947)(190.57222,61.78311)
+\qbezier[4](190.57222,61.78311)(190.77500,61.75611)(190.97778,61.72911)
+\qbezier[4](190.97778,61.72911)(191.18056,61.70148)(191.38333,61.67386)
+\qbezier[4](191.38333,61.67386)(191.58611,61.64564)(191.78889,61.61742)
+\qbezier[4](191.78889,61.61742)(191.99167,61.58862)(192.19444,61.55981)
+\qbezier[4](192.19444,61.55981)(192.39722,61.53045)(192.60000,61.50108)
+\qbezier[4](192.60000,61.50108)(192.80278,61.47118)(193.00556,61.44127)
+\qbezier[4](193.00556,61.44127)(193.20833,61.41084)(193.41111,61.38042)
+\qbezier[4](193.41111,61.38042)(193.61389,61.34949)(193.81667,61.31856)
+\qbezier[4](193.81667,61.31856)(194.01944,61.28715)(194.22222,61.25574)
+\qbezier[4](194.22222,61.25574)(194.42500,61.22387)(194.62778,61.19200)
+\qbezier[4](194.62778,61.19200)(194.83056,61.15969)(195.03333,61.12738)
+\qbezier[4](195.03333,61.12738)(195.23611,61.09465)(195.43889,61.06192)
+\qbezier[4](195.43889,61.06192)(195.64167,61.02879)(195.84444,60.99566)
+\qbezier[4](195.84444,60.99566)(196.04722,60.96216)(196.25000,60.92865)
+\qbezier[4](196.25000,60.92865)(196.45278,60.89478)(196.65556,60.86092)
+\qbezier[4](196.65556,60.86092)(196.85833,60.82671)(197.06111,60.79251)
+\qbezier[4](197.06111,60.79251)(197.26389,60.75799)(197.46667,60.72346)
+\qbezier[4](197.46667,60.72346)(197.66944,60.68865)(197.87222,60.65383)
+\qbezier[4](197.87222,60.65383)(198.07500,60.61873)(198.27778,60.58363)
+\qbezier[4](198.27778,60.58363)(198.48056,60.54828)(198.68333,60.51292)
+\qbezier[4](198.68333,60.51292)(198.88611,60.47733)(199.08889,60.44173)
+\qbezier[4](199.08889,60.44173)(199.29167,60.40592)(199.49444,60.37011)
+\qbezier[4](199.49444,60.37011)(199.69722,60.33410)(199.90000,60.29809)
+\qbezier[4](199.90000,60.29809)(200.10278,60.26190)(200.30556,60.22571)
+\qbezier[4](200.30556,60.22571)(200.50833,60.18936)(200.71111,60.15301)
+\qbezier[4](200.71111,60.15301)(200.91389,60.11651)(201.11667,60.08002)
+\qbezier[4](201.11667,60.08002)(201.31944,60.04340)(201.52222,60.00679)
+\qbezier[4](201.52222,60.00679)(201.72500,59.97007)(201.92778,59.93335)
+\qbezier[4](201.92778,59.93335)(202.13056,59.89654)(202.33333,59.85973)
+\qbezier[4](202.33333,59.85973)(202.53611,59.82285)(202.73889,59.78598)
+\qbezier[4](202.73889,59.78598)(202.94167,59.74905)(203.14444,59.71212)
+\qbezier[4](203.14444,59.71212)(203.34722,59.67516)(203.55000,59.63820)
+\qbezier[4](203.55000,59.63820)(203.75278,59.60122)(203.95556,59.56424)
+\qbezier[4](203.95556,59.56424)(204.15833,59.52726)(204.36111,59.49029)
+\qbezier[4](204.36111,59.49029)(204.56389,59.45332)(204.76667,59.41636)
+\qbezier[4](204.76667,59.41636)(204.96944,59.37943)(205.17222,59.34251)
+\qbezier[4](205.17222,59.34251)(205.37500,59.30563)(205.57778,59.26875)
+\qbezier[4](205.57778,59.26875)(205.78056,59.23193)(205.98333,59.19512)
+\qbezier[4](205.98333,59.19512)(206.18611,59.15839)(206.38889,59.12165)
+\qbezier[4](206.38889,59.12165)(206.59167,59.08501)(206.79444,59.04837)
+\qbezier[4](206.79444,59.04837)(206.99722,59.01184)(207.20000,58.97532)
+\qbezier[4](207.20000,58.97532)(207.40278,58.93891)(207.60556,58.90251)
+\qbezier[4](207.60556,58.90251)(207.80833,58.86624)(208.01111,58.82998)
+\qbezier[4](208.01111,58.82998)(208.21389,58.79387)(208.41667,58.75775)
+\qbezier[4](208.41667,58.75775)(208.61944,58.72181)(208.82222,58.68586)
+\qbezier[4](208.82222,58.68586)(209.02500,58.65010)(209.22778,58.61433)
+\qbezier[4](209.22778,58.61433)(209.43056,58.57876)(209.63333,58.54319)
+\qbezier[4](209.63333,58.54319)(209.83611,58.50782)(210.03889,58.47245)
+\qbezier[4](210.03889,58.47245)(210.24167,58.43731)(210.44444,58.40216)
+\qbezier[4](210.44444,58.40216)(210.64722,58.36724)(210.85000,58.33232)
+\qbezier[4](210.85000,58.33232)(211.05278,58.29765)(211.25556,58.26297)
+\qbezier[4](211.25556,58.26297)(211.45833,58.22855)(211.66111,58.19413)
+\qbezier[4](211.66111,58.19413)(211.86389,58.15997)(212.06667,58.12582)
+\qbezier[4](212.06667,58.12582)(212.26944,58.09194)(212.47222,58.05806)
+\qbezier[4](212.47222,58.05806)(212.67500,58.02447)(212.87778,57.99088)
+\qbezier[4](212.87778,57.99088)(213.08056,57.95758)(213.28333,57.92429)
+\qbezier[4](213.28333,57.92429)(213.48611,57.89130)(213.68889,57.85832)
+\qbezier[4](213.68889,57.85832)(213.89167,57.82565)(214.09444,57.79298)
+\qbezier[4](214.09444,57.79298)(214.29722,57.76064)(214.50000,57.72830)
+\qbezier[4](214.50000,57.72830)(214.70278,57.69630)(214.90556,57.66430)
+\qbezier[4](214.90556,57.66430)(215.10833,57.63265)(215.31111,57.60099)
+\qbezier[4](215.31111,57.60099)(215.51389,57.56969)(215.71667,57.53839)
+\qbezier[4](215.71667,57.53839)(215.91944,57.50746)(216.12222,57.47653)
+\qbezier[4](216.12222,57.47653)(216.32500,57.44597)(216.52778,57.41541)
+\qbezier[4](216.52778,57.41541)(216.73056,57.38523)(216.93333,57.35505)
+\qbezier[4](216.93333,57.35505)(217.13611,57.32526)(217.33889,57.29547)
+\qbezier[4](217.33889,57.29547)(217.54167,57.26608)(217.74444,57.23669)
+\qbezier[4](217.74444,57.23669)(217.94722,57.20771)(218.15000,57.17872)
+\qbezier[4](218.15000,57.17872)(218.35278,57.15015)(218.55556,57.12158)
+\qbezier[4](218.55556,57.12158)(218.75833,57.09343)(218.96111,57.06528)
+\qbezier[4](218.96111,57.06528)(219.16389,57.03756)(219.36667,57.00984)
+\qbezier[4](219.36667,57.00984)(219.56944,56.98255)(219.77222,56.95526)
+\qbezier[4](219.77222,56.95526)(219.97500,56.92841)(220.17778,56.90157)
+\qbezier[4](220.17778,56.90157)(220.38056,56.87517)(220.58333,56.84877)
+\qbezier[4](220.58333,56.84877)(220.78611,56.82283)(220.98889,56.79689)
+\qbezier[4](220.98889,56.79689)(221.19167,56.77141)(221.39444,56.74593)
+\qbezier[4](221.39444,56.74593)(221.59722,56.72091)(221.80000,56.69590)
+\qbezier[4](221.80000,56.69590)(222.00278,56.67136)(222.20556,56.64682)
+\qbezier[4](222.20556,56.64682)(222.40833,56.62276)(222.61111,56.59869)
+\qbezier[4](222.61111,56.59869)(222.81389,56.57512)(223.01667,56.55154)
+\qbezier[4](223.01667,56.55154)(223.21944,56.52846)(223.42222,56.50537)
+\qbezier[4](223.42222,56.50537)(223.62500,56.48278)(223.82778,56.46019)
+\qbezier[4](223.82778,56.46019)(224.03056,56.43811)(224.23333,56.41602)
+\qbezier[4](224.23333,56.41602)(224.43611,56.39444)(224.63889,56.37286)
+\qbezier[4](224.63889,56.37286)(224.84167,56.35179)(225.04444,56.33072)
+\qbezier[4](225.04444,56.33072)(225.24722,56.31017)(225.45000,56.28962)
+\qbezier[4](225.45000,56.28962)(225.65278,56.26959)(225.85556,56.24956)
+\qbezier[4](225.85556,56.24956)(226.05833,56.23006)(226.26111,56.21055)
+\qbezier[4](226.26111,56.21055)(226.46389,56.19158)(226.66667,56.17261)
+\qbezier[4](226.66667,56.17261)(226.86944,56.15418)(227.07222,56.13574)
+\qbezier[4](227.07222,56.13574)(227.27500,56.11785)(227.47778,56.09996)
+\qbezier[4](227.47778,56.09996)(227.68056,56.08261)(227.88333,56.06526)
+\qbezier[4](227.88333,56.06526)(228.08611,56.04846)(228.28889,56.03166)
+\qbezier[4](228.28889,56.03166)(228.49167,56.01542)(228.69444,55.99918)
+\qbezier[4](228.69444,55.99918)(228.89722,55.98349)(229.10000,55.96781)
+\qbezier[4](229.10000,55.96781)(229.30278,55.95269)(229.50556,55.93757)
+\qbezier[4](229.50556,55.93757)(229.70833,55.92301)(229.91111,55.90846)
+\qbezier[4](229.91111,55.90846)(230.11389,55.89448)(230.31667,55.88049)
+\qbezier[4](230.31667,55.88049)(230.51944,55.86709)(230.72222,55.85368)
+\qbezier[4](230.72222,55.85368)(230.92500,55.84086)(231.12778,55.82803)
+\qbezier[4](231.12778,55.82803)(231.33056,55.81579)(231.53333,55.80355)
+\qbezier[4](231.53333,55.80355)(231.73611,55.79189)(231.93889,55.78024)
+\qbezier[4](231.93889,55.78024)(232.14167,55.76918)(232.34444,55.75811)
+\qbezier[4](232.34444,55.75811)(232.54722,55.74765)(232.75000,55.73718)
+\qbezier[4](232.75000,55.73718)(232.95278,55.72732)(233.15556,55.71746)
+\qbezier[4](233.15556,55.71746)(233.35833,55.70820)(233.56111,55.69894)
+\qbezier[4](233.56111,55.69894)(233.76389,55.69028)(233.96667,55.68163)
+\qbezier[4](233.96667,55.68163)(234.16944,55.67359)(234.37222,55.66556)
+\qbezier[4](234.37222,55.66556)(234.57500,55.65813)(234.77778,55.65071)
+\qbezier[4](234.77778,55.65071)(234.98056,55.64391)(235.18333,55.63711)
+\qbezier[4](235.18333,55.63711)(235.38611,55.63093)(235.58889,55.62476)
+\qbezier[4](235.58889,55.62476)(235.79167,55.61921)(235.99444,55.61366)
+\qbezier[4](235.99444,55.61366)(236.19722,55.60875)(236.40000,55.60383)
+\qbezier[4](236.40000,55.60383)(236.60278,55.59956)(236.80556,55.59528)
+\qbezier[4](236.80556,55.59528)(237.00833,55.59164)(237.21111,55.58801)
+\qbezier[4](237.21111,55.58801)(237.41389,55.58502)(237.61667,55.58203)
+\qbezier[4](237.61667,55.58203)(237.81944,55.57969)(238.02222,55.57735)
+\qbezier[4](238.02222,55.57735)(238.22500,55.57567)(238.42778,55.57398)
+\qbezier[4](238.42778,55.57398)(238.63056,55.57295)(238.83333,55.57193)
+\qbezier[4](238.83333,55.57193)(239.03611,55.57157)(239.23889,55.57120)
+\qbezier[4](239.23889,55.57120)(239.44167,55.57151)(239.64444,55.57181)
+\qbezier[4](239.64444,55.57181)(239.84722,55.57279)(240.05000,55.57377)
+\qbezier[4](240.05000,55.57377)(240.25278,55.57542)(240.45556,55.57707)
+\qbezier[4](240.45556,55.57707)(240.65833,55.57941)(240.86111,55.58174)
+\qbezier[4](240.86111,55.58174)(241.06389,55.58476)(241.26667,55.58778)
+\qbezier[4](241.26667,55.58778)(241.46944,55.59150)(241.67222,55.59521)
+\qbezier[4](241.67222,55.59521)(241.87500,55.59962)(242.07778,55.60403)
+\qbezier[4](242.07778,55.60403)(242.28056,55.60914)(242.48333,55.61424)
+\qbezier[4](242.48333,55.61424)(242.68611,55.62006)(242.88889,55.62588)
+\qbezier[4](242.88889,55.62588)(243.09167,55.63240)(243.29444,55.63893)
+\qbezier[4](243.29444,55.63893)(243.49722,55.64617)(243.70000,55.65341)
+\qbezier[4](243.70000,55.65341)(243.90278,55.66138)(244.10556,55.66934)
+\qbezier[4](244.10556,55.66934)(244.30833,55.67804)(244.51111,55.68673)
+\qbezier[4](244.51111,55.68673)(244.71389,55.69615)(244.91667,55.70558)
+\qbezier[4](244.91667,55.70558)(245.11944,55.71574)(245.32222,55.72591)
+\qbezier[4](245.32222,55.72591)(245.52500,55.73682)(245.72778,55.74772)
+\qbezier[4](245.72778,55.74772)(245.93056,55.75938)(246.13333,55.77104)
+\qbezier[4](246.13333,55.77104)(246.33611,55.78346)(246.53889,55.79587)
+\qbezier[4](246.53889,55.79587)(246.74167,55.80905)(246.94444,55.82223)
+\qbezier[4](246.94444,55.82223)(247.14722,55.83617)(247.35000,55.85012)
+\qbezier[4](247.35000,55.85012)(247.55278,55.86484)(247.75556,55.87956)
+\qbezier[4](247.75556,55.87956)(247.95833,55.89507)(248.16111,55.91057)
+\qbezier[4](248.16111,55.91057)(248.36389,55.92687)(248.56667,55.94316)
+\qbezier[4](248.56667,55.94316)(248.76944,55.96025)(248.97222,55.97734)
+\qbezier[4](248.97222,55.97734)(249.17500,55.99523)(249.37778,56.01312)
+\qbezier[4](249.37778,56.01312)(249.58056,56.03182)(249.78333,56.05053)
+\qbezier[4](249.78333,56.05053)(249.98611,56.07005)(250.18889,56.08957)
+\qbezier[4](250.18889,56.08957)(250.39167,56.10991)(250.59444,56.13026)
+\qbezier[4](250.59444,56.13026)(250.79722,56.15143)(251.00000,56.17261)
+\qbezier[4](251.00000,56.17261)(251.20278,56.19463)(251.40556,56.21665)
+\qbezier[4](251.40556,56.21665)(251.60833,56.23952)(251.81111,56.26238)
+\qbezier[4](251.81111,56.26238)(252.01389,56.28611)(252.21667,56.30983)
+\qbezier[4](252.21667,56.30983)(252.41944,56.33442)(252.62222,56.35902)
+\qbezier[4](252.62222,56.35902)(252.82500,56.38448)(253.02778,56.40995)
+\qbezier[4](253.02778,56.40995)(253.23056,56.43630)(253.43333,56.46265)
+\qbezier[4](253.43333,56.46265)(253.63611,56.48989)(253.83889,56.51713)
+\qbezier[4](253.83889,56.51713)(254.04167,56.54527)(254.24444,56.57342)
+\qbezier[4](254.24444,56.57342)(254.44722,56.60247)(254.65000,56.63153)
+\qbezier[4](254.65000,56.63153)(254.85278,56.66151)(255.05556,56.69148)
+\qbezier[4](255.05556,56.69148)(255.25833,56.72239)(255.46111,56.75330)
+\qbezier[4](255.46111,56.75330)(255.66389,56.78515)(255.86667,56.81701)
+\qbezier[4](255.86667,56.81701)(256.06944,56.84981)(256.27222,56.88261)
+\qbezier[4](256.27222,56.88261)(256.47500,56.91638)(256.67778,56.95015)
+\qbezier[4](256.67778,56.95015)(256.88056,56.98489)(257.08333,57.01964)
+\qbezier[4](257.08333,57.01964)(257.28611,57.05537)(257.48889,57.09109)
+\qbezier[4](257.48889,57.09109)(257.69167,57.12782)(257.89444,57.16455)
+\qbezier[4](257.89444,57.16455)(258.09722,57.20228)(258.30000,57.24002)
+\qbezier[4](258.30000,57.24002)(258.50278,57.27878)(258.70556,57.31754)
+\qbezier[4](258.70556,57.31754)(258.90833,57.35733)(259.11111,57.39713)
+\qbezier[4](259.11111,57.39713)(259.31389,57.43797)(259.51667,57.47881)
+\qbezier[4](259.51667,57.47881)(259.71944,57.52072)(259.92222,57.56262)
+\qbezier[4](259.92222,57.56262)(260.12500,57.60560)(260.32778,57.64857)
+\qbezier[4](260.32778,57.64857)(260.53056,57.69264)(260.73333,57.73671)
+\qbezier[4](260.73333,57.73671)(260.93611,57.78188)(261.13889,57.82705)
+\qbezier[4](261.13889,57.82705)(261.34167,57.87333)(261.54444,57.91962)
+\qbezier[4](261.54444,57.91962)(261.74722,57.96704)(261.95000,58.01446)
+\qbezier[4](261.95000,58.01446)(262.15278,58.06303)(262.35556,58.11159)
+\qbezier[4](262.35556,58.11159)(262.55833,58.16133)(262.76111,58.21106)
+\qbezier[4](262.76111,58.21106)(262.96389,58.26197)(263.16667,58.31288)
+\qbezier[4](263.16667,58.31288)(263.36944,58.36499)(263.57222,58.41710)
+\qbezier[4](263.57222,58.41710)(263.77500,58.47042)(263.97778,58.52374)
+\qbezier[4](263.97778,58.52374)(264.18056,58.57830)(264.38333,58.63285)
+\qbezier[4](264.38333,58.63285)(264.58611,58.68865)(264.78889,58.74446)
+\qbezier[4](264.78889,58.74446)(264.99167,58.80153)(265.19444,58.85860)
+\qbezier[4](265.19444,58.85860)(265.39722,58.91696)(265.60000,58.97532)
+\qbezier[4](265.60000,58.97532)(265.80278,59.03498)(266.00556,59.09464)
+\qbezier[4](266.00556,59.09464)(266.20833,59.15563)(266.41111,59.21662)
+\qbezier[4](266.41111,59.21662)(266.61389,59.27896)(266.81667,59.34130)
+\qbezier[4](266.81667,59.34130)(267.01944,59.40500)(267.22222,59.46870)
+\qbezier[4](267.22222,59.46870)(267.42500,59.53380)(267.62778,59.59889)
+\qbezier[4](267.62778,59.59889)(267.83056,59.66539)(268.03333,59.73190)
+\qbezier[4](268.03333,59.73190)(268.23611,59.79983)(268.43889,59.86777)
+\qbezier[4](268.43889,59.86777)(268.64167,59.93717)(268.84444,60.00656)
+\qbezier[4](268.84444,60.00656)(269.04722,60.07744)(269.25000,60.14831)
+\qbezier[4](269.25000,60.14831)(269.45278,60.22069)(269.65556,60.29307)
+\qbezier[4](269.65556,60.29307)(269.85833,60.36698)(270.06111,60.44089)
+\qbezier[4](270.06111,60.44089)(270.26389,60.51636)(270.46667,60.59183)
+\qbezier[4](270.46667,60.59183)(270.66944,60.66888)(270.87222,60.74593)
+\qbezier[4](270.87222,60.74593)(271.07500,60.82459)(271.27778,60.90325)
+\qbezier[4](271.27778,60.90325)(271.48056,60.98355)(271.68333,61.06385)
+\qbezier[4](271.68333,61.06385)(271.88611,61.14581)(272.08889,61.22778)
+\qbezier[4](272.08889,61.22778)(272.29167,61.31144)(272.49444,61.39510)
+\qbezier[4](272.49444,61.39510)(272.69722,61.48049)(272.90000,61.56588)
+\qbezier[4](272.90000,61.56588)(273.10278,61.65303)(273.30556,61.74017)
+\qbezier[4](273.30556,61.74017)(273.50833,61.82911)(273.71111,61.91804)
+\qbezier[4](273.71111,61.91804)(273.91389,62.00880)(274.11667,62.09956)
+\qbezier[4](274.11667,62.09956)(274.31944,62.19218)(274.52222,62.28479)
+\qbezier[4](274.52222,62.28479)(274.72500,62.37930)(274.92778,62.47380)
+\qbezier[4](274.92778,62.47380)(275.13056,62.57023)(275.33333,62.66667)
+\qbezier[4](275.33333,62.66667)(275.53611,62.76506)(275.73889,62.86346)
+\qbezier[4](275.73889,62.86346)(275.94167,62.96385)(276.14444,63.06425)
+\qbezier[4](276.14444,63.06425)(276.34722,63.16669)(276.55000,63.26912)
+\qbezier[4](276.55000,63.26912)(276.75278,63.37364)(276.95556,63.47815)
+\qbezier[4](276.95556,63.47815)(277.15833,63.58479)(277.36111,63.69142)
+\qbezier[4](277.36111,63.69142)(277.56389,63.80022)(277.76667,63.90901)
+\qbezier[4](277.76667,63.90901)(277.96944,64.02002)(278.17222,64.13102)
+\qbezier[4](278.17222,64.13102)(278.37500,64.24427)(278.57778,64.35752)
+\qbezier[4](278.57778,64.35752)(278.78056,64.47307)(278.98333,64.58861)
+\qbezier[4](278.98333,64.58861)(279.18611,64.70650)(279.38889,64.82439)
+\qbezier[4](279.38889,64.82439)(279.59167,64.94466)(279.79444,65.06494)
+\qbezier[4](279.79444,65.06494)(279.99722,65.18766)(280.20000,65.31038)
+\qbezier[4](280.20000,65.31038)(280.40278,65.43558)(280.60556,65.56079)
+\qbezier[4](280.60556,65.56079)(280.80833,65.68854)(281.01111,65.81629)
+\qbezier[4](281.01111,65.81629)(281.21389,65.94664)(281.41667,66.07698)
+\qbezier[4](281.41667,66.07698)(281.61944,66.20998)(281.82222,66.34298)
+\qbezier[4](281.82222,66.34298)(282.02500,66.47869)(282.22778,66.61440)
+\qbezier[4](282.22778,66.61440)(282.43056,66.75287)(282.63333,66.89135)
+\qbezier[4](282.63333,66.89135)(282.83611,67.03265)(283.03889,67.17395)
+\qbezier[4](283.03889,67.17395)(283.24167,67.31814)(283.44444,67.46233)
+\qbezier[4](283.44444,67.46233)(283.64722,67.60948)(283.85000,67.75662)
+\qbezier[4](283.85000,67.75662)(284.05278,67.90679)(284.25556,68.05695)
+\qbezier[4](284.25556,68.05695)(284.45833,68.21020)(284.66111,68.36345)
+\qbezier[4](284.66111,68.36345)(284.86389,68.51985)(285.06667,68.67626)
+\qbezier[4](285.06667,68.67626)(285.26944,68.83589)(285.47222,68.99552)
+\qbezier[4](285.47222,68.99552)(285.67500,69.15845)(285.87778,69.32138)
+\qbezier[4](285.87778,69.32138)(286.08056,69.48768)(286.28333,69.65399)
+\qbezier[4](286.28333,69.65399)(286.48611,69.82375)(286.68889,69.99350)
+\qbezier[4](286.68889,69.99350)(286.89167,70.16679)(287.09444,70.34008)
+\qbezier[4](287.09444,70.34008)(287.29722,70.51699)(287.50000,70.69389)
+\qbezier[4](287.50000,70.69389)(287.70278,70.87449)(287.90556,71.05509)
+\qbezier[4](287.90556,71.05509)(288.10833,71.23948)(288.31111,71.42386)
+\qbezier[4](288.31111,71.42386)(288.51389,71.61212)(288.71667,71.80038)
+\qbezier[4](288.71667,71.80038)(288.91944,71.99260)(289.12222,72.18483)
+\qbezier[4](289.12222,72.18483)(289.32500,72.38111)(289.52778,72.57739)
+\qbezier[4](289.52778,72.57739)(289.73056,72.77783)(289.93333,72.97826)
+\qbezier[4](289.93333,72.97826)(290.13611,73.18295)(290.33889,73.38764)
+\qbezier[4](290.33889,73.38764)(290.54167,73.59669)(290.74444,73.80574)
+\qbezier[4](290.74444,73.80574)(290.94722,74.01924)(291.15000,74.23275)
+\qbezier[4](291.15000,74.23275)(291.35278,74.45082)(291.55556,74.66889)
+\qbezier[4](291.55556,74.66889)(291.75833,74.89164)(291.96111,75.11439)
+\qbezier[4](291.96111,75.11439)(292.16389,75.34193)(292.36667,75.56947)
+\qbezier[4](292.36667,75.56947)(292.56944,75.80191)(292.77222,76.03435)
+\qbezier[4](292.77222,76.03435)(292.97500,76.27182)(293.17778,76.50928)
+\qbezier[4](293.17778,76.50928)(293.38056,76.75189)(293.58333,76.99450)
+\qbezier[4](293.58333,76.99450)(293.78611,77.24238)(293.98889,77.49026)
+\qbezier[4](293.98889,77.49026)(294.19167,77.74354)(294.39444,77.99681)
+\qbezier[4](294.39444,77.99681)(294.59722,78.25561)(294.80000,78.51441)
+\qbezier[4](294.80000,78.51441)(295.00278,78.77886)(295.20556,79.04332)
+\qbezier[4](295.20556,79.04332)(295.40833,79.31357)(295.61111,79.58382)
+\qbezier[4](295.61111,79.58382)(295.81389,79.86000)(296.01667,80.13618)
+\qbezier[4](296.01667,80.13618)(296.21944,80.41843)(296.42222,80.70068)
+\qbezier[4](296.42222,80.70068)(296.62500,80.98915)(296.82778,81.27762)
+\qbezier[4](296.82778,81.27762)(297.03056,81.57244)(297.23333,81.86727)
+\qbezier[4](297.23333,81.86727)(297.43611,82.16860)(297.63889,82.46993)
+\qbezier[4](297.63889,82.46993)(297.84167,82.77792)(298.04444,83.08591)
+\qbezier[4](298.04444,83.08591)(298.24722,83.40071)(298.45000,83.71551)
+\qbezier[4](298.45000,83.71551)(298.65278,84.03726)(298.85556,84.35902)
+\qbezier[4](298.85556,84.35902)(299.05833,84.68790)(299.26111,85.01677)
+\qbezier[4](299.26111,85.01677)(299.46389,85.35291)(299.66667,85.68905)
+\qbezier[4](299.66667,85.68905)(299.86944,86.03262)(300.07222,86.37619)
+\qbezier[4](300.07222,86.37619)(300.27500,86.72733)(300.47778,87.07848)
+\qbezier[4](300.47778,87.07848)(300.68056,87.43736)(300.88333,87.79623)
+\qbezier[4](300.88333,87.79623)(301.08611,88.16300)(301.28889,88.52976)
+\qbezier[4](301.28889,88.52976)(301.49167,88.90457)(301.69444,89.27937)
+\qbezier[4](301.69444,89.27937)(301.89722,89.66235)(302.10000,90.04534)
+\qbezier[4](302.10000,90.04534)(302.30278,90.43665)(302.50556,90.82797)
+\qbezier[4](302.50556,90.82797)(302.70833,91.22775)(302.91111,91.62753)
+\qbezier[4](302.91111,91.62753)(303.11389,92.03591)(303.31667,92.44429)
+\qbezier[4](303.31667,92.44429)(303.51944,92.86140)(303.72222,93.27851)
+\qbezier[4](303.72222,93.27851)(303.92500,93.70446)(304.12778,94.13041)
+\qbezier[4](304.12778,94.13041)(304.33056,94.56531)(304.53333,95.00021)
+\qbezier[4](304.53333,95.00021)(304.73611,95.44415)(304.93889,95.88810)
+\qbezier[4](304.93889,95.88810)(305.14167,96.34116)(305.34444,96.79423)
+\qbezier[4](305.34444,96.79423)(305.54722,97.25648)(305.75000,97.71873)
+\qbezier[4](305.75000,97.71873)(305.95278,98.19022)(306.15556,98.66170)
+\qbezier[4](306.15556,98.66170)(306.35833,99.14243)(306.56111,99.62317)
+\qbezier[4](306.56111,99.62317)(306.76389,100.11316)(306.96667,100.60314)
+\qbezier[4](306.96667,100.60314)(307.16944,101.10235)(307.37222,101.60156)
+\qbezier[4](307.37222,101.60156)(307.57500,102.10993)(307.77778,102.61829)
+\qbezier[4](307.77778,102.61829)(307.98056,103.13573)(308.18333,103.65316)
+\qbezier[4](308.18333,103.65316)(308.38611,104.17952)(308.58889,104.70588)
+\qbezier[4](308.58889,104.70588)(308.79167,105.24099)(308.99444,105.77610)
+\qbezier[4](308.99444,105.77610)(309.19722,106.31973)(309.40000,106.86336)
+\qbezier[4](309.40000,106.86336)(309.60278,107.41523)(309.80556,107.96710)
+\qbezier[4](309.80556,107.96710)(310.00833,108.52688)(310.21111,109.08665)
+\qbezier[4](310.21111,109.08665)(310.41389,109.65392)(310.61667,110.22120)
+\qbezier[4](310.61667,110.22120)(310.81944,110.79549)(311.02222,111.36979)
+\qbezier[4](311.02222,111.36979)(311.22500,111.95056)(311.42778,112.53133)
+\qbezier[4](311.42778,112.53133)(311.63056,113.11795)(311.83333,113.70456)
+\qbezier[4](311.83333,113.70456)(312.03611,114.29630)(312.23889,114.88803)
+\qbezier[4](312.23889,114.88803)(312.44167,115.48407)(312.64444,116.08012)
+\qbezier[4](312.64444,116.08012)(312.84722,116.67955)(313.05000,117.27899)
+\qbezier[4](313.05000,117.27899)(313.25278,117.88080)(313.45556,118.48261)
+\qbezier[4](313.45556,118.48261)(313.65833,119.08565)(313.86111,119.68870)
+\qbezier[4](313.86111,119.68870)(314.06389,120.29174)(314.26667,120.89478)
+\qbezier[4](314.26667,120.89478)(314.46944,121.49645)(314.67222,122.09811)
+\qbezier[4](314.67222,122.09811)(314.87500,122.69691)(315.07778,123.29571)
+\qbezier[4](315.07778,123.29571)(315.28056,123.89004)(315.48333,124.48437)
+\qbezier[4](315.48333,124.48437)(315.68611,125.07250)(315.88889,125.66062)
+\qbezier[4](315.88889,125.66062)(316.09167,126.24068)(316.29444,126.82075)
+\qbezier[4](316.29444,126.82075)(316.49722,127.39079)(316.70000,127.96083)
+\qbezier[4](316.70000,127.96083)(316.90278,128.51877)(317.10556,129.07671)
+\qbezier[4](317.10556,129.07671)(317.30833,129.62038)(317.51111,130.16405)
+\qbezier[4](317.51111,130.16405)(317.71389,130.69120)(317.91667,131.21834)
+\qbezier[4](317.91667,131.21834)(318.11944,131.72664)(318.32222,132.23493)
+\qbezier[4](318.32222,132.23493)(318.52500,132.72200)(318.72778,133.20907)
+\qbezier[4](318.72778,133.20907)(318.93056,133.67252)(319.13333,134.13597)
+\qbezier[4](319.13333,134.13597)(319.33611,134.57339)(319.53889,135.01081)
+\qbezier[4](319.53889,135.01081)(319.74167,135.41983)(319.94444,135.82884)
+\qbezier[4](319.94444,135.82884)(320.14722,136.20713)(320.35000,136.58543)
+\qbezier[4](320.35000,136.58543)(320.55278,136.93076)(320.75556,137.27609)
+\qbezier[4](320.75556,137.27609)(320.95833,137.58635)(321.16111,137.89661)
+\qbezier[4](321.16111,137.89661)(321.36389,138.16983)(321.56667,138.44305)
+\qbezier[4](321.56667,138.44305)(321.76944,138.67746)(321.97222,138.91186)
+\qbezier[4](321.97222,138.91186)(322.17500,139.10589)(322.37778,139.29992)
+\qbezier[4](322.37778,139.29992)(322.58056,139.45225)(322.78333,139.60458)
+\qbezier[4](322.78333,139.60458)(322.98611,139.71416)(323.18889,139.82374)
+\qbezier[4](323.18889,139.82374)(323.39167,139.88980)(323.59444,139.95586)
+\qbezier[4](323.59444,139.95586)(323.79722,139.97793)(324.00000,140.00000)
+\put(32.00000,140.00000){\circle*{2.5}}
+\put(105.00000,56.17261){\circle*{2.5}}
+\put(178.00000,62.66667){\circle*{2.5}}
+\put(251.00000,56.17261){\circle*{2.5}}
+\put(324.00000,140.00000){\circle*{2.5}}
+\end{picture}
+\end{center}
+\textbf{Sketch correction:} the gain at $\pi$ is $2/3$, not $2$.
+The period is $2\pi$.
+
+\noteheading{Final answer}
+\[
+\boxed{|H(e^{j\Omega})|=\frac1{\sqrt{2.25-\cos\Omega-\cos(2\Omega)}}}
+\]
+The curve has high endpoints and a smaller central peak at $\pi$.
+
+\noteheading{Remember}
+Take the magnitude first. Check exact values before joining the points smoothly.
+}
+
+% Q4: own January handwritten sampling/folding/spectrum methods take priority.
+% Target hint calls images aliasing even though fs=100>2*fmax=60.
+% Keep target wording; explicitly distinguish reference intent and ideal reconstruction.
+\SignalQuestion{4}{%
+The signal
+\[
+x(t)=2\cos(60\pi t+0.2)+3\sin(30\pi t+0.1)
+\]
+is sampled and reconstructed according to the figure below.
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=5pt,topsep=4pt]
+\item What is the lowest sampling frequency $f_s$ [Hz] to enable a full
+reconstruction of the signal with the same frequency contents?\hfill(1p)
+\item If the signal is sampled with $f_s=100\,\mathrm{Hz}$, reconstructed and
+filtered with an ideal LP-filter with cut-off frequency $f_c=100\,\mathrm{Hz}$,
+what frequencies does the output signal $\widetilde{x}_{LP}(t)$ then contain.
+[Hint: there is aliasing]\hfill(2p)
+\item Draw the amplitude spectrum for the signal $x(t)$ and sketch
+(in the same diagram) the frequency response for a real (non-ideal)
+antialiasing filter that allow full reconstruction of the signal.\hfill(1p)
+\end{enumerate}
+\begin{center}
+\includegraphics[width=340pt]{assets/2025-10-28_Q04_reconstruction-original.png}
+\end{center}
+}
+
+\SignalSolution{4}{a}{%
+\textit{Your method: angular frequency, Hz, highest frequency, then double.}
+\stepheading{1. Read the angular frequencies}
+The coefficients of $t$ are
+\[
+\omega_1=60\pi,\qquad \omega_2=30\pi\quad\mathrm{rad/s}.
+\]
+
+\stepheading{2. Convert to Hz}
+Use $\omega=2\pi f$:
+\[
+\begin{aligned}
+f_1&=\frac{60\pi}{2\pi}=30\,\mathrm{Hz},\\
+f_2&=\frac{30\pi}{2\pi}=15\,\mathrm{Hz}.
+\end{aligned}
+\]
+So the highest signal frequency is $f_{\max}=30\,\mathrm{Hz}$.
+
+\stepheading{3. Use the sampling theorem}
+Double the highest frequency:
+\[
+2f_{\max}=2\cdot30=60\,\mathrm{Hz}.
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{\text{Nyquist limit}=60\,\mathrm{Hz}}
+\]
+This is the exam's limiting sampling rate. For ideal reconstruction in general,
+choose $f_s>60\,\mathrm{Hz}$, as stated in Lecture 2.
+
+\noteheading{Remember}
+First convert rad/s to Hz. Then double the highest signal frequency.
+}
+
+\SignalSolution{4}{b}{%
+\textit{Your frequency-check method; the target hint needs clarification.}
+\stepheading{1. Check the Nyquist limit}
+The input frequencies are $15$ and $30\,\mathrm{Hz}$.
+\[
+\frac{f_s}{2}=\frac{100}{2}=50\,\mathrm{Hz}.
+\]
+Both are below $50\,\mathrm{Hz}$. Sampling at $100\,\mathrm{Hz}$ does not fold
+either component into a different baseband frequency.
+
+\stepheading{2. Check the sampling images}
+The sampled spectrum repeats every $100\,\mathrm{Hz}$.
+The first positive images below $100\,\mathrm{Hz}$ are
+\[
+\begin{aligned}
+100-30&=70\,\mathrm{Hz},\\
+100-15&=85\,\mathrm{Hz}.
+\end{aligned}
+\]
+These are shifted spectral copies, not aliasing caused by undersampling.
+
+\stepheading{3. Apply the stated output low-pass}
+The reference assumes these images remain after the reconstruction block.
+With this assumption, the $100\,\mathrm{Hz}$ low-pass passes all four frequencies.
+
+\noteheading{Final answer}
+Under the reference's image-retaining interpretation:
+\[
+\boxed{15,30,70,85\ \mathrm{Hz}.}
+\]
+
+\textbf{Clarification:} with ideal reconstruction, the images are already removed,
+so the later low-pass leaves only
+\[
+\boxed{15,30\ \mathrm{Hz}.}
+\]
+The reconstruction block is unspecified. The hint's use of ``aliasing'' is misleading;
+the additional $70$ and $85\,\mathrm{Hz}$ terms are images.
+
+\noteheading{Remember}
+Sampling images repeat the spectrum. Aliasing occurs when copies overlap;
+proper reconstruction removes the unwanted copies.
+}
+
+\SignalSolution{4}{c}{%
+\textit{Your amplitude-line and low-pass sketch method, with the scale stated.}
+\stepheading{1. Place the spectral lines}
+Your one-sided convention uses the amplitudes given in the signal:
+\[
+A(15\,\mathrm{Hz})=3,\qquad A(30\,\mathrm{Hz})=2.
+\]
+For the full two-sided Fourier spectrum, each sinusoid gives two lines,
+each with half its amplitude:
+\[
+\begin{array}{c|rrrr}
+f\ (\mathrm{Hz})&-30&-15&15&30\\ \hline
+\text{Line weight}&1&1.5&1.5&1
+\end{array}
+\]
+The phase constants do not change these magnitudes.
+
+\stepheading{2. Choose the low-pass response}
+Use $f_s=100\,\mathrm{Hz}$ from part (b), so $f_s/2=50\,\mathrm{Hz}$.
+A suitable schematic response has
+\begin{itemize}
+\item near-unity gain through $30\,\mathrm{Hz}$, passing both input components;
+\item a smooth transition between $30$ and $50\,\mathrm{Hz}$;
+\item strong attenuation by $50\,\mathrm{Hz}$.
+\end{itemize}
+Place this anti-alias filter before sampling.
+
+\stepheading{3. Combined sketch}
+Stems/dots show the input's two-sided line weights.
+The dashed curve shows normalized filter gain, with passband approximately $1$.
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(340,175)
+{\color{black!18}\linethickness{0.3pt}
+\put(30,60.00000){\line(1,0){280}}
+\put(30,96.00000){\line(1,0){280}}
+\put(30,132.00000){\line(1,0){280}}
+\put(70,24){\line(0,1){119}}
+\put(110,24){\line(0,1){119}}
+\put(140,24){\line(0,1){119}}
+\put(170,24){\line(0,1){119}}
+\put(200,24){\line(0,1){119}}
+\put(230,24){\line(0,1){119}}
+\put(270,24){\line(0,1){119}}
+}
+\linethickness{0.5pt}
+\put(30,24){\vector(1,0){290}}
+\put(30,24){\vector(0,1){126}}
+\put(6,163){\makebox(0,0)[l]{\scriptsize Line weight / normalized filter gain}}
+\put(322,24){\makebox(0,0)[l]{\scriptsize $f$ (Hz)}}
+\put(24,24.00000){\makebox(0,0)[r]{\scriptsize $0$}}
+\put(24,60.00000){\makebox(0,0)[r]{\scriptsize $0.5$}}
+\put(24,96.00000){\makebox(0,0)[r]{\scriptsize $1$}}
+\put(24,132.00000){\makebox(0,0)[r]{\scriptsize $1.5$}}
+\put(70,13){\makebox(0,0){\scriptsize $-50$}}
+\put(110,13){\makebox(0,0){\scriptsize $-30$}}
+\put(140,13){\makebox(0,0){\scriptsize $-15$}}
+\put(170,13){\makebox(0,0){\scriptsize $0$}}
+\put(200,13){\makebox(0,0){\scriptsize $15$}}
+\put(230,13){\makebox(0,0){\scriptsize $30$}}
+\put(270,13){\makebox(0,0){\scriptsize $50$}}
+\linethickness{0.7pt}
+\qbezier[4](30.00000,24.00000)(30.50000,24.00000)(31.00000,24.00000)
+\qbezier[4](31.00000,24.00000)(31.50000,24.00000)(32.00000,24.00000)
+\qbezier[4](32.00000,24.00000)(32.50000,24.00000)(33.00000,24.00000)
+\qbezier[4](36.00000,24.00000)(36.50000,24.00000)(37.00000,24.00000)
+\qbezier[4](37.00000,24.00000)(37.50000,24.00000)(38.00000,24.00000)
+\qbezier[4](38.00000,24.00000)(38.50000,24.00000)(39.00000,24.00000)
+\qbezier[4](42.00000,24.00000)(42.50000,24.00000)(43.00000,24.00000)
+\qbezier[4](43.00000,24.00000)(43.50000,24.00000)(44.00000,24.00000)
+\qbezier[4](44.00000,24.00000)(44.50000,24.00000)(45.00000,24.00000)
+\qbezier[4](48.00000,24.00000)(48.50000,24.00000)(49.00000,24.00000)
+\qbezier[4](49.00000,24.00000)(49.50000,24.00000)(50.00000,24.00000)
+\qbezier[4](50.00000,24.00000)(50.50000,24.00000)(51.00000,24.00000)
+\qbezier[4](54.00000,24.00000)(54.50000,24.00000)(55.00000,24.00000)
+\qbezier[4](55.00000,24.00000)(55.50000,24.00000)(56.00000,24.00000)
+\qbezier[4](56.00000,24.00000)(56.50000,24.00000)(57.00000,24.00000)
+\qbezier[4](60.00000,24.00000)(60.50000,24.00000)(61.00000,24.00000)
+\qbezier[4](61.00000,24.00000)(61.50000,24.00000)(62.00000,24.00000)
+\qbezier[4](62.00000,24.00000)(62.50000,24.00000)(63.00000,24.00000)
+\qbezier[4](66.00000,24.00000)(66.50000,24.00000)(67.00000,24.00000)
+\qbezier[4](67.00000,24.00000)(67.50000,24.00000)(68.00000,24.00000)
+\qbezier[4](68.00000,24.00000)(68.50000,24.00000)(69.00000,24.00000)
+\qbezier[4](72.00000,24.44322)(72.50000,24.71895)(73.00000,24.99468)
+\qbezier[4](73.00000,24.99468)(73.50000,25.37832)(74.00000,25.76197)
+\qbezier[4](74.00000,25.76197)(74.50000,26.25115)(75.00000,26.74034)
+\qbezier[4](78.00000,30.87539)(78.50000,31.75039)(79.00000,32.62539)
+\qbezier[4](79.00000,32.62539)(79.50000,33.58477)(80.00000,34.54416)
+\qbezier[4](80.00000,34.54416)(80.50000,35.58201)(81.00000,36.61987)
+\qbezier[4](84.00000,43.65634)(84.50000,44.93987)(85.00000,46.22340)
+\qbezier[4](85.00000,46.22340)(85.50000,47.54939)(86.00000,48.87539)
+\qbezier[4](86.00000,48.87539)(86.50000,50.23568)(87.00000,51.59597)
+\qbezier[4](90.00000,60.00000)(90.50000,61.41226)(91.00000,62.82453)
+\qbezier[4](91.00000,62.82453)(91.50000,64.22808)(92.00000,65.63164)
+\qbezier[4](92.00000,65.63164)(92.50000,67.01784)(93.00000,68.40403)
+\qbezier[4](96.00000,76.34366)(96.50000,77.57680)(97.00000,78.80995)
+\qbezier[4](97.00000,78.80995)(97.50000,79.98511)(98.00000,81.16027)
+\qbezier[4](98.00000,81.16027)(98.50000,82.27020)(99.00000,83.38013)
+\qbezier[4](102.00000,89.12461)(102.50000,89.90983)(103.00000,90.69505)
+\qbezier[4](103.00000,90.69505)(103.50000,91.38564)(104.00000,92.07623)
+\qbezier[4](104.00000,92.07623)(104.50000,92.66795)(105.00000,93.25966)
+\qbezier[4](108.00000,95.55678)(108.50000,95.72290)(109.00000,95.88902)
+\qbezier[4](109.00000,95.88902)(109.50000,95.94451)(110.00000,96.00000)
+\qbezier[4](110.00000,96.00000)(110.50000,96.00000)(111.00000,96.00000)
+\qbezier[4](114.00000,96.00000)(114.50000,96.00000)(115.00000,96.00000)
+\qbezier[4](115.00000,96.00000)(115.50000,96.00000)(116.00000,96.00000)
+\qbezier[4](116.00000,96.00000)(116.50000,96.00000)(117.00000,96.00000)
+\qbezier[4](120.00000,96.00000)(120.50000,96.00000)(121.00000,96.00000)
+\qbezier[4](121.00000,96.00000)(121.50000,96.00000)(122.00000,96.00000)
+\qbezier[4](122.00000,96.00000)(122.50000,96.00000)(123.00000,96.00000)
+\qbezier[4](126.00000,96.00000)(126.50000,96.00000)(127.00000,96.00000)
+\qbezier[4](127.00000,96.00000)(127.50000,96.00000)(128.00000,96.00000)
+\qbezier[4](128.00000,96.00000)(128.50000,96.00000)(129.00000,96.00000)
+\qbezier[4](132.00000,96.00000)(132.50000,96.00000)(133.00000,96.00000)
+\qbezier[4](133.00000,96.00000)(133.50000,96.00000)(134.00000,96.00000)
+\qbezier[4](134.00000,96.00000)(134.50000,96.00000)(135.00000,96.00000)
+\qbezier[4](138.00000,96.00000)(138.50000,96.00000)(139.00000,96.00000)
+\qbezier[4](139.00000,96.00000)(139.50000,96.00000)(140.00000,96.00000)
+\qbezier[4](140.00000,96.00000)(140.50000,96.00000)(141.00000,96.00000)
+\qbezier[4](144.00000,96.00000)(144.50000,96.00000)(145.00000,96.00000)
+\qbezier[4](145.00000,96.00000)(145.50000,96.00000)(146.00000,96.00000)
+\qbezier[4](146.00000,96.00000)(146.50000,96.00000)(147.00000,96.00000)
+\qbezier[4](150.00000,96.00000)(150.50000,96.00000)(151.00000,96.00000)
+\qbezier[4](151.00000,96.00000)(151.50000,96.00000)(152.00000,96.00000)
+\qbezier[4](152.00000,96.00000)(152.50000,96.00000)(153.00000,96.00000)
+\qbezier[4](156.00000,96.00000)(156.50000,96.00000)(157.00000,96.00000)
+\qbezier[4](157.00000,96.00000)(157.50000,96.00000)(158.00000,96.00000)
+\qbezier[4](158.00000,96.00000)(158.50000,96.00000)(159.00000,96.00000)
+\qbezier[4](162.00000,96.00000)(162.50000,96.00000)(163.00000,96.00000)
+\qbezier[4](163.00000,96.00000)(163.50000,96.00000)(164.00000,96.00000)
+\qbezier[4](164.00000,96.00000)(164.50000,96.00000)(165.00000,96.00000)
+\qbezier[4](168.00000,96.00000)(168.50000,96.00000)(169.00000,96.00000)
+\qbezier[4](169.00000,96.00000)(169.50000,96.00000)(170.00000,96.00000)
+\qbezier[4](170.00000,96.00000)(170.50000,96.00000)(171.00000,96.00000)
+\qbezier[4](174.00000,96.00000)(174.50000,96.00000)(175.00000,96.00000)
+\qbezier[4](175.00000,96.00000)(175.50000,96.00000)(176.00000,96.00000)
+\qbezier[4](176.00000,96.00000)(176.50000,96.00000)(177.00000,96.00000)
+\qbezier[4](180.00000,96.00000)(180.50000,96.00000)(181.00000,96.00000)
+\qbezier[4](181.00000,96.00000)(181.50000,96.00000)(182.00000,96.00000)
+\qbezier[4](182.00000,96.00000)(182.50000,96.00000)(183.00000,96.00000)
+\qbezier[4](186.00000,96.00000)(186.50000,96.00000)(187.00000,96.00000)
+\qbezier[4](187.00000,96.00000)(187.50000,96.00000)(188.00000,96.00000)
+\qbezier[4](188.00000,96.00000)(188.50000,96.00000)(189.00000,96.00000)
+\qbezier[4](192.00000,96.00000)(192.50000,96.00000)(193.00000,96.00000)
+\qbezier[4](193.00000,96.00000)(193.50000,96.00000)(194.00000,96.00000)
+\qbezier[4](194.00000,96.00000)(194.50000,96.00000)(195.00000,96.00000)
+\qbezier[4](198.00000,96.00000)(198.50000,96.00000)(199.00000,96.00000)
+\qbezier[4](199.00000,96.00000)(199.50000,96.00000)(200.00000,96.00000)
+\qbezier[4](200.00000,96.00000)(200.50000,96.00000)(201.00000,96.00000)
+\qbezier[4](204.00000,96.00000)(204.50000,96.00000)(205.00000,96.00000)
+\qbezier[4](205.00000,96.00000)(205.50000,96.00000)(206.00000,96.00000)
+\qbezier[4](206.00000,96.00000)(206.50000,96.00000)(207.00000,96.00000)
+\qbezier[4](210.00000,96.00000)(210.50000,96.00000)(211.00000,96.00000)
+\qbezier[4](211.00000,96.00000)(211.50000,96.00000)(212.00000,96.00000)
+\qbezier[4](212.00000,96.00000)(212.50000,96.00000)(213.00000,96.00000)
+\qbezier[4](216.00000,96.00000)(216.50000,96.00000)(217.00000,96.00000)
+\qbezier[4](217.00000,96.00000)(217.50000,96.00000)(218.00000,96.00000)
+\qbezier[4](218.00000,96.00000)(218.50000,96.00000)(219.00000,96.00000)
+\qbezier[4](222.00000,96.00000)(222.50000,96.00000)(223.00000,96.00000)
+\qbezier[4](223.00000,96.00000)(223.50000,96.00000)(224.00000,96.00000)
+\qbezier[4](224.00000,96.00000)(224.50000,96.00000)(225.00000,96.00000)
+\qbezier[4](228.00000,96.00000)(228.50000,96.00000)(229.00000,96.00000)
+\qbezier[4](229.00000,96.00000)(229.50000,96.00000)(230.00000,96.00000)
+\qbezier[4](230.00000,96.00000)(230.50000,95.94451)(231.00000,95.88902)
+\qbezier[4](234.00000,94.23803)(234.50000,93.74885)(235.00000,93.25966)
+\qbezier[4](235.00000,93.25966)(235.50000,92.66795)(236.00000,92.07623)
+\qbezier[4](236.00000,92.07623)(236.50000,91.38564)(237.00000,90.69505)
+\qbezier[4](240.00000,85.45584)(240.50000,84.41799)(241.00000,83.38013)
+\qbezier[4](241.00000,83.38013)(241.50000,82.27020)(242.00000,81.16027)
+\qbezier[4](242.00000,81.16027)(242.50000,79.98511)(243.00000,78.80995)
+\qbezier[4](246.00000,71.12461)(246.50000,69.76432)(247.00000,68.40403)
+\qbezier[4](247.00000,68.40403)(247.50000,67.01784)(248.00000,65.63164)
+\qbezier[4](248.00000,65.63164)(248.50000,64.22808)(249.00000,62.82453)
+\qbezier[4](252.00000,54.36836)(252.50000,52.98216)(253.00000,51.59597)
+\qbezier[4](253.00000,51.59597)(253.50000,50.23568)(254.00000,48.87539)
+\qbezier[4](254.00000,48.87539)(254.50000,47.54939)(255.00000,46.22340)
+\qbezier[4](258.00000,38.83973)(258.50000,37.72980)(259.00000,36.61987)
+\qbezier[4](259.00000,36.61987)(259.50000,35.58201)(260.00000,34.54416)
+\qbezier[4](260.00000,34.54416)(260.50000,33.58477)(261.00000,32.62539)
+\qbezier[4](264.00000,27.92377)(264.50000,27.33205)(265.00000,26.74034)
+\qbezier[4](265.00000,26.74034)(265.50000,26.25115)(266.00000,25.76197)
+\qbezier[4](266.00000,25.76197)(266.50000,25.37832)(267.00000,24.99468)
+\qbezier[4](270.00000,24.00000)(270.50000,24.00000)(271.00000,24.00000)
+\qbezier[4](271.00000,24.00000)(271.50000,24.00000)(272.00000,24.00000)
+\qbezier[4](272.00000,24.00000)(272.50000,24.00000)(273.00000,24.00000)
+\qbezier[4](276.00000,24.00000)(276.50000,24.00000)(277.00000,24.00000)
+\qbezier[4](277.00000,24.00000)(277.50000,24.00000)(278.00000,24.00000)
+\qbezier[4](278.00000,24.00000)(278.50000,24.00000)(279.00000,24.00000)
+\qbezier[4](282.00000,24.00000)(282.50000,24.00000)(283.00000,24.00000)
+\qbezier[4](283.00000,24.00000)(283.50000,24.00000)(284.00000,24.00000)
+\qbezier[4](284.00000,24.00000)(284.50000,24.00000)(285.00000,24.00000)
+\qbezier[4](288.00000,24.00000)(288.50000,24.00000)(289.00000,24.00000)
+\qbezier[4](289.00000,24.00000)(289.50000,24.00000)(290.00000,24.00000)
+\qbezier[4](290.00000,24.00000)(290.50000,24.00000)(291.00000,24.00000)
+\qbezier[4](294.00000,24.00000)(294.50000,24.00000)(295.00000,24.00000)
+\qbezier[4](295.00000,24.00000)(295.50000,24.00000)(296.00000,24.00000)
+\qbezier[4](296.00000,24.00000)(296.50000,24.00000)(297.00000,24.00000)
+\qbezier[4](300.00000,24.00000)(300.50000,24.00000)(301.00000,24.00000)
+\qbezier[4](301.00000,24.00000)(301.50000,24.00000)(302.00000,24.00000)
+\qbezier[4](302.00000,24.00000)(302.50000,24.00000)(303.00000,24.00000)
+\qbezier[4](306.00000,24.00000)(306.50000,24.00000)(307.00000,24.00000)
+\qbezier[4](307.00000,24.00000)(307.50000,24.00000)(308.00000,24.00000)
+\qbezier[4](308.00000,24.00000)(308.50000,24.00000)(309.00000,24.00000)
+\linethickness{1.0pt}
+\put(110,24){\line(0,1){72}}
+\put(110,96){\circle*{3}}
+\put(140,24){\line(0,1){108}}
+\put(140,132){\circle*{3}}
+\put(200,24){\line(0,1){108}}
+\put(200,132){\circle*{3}}
+\put(230,24){\line(0,1){72}}
+\put(230,96){\circle*{3}}
+\end{picture}
+\end{center}
+The roll-off is schematic; a real stopband is strongly attenuated rather than
+an ideal brick wall.
+
+\noteheading{Final answer}
+Input lines at $f=\pm15,\pm30\,\mathrm{Hz}$.
+Use a low-pass filter that passes through $30\,\mathrm{Hz}$ and rolls off
+smoothly toward the $50\,\mathrm{Hz}$ Nyquist limit.
+
+\noteheading{Remember}
+Anti-alias filtering happens before sampling. Allow room for a real filter's transition band.
+}
+
+% Q5 exact own October handwritten method, with two explicit arithmetic/reading fixes.
+% Keep +pi phase intercept; gain at23pi is1/8 and sine output amplitude1/2.
+% January Q5(b) own filter-comparison sketch supplies band-stop terminology.
+\SignalQuestion{5}{%
+A linear, time-invariant (LTI) system is defined by the amplitude and phase
+spectra in the figure below. The system input signal is
+\[
+x(t)=3\cos\left(10\pi t+\frac{\pi}{10}\right)+1+4\sin(23\pi t).
+\]
+\begin{center}
+\includegraphics[width=174pt]{assets/2025-10-28_Q05_amplitude-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{assets/2025-10-28_Q05_phase-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=4pt,topsep=3pt]
+\item Decide the output signal $y(t)$.\hfill(2p)
+\item What kind of filter is the system?\hfill(1p)
+\end{enumerate}
+}
+
+\SignalSolution{5}{a}{%
+\textit{Your October handwritten component-by-component method, with corrections labelled.}
+\stepheading{1. Identify the input components}
+Read angular frequency directly; the graph uses rad/s.
+\[
+\begin{aligned}
+\text{DC:}\quad&\omega=0,\\
+\text{Cosine:}\quad&\omega=10\pi\approx31.42,\\
+\text{Sine:}\quad&\omega=23\pi\approx72.26.
+\end{aligned}
+\]
+
+\stepheading{2. Read the amplitude gains}
+From the magnitude graph,
+\[
+|H(0)|=1,\qquad |H(10\pi)|=1,\qquad |H(23\pi)|=\frac18.
+\]
+\textbf{Reading correction:} the low plateau is halfway between $0$ and $1/4$,
+so its gain is $1/8=0.125$. Thus $4\cdot(1/8)=1/2$.
+
+\stepheading{3. Read the phase shifts}
+For the DC term, $\phi(0)=\pi$.
+
+The first straight section runs from $(0,\pi)$ to $(50,0)$.
+Its slope is
+\[
+k=\frac{0-\pi}{50-0}=-\frac{\pi}{50}.
+\]
+\textbf{Phase correction:} keep the vertical intercept $\pi$:
+\[
+\phi(\omega)=\pi-\frac{\pi}{50}\omega.
+\]
+At the cosine frequency,
+\[
+\begin{aligned}
+\phi(10\pi)&=\pi-\frac{\pi}{50}(10\pi)\\
+&=\pi-\frac{\pi^2}{5}.
+\end{aligned}
+\]
+The sine frequency $23\pi\approx72.26$ lies in the flat zero-phase section
+between $50$ and $75$, so $\phi(23\pi)=0$.
+
+\stepheading{4. Write the output components}
+Multiply amplitude by gain. Add the graph's phase to the input phase.
+
+\textbf{DC:} the zero-frequency gain has phase $\pi$:
+\[
+y_{DC}=1\cdot1\cdot\cos\pi=-1.
+\]
+\textbf{Cosine:}
+\[
+\begin{aligned}
+y_{\cos}(t)&=3\cdot1\cdot\cos\left(10\pi t+\frac{\pi}{10}+\phi(10\pi)\right)\\
+&=3\cos\left(10\pi t+\frac{11\pi}{10}-\frac{\pi^2}{5}\right).
+\end{aligned}
+\]
+The combined cosine phase is approximately $1.48183$ rad.
+
+\textbf{Sine:}
+\[
+\begin{aligned}
+y_{\sin}(t)&=4\cdot\frac18\sin(23\pi t+0)\\
+&=\frac12\sin(23\pi t).
+\end{aligned}
+\]
+
+\noteheading{Final answer}
+Combine DC, cosine and sine:
+\[
+\boxed{\begin{aligned}
+y(t)&=-1\\
+&\quad+3\cos\left(10\pi t+\frac{11\pi}{10}-\frac{\pi^2}{5}\right)\\
+&\quad+\frac12\sin(23\pi t).
+\end{aligned}}
+\]
+
+\noteheading{Remember}
+Read gain and phase at each component's own angular frequency.
+Multiply amplitudes; add phases; include the DC term.
+}
+
+\SignalSolution{5}{b}{%
+\textit{Your filter-shape comparison method from the January notes.}
+\stepheading{1. Low frequencies}
+Near $\omega=0$, the magnitude is close to $1$.
+Low frequencies pass.
+
+\stepheading{2. Middle frequencies}
+The magnitude falls well below $1$ over a middle band.
+Those frequencies are attenuated. The low plateau is nonzero, so they are not
+completely removed.
+
+\stepheading{3. High frequencies}
+The magnitude rises back to approximately $1$.
+High frequencies pass again.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{A band-stop (band-reject) filter.}}
+\]
+It passes low and high frequencies while attenuating a middle frequency band.
+
+\noteheading{Remember}
+Low and high pass, middle attenuated $\Rightarrow$ band-stop.
+}
+
+% Q6: same Bayer question as approved 2026-08-18 test.
+% Own handwritten fragment inspected first, unfinished for both parts.
+% Reuse approved typed solution bodies verbatim, with explicit source annotation.
+\SignalQuestion{6}{%
+Digital camera sensors typically capture only one color component
+(red, green, or blue) per pixel using a Bayer filter array like the one shown
+below. To reconstruct a full-color image, the missing color values at each pixel
+are interpolated from neighboring pixels.
+\begin{center}
+\includegraphics[width=0.94\linewidth]{assets/2025-10-28_Q06_bayer-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=4pt,topsep=2pt]
+\item Explain why the demosaicing (debayering) process necessarily involves a
+trade-off between color fidelity and spatial resolution.\hfill(2p)
+\item Describe in general terms how a simple demosaicing algorithm reconstructs
+full RGB values from a Bayer-pattern image. \textit{Hint: refer to how missing
+color values at each pixel are handled.}\hfill(2p)
+\end{enumerate}
+}
+
+\SignalSolution{6}{a}{%
+\textit{Previously approved typed solution; your handwriting for this topic is unfinished.}\par
+\noteheading{What we are doing}
+We explain why reconstructing a full-color image creates a trade-off between
+color fidelity and spatial resolution.
+
+\stepheading{First: Understand the Bayer filter array}
+A normal RGB image has three color values at every pixel:
+\[
+\text{Pixel}=(R,G,B).
+\]
+For example, a pixel might have:
+\[
+(R,G,B)=(200,100,50).
+\]
+Most conventional camera sensors using a Bayer filter array measure only
+\textbf{one color per pixel}: red, green, or blue.
+
+Example: RGGB Bayer pattern.
+\begin{center}
+\setlength{\tabcolsep}{0.5pt}
+\begin{tabular}{cccccc}
+\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}\\[1pt]
+\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}\\[1pt]
+\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}\\[1pt]
+\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}\\[1pt]
+\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorred}{R}&\SensorCell{sensorgreen}{G}\\[1pt]
+\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}&\SensorCell{sensorgreen}{G}&\SensorCell{sensorblue}{B}
+\end{tabular}
+\end{center}
+Each square represents a sensor pixel that measures only the indicated color.
+The pattern contains:
+\begin{itemize}
+\item 50\% green pixels;
+\item 25\% red pixels;
+\item 25\% blue pixels.
+\end{itemize}
+Green is sampled more frequently because it is particularly important for
+perceived image brightness and detail.
+
+\textbf{The problem:} How can we produce a full RGB image if each pixel measures
+only one of the three colors?
+
+The solution is called \textbf{demosaicing} (or debayering).
+Demosaicing estimates the two missing color values at each pixel using
+measurements from neighboring pixels.
+
+\stepheading{Step 1: Understand the two concepts}
+\textbf{Color fidelity} means how accurately the reconstructed image represents
+the true colors of the scene.
+For example, a red object should appear red, without unwanted green or blue
+artifacts.
+
+\textbf{Spatial resolution} means how well an image preserves small details,
+sharp edges, and fine textures.
+For example, the ability to distinguish thin lines or small text.
+
+\stepheading{Step 2: Understand why there is a trade-off}
+Imagine that the camera captures a sharp boundary between a red object and a
+blue object.
+Since each pixel measures only one color, the camera must estimate the missing
+colors using neighboring pixels.
+This creates two possible problems:
+
+\textbf{Option 1: Preserve sharp details.}
+If the algorithm preserves sharp edges and fine textures, its color estimates
+may be inaccurate, producing false colors or colored edge artifacts.
+
+\textbf{Option 2: Prioritize accurate, smooth colors.}
+If the algorithm averages neighboring pixels more strongly to reduce color
+artifacts, it may blur edges and remove fine details.
+
+\stepheading{Step 3: Understand the fundamental limitation}
+Each pixel measures only one color component, so the missing two components
+must be estimated.
+Consequently, we cannot always reconstruct both the exact colors and all the
+original fine details, especially where colors change rapidly.
+The algorithm must balance:
+\[
+\text{Color accuracy}\quad\longleftrightarrow\quad\text{Spatial detail}.
+\]
+
+\noteheading{Final answer for part (a)}
+Demosaicing involves a trade-off because each sensor pixel measures only one
+color component, so the other two must be estimated from neighboring pixels.
+Preserving sharp spatial details may introduce incorrect colors or artifacts,
+while smoothing to improve color fidelity may blur edges and reduce spatial
+resolution.
+}
+
+\SignalSolution{6}{b}{%
+\textit{Previously approved typed solution; your handwriting for this topic is unfinished.}\par
+\noteheading{What we are doing}
+We describe how to reconstruct the missing RGB values from the Bayer pattern.
+
+\stepheading{Step 1: Keep the measured color}
+Each pixel already has one measured color, and we keep that value.
+For example, at a red pixel:
+\[
+R=180.
+\]
+We do not yet know the green and blue values:
+\[
+(R,G,B)=(180,?,?).
+\]
+We must calculate the missing values.
+
+\stepheading{Step 2: Estimate missing colors from neighbors}
+A simple method is called \textbf{bilinear interpolation}.
+Estimate a missing color by averaging nearby pixels that actually measured
+that color.
+Consider this $3\times3$ neighborhood centered on a red pixel:
+\begin{center}
+\setlength{\tabcolsep}{1pt}
+\begin{tabular}{ccc}
+\SensorSample{sensorblue}{B}{70}&\SensorSample{sensorgreen}{G}{100}&\SensorSample{sensorblue}{B}{90}\\[2pt]
+\SensorSample{sensorgreen}{G}{110}&\SensorSample{sensorred}{R}{180}&\SensorSample{sensorgreen}{G}{130}\\[2pt]
+\SensorSample{sensorblue}{B}{80}&\SensorSample{sensorgreen}{G}{120}&\SensorSample{sensorblue}{B}{100}
+\end{tabular}
+\end{center}
+The center pixel is red. These numbers are example measured intensities.
+We want to reconstruct the center pixel's full RGB value.
+
+\stepheading{Step 2a: Red value}
+The red value is already measured:
+\[
+\boxed{R=180}.
+\]
+
+\stepheading{Step 2b: Green value}
+The nearest green pixels are above, below, left, and right of the center pixel.
+Average these four values:
+\[
+\begin{aligned}
+G&=\frac{100+120+110+130}{4}\\
+ &=\frac{460}{4}\\
+ &=115.
+\end{aligned}
+\]
+
+\stepheading{Step 2c: Blue value}
+The nearest blue pixels are at the four diagonal positions.
+Average them:
+\[
+\begin{aligned}
+B&=\frac{70+90+80+100}{4}\\
+ &=\frac{340}{4}\\
+ &=85.
+\end{aligned}
+\]
+
+\stepheading{Step 3: Combine the values}
+We now have all three color components:
+\[
+\boxed{(R,G,B)=(180,115,85)}.
+\]
+The original sensor pixel measured only red, but after demosaicing it has a
+complete RGB representation.
+
+\begin{center}
+\colorbox{reconstructed}{\rule{0pt}{20pt}\hspace{24pt}}
+\end{center}
+Reconstructed pixel: $R=180$, $G=115$, $B=85$.
+This is the resulting color in our example.
+
+\stepheading{Step 4: Repeat for every pixel}
+The same principle is used throughout the image, but the missing components
+depend on the pixel's original color.
+
+\textbf{Red pixel:} Keep $R$.
+Estimate $G$ from horizontal/vertical green neighbors.
+Estimate $B$ from diagonal blue neighbors.
+
+\textbf{Blue pixel:} Keep $B$.
+Estimate $G$ from horizontal/vertical green neighbors.
+Estimate $R$ from diagonal red neighbors.
+
+\textbf{Green pixel:} Keep $G$.
+Estimate $R$ from two neighboring red pixels.
+Estimate $B$ from two neighboring blue pixels, using the appropriate
+horizontal/vertical direction.
+
+At image boundaries, where some neighboring pixels are unavailable, the
+algorithm requires special handling.
+After processing all pixels, we obtain a complete RGB image.
+
+\noteheading{What to remember}
+Demosaicing estimates information that was never measured at each pixel.
+It uses neighboring pixels and assumes nearby colors are usually similar.
+This works reasonably well in smooth image regions, but can create errors
+near sharp edges and fine textures.
+
+\noteheading{Final answer for part (b)}
+A simple demosaicing algorithm uses interpolation to estimate the two missing
+color components at each pixel.
+The measured color is preserved, while the missing colors are calculated by
+averaging neighboring pixels of the corresponding color.
+For example, at a red pixel, green is estimated from the four adjacent green
+pixels and blue from the four diagonal blue pixels.
+Repeat this process across the image to reconstruct full RGB values.
+}
+
+% Q7 own October graph-reading and candidate-comparison method.
+% Preserve the reasoning; correct handwritten ii choice to reference-verified iii.
+% The original magnitude surface has a central minimum and rises outward.
+\SignalQuestion{7}{%
+The figure below shows the magnitude of the frequency response, $|H(u,v)|$,
+of a two-dimensional linear system.
+\begin{center}
+\includegraphics[width=220pt]{assets/2025-10-28_Q07_surface-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=5pt,topsep=3pt]
+\item From the shape of $|H(u,v)|$, describe how the filter treats
+different spatial frequencies.\hfill(2p)
+\item The image below is the input to the filter.
+\begin{center}
+\includegraphics[width=100pt]{assets/2025-10-28_Q07_input-original.png}
+\end{center}
+Which one of the following four candidate output images (i--iv) most likely
+corresponds to the filtered result? Motivate your choice
+\begin{center}
+\includegraphics[width=170pt]{assets/2025-10-28_Q07_result-i-original.png}\hspace{6pt}%
+\includegraphics[width=170pt]{assets/2025-10-28_Q07_result-ii-original.png}\par
+\vspace{4pt}
+\includegraphics[width=170pt]{assets/2025-10-28_Q07_result-iii-original.png}\hspace{6pt}%
+\includegraphics[width=170pt]{assets/2025-10-28_Q07_result-iv-original.png}
+\end{center}
+\hfill(3p)
+\end{enumerate}
+}
+
+\SignalSolution{7}{a}{%
+\textit{Your October handwritten graph-reading method.}
+\stepheading{1. Read the spatial frequencies}
+Low spatial frequencies describe smooth areas and gradual brightness changes.
+High spatial frequencies describe sharp edges and fine details.
+
+\stepheading{2. Read the graph}
+A high surface means high gain; a low surface means low gain.
+
+Near the center, $u=v=0$, the magnitude is small.
+Low spatial frequencies are strongly attenuated.
+
+Farther from the center, the magnitude increases.
+High spatial frequencies are amplified.
+
+\stepheading{3. Effect on an image}
+Smooth image regions are reduced, while sharp edges and fine details are emphasized.
+The rise occurs across directions, so edges in several orientations stand out.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{High-pass / edge-enhancing behavior.}}
+\]
+It suppresses low spatial frequencies and emphasizes high spatial frequencies.
+
+\noteheading{Remember}
+Low center + higher outer response $\Rightarrow$ high-pass behavior.
+}
+
+\SignalSolution{7}{b}{%
+\textit{Your candidate-comparison method; the selected image is corrected below.}
+\stepheading{1. Predict the appearance}
+Low-frequency smooth regions should become weak or dark.
+Edges and fine details should stand out in several orientations.
+
+\stepheading{2. Compare the candidates}
+\textbf{(i):} blurred. This suggests low-pass behavior.
+
+\textbf{(ii):} edge-dominant, but more selective about which edges remain.
+It gives a less complete outline of the clock and digits.
+
+\textbf{(iii):} dark background with outlines in several orientations.
+This best matches the given high-pass response.
+
+\textbf{(iv):} bright image with broad smooth regions still visible.
+This does not match strong low-frequency attenuation.
+
+\textbf{English clarification:} your notes chose (ii).
+The given response rises away from the center across directions, so (iii) is the
+better match. A dark result is expected; compare the retained outlines rather
+than brightness alone.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{Image (iii), most likely.}}
+\]
+It emphasizes edges and fine detail while reducing the smooth background.
+
+\noteheading{Remember}
+Use the response shape to predict both smooth-region suppression and the
+orientations of the remaining edges.
+}
+
+% Q8 own castle notes: histogram -> cumulative -> original-CDF lookup -> new plots.
+% State normalization explicitly; do not call a CDF flat or multiply I by Hprime.
+% This is one unlettered question; a-f are the original figure labels.
+\SignalQuestion{8}{%
+Contrast enhancement aims to improve the visual appearance of an image by modifying
+its intensity distribution. The figure below shows an original image (a) and an
+enhanced version (b). Plots (c--f) show different representations related to these
+two images. Describe what information each of the plots (c--f) conveys and explain,
+using equations where relevant, how they are involved in producing the enhanced
+image (b).\hfill(5p)
+\begin{center}
+\includegraphics[width=174pt]{assets/2025-10-28_Q08_image-a-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{assets/2025-10-28_Q08_image-b-original.png}\par
+\vspace{4pt}
+\includegraphics[width=174pt]{assets/2025-10-28_Q08_hist-c-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{assets/2025-10-28_Q08_hist-d-original.png}\par
+\vspace{4pt}
+\includegraphics[width=174pt]{assets/2025-10-28_Q08_cdf-e-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{assets/2025-10-28_Q08_cdf-f-original.png}
+\end{center}
+}
+
+\SignalSolution{8}{}{%
+We need to explain plots (c--f) and how image (a) becomes image (b).
+
+\stepheading{1. (c) Original histogram $h$}
+This shows how many pixels have each gray value in image (a).
+Dark values are on the left and bright values on the right.
+The values are unevenly distributed: there are many bright pixels and fewer
+dark pixels, giving weaker contrast.
+
+\stepheading{2. (e) Original cumulative histogram $H$}
+Add the histogram counts from black up to each gray value.
+This shows the proportion of pixels at or below that value.
+A steep rise means many pixels lie in that intensity range.
+
+\stepheading{3. Transform the pixel values}
+Use the original cumulative histogram (e) to change each pixel's gray value:
+\[
+s=(L-1)H(r).
+\]
+Here $r$ is the original gray value, $s$ is the new value, and $L$ is the
+number of possible gray levels. $H(r)$ is the cumulative proportion, from $0$ to $1$.
+This redistributes the intensities to improve contrast and produces image (b).
+
+\stepheading{4. (f) Enhanced cumulative histogram $H'$}
+This is the cumulative histogram of image (b).
+A straight rising line is the goal of equalization: gray levels are more evenly
+distributed.
+
+\textbf{Note correction:} the ``constant intensity'' wording in your notes means
+an even distribution of gray levels, not that every pixel has the same intensity.
+
+\stepheading{5. (d) Enhanced histogram $h'$}
+This shows the numbers of pixels at each new gray value.
+The distribution is more balanced, with pixels at both dark and bright values,
+so image (b) has better contrast.
+
+\noteheading{Final answer}
+Use histogram (c) to form cumulative histogram (e), then apply
+$s=(L-1)H(r)$ to the pixels in (a). The result is enhanced image (b),
+with histogram (d) and cumulative histogram (f).
+}
+
+\begin{document}
+\ifdefined\SignalSelectedQuestion
+  \SignalRender{\SignalSelectedQuestion}{\SignalSelectedPart}
+\else
+  \SignalRender{1}{a}\clearpage
+  \SignalRender{1}{b}\clearpage
+  \SignalRender{1}{c}\clearpage
+  \SignalRender{1}{d}\clearpage
+  \SignalRender{1}{e}\clearpage
+  \SignalRender{1}{f}\clearpage
+  \SignalRender{2}{a}\clearpage
+  \SignalRender{2}{b}\clearpage
+  \SignalRender{3}{a}\clearpage
+  \SignalRender{3}{b}\clearpage
+  \SignalRender{3}{c}\clearpage
+  \SignalRender{4}{a}\clearpage
+  \SignalRender{4}{b}\clearpage
+  \SignalRender{4}{c}\clearpage
+  \SignalRender{5}{a}\clearpage
+  \SignalRender{5}{b}\clearpage
+  \SignalRender{6}{a}\clearpage
+  \SignalRender{6}{b}\clearpage
+  \SignalRender{7}{a}\clearpage
+  \SignalRender{7}{b}\clearpage
+  \SignalRender{8}{}
+\fi
+\end{document}

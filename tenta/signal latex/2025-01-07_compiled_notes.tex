@@ -1,0 +1,1157 @@
+% Authoritative notes for 2025-01-07. Completed Uppgift 1 through Uppgift 9.
+% Use the existing subject folders recorded in the question registry; keep all work local.
+% SIGNAL_EXAM {"id":"2025-01-07","pdf":"tenta/signal tenta/2025-01/2025-01 exam.pdf","pdf_sha256":"11996910c22d15f8530401d7aeb7c3ebc5870addc2f0ec6712ed3aab8eb73e31","date_verified":true}
+% SIGNAL_QUESTION {"number":1,"folder_number":1,"subject":"Signal-processing concept definitions","parts":["a","b","c","d","e"],"pdf_page":2,"required_figures":0,"required_question_text":["What does the following signal processing concepts mean? Be clear, concise, and relevant.","Convolution","Transfer function","Impulse response","Sampling","Aliasing","(1p)"]}
+% SIGNAL_PART {"question":1,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","source_sha256":"0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b","content_verified":true,"slug":"convolution","required_solution_text":["Convolution","reversing and shifting","summing","English clarification:","Final answer"],"source_page":2,"source_mark":"0.5/1; formula retained, opening definition corrected","source_label":"Authorized graded reference; convolution formulas checked against course Lecture 4 p20 and Lecture 2 p12","user_authorized":"Continuation of the established graded-reference workflow; user requested same treatment","correction":"Convolution is a shifted multiply-and-sum/integrate operation, not pointwise multiplication in time. Frequency-domain multiplication is retained and distinguished.","supporting_sources":[{"source":"lectures/Lecture 4 - Time-Domain Analysis.pdf","page":20,"sha256":"9ed28834e1453acd86bc1eb804f1fae62f2b4596eeb4014e894f238e6f1346b9"},{"source":"lectures/Lecture 2 - Introduction II.pdf","page":12,"sha256":"ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad"}]}
+% SIGNAL_PART {"question":1,"part":"b","status":"complete","source_kind":"user-approved-typed","source":"lectures/Lecture 5 - Digital Filter Design.pdf","source_sha256":"a9cb0d0d82aaffe3ed6bd224f1a77d7a35df282a5aaf3eec2f9a72636d77f115","content_verified":true,"slug":"transfer_function","required_solution_text":["Transfer function","Starting from rest","output","input","English clarification:","Final answer"],"source_page":17,"source_label":"Course-lecture definition replaces the January graded definition that received zero","user_authorized":"Same established source-checked workflow; course reference used to correct an erroneous graded answer","personal_reference":"tenta/signal tenta/signal calc/5/5 68a.jpg","personal_reference_sha256":"2036b48360aa8ed50cb5e164435d55775101c9e22df06f7dbda64fb919caf8e6","personal_reference_origin":"2026-08-18 Q5(a): Y(f)=X(f)H(f)","correction":"A transfer function is the transformed output/input relation under zero initial conditions; the graded answer describes a Fourier transform instead.","supporting_sources":[{"source":"lectures/Lecture 4 - Time-Domain Analysis.pdf","page":20,"sha256":"9ed28834e1453acd86bc1eb804f1fae62f2b4596eeb4014e894f238e6f1346b9"}]}
+% SIGNAL_PART {"question":1,"part":"c","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2024-10/graded references/7YEQWBVX0000_Grade-D.pdf","source_sha256":"64b276b3e8277758a55f5da5cac161675290bcfa23ed099aeb5d918a25b9b68c","content_verified":true,"slug":"impulse_response","required_solution_text":["Impulse response","Starting from rest","unit impulse","Final answer"],"source_exam_id":"2024-10-29","source_question":1,"source_part":"c","source_page":4,"source_mark":"1/1","source_label":"Previously verified cross-year graded definition; exact existing solution wording reused","user_authorized":"Continuation of the user-approved graded-reference workflow","adaptation":"Same concept definition; only target part placement changes. Avoid the January half-mark short-duration/spreading wording."}
+% SIGNAL_PART {"question":1,"part":"d","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2024-10/graded references/7YEQWBVX0000_Grade-D.pdf","source_sha256":"64b276b3e8277758a55f5da5cac161675290bcfa23ed099aeb5d918a25b9b68c","content_verified":true,"slug":"sampling","required_solution_text":["Sampling","predetermined sampling frequency","regular time intervals","Final answer"],"source_exam_id":"2024-10-29","source_question":1,"source_part":"a","source_page":4,"source_mark":"1/1","source_label":"Previously verified cross-year graded definition; exact existing solution wording reused","user_authorized":"Continuation of the user-approved graded-reference workflow","adaptation":"Same concept definition; only target part placement changes. Avoid the January half-mark short-duration/spreading wording."}
+% SIGNAL_PART {"question":1,"part":"e","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/4/4 61b.jpg","source_sha256":"5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022","content_verified":true,"slug":"aliasing","required_solution_text":["Aliasing","indistinguishable","25","30","5","Final answer"],"source_exam_id":"2026-01-07","source_question":4,"source_part":"b","source_label":"Own handwritten aliasing notes: undersampling, folding limit and 25 Hz -> 5 Hz example at 30 Hz","adaptation":"Preserve the folding example and cause; give a concise concept definition. Do not copy the aside that conflates aliasing with later low-pass filtering.","supporting_sources":[{"source":"lectures/Lecture 2 - Introduction II.pdf","page":22,"sha256":"ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad"}]}
+
+% SIGNAL_QUESTION {"number":2,"folder_number":2,"subject":"Feedback block diagrams: impulse-response classification and difference equation","parts":["a","b"],"pdf_page":2,"required_figures":1,"required_question_text":["A time discrete system is defined as below.","Describe the system based on its impulse response behavior.","Present the system","difference equation.","(1p)","(2p)"],"figure_crops":[{"pdf_page":2,"image_index":0,"box":[400,2350,1550,3040],"asset":"assets/2025-01-07_Q02_block-original.png"}]}
+% SIGNAL_PART {"question":2,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/2/2 68a.jpg","source_sha256":"046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa","source_exam_id":"2026-08-18","source_question":2,"source_part":"a","source_label":"Own handwritten block-diagram notes: input group plus feedback group","adaptation":"Same topology and delay positions 0,1,3 (input),1,3 (feedback). Use target input gains 1,4,2 instead of 1,2,1; feedback +0.4,-0.2 instead of +0.3,-0.1. Preserve grouping and solving order.","content_verified":true,"slug":"iir","required_solution_text":["Look for delays","Look for feedback","previous outputs","Final answer","IIR"],"secondary_reference":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","secondary_reference_page":4}
+% SIGNAL_PART {"question":2,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/2/2 68b.jpg","source_sha256":"a15862f32f2ec45c2e20937d2bdb5fb37d9973d6f5d6e36d0d2f8f42fdad6318","source_exam_id":"2026-08-18","source_question":2,"source_part":"b","source_label":"Own handwritten block-diagram notes: input group plus feedback group","adaptation":"Same topology and delay positions 0,1,3 (input),1,3 (feedback). Use target input gains 1,4,2 instead of 1,2,1; feedback +0.4,-0.2 instead of +0.3,-0.1. Preserve grouping and solving order.","content_verified":true,"slug":"difference_equation","required_solution_text":["Input group","Feedback group","Combine at the output","Collect the output terms","Final answer","0.4","0.2"],"secondary_reference":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","secondary_reference_page":4}
+
+% SIGNAL_QUESTION {"number":3,"folder_number":3,"subject":"Difference equation: impulse response, output samples and magnitude evaluation","parts":["a","b","c"],"pdf_page":3,"required_figures":0,"required_question_text":["Given a discrete-time system described by the difference equation","with the input signal","Identify the type of response that the system produces by the given input","Calculate the first 5 samples of the output","The discrete time fourier transform (DTFT) of","can be found to be","which gives the system","frequency function","Evaluate the amplitude magnification","for frequency","(1p)","(2p)","(3p)"]}
+% SIGNAL_PART {"question":3,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/3 y(n) x(n)/3 68a.jpg","source_sha256":"443843e564a3b608339312aeb56c05420d0bd88ae0f0563f0273ec3ca337bb26","source_exam_id":"2026-08-18","source_question":3,"source_part":"a","content_verified":true,"slug":"impulse_response","required_solution_text":["Unit impulse input","Previous outputs","Final answer","impulse response","IIR"],"source_label":"Own handwritten unit-impulse -> impulse-response classification","adaptation":"Same impulse-input family; target recurrence uses feedback +1,+1 instead of -0.5,+0.5. Preserve response/feedback reasoning."}
+% SIGNAL_PART {"question":3,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/3 y(n) x(n)/3 68b.jpg","source_sha256":"0b1d40d23c93d1cd0aaf85417143d9ac7d7c139fbbde7400a280c582dfa50a2b","source_exam_id":"2026-08-18","source_question":3,"source_part":"b","content_verified":true,"slug":"output_samples","required_solution_text":["Assume initial rest","Write the input values","Calculate the samples","Final answer","1,1,2,3,5"],"source_label":"Own handwritten initial-rest -> input values -> successive output samples method","adaptation":"Target input is delta(n), not 0.1^n cos(n). Target feedback +1,+1 and five samples, not source -0.5,+0.5 and three samples. No source output numbers are reused."}
+% SIGNAL_PART {"question":3,"part":"c","status":"complete","source_kind":"user-approved-typed","source":"tenta/signal tenta/signal calc/3 y(n) x(n)/3 68c.jpg","source_sha256":"a63a22be09ef0f2470ba29de2ad64f819f42fc899efeba2959b067bf62975144","source_exam_id":"2026-08-18","source_question":3,"source_part":"c","content_verified":true,"slug":"amplitude_magnification","required_solution_text":["Take the magnitude","Evaluate the exponentials","Find the denominator magnitude","Final answer","0.4472","English clarification:","DTFT does not converge"],"source_label":"Existing mixed reference: handwritten formula only, completed typed magnitude-first method","user_authorized":"Continuation of the same user-requested workflow with existing notes prioritized and typed-reference origin identified","adaptation":"Use the target supplied denominator 1-e^(-jOmega)-e^(-2jOmega), evaluate only Omega=pi/2. Do not copy the source coefficients 0.5/0.8 or its whole-curve values.","handwriting_status":"Raw personal note starts the formula but contains no completed evaluation.","mathematical_issue":"For the initial-rest causal response in part b, impulse response grows; ordinary DTFT does not converge. Treat supplied H as a formal algebraic expression and label this caveat."}
+
+% SIGNAL_QUESTION {"number":4,"folder_number":4,"subject":"Sampled spectrum extension, symmetry and minimum sampling frequency","parts":["a","b"],"pdf_page":3,"required_figures":1,"required_question_text":["A signal","have been sampled using","100 kHz.","The amplitude spectrum of the sampled signal is shown in the figure below for a limited normalized frequency range.","Sketch the amplitude spectrum for an extended normalized frequency range by extending axis to","What is the lowest sampling frequency in Hz that the signal","could be sampled in while still being possible to be reconstructed exactly? Motivate.","(2p)","(3p)"],"figure_crops":[{"pdf_page":3,"image_index":0,"box":[880,1670,1590,2285],"asset":"assets/2025-01-07_Q04_spectrum-original.png"}]}
+% SIGNAL_PART {"question":4,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg","source_sha256":"b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76","source_exam_id":"2026-08-18","source_question":4,"source_part":"a","source_label":"Own handwritten mirror/repeat and normalized-frequency -> Hz -> Nyquist method","adaptation":"Direct match: same spectrum shape, cutoff 3pi/4 and sampling rate 100 kHz. Preserve own steps and results 37500 Hz signal limit, 75000 Hz minimum sampling rate. Reuse established October solution wording with the target 100 kHz values.","content_verified":true,"slug":"spectrum_extension","required_solution_text":["Mirror around zero","Repeat every","Final answer","same shape"],"secondary_reference":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","secondary_reference_page":6,"secondary_reference_issue":"Graded b computes 37.5 kHz signal limit but does not carry out the final doubling. Use the complete own-note method, giving 75 kHz."}
+% SIGNAL_PART {"question":4,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg","source_sha256":"b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76","source_exam_id":"2026-08-18","source_question":4,"source_part":"b","source_label":"Own handwritten mirror/repeat and normalized-frequency -> Hz -> Nyquist method","adaptation":"Direct match: same spectrum shape, cutoff 3pi/4 and sampling rate 100 kHz. Preserve own steps and results 37500 Hz signal limit, 75000 Hz minimum sampling rate. Reuse established October solution wording with the target 100 kHz values.","content_verified":true,"slug":"minimum_sampling","required_solution_text":["Read the highest normalized frequency","Convert to Hz","Apply the sampling theorem","100,000","37,500","75,000","Final answer"],"secondary_reference":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","secondary_reference_page":6,"secondary_reference_issue":"Graded b computes 37.5 kHz signal limit but does not carry out the final doubling. Use the complete own-note method, giving 75 kHz."}
+
+% SIGNAL_QUESTION {"number":5,"folder_number":5,"subject":"LTI input/output amplitude and phase spectra","parts":["a","b"],"pdf_page":4,"required_figures":4,"required_question_text":["An LTI system","is defined by its amplification and phase-shift below. A signal","is fed to the system, giving the output","Give the mathematical relation between amplitudes and phases of the input and the output.","Draw the amplitude spectrum and phase spectrum for the output","(2p)","(4p)"],"figure_crops":[{"pdf_page":4,"image_index":0,"box":[530,680,1060,1060],"asset":"assets/2025-01-07_Q05_input-amplitude-original.png"},{"pdf_page":4,"image_index":0,"box":[1250,680,1760,1060],"asset":"assets/2025-01-07_Q05_input-phase-original.png"},{"pdf_page":4,"image_index":0,"box":[530,1075,1060,1500],"asset":"assets/2025-01-07_Q05_system-amplitude-original.png"},{"pdf_page":4,"image_index":0,"box":[1250,1075,1760,1500],"asset":"assets/2025-01-07_Q05_system-phase-original.png"}]}
+% SIGNAL_PART {"question":5,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/5 dc, cos, sin/5 68a.jpg","source_sha256":"2036b48360aa8ed50cb5e164435d55775101c9e22df06f7dbda64fb919caf8e6","source_exam_id":"2026-08-18","source_question":5,"source_part":"a","source_label":"Own handwritten amplitude multiplication, phase addition and key-frequency sketch method","adaptation":"Direct match to the target graphs: X=(4,4,3,0), H=(10,10,5,5) at f=(0,10,20,30), Y=(40,40,15,0). Preserve own method; draw the exact quadratic segment on 10<f<20 and correct the missing negative sign in the handwritten phase example. Phase at f=0 is defined, unlike the October variant.","content_verified":true,"slug":"lti_amplitude_phase","required_solution_text":["Multiply amplitudes","Add phases","Final answer","Frequency stays the same"],"secondary_reference":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","secondary_reference_page":7,"secondary_reference_issue":"Part a formulas agree; part b misreads graph segments and proposes an incorrect piecewise expression. Do not copy it."}
+% SIGNAL_PART {"question":5,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/5 dc, cos, sin/5 68b.jpg","source_sha256":"4aaf8144974f87c773a5c7c1fcc0182c48f833d7e07cdc43b962b29a8b74433d","source_exam_id":"2026-08-18","source_question":5,"source_part":"b","source_label":"Own handwritten amplitude multiplication, phase addition and key-frequency sketch method","adaptation":"Direct match to the target graphs: X=(4,4,3,0), H=(10,10,5,5) at f=(0,10,20,30), Y=(40,40,15,0). Preserve own method; draw the exact quadratic segment on 10<f<20 and correct the missing negative sign in the handwritten phase example. Phase at f=0 is defined, unlike the October variant.","content_verified":true,"slug":"output_spectra","required_solution_text":["Calculate the key values","Draw the amplitude spectrum","Add the phase graphs","26.25","English clarification:","undefined","Final answer"],"secondary_reference":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","secondary_reference_page":7,"secondary_reference_issue":"Part a formulas agree; part b misreads graph segments and proposes an incorrect piecewise expression. Do not copy it."}
+
+% SIGNAL_QUESTION {"number":6,"folder_number":6,"subject":"Window functions: frequency separation and spectral leakage","parts":["a","b"],"pdf_page":4,"required_figures":4,"required_question_text":["The plots below show the frequency spectra (i to iv) of different window functions with varying window lengths employed in spectrogram analysis.","Based on the frequency spectra, which window function achieves the best frequency separation? Justify your selection.","Which window function best minimizes spectral leakage (where unwanted frequency components appear away from the main frequency)? Motivate.","(2p)"],"figure_crops":[{"pdf_page":4,"image_index":0,"box":[560,2140,1180,2680],"asset":"assets/2025-01-07_Q06_window-i-original.png"},{"pdf_page":4,"image_index":0,"box":[1215,2140,1835,2680],"asset":"assets/2025-01-07_Q06_window-ii-original.png"},{"pdf_page":4,"image_index":0,"box":[560,2675,1180,3225],"asset":"assets/2025-01-07_Q06_window-iii-original.png"},{"pdf_page":4,"image_index":0,"box":[1215,2675,1835,3225],"asset":"assets/2025-01-07_Q06_window-iv-original.png"}]}
+% SIGNAL_PART {"question":6,"part":"a","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","source_sha256":"0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b","source_page":9,"source_mark":"2/2","source_label":"Previously authorized graded-reference fallback; own handwriting for this topic is unfinished","user_authorized":"Continuation of the same user-requested and previously approved graded-reference workflow","personal_handwriting":"tenta/signal tenta/2025-08/6 58.png","personal_handwriting_status":"Unfinished 2025-08-20 time-resolution reminder; no completed answer","personal_typed_reference":"tenta/signal tenta/signal calc/6 long theory rgb/6 58a.jpg","personal_typed_reference_sha256":"6d89c5c5ed51941852a7641e1286b7bec7d2bd9b6b1bc09f318f508ddefb5088","adaptation":"Same frequency-separation/leakage variant and plot choices as 2024-10 Q6; reuse established wording. August 2025 personal notes ask time resolution in a, so do not copy their a=iv into this target.","content_verified":true,"slug":"frequency_separation","required_solution_text":["Compare the main lobes","Window (iii)","narrowest main lobe","Final answer","frequency separation"]}
+% SIGNAL_PART {"question":6,"part":"b","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","source_sha256":"0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b","source_page":9,"source_mark":"2/2","source_label":"Previously authorized graded-reference fallback; own handwriting for this topic is unfinished","user_authorized":"Continuation of the same user-requested and previously approved graded-reference workflow","personal_handwriting":"tenta/signal tenta/2025-08/6 58.png","personal_handwriting_status":"Unfinished 2025-08-20 time-resolution reminder; no completed answer","personal_typed_reference":"tenta/signal tenta/signal calc/6 long theory rgb/6 58b.jpg","personal_typed_reference_sha256":"4055aac0afe0cee473120f6eb09e7c7446a8b2cbfcfc5ca6fae6ea56aa223f3f","adaptation":"Same frequency-separation/leakage variant and plot choices as 2024-10 Q6; reuse established wording. August 2025 personal notes ask time resolution in a, so do not copy their a=iv into this target.","content_verified":true,"slug":"spectral_leakage","required_solution_text":["Compare the side lobes","Window (iv)","smallest visible side lobes","Final answer","spectral leakage"]}
+
+% Source audit: the January graded Q1 scored 2/5: a,c,d,e each 0.5, b zero.
+% Its cover verifies date 2025-01-07 and grade C; local PDF bytes match the ZIP.
+% (a) keeps the correct convolution formulas, but corrects the multiplication
+% definition using course Lecture 4 p20 / Lecture 2 p12; correction is labelled.
+% (b) preserves the own-note idea Y=XH, using the precise H(s)/H(z) transfer
+% definition from Lecture 4 p20 / Lecture 5 p17. The January definition describes
+% the Fourier transform and is rejected explicitly; correction is labelled.
+% (c)/(d) reuse the previously verified 2024 impulse-response/sampling
+% definition wording; provenance labels identify the cross-year origin. The January short-duration/spreading wording
+% is not copied; an IIR impulse response need not be short.
+% (e) prioritizes own handwritten 2026-01 Q4(b) undersampling/folding method and
+% example 25 Hz -> 5 Hz at fs=30 Hz. Course Lecture 2 p22 confirms the concept.
+% An incorrect own-note aside about the later low-pass filter is not generalized.
+% Concept answers stay compact; all five original parts appear above every one.
+\providecommand{\SignalSupportPath}{}
+\input{\SignalSupportPath signal_layout.tex}
+\newcommand{\SignalExamID}{2025-01-07}
+
+
+% SIGNAL_QUESTION {"number":7,"folder_number":7,"subject":"2D spatial-frequency response: low-pass smoothing","unlettered":true,"parts":[""],"pdf_page":5,"required_figures":1,"required_question_text":["A two-dimensional linear system can partially be described by the figure below. Based on the information in the figure, describe the system","frequency selective properties.","(3p)"],"figure_crops":[{"pdf_page":5,"image_index":0,"box":[850,510,1780,1345],"asset":"assets/2025-01-07_Q07_surface-original.png"}]}
+% SIGNAL_PART {"question":7,"part":"","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2025-10/7 510-1.jpg","source_sha256":"233ba73587c855b315cb4ec9521afd6c0e6d0cb177e87a7801368cc939376452","source_exam_id":"2025-10-28","source_question":7,"source_label":"Own handwritten response-surface reading method, adapted to the target low-pass graph","content_verified":true,"slug":"low_pass_smoothing","required_solution_text":["Read the spatial frequencies","Read the graph","Effect on an image","Final answer","Low-pass filter","smoothing","blurring"],"adaptation":"Keep spatial-frequency meaning, surface height/gain, center-versus-outside and image-effect order. Own October main answer is high-pass; January surface has the opposite shape. Own page 3 explicitly sketches the matching central hill as low pass and labels blurred as low-pass behavior. No unrelated October image choices or band-pass label copied.","supporting_sources":[{"source":"tenta/signal tenta/2025-10/7 510.jpg","sha256":"300b90e6ed3d6d4b55a1c8111c6deae60022778a05eab2abea0424efaf8a63a4","source_label":"Own page 1: low = smooth/gradual, high = edges/fine details"},{"source":"tenta/signal tenta/2025-10/7 510-2.jpg","sha256":"6c0153933628275b363ef4c84179c913696cf21973f48eb379a8cfb333470b7b","source_label":"Own page 3: central-hill low-pass sketch and blurred low-pass behavior"}],"verification_reference":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","verification_reference_sha256":"0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b","verification_reference_page":10,"verification_reference_mark":"3/3","verification_reference_role":"Verification only; own handwritten method has priority","personal_folder_reference":"tenta/signal tenta/signal calc/7 kernels/7 68.jpg","personal_folder_reference_status":"Related averaging/sharpening notes; own raw October response-surface notes are the closer match.","scope_limit":"The magnitude plot supports low-pass classification and smoothing, not an exact Gaussian formula, kernel, cutoff or phase."}
+
+
+% SIGNAL_QUESTION {"number":8,"folder_number":7,"subject":"Image-filter kernel interpretation and matching","unlettered":true,"parts":[""],"pdf_page":5,"required_figures":6,"required_question_text":["The closeup image below has been filtered with 4 different filters.","Match the following kernels (1","5) with the corresponding filtered results (i","v). Justify your choices by explaining how the filter kernels affect the image.","(5p)"],"figure_crops":[{"pdf_page":5,"image_index":0,"box":[395,1960,735,2280],"asset":"assets/2025-01-07_Q08_input-original.png"},{"pdf_page":5,"image_index":0,"box":[330,2765,675,3140],"asset":"assets/2025-01-07_Q08_result-i-original.png"},{"pdf_page":5,"image_index":0,"box":[695,2765,1035,3140],"asset":"assets/2025-01-07_Q08_result-ii-original.png"},{"pdf_page":5,"image_index":0,"box":[1055,2765,1400,3140],"asset":"assets/2025-01-07_Q08_result-iii-original.png"},{"pdf_page":5,"image_index":0,"box":[1415,2765,1760,3140],"asset":"assets/2025-01-07_Q08_result-iv-original.png"},{"pdf_page":5,"image_index":0,"box":[1780,2765,2125,3140],"asset":"assets/2025-01-07_Q08_result-v-original.png"}],"original_wording_issue":"Original says four filters, but displays five kernels/results; preserve wording and answer all five."}
+% SIGNAL_PART {"question":8,"part":"","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/signal calc/7 kernels/7 68.jpg","source_sha256":"64a3ba141bf30b3c34ad0684ed29a0f9faaad9661f109817e476acdd96738ab0","source_exam_id":"2026-08-18","source_question":7,"source_label":"Own handwritten pattern/coefficient-sum method, adapted to January kernel values and different result images","content_verified":true,"slug":"kernel_matching","required_solution_text":["Only the center pixel","Average the neighbors","Find vertical edges","Find horizontal edges","Sharpen the image","English clarification:","January change:","Final answer","iv","ii","iii"],"adaptation":"Preserve own center-only, averaging, vertical edges, remaining edge kernel, sharpening order. Kernel 1 center changes from 0.5 to 2, so brightening replaces dimming. January kernel 3 is top-bottom difference (horizontal edges), not the August Laplacian. Kernel 4 and 5 same weights, kernel 2 same left-right difference. Target results are new beard pictures: 1->iv,2->v,3->ii,4->i,5->iii. Correct own averaging block label 2 to target 4 explicitly; constant regions cancel for zero-sum kernels, not the whole picture.","supporting_sources":[{"source":"tenta/signal tenta/2026-08/7 68.jpg","sha256":"b22706068d40cea20ec1eb4242ec79c2dc76f0921ab8fb1265eae787392becbc"},{"source":"tenta/signal tenta/2026-08/7 68-2.jpg","sha256":"eaa489963efc8d6da58642256e7b74cb5a5168f10dcd26281747be970657071d"},{"source":"tenta/signal tenta/2026-08/7 68-3.jpg","sha256":"6096f62d4cadefc5354afb832a2121ebfe575c18612f0f6aa90ca62389d9c90a"}],"verification_reference":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","verification_reference_sha256":"0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b","verification_reference_page":11,"verification_reference_mark":"5/5","verification_reference_role":"Verification of January matches and horizontal-edge adaptation; own note method takes priority."}
+
+
+% SIGNAL_QUESTION {"number":9,"folder_number":7,"subject":"2D image-filter kernel / point spread function recovery","unlettered":true,"parts":[""],"pdf_page":6,"required_figures":2,"required_question_text":["Given the two matrices representing the input","and output","of a linear 2D filter: describe the","point spread function (PSF) or kernel","that transforms","Assume boundary conditions are zero, meaning pixels outside the matrix boundaries of","are zero.","(6p)"],"figure_crops":[{"pdf_page":6,"image_index":0,"box":[370,650,1110,1250],"asset":"assets/2025-01-07_Q09_input-matrix-original.png"},{"pdf_page":6,"image_index":0,"box":[1270,650,2020,1250],"asset":"assets/2025-01-07_Q09_output-matrix-original.png"}]}
+% SIGNAL_PART {"question":9,"part":"","status":"complete","source_kind":"handwritten","source":"tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf","source_sha256":"0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b","source_page":12,"source_mark":"6/6","source_label":"Previously authorized graded-reference fallback; January handwritten reference, not personal handwriting","user_authorized":"Continuation of the established reference fallback when suitable own handwritten solutions are missing","personal_reference":"tenta/signal tenta/signal calc/7 kernels/7 68.jpg","personal_reference_sha256":"64a3ba141bf30b3c34ad0684ed29a0f9faaad9661f109817e476acdd96738ab0","personal_reference_status":"Own kernel-pattern and coefficient-sum notes inspected first; no matching personal handwritten PSF-recovery derivation found.","content_verified":true,"slug":"psf_recovery","required_solution_text":["Read one scaled impulse response","Find the center and direct neighbors","Remove the overlapping contributions","Check an overlapping output","Final answer","112","224","64","58","cross-shaped averaging"],"reused_solution":"tenta/signal latex/2024-10-29_compiled_notes.tex, Q9, exact solution wording and calculations retained.","adaptation":"January input/output matrices equal October 2024 Q9 cell-for-cell. Reuse verified impulse-superposition method and explicit overlap subtraction; January graded p12 confirms final kernel 6/6. Original January matrix crops and full question retained.","independent_verification":"All 36 output equations solved exactly, rank 9 and unique 3x3 kernel; every shown output reproduced."}
+
+\SignalQuestion{1}{%
+\textbf{1.} What does the following signal processing concepts mean?
+Be clear, concise, and relevant.
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=2pt,topsep=3pt]
+\item Convolution\hfill(1p)
+\item Transfer function\hfill(1p)
+\item Impulse response\hfill(1p)
+\item Sampling\hfill(1p)
+\item Aliasing\hfill(1p)
+\end{enumerate}
+}
+
+\SignalSolution{1}{a}{%
+\textit{Graded formula retained; definition checked against the course lectures.}
+\stepheading{Convolution}
+For an LTI system, convolve the input with the impulse response to find the output:
+\[
+\begin{aligned}
+y[n]&=(x*h)[n]\\
+&=\sum_{k=-\infty}^{\infty}x[k]h[n-k].
+\end{aligned}
+\]
+\textbf{English clarification:} Reverse one signal, shift it, multiply the overlapping
+values, then sum.
+In the frequency domain it becomes multiplication:
+\[
+Y(f)=X(f)H(f).
+\]
+\noteheading{Final answer}
+Convolution combines two signals by reversing and shifting one, multiplying overlapping values,
+and summing them (or integrating in continuous time).
+\noteheading{Remember}
+Time domain: convolve. Frequency domain: multiply.
+}
+
+\SignalSolution{1}{b}{%
+\textit{Your input-output relation, checked against the course definition.}
+\stepheading{Transfer function}
+A transfer function describes an LTI system's input-output relation in the transform domain.
+Starting from rest:
+\[
+\begin{aligned}
+H(s)&=\frac{Y(s)}{X(s)}\quad\text{(continuous time)},\\
+H(z)&=\frac{Y(z)}{X(z)}\quad\text{(discrete time)}.
+\end{aligned}
+\]
+It is the Laplace or Z-transform of the impulse response.
+\par
+\textbf{English clarification:} The January graded definition describes a Fourier
+transform. Here we need the system's transformed output/input ratio.
+\noteheading{Final answer}
+The transfer function is the ratio of transformed output to transformed input,
+with zero initial conditions.
+\noteheading{Remember}
+$Y=HX$: input multiplied by the system gives the output.
+}
+
+\SignalSolution{1}{c}{%
+\textit{Cross-year graded reference: 2024-10, 1/1 point.}\par
+\stepheading{Impulse response}
+The impulse response is a system's response, or output, to an impulse input.
+\par
+\textbf{English clarification:} Starting from rest, a unit impulse at the input
+gives the impulse response at the output:
+\[
+\begin{aligned}
+x[n]&=\delta[n],\\
+y[n]&=h[n].
+\end{aligned}
+\]
+\noteheading{Final answer}
+The impulse response $h[n]$ is the output produced by a unit impulse input.
+\noteheading{Remember}
+Unit impulse in; impulse response out.
+}
+
+\SignalSolution{1}{d}{%
+\textit{Cross-year graded reference: 2024-10, 1/1 point.}\par
+\stepheading{Sampling}
+Turn a continuous signal into a discrete signal by taking sample points at a
+predetermined sampling frequency:
+\[
+S(t)\longrightarrow S(n).
+\]
+\noteheading{Final answer}
+Sampling converts a continuous-time signal into a discrete-time signal by
+taking measurements at regular time intervals.
+\noteheading{Remember}
+Sampling makes the time axis discrete.
+}
+
+
+\SignalSolution{1}{e}{%
+\textit{Your 2026-01 handwritten folding example; definition checked against Lecture 2.}
+\stepheading{Aliasing}
+When the sampling rate is too low, different continuous-time frequencies become
+indistinguishable in the samples. A higher frequency can appear as a lower frequency.
+
+Example from your notes: a $25\,\mathrm{Hz}$ component sampled at $30\,\mathrm{Hz}$ folds to
+\[
+f_{\mathrm{alias}}=|25-30|=5\,\mathrm{Hz}.
+\]
+\noteheading{Final answer}
+Aliasing is frequency confusion caused by overlapping spectral copies during
+sampling, so the original signal cannot be recovered uniquely.
+\noteheading{Remember}
+Sampling too slowly can make a high frequency look lower.
+}
+
+
+% Q2 primary sources: own 2026-08-18 Q2(a)/(b) handwritten notes in signal calc/2.
+% Match by actual block topology. Preserve the established sequence/wording:
+% delays -> feedback -> IIR; input group -> feedback group -> combine -> collect.
+% Target gains: input 1,4,2 at delays 0,1,3; feedback +0.4,-0.2 at delays 1,3.
+% No branch is tapped after the second delay, so no delay-2 term is introduced.
+% Secondary check: January graded PDF F6PACQ9N0000_Grade-C.pdf, PDF page 4,
+% whose written recursive equation agrees with the target gains and delay indices.
+% The answer page shows marks 1+2, whereas the earlier cover transcription looked
+% different; no grade-based inference is used for the mathematics or provenance.
+% Algebra check: A(D)=1-(2/5)D+(1/5)D^3, B(D)=1+4D+2D^3.
+% Both have degree 3 and are not proportional, so B/A cannot be a finite polynomial.
+% This verifies the IIR classification without assuming feedback always implies IIR.
+% The own-note aside about prior exams always being IIR is not generalized.
+\SignalQuestion{2}{%
+A time discrete system is defined as below.
+\begin{center}
+\includegraphics[width=0.96\linewidth]{2025-01-07_Q02_block-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=4pt,topsep=3pt]
+\item Describe the system based on its impulse response behavior.\hfill(1p)
+\item Present the system's difference equation.\hfill(2p)
+\end{enumerate}
+}
+
+\SignalSolution{2}{a}{%
+\textit{Adapted from your 2026-08-18 block-diagram notes.}\par
+\stepheading{1. Look for delays}
+Each $T$ delays the signal by one sample.
+
+\stepheading{2. Look for feedback}
+Start at $y(n)$ and follow the arrows going back to the sums.
+The output depends on previous outputs, so there is feedback.
+
+\stepheading{3. Decide FIR or IIR}
+\textbf{FIR:} finite impulse response.\par
+\textbf{IIR:} infinite impulse response.\par
+Here the output feeds back into the system through delayed branches.
+The impulse response can continue after the input impulse has ended.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{The system is IIR.}}
+\]
+
+\noteheading{Remember}
+Follow the return arrows from the output when checking for feedback.
+}
+
+
+\SignalSolution{2}{b}{%
+\textit{Your method: input group + feedback group, then combine.}\par
+\noteheading{Read the blocks}
+Each $T$ adds one sample of delay.
+Multiply each branch by its gain, then add the terms entering the sums.
+
+\stepheading{1. Input group}
+Follow the branches starting at $x(n)$:
+\[
+\begin{aligned}
+\text{No delay:}\quad &1\cdot x(n)=x(n),\\
+\text{One delay:}\quad &4x(n-1),\\
+\text{Three delays:}\quad &2x(n-3).
+\end{aligned}
+\]
+There is no branch into a sum after the second $T$, so there is no $x(n-2)$ term.
+Add the input terms:
+\[
+\begin{aligned}
+\text{Input group}&=x(n)+4x(n-1)\\
+                &\quad+2x(n-3).
+\end{aligned}
+\]
+
+\stepheading{2. Feedback group}
+Now start at $y(n)$ and follow the return branches.
+Use this exam's gains, $+0.4$ and $-0.2$:
+\[
+\begin{aligned}
+\text{One delay:}\quad &+0.4y(n-1),\\
+\text{Three delays:}\quad &-0.2y(n-3).
+\end{aligned}
+\]
+The second delay has no branch into the sum, so there is no $y(n-2)$ term.
+Add the feedback terms:
+\[
+\text{Feedback group}=0.4y(n-1)-0.2y(n-3).
+\]
+
+\stepheading{3. Combine at the output}
+The final $+$ adds your two groups:
+\[
+y(n)=\text{Input group}+\text{Feedback group}.
+\]
+Substitute the grouped terms:
+\[
+\begin{aligned}
+y(n)&=x(n)+4x(n-1)\\
+    &\quad+2x(n-3)\\
+    &\quad+0.4y(n-1)-0.2y(n-3).
+\end{aligned}
+\]
+
+\stepheading{4. Collect the output terms}
+Move the feedback terms to the left.
+Their signs change.
+
+\noteheading{Final answer}
+\[
+\boxed{\begin{aligned}
+&y(n)-0.4y(n-1)+0.2y(n-3)\\
+&\quad=x(n)+4x(n-1)+2x(n-3).
+\end{aligned}}
+\]
+
+\noteheading{Remember}
+Count delays to each tapped branch, keep the gain signs, then combine the groups.
+}
+
+
+% Q3 source priority: own 2026-08-18 Q3 notes in signal calc/3 inspected first.
+% (a) Keep the unit-impulse -> impulse response -> previous-output feedback logic.
+% (b) Keep initial rest, then calculate input values, then y(0),y(1),... in order.
+% Adapt target feedback to +1,+1, input to delta(n), sample count to five.
+% Do not copy the source 0.1^n cos(n) input, -0.5/+0.5 coefficients or numbers.
+% (c) Own handwriting only starts a different H formula. The existing completed
+% typed reference supplies the magnitude-first method; it is not called handwriting.
+% Use the target expression, not the source 0.5/0.8 coefficient curve.
+% January graded reference p5 confirms (a), but (b) is unevaluated and includes
+% expansion errors; part (c) is absent. It is not used as the solving method.
+% MATHEMATICAL ISSUE: with initial rest, h(n) begins 1,1,2,3,5 and grows.
+% Causal transfer poles solve z^2-z-1=0; the positive pole is (1+sqrt(5))/2>1.
+% Its causal ROC excludes the unit circle and h(n) does not tend to zero, so
+% the ordinary DTFT asserted in the question does not converge for that response.
+% Evaluate the provided H expression formally as requested, with a labelled note.
+% At Omega=pi/2: e^(-jOmega)=-j, e^(-2jOmega)=-1, denominator=2+j;
+% H=(2-j)/5 and |H|=1/sqrt(5). No stable steady-state gain is claimed.
+\SignalQuestion{3}{%
+Given a discrete-time system described by the difference equation
+\[
+y(n)=x(n)+y(n-1)+y(n-2)
+\]
+with the input signal
+\[
+x(n)=\delta(n)
+\]
+\begin{enumerate}[label=\alph*),leftmargin=15pt,itemsep=4pt,topsep=3pt]
+\item Identify the type of response that the system produces by the given input
+$x(n)$.\hfill(1p)
+\item Calculate the first 5 samples of the output $y(0),y(1),\ldots,y(4)$.\hfill(2p)
+\item The discrete time fourier transform (DTFT) of $y(n)$ can be found to be
+\[
+\begin{aligned}
+Y(e^{j\Omega})&=X(e^{j\Omega})\\
+&\quad+e^{-j\Omega}Y(e^{j\Omega})\\
+&\quad+e^{-2j\Omega}Y(e^{j\Omega}),
+\end{aligned}
+\]
+which gives the system's frequency function
+\[
+\begin{aligned}
+H(e^{j\Omega})&=\frac{Y(e^{j\Omega})}{X(e^{j\Omega})}\\
+&=\frac{1}{1-e^{-j\Omega}-e^{-2j\Omega}}\\
+&=\frac{e^{2j\Omega}}{e^{2j\Omega}-e^{j\Omega}-1}.
+\end{aligned}
+\]
+Evaluate the amplitude magnification $|H(e^{j\Omega})|$ for frequency
+$\Omega=\frac{\pi}{2}$.\hfill(3p)
+\end{enumerate}
+}
+
+\SignalSolution{3}{a}{%
+\textit{Your unit-impulse explanation, adapted to this recurrence.}
+
+\stepheading{1. Unit impulse input}
+The input is $1$ at $n=0$ and $0$ otherwise:
+\[
+x(n)=\delta(n).
+\]
+Starting from rest, a unit impulse at the input gives the system's impulse response:
+\[
+y(n)=h(n).
+\]
+
+\stepheading{2. Previous outputs are used}
+The terms $y(n-1)$ and $y(n-2)$ feed previous outputs back into the calculation.
+The response continues after the input impulse has ended.
+
+\noteheading{Final answer}
+The output is the system's \textbf{impulse response} $h(n)$.
+This system has an \textbf{infinite impulse response (IIR)}.
+
+\noteheading{Remember}
+Unit impulse in $\Rightarrow$ impulse response out.
+}
+
+\SignalSolution{3}{b}{%
+\textit{Your method: initial rest, input values, then one output at a time.}
+
+\stepheading{1. Assume initial rest}
+No initial conditions are given. Use
+\[
+y(-1)=0,\qquad y(-2)=0.
+\]
+The recurrence is
+\[
+y(n)=x(n)+y(n-1)+y(n-2).
+\]
+
+\stepheading{2. Write the input values}
+For the unit impulse,
+\[
+x(0)=1,
+\]
+\[
+x(1)=x(2)=x(3)=x(4)=0.
+\]
+
+\stepheading{3. Calculate the samples}
+Use each previous output in the next calculation.
+\[
+\begin{aligned}
+y(0)&=x(0)+y(-1)+y(-2)\\
+&=1+0+0\\
+&=1.
+\end{aligned}
+\]
+\[
+\begin{aligned}
+y(1)&=x(1)+y(0)+y(-1)\\
+&=0+1+0\\
+&=1.
+\end{aligned}
+\]
+\[
+\begin{aligned}
+y(2)&=x(2)+y(1)+y(0)\\
+&=0+1+1\\
+&=2.
+\end{aligned}
+\]
+\[
+\begin{aligned}
+y(3)&=x(3)+y(2)+y(1)\\
+&=0+2+1\\
+&=3.
+\end{aligned}
+\]
+\[
+\begin{aligned}
+y(4)&=x(4)+y(3)+y(2)\\
+&=0+3+2\\
+&=5.
+\end{aligned}
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{[y(0),y(1),y(2),y(3),y(4)]=[1,1,2,3,5]}
+\]
+
+\noteheading{Remember}
+The input is zero after $n=0$, but the previous outputs keep the response going.
+}
+
+\SignalSolution{3}{c}{%
+\textit{Magnitude-first method from your existing typed reference.}
+
+\stepheading{1. Take the magnitude}
+Use the frequency function supplied in the question:
+\[
+|H(e^{j\Omega})|
+=\frac{1}{|1-e^{-j\Omega}-e^{-2j\Omega}|}.
+\]
+
+\stepheading{2. Evaluate the exponentials}
+At $\Omega=\pi/2$,
+\[
+e^{-j\pi/2}=-j,\qquad e^{-j\pi}=-1.
+\]
+Substitute into the denominator:
+\[
+\begin{aligned}
+1-(-j)-(-1)&=1+j+1\\
+&=2+j.
+\end{aligned}
+\]
+
+\stepheading{3. Find the denominator magnitude}
+For a complex number, use $|a+jb|=\sqrt{a^2+b^2}$.
+\[
+\begin{aligned}
+|2+j|&=\sqrt{2^2+1^2}\\
+&=\sqrt5.
+\end{aligned}
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{|H(e^{j\pi/2})|=\frac1{\sqrt5}\approx0.4472}
+\]
+
+\textbf{English clarification:} For the initial-rest response in part (b), the impulse
+response grows and its ordinary DTFT does not converge. The value above is the
+formal evaluation of the expression supplied by the exam.
+
+\noteheading{Remember}
+Substitute the frequency first, then take the complex magnitude.
+}
+
+
+% Q4 primary source: own handwritten 2026-08-18 Q4, now in subject folder
+% 4 sketching symmetry/4 68.jpg. Target is a direct match: same graph and fs=100 kHz.
+% Preserve mirror about zero -> repeat every 2pi; then read cutoff -> convert
+% normalized frequency to Hz -> apply Nyquist. Reuse established solution wording.
+% Real-signal magnitude symmetry is the same assumption used by the source and exam.
+% Original plateau knee is unlabeled; the sketch follows its visual proportions
+% without assigning it an exact frequency. Support ends at +/-3pi/4 and repeats.
+% The October variant used fs=50 kHz and results 18750/37500 Hz; those values
+% are not copied here. Target/source 100 kHz gives fmax=37500, fsmin=75000 Hz.
+% January graded reference p6 correctly mirrors/repeats in (a). Its (b) stops at
+% 37.5 kHz (the SIGNAL maximum) without the final doubling. The own handwritten
+% notes perform that step correctly, so they remain the solving source.
+\SignalQuestion{4}{%
+A signal $s(t)$ have been sampled using $f_s=100\,\mathrm{kHz}$.\par
+The amplitude spectrum of the sampled signal is shown in the figure below
+for a limited normalized frequency range.
+\begin{center}
+\includegraphics[width=205pt]{2025-01-07_Q04_spectrum-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*)]
+\item Sketch the amplitude spectrum for an extended normalized frequency range
+by extending axis to $-2\pi<\Omega<2\pi$.\hfill(2p)
+\item What is the lowest sampling frequency in Hz that the signal $s(t)$ could
+be sampled in while still being possible to be reconstructed exactly? Motivate.
+\hfill(3p)
+\end{enumerate}
+}
+
+\SignalSolution{4}{a}{%
+\textit{Method from your 2026-08-18 handwritten notes.}
+
+\stepheading{1. Mirror around zero}
+For the real-valued signal, mirror the given amplitude spectrum to the left.
+\[
+|H(e^{-j\Omega})|=|H(e^{j\Omega})|.
+\]
+Keep the flat top, the slope and the zero part.
+
+\stepheading{2. Repeat every $2\pi$}
+A discrete-time spectrum repeats with period $2\pi$.
+\[
+|H(e^{j(\Omega+2\pi)})|=|H(e^{j\Omega})|.
+\]
+Copy the same shape one period to the left and right.
+
+\stepheading{3. Sketch the extended spectrum}
+The central copy is mirrored; the edge pieces belong to the neighboring copies.
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(350,118)
+\thinlines
+\put(8,22){\vector(1,0){335}}
+\put(170,15){\vector(0,1){88}}
+\put(178,101){\makebox(0,0)[l]{$|H(e^{j\Omega})|$}}
+\put(344,12){\makebox(0,0){$\Omega$}}
+\put(162,86){\makebox(0,0)[r]{$1$}}
+\put(166,86){\line(1,0){8}}
+\put(14,19){\line(0,1){6}}
+\put(92,19){\line(0,1){6}}
+\put(248,19){\line(0,1){6}}
+\put(326,19){\line(0,1){6}}
+\put(14,8){\makebox(0,0){$-2\pi$}}
+\put(92,8){\makebox(0,0){$-\pi$}}
+\put(170,8){\makebox(0,0){$0$}}
+\put(248,8){\makebox(0,0){$\pi$}}
+\put(326,8){\makebox(0,0){$2\pi$}}
+\linethickness{0.9pt}
+\qbezier(14,86)(21.8,86)(29.6,86)
+\qbezier(29.6,86)(51.05,54)(72.5,22)
+\qbezier(72.5,22)(92,22)(111.5,22)
+\qbezier(111.5,22)(132.95,54)(154.4,86)
+\qbezier(154.4,86)(170,86)(185.6,86)
+\qbezier(185.6,86)(207.05,54)(228.5,22)
+\qbezier(228.5,22)(248,22)(267.5,22)
+\qbezier(267.5,22)(288.95,54)(310.4,86)
+\qbezier(310.4,86)(318.2,86)(326,86)
+\end{picture}
+\end{center}
+The central spectrum reaches zero at $\Omega=\pm3\pi/4$.
+It stays zero until the next copy starts at $\Omega=\pm5\pi/4$.
+
+\noteheading{Final answer}
+Mirror the given shape around $\Omega=0$, then repeat it every $2\pi$
+throughout $-2\pi<\Omega<2\pi$, as sketched above.
+
+\noteheading{Remember}
+Mirror first. Then shift the entire shape by $\pm2\pi$.
+}
+
+\SignalSolution{4}{b}{%
+\textit{Method from your 2026-08-18 handwritten notes.}
+
+\stepheading{1. Read the highest normalized frequency}
+Read where the sloping line reaches zero:
+\[
+\Omega_{\max}=\frac{3\pi}{4}.
+\]
+The given sampling rate is
+\[
+f_s=100\,\mathrm{kHz}=100,000\,\mathrm{Hz}.
+\]
+
+\stepheading{2. Convert to Hz}
+Use the same conversion as in your notes:
+\[
+\Omega_{\max}=2\pi\frac{f_{\max}}{f_s}.
+\]
+Rearrange to find the highest signal frequency.
+\[
+\begin{aligned}
+f_{\max}&=\frac{f_s\Omega_{\max}}{2\pi}\\
+&=\frac{100,000\cdot(3\pi/4)}{2\pi}\\
+&=100,000\cdot\frac{3}{8}\\
+&=37,500\,\mathrm{Hz}.
+\end{aligned}
+\]
+
+\stepheading{3. Apply the sampling theorem}
+To reconstruct this bandlimited signal, sample at least twice its highest frequency.
+\[
+\begin{aligned}
+f_{s,\min}&=2f_{\max}\\
+&=2\cdot37,500\\
+&=75,000\,\mathrm{Hz}.
+\end{aligned}
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{f_{s,\min}=75,000\,\mathrm{Hz}}
+\]
+This is $75\,\mathrm{kHz}$. At this ideal limit the spectrum copies just meet
+where the plotted amplitude is zero, so no nonzero components overlap.
+
+\noteheading{Remember}
+Convert $\Omega$ to Hz first. Then double $f_{\max}$.
+
+}
+
+
+
+% Q5 primary sources: own handwritten 2026-08-18 Q5(a)/(b), in subject folder
+% 5 dc, cos, sin. Same actual graphs and values as target; no sinusoid-specific
+% January 2026 or October 2025 variant is substituted for this spectrum task.
+% Preserve Y=XH; multiply amplitudes; add signed phases; calculate 0,10,20,30.
+% Target/own X=(4,4,3,0), H=(10,10,5,5), Y=(40,40,15,0).
+% On 10<f<20 both factors vary linearly: (5-f/10)(15-f/2). Their product is
+% quadratic, not a straight chord. Add the midpoint f=15, Y=3.5*7.5=26.25
+% to make the hand sketch exact without changing the method.
+% The own phase example omits the minus sign on arg H at f=20. Correct it
+% explicitly: pi/4+(-pi/4)=0. The original target phases are exact negatives.
+% Unlike October Q5, target Y(0)=40 is nonzero: phase at f=0 is defined as 0.
+% Phase is undefined at and above f=30 where output amplitude is zero.
+% Secondary check: January graded reference p7 agrees with (a), but misreads
+% piecewise amplitude segments in (b). Its proposed formula is not copied.
+% Only the nonnegative frequencies actually shown are claimed; no negative
+% frequency extension, exact time waveform, or filter-type subquestion invented.
+\SignalQuestion{5}{%
+An LTI system $H(f)$ is defined by its amplification and phase-shift below.
+A signal $x(t)$ is fed to the system, giving the output $y(t)$.
+\begin{enumerate}[label=\alph*)]
+\item Give the mathematical relation between amplitudes and phases of the input
+and the output.\hfill(2p)
+\item Draw the amplitude spectrum and phase spectrum for the output $y(t)$.
+\hfill(4p)
+\end{enumerate}
+\begin{center}
+\includegraphics[width=174pt]{2025-01-07_Q05_input-amplitude-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{2025-01-07_Q05_input-phase-original.png}\par
+\vspace{5pt}
+\includegraphics[width=174pt]{2025-01-07_Q05_system-amplitude-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{2025-01-07_Q05_system-phase-original.png}
+\end{center}
+}
+
+\SignalSolution{5}{a}{%
+\textit{Method from your 2026-08-18 handwritten notes.}
+
+\stepheading{1. Write the LTI relation}
+In the frequency domain, multiply the input spectrum by the system response.
+\[
+Y(f)=X(f)H(f).
+\]
+
+\stepheading{2. Multiply amplitudes}
+At each frequency, multiply the two graph heights.
+\[
+|Y(f)|=|X(f)|\,|H(f)|.
+\]
+
+\stepheading{3. Add phases}
+At the same frequency, add the two phase values.
+\[
+\arg Y(f)=\arg X(f)+\arg H(f).
+\]
+Phase is taken modulo $2\pi$, wherever $Y(f)\ne0$.
+
+\noteheading{Final answer}
+\[
+\boxed{|Y(f)|=|X(f)|\,|H(f)|}
+\]
+\[
+\boxed{\arg Y(f)=\arg X(f)+\arg H(f)}
+\]
+
+\noteheading{Remember}
+Amplitude: multiply. Phase: add. Frequency stays the same.
+}
+
+
+\SignalSolution{5}{b}{%
+\textit{Your 2026-08-18 method; the graph values match this question.}
+
+\stepheading{1. Calculate the key values}
+Use $f=0,10,20,30$, as in your notes.
+Multiply the input height by the system height.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{r|r r|l}
+$f$ & $|X(f)|$ & $|H(f)|$ & $|Y(f)|$\\\hline
+0 & 4 & 10 & $4\cdot10=40$\\
+10 & 4 & 10 & $4\cdot10=40$\\
+20 & 3 & 5 & $3\cdot5=15$\\
+30 & 0 & 5 & $0\cdot5=0$
+\end{tabular}
+\end{center}
+
+\stepheading{2. Draw the amplitude spectrum}
+Plot the key points:
+\[
+(0,40)\to(10,40)\to(20,15)\to(30,0).
+\]
+From $0$ to $10$, both graph heights are constant, so the output is flat.
+Between $10$ and $20$, both heights change: their product is curved.
+Check one point in between:
+\[
+|Y(15)|=3.5\cdot7.5=26.25.
+\]
+From $20$ to $30$, $|H(f)|=5$ is constant, so the output falls in a straight line.
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(350,125)
+\thinlines
+\put(38,22){\vector(1,0){300}}
+\put(38,16){\vector(0,1){94}}
+\put(43,115){\makebox(0,0)[l]{$|Y(f)|$}}
+\put(343,21){\makebox(0,0)[l]{$f$}}
+\put(26,22){\makebox(0,0)[r]{$0$}}
+\put(26,56){\makebox(0,0)[r]{$20$}}
+\put(26,90){\makebox(0,0)[r]{$40$}}
+\put(35,56){\line(1,0){6}}
+\put(35,90){\line(1,0){6}}
+\put(128,19){\line(0,1){6}}
+\put(218,19){\line(0,1){6}}
+\put(308,19){\line(0,1){6}}
+\put(38,8){\makebox(0,0){$0$}}
+\put(128,8){\makebox(0,0){$10$}}
+\put(218,8){\makebox(0,0){$20$}}
+\put(308,8){\makebox(0,0){$30$}}
+\linethickness{0.9pt}
+\qbezier(38,90)(83,90)(128,90)
+\qbezier(128,90)(173,64.5)(218,47.5)
+\qbezier(218,47.5)(263,34.75)(308,22)
+\put(128,90){\circle*{3}}
+\put(173,66.625){\circle*{2.5}}
+\put(218,47.5){\circle*{3}}
+\end{picture}
+\end{center}
+For the plotted nonnegative frequencies:
+\[
+|Y(f)|=\begin{cases}
+40, & 0\le f\le10,\\
+(5-f/10)(15-f/2), & 10<f\le20,\\
+45-\frac32 f, & 20<f\le30,\\
+0, & f>30.
+\end{cases}
+\]
+
+\stepheading{3. Add the phase graphs}
+The system phase is the negative of the input phase over the signal band.
+\textbf{English clarification:} keep that negative sign. For example, at $f=20$,
+\[
+\frac{\pi}{4}+\left(-\frac{\pi}{4}\right)=0.
+\]
+The sloping sections also cancel point by point.
+So the output phase is a horizontal zero line for $0\le f<30$.
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(350,85)
+\thinlines
+\put(38,42){\vector(1,0){300}}
+\put(38,24){\vector(0,1){48}}
+\put(46,77){\makebox(0,0)[l]{$\arg Y(f)$}}
+\put(343,42){\makebox(0,0)[l]{$f$}}
+\put(26,42){\makebox(0,0)[r]{$0$}}
+\put(128,39){\line(0,1){6}}
+\put(218,39){\line(0,1){6}}
+\put(38,25){\makebox(0,0){$0$}}
+\put(128,25){\makebox(0,0){$10$}}
+\put(218,25){\makebox(0,0){$20$}}
+\put(308,25){\makebox(0,0){$30$}}
+\linethickness{1.1pt}
+\put(38,42){\line(1,0){270}}
+\put(38,42){\circle*{3}}
+\put(308,42){\color{white}\circle*{4}}
+\linethickness{0.6pt}
+\put(308,42){\circle{4}}
+\end{picture}
+\end{center}
+Phase is undefined at $f=30$ and beyond, where $|Y(f)|=0$.
+At $f=0$ the magnitude is $40$, so the zero phase is defined.
+
+\noteheading{Final answer}
+Amplitude: flat at $40$ until $f=10$, curved down to $15$ at $f=20$,
+then straight down to zero at $f=30$.
+\[
+\boxed{\arg Y(f)=0\quad(0\le f<30)}
+\]
+
+\noteheading{Remember}
+Multiply graph heights. Add signed phase values at the same frequency.
+}
+
+
+% Q6 own notes checked first: current subject folder 6 long theory rgb includes
+% 6 58a/b typed window references and existing October window-note outputs.
+% Raw 2025-08/6 58.png is an unfinished handwritten time-resolution reminder;
+% it has no completed personal answer for either target part. Typed references
+% are not described as handwriting. August 2025 (a) is a different TIME question.
+% Target January (a) asks FREQUENCY separation; match iii, not August's iv.
+% Verified primary fallback: January graded PDF p9 Q6, visible 2/2 for each part.
+% Reuse the established October solution explanation: narrowest main lobe -> iii;
+% smallest visible side lobes -> iv. Replace only provenance labels and clarify
+% that the different time-resolution notes are specifically from August 2025.
+% The graded b wording about no shorter frequencies on the sides is cleaned
+% to the correct side-lobe interpretation, without asserting exact zero leakage.
+% Original right endpoints repeat -pi; retain scan labels without generalizing
+% the printing typo. No answer depends on that endpoint label.
+\SignalQuestion{6}{%
+The plots below show the frequency spectra (i to iv) of different window
+functions with varying window lengths employed in spectrogram analysis.
+\begin{enumerate}[label=\alph*)]
+\item Based on the frequency spectra, which window function achieves the best
+frequency separation? Justify your selection.\hfill(2p)
+\item Which window function best minimizes spectral leakage (where unwanted
+frequency components appear away from the main frequency)? Motivate.\hfill(2p)
+\end{enumerate}
+\begin{center}
+\includegraphics[width=174pt]{2025-01-07_Q06_window-i-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{2025-01-07_Q06_window-ii-original.png}\par
+\vspace{5pt}
+\includegraphics[width=174pt]{2025-01-07_Q06_window-iii-original.png}\hspace{6pt}%
+\includegraphics[width=174pt]{2025-01-07_Q06_window-iv-original.png}
+\end{center}
+}
+
+\SignalSolution{6}{a}{%
+\textit{Verified graded reference: 2/2; your handwriting for this topic is unfinished.}
+
+\stepheading{1. Look at the main-lobe width}
+The main lobe is the central peak around $\Omega=0$.
+A narrower main lobe makes two nearby frequencies easier to distinguish.
+
+\stepheading{2. Compare the main lobes}
+Window (iii) has the narrowest main lobe of the four plots.
+It spreads each frequency component over the smallest frequency range.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{Window (iii)}}
+\]
+It gives the best frequency separation because it has the narrowest main lobe.
+
+\noteheading{Remember}
+Narrow main lobe $\Rightarrow$ better frequency separation.
+
+\textbf{Question check:} your August 2025 notes ask about time resolution.
+This part asks about frequency separation.
+}
+
+\SignalSolution{6}{b}{%
+\textit{Verified graded reference: 2/2; checked against your existing window notes.}
+
+\stepheading{1. Look at the side lobes}
+The small oscillations away from the central peak are the side lobes.
+Smaller side lobes mean less energy leaking into other frequencies.
+
+\stepheading{2. Compare the side lobes}
+Window (iv) has the smallest visible side lobes.
+Its curve stays closest to zero away from the central peak.
+
+Windows (i) and (iii) have clear oscillations outside the main lobe;
+window (ii) still shows small side lobes.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{Window (iv)}}
+\]
+It gives the least spectral leakage because it has the smallest visible side lobes.
+
+\noteheading{Remember}
+Main-lobe width $\Rightarrow$ frequency separation.\par
+Side-lobe level $\Rightarrow$ spectral leakage.
+}
+
+
+% Q7 adapted from own 2025-10-28 handwritten response-surface notes.
+% Main October answer is high-pass; own low-pass sketch matches January's hill.
+% January graded p10 (3/3) verifies the classification, not the source wording.
+\SignalQuestion{7}{
+A two-dimensional linear system can partially be described by the figure below.
+Based on the information in the figure, describe the system's frequency
+selective properties.\hfill(3p)
+\begin{center}
+\includegraphics[width=280pt]{assets/2025-01-07_Q07_surface-original.png}
+\end{center}
+}
+\SignalSolution{7}{}{
+\textit{Adapted from your October 2025 handwritten graph-reading notes.}
+
+\stepheading{1. Read the spatial frequencies}
+Low spatial frequencies describe smooth areas and gradual brightness changes.
+High spatial frequencies describe sharp edges and fine details.
+
+\stepheading{2. Read the graph}
+A high surface means high gain; a low surface means low gain.
+
+Near the center, $u=v=0$, the magnitude is close to $1$:
+low spatial frequencies pass strongly.
+
+Farther from the center, the magnitude falls toward $0$:
+high spatial frequencies are suppressed.
+
+\stepheading{3. Effect on an image}
+Smooth image regions remain, while sharp edges and fine details become weaker.
+The image becomes smoother or blurred.
+
+\noteheading{Final answer}
+\[
+\boxed{\text{Low-pass filter}}
+\]
+It passes low spatial frequencies and attenuates high spatial frequencies,
+giving smoothing / blurring.
+
+\noteheading{Remember}
+High center + low outside $\Rightarrow$ low-pass.
+}
+
+% Q8 own handwritten method from 2026-08-18 Q7, adapted explicitly.
+% Target kernel 1 doubles brightness; target kernel 3 is horizontal difference.
+% All five January matches verified against graded p11 (5/5).
+% Subject mismatch: actual Q8 goes to existing folder 7 kernels.
+\SignalQuestion{8}{%
+The closeup image below has been filtered with 4 different filters.
+\begin{center}
+\includegraphics[width=88pt]{assets/2025-01-07_Q08_input-original.png}
+\end{center}
+Match the following kernels (1--5) with the corresponding filtered results (i--v).
+Justify your choices by explaining how the filter kernels affect the image.
+
+\textbf{Kernels}
+\begin{center}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{ccc}
+$1)\ \begin{bmatrix}0&0&0\\0&2&0\\0&0&0\end{bmatrix}$ &
+$2)\ \begin{bmatrix}-1&0&1\\-1&0&1\\-1&0&1\end{bmatrix}$ &
+$3)\ \begin{bmatrix}-1&-1&-1\\0&0&0\\1&1&1\end{bmatrix}$\\[7pt]
+$4)\ \dfrac19\begin{bmatrix}1&1&1\\1&1&1\\1&1&1\end{bmatrix}$ &
+$5)\ \begin{bmatrix}0&-1&0\\-1&5&-1\\0&-1&0\end{bmatrix}$ &
+\end{tabular}
+\end{center}
+\textbf{Filter results}
+\begin{center}
+\includegraphics[width=110pt]{assets/2025-01-07_Q08_result-i-original.png}\hspace{6pt}%
+\includegraphics[width=110pt]{assets/2025-01-07_Q08_result-ii-original.png}\hspace{6pt}%
+\includegraphics[width=110pt]{assets/2025-01-07_Q08_result-iii-original.png}\par
+\vspace{4pt}
+\includegraphics[width=110pt]{assets/2025-01-07_Q08_result-iv-original.png}\hspace{6pt}%
+\includegraphics[width=110pt]{assets/2025-01-07_Q08_result-v-original.png}
+\end{center}
+\hfill(5p)
+}
+
+\SignalSolution{8}{}{%
+\textit{Your handwritten kernel method, adapted to January's values and pictures.}
+
+\stepheading{1. Only the center pixel: kernel 1}
+The center is $2$ and all neighbors have weight zero.
+So every pixel is doubled; the picture becomes brighter.
+\[
+\boxed{1\longrightarrow\mathrm{iv}}
+\]
+
+\stepheading{2. Average the neighbors: kernel 4}
+All nine weights are $1/9$, so the pixels are averaged.
+This blurs the picture.
+\[
+\text{Weight sum}=9\cdot\frac19=1.
+\]
+Flat regions keep their brightness.
+\[
+\boxed{4\longrightarrow\mathrm{i}}
+\]
+\textbf{English clarification:} the averaging block in your notes is labelled 2;
+it describes kernel 4 in this question.
+
+\stepheading{3. Find vertical edges: kernel 2}
+The left column is negative, the right column positive, and the center column zero.
+It measures left-to-right changes, so vertical edges stand out.
+
+The weights sum to zero. Flat regions cancel, leaving edges on a dark background.
+\[
+\boxed{2\longrightarrow\mathrm{v}}
+\]
+
+\stepheading{4. Find horizontal edges: kernel 3}
+The top row is negative, the bottom row positive, and the middle row zero.
+It measures top-to-bottom changes, so horizontal edges stand out.
+\[
+\text{Weight sum}=-3+3=0.
+\]
+Flat regions cancel. The horizontal lip edges are clear in result (ii).
+\[
+\boxed{3\longrightarrow\mathrm{ii}}
+\]
+\textbf{January change:} this is a horizontal-edge kernel, not the Laplacian
+in your August notes.
+
+\stepheading{5. Sharpen the image: kernel 5}
+This is a Laplacian kernel with $1$ added to the center.
+It keeps the original image and strengthens edges.
+\[
+\text{Weight sum}=5-4=1.
+\]
+Flat regions keep their level, while the picture becomes sharper.
+\[
+\boxed{5\longrightarrow\mathrm{iii}}
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{\begin{aligned}
+1&\longrightarrow\mathrm{iv}\\
+2&\longrightarrow\mathrm{v}\\
+3&\longrightarrow\mathrm{ii}\\
+4&\longrightarrow\mathrm{i}\\
+5&\longrightarrow\mathrm{iii}
+\end{aligned}}
+\]
+
+\noteheading{Remember}
+Check the pattern for blur or edges. Check the sum for the response of flat regions:
+$0$ cancels them; $1$ keeps their level; $2$ doubles it.
+
+\textbf{Question check:} five kernels/results are shown, despite ``4'' in the wording.
+}
+
+% Q9 verified graded-reference fallback: no matching own PSF-recovery notes.
+% January matrices equal October 2024 Q9; retain exact established solution.
+% January graded p12 confirms kernel, 6/6. Independently verify all 36 outputs.
+% Subject mismatch: actual Q9 goes to existing folder 7 kernels.
+\SignalQuestion{9}{%
+Given the two matrices representing the input $x(i,j)$ and output $y(i,j)$ of a
+linear 2D filter: describe the $3\times3$ point spread function (PSF) or kernel
+$h(i,j)$ that transforms $x(i,j)$ into $y(i,j)$.
+Assume boundary conditions are zero, meaning pixels outside the matrix boundaries
+of $x(i,j)$ and $y(i,j)$ are zero.
+\begin{center}
+\includegraphics[width=250pt]{assets/2025-01-07_Q09_input-matrix-original.png}\par
+\vspace{5pt}
+\includegraphics[width=250pt]{assets/2025-01-07_Q09_output-matrix-original.png}
+\end{center}
+\hfill(6p)
+}
+
+\SignalSolution{9}{}{%
+\textit{Verified reference method, with the overlap calculations shown.}
+
+\stepheading{1. Read one scaled impulse response}
+An input pixel with value $A$ produces a copy of $A\,h$, centered at that pixel.
+Overlapping copies add together.
+
+Use $x(1,1)=112$. Its top output row is $(0,14,0)$;
+no other input contributes to those three cells.
+\[
+\text{Top kernel row}
+=\frac1{112}\begin{bmatrix}0&14&0\end{bmatrix}
+=\begin{bmatrix}0&\frac18&0\end{bmatrix}.
+\]
+
+\stepheading{2. Find the center and direct neighbors}
+The center output is $56$, so
+\[
+\text{Center weight}=\frac{56}{112}=\frac12.
+\]
+The left, right and lower neighbor outputs are $14$.
+The zero top-corner weights just found rule out diagonal overlaps at these cells.
+\[
+\text{Each direct-neighbor weight}
+=\frac{14}{112}=\frac18.
+\]
+
+\stepheading{3. Remove the overlapping contributions}
+The lower corners of the output patch also receive values from other input pixels.
+Subtract those first, then divide by $112$.
+
+At $y(2,0)=10$, the input value $80$ contributes $80/8=10$.
+\[
+\begin{aligned}
+\text{Lower-left weight}
+&=\frac{10-80/8}{112}\\
+&=\frac{10-10}{112}\\
+&=0.
+\end{aligned}
+\]
+At $y(2,2)=36$, the inputs $224$ and $64$ contribute $224/8$ and $64/8$.
+\[
+\begin{aligned}
+\text{Lower-right weight}
+&=\frac{36-224/8-64/8}{112}\\
+&=\frac{36-28-8}{112}\\
+&=0.
+\end{aligned}
+\]
+
+\stepheading{4. Check an overlapping output}
+At $(3,3)$, three neighboring inputs contribute:
+\[
+\begin{aligned}
+y(3,3)&=\frac{224}{8}+\frac{64}{8}+\frac{176}{8}\\
+&=28+8+22\\
+&=58.
+\end{aligned}
+\]
+This agrees with the given output matrix.
+
+\noteheading{Final answer}
+\[
+\boxed{h(i,j)=\begin{bmatrix}
+0&\frac18&0\\[3pt]
+\frac18&\frac12&\frac18\\[3pt]
+0&\frac18&0
+\end{bmatrix}}
+\]
+A cross-shaped averaging kernel: center weight $1/2$, four direct neighbors $1/8$,
+and zero corners. The weights sum to $1$.
+
+\noteheading{Remember}
+An impulse gives a scaled kernel. Subtract overlapping copies, then divide by the input value.
+}
+
+\begin{document}
+\ifdefined\SignalSelectedQuestion
+  \SignalRender{\SignalSelectedQuestion}{\SignalSelectedPart}
+\else
+  \SignalRender{1}{a}\clearpage
+  \SignalRender{1}{b}\clearpage
+  \SignalRender{1}{c}\clearpage
+  \SignalRender{1}{d}\clearpage
+  \SignalRender{1}{e}\clearpage
+  \SignalRender{2}{a}\clearpage
+  \SignalRender{2}{b}\clearpage
+  \SignalRender{3}{a}\clearpage
+  \SignalRender{3}{b}\clearpage
+  \SignalRender{3}{c}\clearpage
+  \SignalRender{4}{a}\clearpage
+  \SignalRender{4}{b}\clearpage
+  \SignalRender{5}{a}\clearpage
+  \SignalRender{5}{b}\clearpage
+  \SignalRender{6}{a}\clearpage
+  \SignalRender{6}{b}\clearpage
+  \SignalRender{7}{}\clearpage
+  \SignalRender{8}{}\clearpage
+  \SignalRender{9}{}
+\fi
+\end{document}

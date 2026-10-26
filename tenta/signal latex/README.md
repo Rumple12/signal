@@ -4,6 +4,34 @@ One authoritative TeX source is kept for each **exact** exam date:
 `YYYY-MM-DD_compiled_notes.tex`. `signal_layout.tex` supplies the shared 10pt
 article layout: 384pt paper width, 900pt paper height, and 10pt margins.
 
+## Current saving preferences
+
+Keep all changes local. Do not upload or push anything to GitHub unless the user
+explicitly authorizes it again.
+
+Save final calculator-note images in the existing numbered folders under
+`tenta/signal tenta/signal calc/`, grouped by subject across exam years and
+question numbers. Preserve the folders' actual names, including
+`1 - random question`. Record the chosen subject folder as `folder_number` in
+each `SIGNAL_QUESTION` record; the exporter requires this explicit choice.
+Never create an output folder. If the subject destination is unknown or
+ambiguous, clarify the destination before exporting.
+
+Keep the actual exam question number in filenames and solution headings.
+Explicitly inform the user when it differs from the folder number; the exporter
+also includes this notice in listings and validation reports. For example,
+2024-10 Question 3 belongs in folder `2` beside the matching feedback
+block-diagram notes, with filenames `3 410a-l.png` and `3 410b-l.png`.
+Use the short title `<question> <date code><part>-l.png`, adding `-l`
+at the end of the image title. The date code is the last year digit followed by
+the unpadded month: `61`, `68`, `510`, and so on. Original/reference images keep
+their existing names.
+
+For a question without lettered subparts, register `parts: [""]` and an empty
+`part` value. Use `\SignalSolution{number}{}{...}` and
+`\SignalRender{number}{}`. The image omits the part letter (for example,
+`7 410-l.png`), and its headings show the main question and `Solution`.
+
 ## Repeat the verified Question 6 export
 
 Run this PowerShell command from the Signal repository root:
@@ -15,8 +43,8 @@ Run this PowerShell command from the Signal repository root:
 There is no separate command for each letter. The exporter discovers all
 completed subquestions in the dated source. The same command regenerates:
 
-- `tenta/calcu formats/signal calcu/7 Cameras Bayer and demosaicing/2026-08-18_Q06_a_bayer.png`
-- `tenta/calcu formats/signal calcu/7 Cameras Bayer and demosaicing/2026-08-18_Q06_b_demosaicing.png`
+- `tenta/signal tenta/signal calc/6/6 68a-l.png`
+- `tenta/signal tenta/signal calc/6/6 68b-l.png`
 
 Append `--list` to inspect completed and incomplete parts without rendering.
 The command is independent of the current working directory if the script is
@@ -76,7 +104,9 @@ The exporter is reusable; transcription and content verification remain explicit
 It does not claim automatic handwriting recognition or manufacture a solution.
 
 1. Locate the exact exam and inspect all relevant question/solution pages.
-2. Add the original question once with `\SignalQuestion{number}{...}` and register
+2. Inspect the user's existing notes to choose the matching subject folder and
+   record its `folder_number` in `SIGNAL_QUESTION`. Add the original question
+   once with `\SignalQuestion{number}{...}` and register
    its complete original wording in `required_question_text`. Put essential
    diagram crops in `assets/` and register their PDF page/image index/crop box.
 3. Add each solution with `\SignalSolution{number}{letter}{...}`. Preserve its

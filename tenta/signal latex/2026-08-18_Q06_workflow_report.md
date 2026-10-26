@@ -2,7 +2,7 @@
 
 **PASS: actual LaTeX-to-PNG export, using the typed solution images expressly approved by the user.**
 
-Review date: 2026-10-25. This is an export/transcription test using approved typed sources. The original handwriting alone does not contain completed solutions for parts (a) or (b).
+Review date: 2026-10-25. Output locations and image names were subsequently updated to the user's question-folder convention; the PNG contents and checksums are unchanged. These changes remain local and are not uploaded to GitHub. This is an export/transcription test using approved typed sources. The original handwriting alone does not contain completed solutions for parts (a) or (b).
 
 ## Verified source mapping
 
@@ -39,8 +39,8 @@ The original photo collection contains 36 images. Its headings and date variants
 
 | Part | Final PNG | Dimensions | Size |
 |---|---|---|---|
-| a | [2026-08-18_Q06_a_bayer.png](<C:/Users/Jake_/OneDrive - Mittuniversitetet/1. EDU/1.1 GREEN/15. DT081A Signal and Image Processing/tenta/calcu formats/signal calcu/7 Cameras Bayer and demosaicing/2026-08-18_Q06_a_bayer.png>) | 384 x 1259 | 119110 bytes (116.3 KiB) |
-| b | [2026-08-18_Q06_b_demosaicing.png](<C:/Users/Jake_/OneDrive - Mittuniversitetet/1. EDU/1.1 GREEN/15. DT081A Signal and Image Processing/tenta/calcu formats/signal calcu/7 Cameras Bayer and demosaicing/2026-08-18_Q06_b_demosaicing.png>) | 384 x 1557 | 123871 bytes (121.0 KiB) |
+| a | [6 68a-l.png](<C:/Users/Jake_/OneDrive - Mittuniversitetet/1. EDU/1.1 GREEN/15. DT081A Signal and Image Processing/tenta/signal tenta/signal calc/6/6 68a-l.png>) | 384 x 1259 | 119110 bytes (116.3 KiB) |
+| b | [6 68b-l.png](<C:/Users/Jake_/OneDrive - Mittuniversitetet/1. EDU/1.1 GREEN/15. DT081A Signal and Image Processing/tenta/signal tenta/signal calc/6/6 68b-l.png>) | 384 x 1557 | 123871 bytes (121.0 KiB) |
 
 Each final image begins with the entire original multipart Question 6, including its original Bayer figure. Each is assembled vertically from two 384pt x 900pt PDF pages with unused page margins removed; no mathematical expressions are cropped or sliced.
 
@@ -69,5 +69,5 @@ Append `--list` to inspect the completed/incomplete subquestions without renderi
 
 ## Final PNG checksums
 
-- 2026-08-18_Q06_a_bayer.png: `8e37f2a49f98fe492d9cafa8a78a59f3af733685f7745cb93a19f9dbb47241ea`
-- 2026-08-18_Q06_b_demosaicing.png: `8ed5bf90c3dcb93ad9fb8a509e39be4fb50bc511ba29e9dbb9f5819d54f9f94d`
+- 6 68a-l.png: `8e37f2a49f98fe492d9cafa8a78a59f3af733685f7745cb93a19f9dbb47241ea`
+- 6 68b-l.png: `8ed5bf90c3dcb93ad9fb8a509e39be4fb50bc511ba29e9dbb9f5819d54f9f94d`

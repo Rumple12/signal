@@ -8,6 +8,7 @@ This exporter does not invent solutions or perform automatic handwriting OCR.
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import hashlib
 import json
 import os
@@ -26,11 +27,65 @@ from pypdf import PdfReader
 SOURCE_DIR = Path(__file__).resolve().parent
 REPO = SOURCE_DIR.parent.parent
 BUILD_ROOT = REPO / "tmp" / "pdfs" / "signal-export"
-TOPIC_ROOT = REPO / "tenta" / "calcu formats" / "signal calcu"
+CALCULATOR_ROOT = REPO / "tenta" / "signal tenta" / "signal calc"
+
+
+def question_folder(folder_number: int) -> Path:
+    """Resolve a chosen subject folder without creating or renaming folders."""
+    candidates = sorted(
+        path for path in CALCULATOR_ROOT.iterdir()
+        if path.is_dir() and re.match(rf"^{folder_number}(?!\.\d)(?:$|[ ._-])", path.name)
+    )
+    if len(candidates) != 1:
+        found = ", ".join(path.name for path in candidates) or "none"
+        raise ValueError(
+            f"Subject folder {folder_number} needs one existing output folder; found {found}. "
+            "Clarify the destination. No output folder was created."
+        )
+    return candidates[0]
+
+
+def output_path(exam: dict, question: dict, part: dict) -> Path:
+    """Route by subject; keep the original exam question number in the title."""
+    exam_date = date.fromisoformat(exam["id"])
+    question_number = int(question["number"])
+    date_code = f"{exam_date.year % 10}{exam_date.month}"
+    image_title = f"{question_number} {date_code}{part['part']}"
+    return question_folder(int(question["folder_number"])) / f"{image_title}-l.png"
+
+
+def routing_info(question: dict) -> dict:
+    """Expose question/folder mismatches in listings and export reports."""
+    question_number = int(question["number"])
+    folder_number = int(question["folder_number"])
+    folder = question_folder(folder_number)
+    mismatch = question_number != folder_number
+    return {"folder_number": folder_number, "folder_name": folder.name,
+            "question_folder_mismatch": mismatch,
+            "routing_notice": (
+                f"Question {question_number} is saved in folder {folder.name} by subject; "
+                f"filenames keep question number {question_number}."
+                if mismatch else "Question and subject folder numbers match.")}
 
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def resolve_source_path(relative: str) -> Path:
+    """Keep source links usable when a premade numbered folder is renamed."""
+    path = REPO / relative
+    if path.is_file():
+        return path
+    try:
+        parts = path.relative_to(CALCULATOR_ROOT).parts
+    except ValueError:
+        return path
+    if len(parts) == 2:
+        match = re.match(r"^(\d+)(?:$|[ ._-])", parts[0])
+        if match:
+            return question_folder(int(match[1])) / parts[1]
+    return path
 
 
 def records(path: Path) -> dict:
@@ -95,7 +150,8 @@ def verify_pdf(pdf: Path, log: Path, question: dict, part: dict) -> dict:
         if normalized(required) not in flattened:
             raise ValueError(f"Required original question or solution text is missing: {required}")
     if question.get("required_question_text"):
-        solution_start = flattened.find(normalized(f"Solution for part ({part['part']})"))
+        heading = f"Solution for part ({part['part']})" if part["part"] else "Solution"
+        solution_start = flattened.find(normalized(heading))
         if solution_start < 0 or any(
             flattened.find(normalized(required)) + len(normalized(required)) > solution_start
             for required in question["required_question_text"]
@@ -111,17 +167,18 @@ def verify_pdf(pdf: Path, log: Path, question: dict, part: dict) -> dict:
 
 def export_part(source: Path, exam: dict, question: dict, part: dict,
                 latex: str, poppler: str) -> dict:
-    source_path = REPO / part["source"]
+    source_path = resolve_source_path(part["source"])
     if not part.get("content_verified"):
         raise ValueError("Part lacks recorded visual source verification.")
-    if part["source_kind"] not in ("handwritten", "user-approved-typed"):
+    if part["source_kind"] not in ("handwritten", "user-approved-typed", "independently-solved"):
         raise ValueError("Part has no approved solution provenance.")
     if sha256(source_path) != part["source_sha256"]:
         raise ValueError("The solution source changed; recheck the transcription first.")
     question_number = int(question["number"])
     letter = part["part"]
-    if not re.fullmatch(r"[a-z]", letter):
-        raise ValueError("Subquestion letters must be a-z.")
+    if not re.fullmatch(r"[a-z]?", letter):
+        raise ValueError("Use a-z for a subquestion, or an empty part for an unlettered question.")
+    output = output_path(exam, question, part)
     build = BUILD_ROOT / exam["id"] / f"Q{question_number:02d}" / letter
     build.mkdir(parents=True, exist_ok=True)
     wrapper = build / "selected.tex"
@@ -161,10 +218,6 @@ def export_part(source: Path, exam: dict, question: dict, part: dict,
     for band in page_bands:
         final.paste(band, (0, cursor))
         cursor += band.height + 8
-    filename = part.get("filename", f"{exam['id']}_Q{question_number:02d}_{letter}_{part['slug']}.png")
-    output_dir = REPO / part["output_directory"] if "output_directory" in part else TOPIC_ROOT / part["topic"]
-    output_dir.mkdir(parents=True, exist_ok=True)
-    output = output_dir / filename
     # A palette preserves the colored Bayer diagram while keeping CG50 files small.
     palette = final.quantize(colors=256, method=Image.Quantize.MEDIANCUT,
                              dither=Image.Dither.NONE)
@@ -202,8 +255,9 @@ def main() -> int:
     completed = [entry for entry in selected if entry["status"] == "complete"]
     missing = [letter for letter in question["parts"]
                if not any(entry["part"] == letter and entry["status"] == "complete" for entry in selected)]
-    listing = {"exam": args.exam, "question": args.question,
-               "completed_parts": [entry["part"] for entry in completed], "incomplete_parts": missing}
+    listing = {"exam": args.exam, "question": args.question, **routing_info(question),
+               "completed_parts": [entry["part"] or "whole question" for entry in completed],
+               "incomplete_parts": [letter or "whole question" for letter in missing]}
     if args.list:
         print(json.dumps(listing, indent=2))
         return 0
@@ -223,7 +277,7 @@ def main() -> int:
             if supplied.size != expected.size or ImageChops.difference(expected, supplied).getbbox():
                 raise ValueError("A question figure no longer matches its original exam crop.")
         all_sources.add(asset)
-    all_sources.update(REPO / entry["source"] for entry in selected if "source" in entry)
+    all_sources.update(resolve_source_path(entry["source"]) for entry in selected if "source" in entry)
     before = {str(path): sha256(path) for path in all_sources}
     profile = Path(os.environ.get("USERPROFILE", str(Path.home())))
     runtime = profile / ".cache/codex-runtimes/codex-primary-runtime/dependencies"

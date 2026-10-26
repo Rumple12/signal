@@ -27,12 +27,14 @@
   \ifcsname SignalLegacy@#1#2\endcsname
     \csname SignalLegacy@#1#2\endcsname
   \else
-    {\fontsize{14}{17}\selectfont\textbf{Uppgift #1(#2)}}\hfill
+    \edef\SignalPartLabel{#2}%
+    \ifx\SignalPartLabel\empty\vspace*{2pt}\fi%
+    {\fontsize{14}{17}\selectfont\textbf{Uppgift #1\ifx\SignalPartLabel\empty\else(#2)\fi}}\hfill
     {\small\SignalExamID}\par
     \textbf{Original question}\par
     \csname SignalQuestion@#1\endcsname
     \par\vspace{5pt}\hrule\vspace{7pt}
-    {\fontsize{12}{15}\selectfont\textbf{Solution for part (#2)}}\par
+    {\fontsize{12}{15}\selectfont\textbf{Solution\ifx\SignalPartLabel\empty\else\ for part (#2)\fi}}\par
     \csname SignalSolution@#1#2\endcsname
   \fi
 }
