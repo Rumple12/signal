@@ -1162,6 +1162,190 @@ increases edge contrast so outlines and fine detail appear clearer.
 \end{enumerate}
 }
 
+% SIGNAL_QUESTION {"number":7,"folder_number":7,"subject":"Linear image operators, point spread functions and two-dimensional convolution","parts":["a","b"],"pdf_page":5,"required_figures":0,"required_question_text":["Linear image operators can be analyzed by studying how they act on elementary image","components and how these responses combine to form the output image.","Starting from the definition of a linear image operator acting on a point source","explain why a general image can be interpreted as a weighted sum of point sources,","and how this leads to the operator expression for the output image","Assume the PSF is shift-invariant. Derive the simplified expression for the output","and explain why this can be implemented using convolution.","(3p)"],"subject_folder_reason":"Existing folder7 groups image-filter kernels; PSF convolution is the same image-filtering subject, rather than time-domain feedback or histogram contrast.","original_notation":"Original definition uses output(x,y), source(alpha,beta); requested output is g(alpha,beta). Solution explicitly uses dummy source coordinates(xi,eta) and renames output coordinates; original question retained verbatim."}
+% SIGNAL_PART {"question":7,"part":"a","status":"complete","content_verified":true,"source_kind":"independently-solved","source":"tenta/signal tenta/2026-01/2026-01 exam.pdf","source_sha256":"2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf","source_page":5,"source_label":"Verified target question; newly authored step-by-step derivation under the missing-handwriting rule","handwritten_notes_missing":true,"personal_source_status":"No matching derivation found in the existing calculator folders, same-exam raw folder, raw topic files or visual inventory of all36 unfiled paper photos. Own August7 68 handwriting explains kernel-result matching, not point-source superposition or PSF shift invariance; not reused.","no_cross_year_or_graded_answer_used":true,"user_authorized":"Permanent simplified-solution Rule2 and critical fully step-by-step rule: solve simply and completely when corresponding handwriting is missing.","slug":"weighted_point_sources","required_solution_text":["Newly authored","Write the input as weighted point sources","Apply the linear operator","Substitute the point-source response","Final answer","point spread function","weighted by the input"]}
+% SIGNAL_PART {"question":7,"part":"b","status":"complete","content_verified":true,"source_kind":"independently-solved","source":"tenta/signal tenta/2026-01/2026-01 exam.pdf","source_sha256":"2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf","source_page":5,"source_label":"Verified target question; newly authored step-by-step derivation under the missing-handwriting rule","handwritten_notes_missing":true,"personal_source_status":"No matching derivation found in the existing calculator folders, same-exam raw folder, raw topic files or visual inventory of all36 unfiled paper photos. Own August7 68 handwriting explains kernel-result matching, not point-source superposition or PSF shift invariance; not reused.","no_cross_year_or_graded_answer_used":true,"user_authorized":"Permanent simplified-solution Rule2 and critical fully step-by-step rule: solve simply and completely when corresponding handwriting is missing.","slug":"shift_invariant_convolution","required_solution_text":["Newly authored","Use shift invariance","Substitute into the result from (a)","Recognize two-dimensional convolution","Final answer","flip the PSF in both coordinates","sum over pixels"]}
+
+% Q7: newly authored; no matching personal handwritten derivation found.
+\SignalQuestion{7}{%
+Linear image operators can be analyzed by studying how they act on elementary image
+components and how these responses combine to form the output image.
+\begin{enumerate}[label=\alph*),leftmargin=16pt,itemsep=5pt,topsep=3pt]
+\item Starting from the definition of a linear image operator acting on a point source
+\[
+O\{\delta(x-\alpha,y-\beta)\}=h(x,y,\alpha,\beta)
+\]
+explain why a general image can be interpreted as a weighted sum of point sources,
+and how this leads to the operator expression for the output image $g(\alpha,\beta)$.
+\par\nobreak\noindent\makebox[\linewidth][r]{(3p)}\par
+\item Assume the PSF is shift-invariant. Derive the simplified expression for the output
+image $g(\alpha,\beta)$ and explain why this can be implemented using convolution.
+\par\nobreak\noindent\makebox[\linewidth][r]{(3p)}\par
+\end{enumerate}
+}
+
+\SignalSolution{7}{a}{%
+\textit{Newly authored: no matching handwritten solution found.}
+We need the output image from the responses to individual points.
+
+\stepheading{1. Write the input as weighted point sources}
+Let $f(x,y)$ be the input image. The symbol $\delta$ represents a unit point source.
+Use $(\xi,\eta)$ for the position of each source, so the coordinate names do not clash.
+\[
+f(x,y)=\iint_{\mathbb R^2} f(\xi,\eta)\,
+\delta(x-\xi,y-\eta)\,d\xi\,d\eta.
+\]
+The integral adds contributions over the whole image. A point at $(\xi,\eta)$
+has weight $f(\xi,\eta)$, its image intensity. The delta selects the contribution
+at $(x,y)$, so adding all these weighted points gives back $f(x,y)$.
+
+\stepheading{2. Apply the linear operator}
+Linearity means that the response to a weighted sum is the same weighted sum
+of the individual responses. Therefore,
+\[
+g(x,y)=O\{f(x,y)\}
+\]
+becomes
+\[
+g(x,y)=\iint_{\mathbb R^2} f(\xi,\eta)\,
+O\{\delta(x-\xi,y-\eta)\}\,d\xi\,d\eta.
+\]
+From the given definition, the response to this point source is
+\[
+O\{\delta(x-\xi,y-\eta)\}=h(x,y,\xi,\eta).
+\]
+Here $h$ is the \textbf{point spread function (PSF)}: the output produced by one
+unit point source. Its first coordinate pair is the output position; the second
+is the source position.
+
+\stepheading{3. Substitute the point-source response}
+Replace the operator acting on each delta by $h$. Use $(\alpha,\beta)$ for
+the output position, as requested in the question; $(\xi,\eta)$ still labels the sources.
+
+\noteheading{Final answer}
+\[
+\boxed{g(\alpha,\beta)=\iint_{\mathbb R^2} f(\xi,\eta)\,
+h(\alpha,\beta,\xi,\eta)\,d\xi\,d\eta.}
+\]
+The output is the sum of all point-source responses, each weighted by the input
+intensity at that source.
+}
+
+\SignalSolution{7}{b}{%
+\textit{Newly authored: no matching handwritten solution found.}
+We need to simplify the output when the PSF is shift-invariant.
+Let $f$ be the input image and $h$ the point spread function, the response to
+a unit point source. Here $(\alpha,\beta)$ is the output position and
+$(\xi,\eta)$ is a source position.
+
+\stepheading{1. Use shift invariance}
+Shift invariance means that moving a point source moves its response by the
+same amount, without changing its shape. The response therefore depends only
+on the distance and direction from source to output:
+\[
+h(\alpha,\beta,\xi,\eta)=h(\alpha-\xi,\beta-\eta).
+\]
+On the right, $h$ is the PSF for a source at the origin, shifted to $(\xi,\eta)$.
+
+\stepheading{2. Substitute into the result from (a)}
+Before the substitution, the output is
+\[
+g(\alpha,\beta)=\iint_{\mathbb R^2} f(\xi,\eta)\,
+h(\alpha,\beta,\xi,\eta)\,d\xi\,d\eta.
+\]
+Replace the four-coordinate PSF by the shifted, two-coordinate PSF:
+\[
+g(\alpha,\beta)=\iint_{\mathbb R^2} f(\xi,\eta)\,
+h(\alpha-\xi,\beta-\eta)\,d\xi\,d\eta.
+\]
+We now use the same PSF shape for every source position.
+
+\stepheading{3. Recognize two-dimensional convolution}
+This integral is the definition of two-dimensional convolution. The symbol $*$
+denotes convolution.
+
+\noteheading{Final answer}
+\[
+\boxed{g(\alpha,\beta)=(f*h)(\alpha,\beta).}
+\]
+For each output position, flip the PSF in both coordinates, shift it to that
+position, multiply it by the input image, and add the products. For digital
+images, this addition is a sum over pixels instead of an integral.
+The same PSF kernel is used throughout the image, so convolution implements
+the shift-invariant operator.
+}
+
+
+% SIGNAL_QUESTION {"number":8,"folder_number":8,"subject":"Histogram-based contrast enhancement and equalization","parts":[""],"pdf_page":5,"required_figures":1,"required_question_text":["Contrast enhancement aims to improve the visual appearance of an image by modifying","its intensity distribution. The figure below shows an original image (a) and an enhanced","version (b). Plots (c","f) show different representations related to these two images.","Describe what information each of the plots (c","f) conveys and explain, using equations","where relevant, how they are involved in producing the enhanced image (b).","(5p)"],"figure_crops":[{"pdf_page":5,"image_index":0,"box":[800,1415,1670,2240],"asset":"assets/2026-01-07_Q08_castle-original.png"}],"figure_description":"One lossless crop containing original image(a), enhanced image(b), original/enhanced histograms(c,d) and cumulative histograms(e,f), with all six labels and h/h-prime/H/H-prime labels.","subject_folder_reason":"Existing8 castle contains the matching handwritten histogram-equalization notes; question and folder numbers match."}
+% SIGNAL_PART {"question":8,"part":"","status":"complete","content_verified":true,"source_kind":"handwritten","source":"tenta/signal tenta/signal calc/8 castle/8 68.jpg","source_sha256":"ecb29a9cadd5b58e1fcd8b69ea515e13db3be6c678001ee3c310a57318438d7a","source_exam_id":"2026-08-18","source_question":8,"source_label":"Own August2026 handwritten castle notes, explicitly authorized for this January question","source_region":"Handwriting only; printed exam at the top of either composite is not the target question or a solution source.","supporting_sources":[{"source":"tenta/signal tenta/signal calc/8 castle/8 68-j.jpg","source_sha256":"185978c2a0b1a40eac825fc5817e1ef17f1555f589cdc37a40f9ed5d4706b9ce"},{"source":"tenta/signal tenta/2026-08/8 68.jpg","source_sha256":"ec185eb7da29c216a64be3bc042f642035bdbfc0400ee93799f29843dd42ace1"},{"source":"tenta/signal tenta/2026-08/8 68-2.jpg","source_sha256":"08f8aeb367eb6bf6cfc3afdd2de74d5827054ca2a53a46cca98e0038a8ba7bbe"},{"source":"tenta/signal tenta/2026-08/8 68-3.jpg","source_sha256":"13ada374e34e4e9736a5c1401c576d34554f17f39964b6cabb8ee1dd42b32321"},{"source":"tenta/signal tenta/2026-08/8 68-4.jpg","source_sha256":"5352423f7ddadf85083cfed0db80507f3b1bea67f3be9c2c4864e775ad8103fd"}],"user_authorized":"2026-10-26 explicit reply: Use my August handwritten notes.","personal_source_status":"No personal January Question8 handwriting found. Matching August notes found in8 68.jpg and8 68-j.jpg, plus all four raw pages; inspected and used with explicit permission.","adaptation":"Preserve own c->e->s=(L-1)H(r)->f->d order; merge repeated axis/CDF explanations from8 68-j handwriting, clarify necessary fraction-to-gray-level steps. Flag constant-intensity wording. No numerical examples, alternative formula, graded answer or generated solution used.","corrections":["Straight cumulative histogram indicates even distribution across intensities, not all pixels having the same constant intensity."],"slug":"histogram_equalization","required_solution_text":["Based on your August 2026 handwritten notes","Read the original histogram (c)","Read the original cumulative histogram (e)","Use","to change each pixel value","Read the enhanced cumulative histogram (f)","Read the enhanced histogram (d)","Note correction:","Final answer","fraction between","replace","peaks and gaps"]}
+
+% Q8: explicitly authorized August handwriting; current January original question.
+\SignalQuestion{8}{%
+Contrast enhancement aims to improve the visual appearance of an image by modifying
+its intensity distribution. The figure below shows an original image (a) and an enhanced
+version (b). Plots (c--f) show different representations related to these two images.
+Describe what information each of the plots (c--f) conveys and explain, using equations
+where relevant, how they are involved in producing the enhanced image (b).
+\par\nobreak\noindent\makebox[\linewidth][r]{(5p)}\par
+\begin{center}
+\includegraphics[width=330pt]{assets/2026-01-07_Q08_castle-original.png}
+\end{center}
+}
+
+\SignalSolution{8}{}{%
+\textit{Based on your August 2026 handwritten notes, reused with your permission.}
+We need to connect the original image, its histogram and cumulative histogram
+to the enhanced image.
+
+\stepheading{1. Read the original histogram (c): $h$}
+The horizontal axis is pixel intensity: dark on the left, bright on the right.
+The vertical axis counts how many pixels have each intensity.
+The original image (a) has relatively few dark pixels and many middle-to-bright
+pixels. This uneven distribution helps explain its weak contrast.
+
+\stepheading{2. Read the original cumulative histogram (e): $H$}
+Starting from the darkest level, add the pixel counts up to each intensity.
+Express this as a fraction of all pixels. Then $H(r)$ tells us the fraction
+of pixels with intensity at or below $r$.
+Where many pixels have similar intensities, the curve rises steeply; where
+there are few pixels, it rises slowly. These changes give (e) its curved shape.
+
+\stepheading{3. Use $H$ to change each pixel value}
+Histogram equalization redistributes the intensities to improve contrast.
+Keep the transformation written in your notes:
+\[
+\boxed{s=(L-1)H(r).}
+\]
+Here $r$ is the original pixel value, $s$ is the enhanced value, and $L$ is
+the number of possible gray levels. Thus $L-1$ is the highest output value.
+For each pixel:
+\begin{enumerate}[label=\arabic*.,leftmargin=16pt,itemsep=2pt,topsep=3pt]
+\item Read its original intensity $r$.
+\item Find $H(r)$ on curve (e), a fraction between $0$ and $1$.
+\item Multiply by $L-1$ to obtain $s$, and replace $r$ by $s$.
+\end{enumerate}
+The fraction is converted into an output gray level. Apply this same rule
+to every pixel to produce image (b).
+
+\stepheading{4. Read the enhanced cumulative histogram (f): $H'$}
+This is the cumulative histogram after the transformation. A straight line
+is the ideal goal: the intensities are distributed evenly across the gray levels.
+Real digital results may have small steps, as your notes show.
+\textbf{Note correction:} ``constant intensity'' in your notes should mean
+an even intensity distribution, not that every pixel has the same value.
+
+\stepheading{5. Read the enhanced histogram (d): $h'$}
+This counts pixels at each new intensity in image (b). Dark and bright levels
+are better represented, so the distribution is more balanced and contrast improves.
+It need not be perfectly flat; the plotted histogram still has peaks and gaps.
+
+\noteheading{Final answer}
+Use the original histogram (c) to form the cumulative histogram (e).
+Apply $s=(L-1)H(r)$ to each pixel of (a). This gives enhanced image (b),
+with histogram (d) and the more nearly straight cumulative histogram (f).
+}
+
+
 \begin{document}
 \ifdefined\SignalSelectedQuestion
   \SignalRender{\SignalSelectedQuestion}{\SignalSelectedPart}
@@ -1183,6 +1367,9 @@ increases edge contrast so outlines and fine detail appear clearer.
   \SignalRender{5}{a}\clearpage
   \SignalRender{5}{b}\clearpage
   \SignalRender{6}{a}\clearpage
-  \SignalRender{6}{b}
+  \SignalRender{6}{b}\clearpage
+  \SignalRender{7}{a}\clearpage
+  \SignalRender{7}{b}\clearpage
+  \SignalRender{8}{}
 \fi
 \end{document}

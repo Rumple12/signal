@@ -51,7 +51,15 @@ def output_path(exam: dict, question: dict, part: dict) -> Path:
     question_number = int(question["number"])
     date_code = f"{exam_date.year % 10}{exam_date.month}"
     image_title = f"{question_number} {date_code}{part['part']}"
-    return question_folder(int(question["folder_number"])) / f"{image_title}-l.png"
+    folder = question_folder(int(question["folder_number"]))
+    subfolder = question.get("output_subfolder")
+    if subfolder is not None:
+        if not isinstance(subfolder, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 _-]*", subfolder):
+            raise ValueError("Use one existing child folder name for output_subfolder.")
+        folder = folder / subfolder
+        if not folder.is_dir():
+            raise ValueError("The chosen output subfolder must already exist; no folder was created.")
+    return folder / f"{image_title}-l.png"
 
 
 def routing_info(question: dict) -> dict:
@@ -61,6 +69,7 @@ def routing_info(question: dict) -> dict:
     folder = question_folder(folder_number)
     mismatch = question_number != folder_number
     return {"folder_number": folder_number, "folder_name": folder.name,
+            "output_subfolder": question.get("output_subfolder", ""),
             "question_folder_mismatch": mismatch,
             "routing_notice": (
                 f"Question {question_number} is saved in folder {folder.name} by subject; "

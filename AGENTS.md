@@ -82,3 +82,29 @@ explanations -> complete exam answer.
   Preserve every other question and original/reference file. Visually verify
   that no text, figures, or equations are clipped. Confirm the updated TeX and
   image in the completion report. Keep all work local unless newly authorized.
+
+## Critical rule: simple but fully step-by-step
+
+Apply this rule to every future DT081A exam solution. Simple language must never
+mean short or incomplete reasoning. Within the handwritten-source and faithful-
+transcription rules above, prioritize complete steps -> clear reasoning -> simple
+English -> no unnecessary content. This overrides any preference for brevity
+that would remove steps needed for understanding.
+
+- Assume the reader is learning the subject for the first time. Explain necessary
+  mathematical symbols and use easy English.
+- For each meaningful calculation step, explain what is being calculated, briefly
+  why it is needed, show how through the formula, substitution and calculation,
+  and clearly state the result before continuing. Present these naturally;
+  separate What/Why/How/Result headings are not required.
+- Show one mathematical operation at a time where needed for understanding.
+  Never jump from a formula to a final answer when meaningful intermediate
+  algebra or reasoning is missing. Do not shorten at the expense of understanding.
+- When following handwritten notes, preserve the user's method and step order.
+  Make necessary intermediate substitutions and algebra explicit without adding
+  another method, unrelated formulas, invented examples or extra theory. Continue
+  to flag errors and uncertain handwriting explicitly.
+- For theory questions, explain every necessary concept clearly and directly,
+  without forcing a calculation template or adding irrelevant theory.
+- Keep solutions detailed in their steps and simple in their language. Avoid
+  lengthy introductions and repeated explanations of obvious arithmetic.
