@@ -108,3 +108,25 @@ that would remove steps needed for understanding.
   without forcing a calculation template or adding irrelevant theory.
 - Keep solutions detailed in their steps and simple in their language. Avoid
   lengthy introductions and repeated explanations of obvious arithmetic.
+
+## Efficient one-question workflow
+
+- Look up the exact exam/question in `tenta/signal latex/source_index.json` first.
+  Use its PDF page, personal-note paths and subject folder. Extend only missing
+  entries; search narrowly only when an indexed source is missing or ambiguous.
+- Reuse the dated TeX source, shared layout and exporter. Edit only the requested
+  question. One invocation exports all its completed parts in a single compile;
+  unchanged parts/images are skipped using verified content fingerprints.
+- Preserve handwritten methods, every necessary calculation step, the full
+  original multipart question above each answer, and separate 384px images.
+  Check mathematics, question/figure fidelity, width and clipping. Visually
+  inspect only new or changed images; never rebuild completed questions merely
+  to review them or profile performance.
+- Avoid repository-wide repeated searches/hashing, unrelated source reviews,
+  unnecessary tool changes, extra reports and duplicate files. Keep evidence and
+  timings in the exporter's existing validation report; add files only when
+  required by the exporter, source index or original-question figures.
+- Measure source discovery, transcription/solution, TeX updating, compile/export
+  and verification. Separate one-time optimization setup from normal run time.
+  Keep progress brief; report optimization changes and genuine uncertainties or
+  remaining bottlenecks. All work stays local unless newly authorized.

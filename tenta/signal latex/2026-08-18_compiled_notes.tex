@@ -1194,6 +1194,145 @@ $\pi$ and to the higher values at $0$ and $2\pi$.
 }
 
 
+% SIGNAL_QUESTION {"number":4,"folder_number":4,"output_subfolder":"latex","subject":"Mirrored and periodic sampled magnitude spectrum; Nyquist sampling rate","parts":["a","b"],"pdf_page":3,"required_figures":1,"required_question_text":["A signal","have been sampled using","100","kHz. The amplitude spectrum of the","sampled signal is shown in the figure below for a limited normalized frequency range.","Sketch the amplitude spectrum for an extended normalized frequency range","by extending axis to","What is the lowest sampling frequency in Hz that the signal","could be","sampled in while still being possible to be reconstructed exactly? Motivate.","(2p)","(3p)"],"figure_crops":[{"pdf_page":3,"image_index":0,"box":[925,1550,1660,2140],"asset":"assets/2026-08-18_Q04_spectrum-original.png"}],"assumptions":["Real-valued signal for mirrored magnitude","Original unaliased baseband spectrum for inferring fmax"],"mathematics_verified":{"Omega_edge":"3pi/4","given_sampling_hz":100000,"fmax_hz":37500,"nyquist_hz":75000}}
+% SIGNAL_PART {"question":4,"part":"a","status":"complete","source_kind":"handwritten","content_verified":true,"source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg","source_sha256":"b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76","source_exam_id":"2026-08-18","source_question":4,"source_region":"Own handwriting only; printed prompt excluded.","supporting_sources":[{"source":"tenta/signal tenta/2026-08/4 68.jpg","source_sha256":"10fe5e2de1c66149759848f93956589845c38970cae13797eaf417a9575fa31a"},{"source":"tenta/signal tenta/2026-08/4 68a.jpg","source_sha256":"05daa9195e544655539f19d0292cbdda59477fba3b19a43182b7ef18d39f1d73"},{"source":"tenta/signal tenta/2026-08/4 68a-2.jpg","source_sha256":"324331e10b6b8d7c72463f2043b844cc574e0dde90f8b4eb0d527f613d3660d9"}],"adaptation":"Preserve own mirror then2pi-repeat sketch and Omega=2pi*f/fs -> fmax37500 -> twice37500=75000Hz method. Make every algebra step explicit, with no new example or method. State real-signal/unaliased-baseband assumptions.","required_solution_text":["Keep the given shape","Mirror about zero","Repeat every","Final answer: extended spectrum"],"slug":"extended_spectrum"}
+% SIGNAL_PART {"question":4,"part":"b","status":"complete","source_kind":"handwritten","content_verified":true,"source":"tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg","source_sha256":"b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76","source_exam_id":"2026-08-18","source_question":4,"source_region":"Own handwriting only; printed prompt excluded.","supporting_sources":[{"source":"tenta/signal tenta/2026-08/4 68.jpg","source_sha256":"10fe5e2de1c66149759848f93956589845c38970cae13797eaf417a9575fa31a"},{"source":"tenta/signal tenta/2026-08/4 68a.jpg","source_sha256":"05daa9195e544655539f19d0292cbdda59477fba3b19a43182b7ef18d39f1d73"},{"source":"tenta/signal tenta/2026-08/4 68a-2.jpg","source_sha256":"324331e10b6b8d7c72463f2043b844cc574e0dde90f8b4eb0d527f613d3660d9"}],"adaptation":"Preserve own mirror then2pi-repeat sketch and Omega=2pi*f/fs -> fmax37500 -> twice37500=75000Hz method. Make every algebra step explicit, with no new example or method. State real-signal/unaliased-baseband assumptions.","required_solution_text":["Assumption:","Read the highest normalized frequency","Convert to frequency in Hz","Apply the sampling theorem","Final answer","37,500","75,000"],"slug":"minimum_sampling_rate"}
+
+% Q4: own same-exam sampling-spectrum notes.
+\SignalQuestion{4}{%
+A signal $s(t)$ have been sampled using $f_s=100$ kHz. The amplitude spectrum of the
+sampled signal is shown in the figure below for a limited normalized frequency range.
+\begin{center}
+\includegraphics[width=210pt]{assets/2026-08-18_Q04_spectrum-original.png}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=16pt,itemsep=4pt,topsep=3pt]
+\item Sketch the amplitude spectrum for an extended normalized frequency range
+by extending axis to $-2\pi<\Omega<2\pi$.\hfill(2p)
+\item What is the lowest sampling frequency in Hz that the signal $s(t)$ could be
+sampled in while still being possible to be reconstructed exactly? Motivate.\hfill(3p)
+\end{enumerate}
+}
+
+\SignalSolution{4}{a}{%
+Extend the spectrum by mirroring and repeating it, as in your notes.
+
+\stepheading{1. Keep the given shape}
+The magnitude is $1$ from $0$ to $\pi/4$, then decreases linearly to $0$
+at $3\pi/4$. It remains $0$ up to $\pi$.
+
+\stepheading{2. Mirror about zero}
+For a real signal, the magnitude is the same at positive and negative frequencies.
+Reflect the shape to the left: it is $1$ between $-\pi/4$ and $\pi/4$,
+and reaches $0$ at $-3\pi/4$ and $3\pi/4$.
+
+\stepheading{3. Repeat every $2\pi$}
+A discrete-time spectrum repeats every $2\pi$ in normalized angular frequency
+$\Omega$. Copy the same shape around $-2\pi$ and $2\pi$, keeping only the
+parts within the requested interval. This produces the rising/falling edge
+sections at the two ends of your sketch.
+
+\noteheading{Final answer: extended spectrum}
+\begin{center}
+\setlength{\unitlength}{1pt}
+\begin{picture}(330,140)
+\put(18,45){\vector(1,0){300}}
+\put(165,45){\vector(0,1){75}}
+\put(6,130){\makebox(0,0)[l]{Amplitude}}
+\put(326,44){\makebox(0,0){$\Omega$}}
+\put(155,100){\makebox(0,0){$1$}}
+\linethickness{0.7pt}
+\qbezier(25,100)(33.75,100)(42.5,100)
+\qbezier(42.5,100)(60,72.5)(77.5,45)
+\qbezier(77.5,45)(95,45)(112.5,45)
+\qbezier(112.5,45)(130,72.5)(147.5,100)
+\qbezier(147.5,100)(165,100)(182.5,100)
+\qbezier(182.5,100)(200,72.5)(217.5,45)
+\qbezier(217.5,45)(235,45)(252.5,45)
+\qbezier(252.5,45)(270,72.5)(287.5,100)
+\qbezier(287.5,100)(296.25,100)(305,100)
+\put(25,43){\line(0,1){4}}
+\put(25,30){\makebox(0,0){$-2\pi$}}
+\put(95,43){\line(0,1){4}}
+\put(95,30){\makebox(0,0){$-\pi$}}
+\put(165,43){\line(0,1){4}}
+\put(165,30){\makebox(0,0){$0$}}
+\put(235,43){\line(0,1){4}}
+\put(235,30){\makebox(0,0){$\pi$}}
+\put(305,43){\line(0,1){4}}
+\put(305,30){\makebox(0,0){$2\pi$}}
+\put(42.5,43){\line(0,1){4}}
+\put(42.5,12){\makebox(0,0){\scriptsize$-7\pi/4$}}
+\put(77.5,43){\line(0,1){4}}
+\put(77.5,12){\makebox(0,0){\scriptsize$-5\pi/4$}}
+\put(112.5,43){\line(0,1){4}}
+\put(112.5,12){\makebox(0,0){\scriptsize$-3\pi/4$}}
+\put(147.5,43){\line(0,1){4}}
+\put(147.5,12){\makebox(0,0){\scriptsize$-\pi/4$}}
+\put(182.5,43){\line(0,1){4}}
+\put(182.5,12){\makebox(0,0){\scriptsize$\pi/4$}}
+\put(217.5,43){\line(0,1){4}}
+\put(217.5,12){\makebox(0,0){\scriptsize$3\pi/4$}}
+\put(252.5,43){\line(0,1){4}}
+\put(252.5,12){\makebox(0,0){\scriptsize$5\pi/4$}}
+\put(287.5,43){\line(0,1){4}}
+\put(287.5,12){\makebox(0,0){\scriptsize$7\pi/4$}}
+\put(25,100){\circle{2}}
+\put(305,100){\circle{2}}
+\end{picture}
+\end{center}
+The central shape and its repeated copies have the same height and width.
+}
+
+\SignalSolution{4}{b}{%
+Find the highest signal frequency, then apply the sampling theorem in your notes.
+\textbf{Assumption:} the displayed band is the original baseband spectrum,
+with no previous aliasing.
+
+\stepheading{1. Read the highest normalized frequency}
+The spectrum reaches zero at
+\[
+\Omega_{\max}=\frac{3\pi}{4}.
+\]
+Use this edge to find the highest signal frequency in Hz.
+
+\stepheading{2. Convert to frequency in Hz}
+The conversion in your notes is
+\[
+\Omega=2\pi\frac{f}{f_s}.
+\]
+Here $\Omega$ is in radians per sample, $f$ is in Hz, and the given sampling
+rate is $f_s=100\text{ kHz}=100{,}000\text{ Hz}$.
+Substitute the edge frequency:
+\[
+\frac{3\pi}{4}=2\pi\frac{f_{\max}}{100{,}000}.
+\]
+Divide both sides by $2\pi$:
+\[
+\frac{3}{8}=\frac{f_{\max}}{100{,}000}.
+\]
+Multiply by $100{,}000$ to isolate $f_{\max}$:
+\[
+f_{\max}=\frac{3}{8}\cdot100{,}000=37{,}500\text{ Hz}.
+\]
+
+\stepheading{3. Apply the sampling theorem}
+For exact reconstruction, the sampling rate must be at least twice the highest
+signal frequency. Thus the Nyquist rate, the ideal minimum, is
+\[
+\begin{aligned}
+f_{s,\min}&=2f_{\max}\\
+&=2\cdot37{,}500\\
+&=75{,}000\text{ Hz}.
+\end{aligned}
+\]
+
+\noteheading{Final answer}
+\[
+\boxed{f_{s,\min}=75{,}000\text{ Hz}=75\text{ kHz}.}
+\]
+}
+
+
 \begin{document}
 \ifdefined\SignalSelectedQuestion
   \SignalRender{\SignalSelectedQuestion}{\SignalSelectedPart}
@@ -1209,6 +1348,8 @@ $\pi$ and to the higher values at $0$ and $2\pi$.
   \SignalRender{3}{a}\clearpage
   \SignalRender{3}{b}\clearpage
   \SignalRender{3}{c}\clearpage
+  \SignalRender{4}{a}\clearpage
+  \SignalRender{4}{b}\clearpage
   \SignalRender{6}{a}\clearpage
   \SignalRender{6}{b}
 \fi

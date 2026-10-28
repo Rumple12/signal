@@ -1,0 +1,27 @@
+x step 6 
+
+
+
+
+
+before
+-
+choose users and roles
+-
+role 1 - asker
+guy whos gonna ask the user(test leader)
+-
+role 2 - writer 
+writes down everything
+-
+role 3 - tester 
+
+
+
+
+
+introduce user to whats happenign
+-
+ask pre test questions
+-
+give the the tassk... wihhout telling them how

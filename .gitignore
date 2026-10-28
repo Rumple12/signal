@@ -12,3 +12,7 @@
 # Python caches. Authored scripts and plot data remain included.
 __pycache__/
 *.py[cod]
+
+# Local lab backups contain installed environments and private recording data.
+/labbs/lab2.zip
+/labbs/lab3.zip

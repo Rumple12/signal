@@ -1,0 +1,41 @@
+current latex system
+
+
+the codex can use both "signal calc" folder and the "signal tenta" folder for source answer to transcribe
+
+
+wait for everything to sync to github
+then prompt the gpt 
+
+
+Ok lets begin the latex workflow 
+See github for the entire signal tenta file structure
+let's run a test run to see if everything is operational 
+-
+note signal tenta is the source material we will slice up and trasncribe into latex
+I already named my paper notes the correct question and date
+i.e 6 68a -> question 6, 2026-08 part a
+the signal tenta folder also has the source questions pdf for each date for codex to slice up into the top of the question
+-
+This will help the codex to find the source solution paper note to transcribe accurately into latex ... 
+-
+
+
+
+
+but tell me what my effort will look like during this prcess and how which will be automated
+am I promping codex to create 384 latex pic per question part i.e reporting for part b, and c ... or will it automatlically know to automate seperate images for part a, part b, and part c for the question and include the original question at the top as discussed for all parts a ,b, c 
+
+
+
+review the gpt plan for latex system ... maybe its enouh 
+-
+given all tenta folders seperately
+each folder contains the question
+and the hand written solution if available
+-
+runs one question at a time per image, seperating question parts a,b,c so seperating a,b,c in seperate images just like we said 45a, 45b, 45c being seperate images 
+-
+Run latex test on question one
+
+

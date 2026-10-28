@@ -1,0 +1,3477 @@
+{
+  "version": 1,
+  "exams": {
+    "2024-10-29": {
+      "pdf": "tenta/signal tenta/2024-10/2024-10 exam.pdf",
+      "tex": "tenta/signal latex/2024-10-29_compiled_notes.tex",
+      "questions": {
+        "1": {
+          "pdf_page": 2,
+          "folder_number": 1,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 1,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2024-10/graded references/7YEQWBVX0000_Grade-D.pdf",
+              "source_sha256": "64b276b3e8277758a55f5da5cac161675290bcfa23ed099aeb5d918a25b9b68c",
+              "source_page": 4,
+              "source_label": "User-approved graded exam answer, not personal notebook",
+              "source_mark": "1/1",
+              "user_authorized": "2026-10-25: Use the graded exam answers",
+              "content_verified": true,
+              "slug": "sampling",
+              "required_solution_text": [
+                "Sampling",
+                "predetermined sampling frequency",
+                "Final answer",
+                "regular time intervals"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "source_sha256": "c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4",
+              "source_page": 4,
+              "source_label": "User-approved graded exam answer, not personal notebook",
+              "source_mark": "1/1",
+              "user_authorized": "2026-10-25: Use the graded exam answers",
+              "content_verified": true,
+              "slug": "quantization",
+              "required_solution_text": [
+                "Quantization",
+                "English clarification:",
+                "256",
+                "16",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "c",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2024-10/graded references/7YEQWBVX0000_Grade-D.pdf",
+              "source_sha256": "64b276b3e8277758a55f5da5cac161675290bcfa23ed099aeb5d918a25b9b68c",
+              "source_page": 4,
+              "source_label": "User-approved graded exam answer, not personal notebook",
+              "source_mark": "1/1",
+              "user_authorized": "2026-10-25: Use the graded exam answers",
+              "content_verified": true,
+              "slug": "impulse_response",
+              "required_solution_text": [
+                "Impulse response",
+                "English clarification:",
+                "Starting from rest",
+                "unit impulse",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "d",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "source_sha256": "c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4",
+              "source_page": 5,
+              "source_label": "User-approved graded exam answer, not personal notebook",
+              "source_mark": "1/1",
+              "user_authorized": "2026-10-25: Use the graded exam answers",
+              "content_verified": true,
+              "slug": "frequency_response",
+              "required_solution_text": [
+                "Frequency response",
+                "amplitude",
+                "phase",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "e",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "source_sha256": "c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4",
+              "source_page": 5,
+              "source_label": "User-approved graded exam answer, not personal notebook",
+              "source_mark": "1/1",
+              "user_authorized": "2026-10-25: Use the graded exam answers",
+              "content_verified": true,
+              "slug": "windowing",
+              "required_solution_text": [
+                "Windowing",
+                "rectangular, Hann, and Hamming",
+                "English clarification:",
+                "spectral leakage",
+                "Final answer"
+              ]
+            }
+          ]
+        },
+        "2": {
+          "pdf_page": 2,
+          "folder_number": 2,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 2,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2024-10/graded references/NVIXOOBS0000_Grade-D.pdf",
+              "source_sha256": "e173bdc16a9d62cc7ca94b495e0ab4b494006ade971a4f102830263e3d32e3d0",
+              "source_page": 5,
+              "source_label": "Approved graded working, incomplete tail explicitly completed using the included example solutions",
+              "source_mark": "2/3 before completion",
+              "completion_source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "completion_page": 2,
+              "user_authorized": "Continuation of the user-approved graded-reference workflow",
+              "content_verified": true,
+              "slug": "convolution",
+              "required_solution_text": [
+                "Full linear convolution",
+                "English clarification:",
+                "y(0)",
+                "y(1)",
+                "y(2)",
+                "y(3)",
+                "y(4)",
+                "y(5)",
+                "y(6)",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 2,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "source_sha256": "c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4",
+              "source_page": 2,
+              "source_label": "Included example-solutions sheet in the approved graded exam material",
+              "user_authorized": "Continuation of the user-approved graded-reference workflow",
+              "content_verified": true,
+              "slug": "differentiation",
+              "required_solution_text": [
+                "Differentiation",
+                "English clarification:",
+                "constant",
+                "Final answer",
+                "finite-difference"
+              ]
+            }
+          ]
+        },
+        "3": {
+          "pdf_page": 3,
+          "folder_number": 2,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 3,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2/2 68a.jpg",
+              "source_sha256": "046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa",
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "source_part": "a",
+              "source_label": "User's own cross-year block-diagram notes, matched by actual topology and task",
+              "adaptation": "Target diagram has feedback gains -3 and +2 rather than +0.3 and -0.1",
+              "content_verified": true,
+              "slug": "iir",
+              "required_solution_text": [
+                "Look for delays",
+                "Look for feedback",
+                "previous outputs",
+                "Final answer",
+                "IIR"
+              ]
+            },
+            {
+              "question": 3,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2/2 68b.jpg",
+              "source_sha256": "a15862f32f2ec45c2e20937d2bdb5fb37d9973d6f5d6e36d0d2f8f42fdad6318",
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "source_part": "b",
+              "source_label": "User's own handwritten input-group plus feedback-group method",
+              "adaptation": "Preserve grouping and collection method; read -3 and +2 from the 2024 target diagram",
+              "content_verified": true,
+              "slug": "difference_equation",
+              "required_solution_text": [
+                "Input group",
+                "Feedback group",
+                "Combine at the output",
+                "Final answer",
+                "one sample"
+              ]
+            }
+          ]
+        },
+        "4": {
+          "pdf_page": 3,
+          "folder_number": 4,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 4,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4/4 68.jpg",
+              "source_sha256": "b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76",
+              "source_exam_id": "2026-08-18",
+              "source_question": 4,
+              "source_part": "a",
+              "source_label": "User's own handwritten spectrum-extension and Nyquist method",
+              "adaptation": "Same spectrum shape and cutoff 3pi/4; target sampling rate 50 kHz replaces source 100 kHz. Source results 37500/75000 Hz become 18750/37500 Hz.",
+              "content_verified": true,
+              "slug": "spectrum_extension",
+              "required_solution_text": [
+                "Mirror around zero",
+                "Repeat every",
+                "Final answer",
+                "same shape"
+              ]
+            },
+            {
+              "question": 4,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4/4 68.jpg",
+              "source_sha256": "b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76",
+              "source_exam_id": "2026-08-18",
+              "source_question": 4,
+              "source_part": "b",
+              "source_label": "User's own handwritten spectrum-extension and Nyquist method",
+              "adaptation": "Same spectrum shape and cutoff 3pi/4; target sampling rate 50 kHz replaces source 100 kHz. Source results 37500/75000 Hz become 18750/37500 Hz.",
+              "content_verified": true,
+              "slug": "minimum_sampling",
+              "required_solution_text": [
+                "Read the highest normalized frequency",
+                "Convert to Hz",
+                "Apply the sampling theorem",
+                "18,750",
+                "37,500",
+                "Final answer"
+              ]
+            }
+          ]
+        },
+        "5": {
+          "pdf_page": 4,
+          "folder_number": 5,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 5,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/5/5 68a.jpg",
+              "source_sha256": "2036b48360aa8ed50cb5e164435d55775101c9e22df06f7dbda64fb919caf8e6",
+              "source_exam_id": "2026-08-18",
+              "source_question": 5,
+              "source_part": "a",
+              "source_label": "User's own LTI amplitude-multiplication and phase-addition notes",
+              "adaptation": "Preserve own method; read target amplitudes X=(0,4,4,0), H=(20,20,10,10) at f=(0,10,20,30). Target output=(0,80,40,0). Both phase graphs are exact negatives on the signal support.",
+              "content_verified": true,
+              "slug": "lti_amplitude_phase",
+              "required_solution_text": [
+                "Multiply amplitudes",
+                "Add phases",
+                "Final answer",
+                "Frequency stays the same"
+              ]
+            },
+            {
+              "question": 5,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/5/5 68b.jpg",
+              "source_sha256": "4aaf8144974f87c773a5c7c1fcc0182c48f833d7e07cdc43b962b29a8b74433d",
+              "source_exam_id": "2026-08-18",
+              "source_question": 5,
+              "source_part": "b",
+              "source_label": "User's own LTI amplitude-multiplication and phase-addition notes",
+              "adaptation": "Preserve own method; read target amplitudes X=(0,4,4,0), H=(20,20,10,10) at f=(0,10,20,30). Target output=(0,80,40,0). Both phase graphs are exact negatives on the signal support.",
+              "content_verified": true,
+              "slug": "output_spectra",
+              "required_solution_text": [
+                "Calculate the key values",
+                "Draw the amplitude spectrum",
+                "Add the phase graphs",
+                "Final answer",
+                "English clarification:",
+                "undefined"
+              ]
+            }
+          ]
+        },
+        "6": {
+          "pdf_page": 4,
+          "folder_number": 6,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 6,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "source_sha256": "c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4",
+              "source_page": 3,
+              "source_label": "Previously authorized graded-reference fallback; personal handwriting is incomplete",
+              "user_authorized": "Continuation of the user-approved graded-reference workflow; own notes inspected first",
+              "personal_handwriting": "tenta/signal tenta/2025-08/6 58.png",
+              "personal_handwriting_status": "Unfinished 2025-08-20 time-resolution reminder and sketches; no completed answer",
+              "personal_typed_reference": "tenta/signal tenta/signal calc/6/6 58a.jpg",
+              "personal_typed_reference_sha256": "6d89c5c5ed51941852a7641e1286b7bec7d2bd9b6b1bc09f318f508ddefb5088",
+              "adaptation": "2025 part (a) asks time resolution; target part (a) asks frequency separation and selects iii. Part (b) retains iv for the smallest visible side lobes. Do not identify typed personal references as handwriting.",
+              "content_verified": true,
+              "slug": "frequency_separation",
+              "required_solution_text": [
+                "Compare the main lobes",
+                "Window (iii)",
+                "narrowest main lobe",
+                "Final answer",
+                "frequency separation"
+              ]
+            },
+            {
+              "question": 6,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "source_sha256": "c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4",
+              "source_page": 3,
+              "source_label": "Previously authorized graded-reference fallback; personal handwriting is incomplete",
+              "user_authorized": "Continuation of the user-approved graded-reference workflow; own notes inspected first",
+              "personal_handwriting": "tenta/signal tenta/2025-08/6 58.png",
+              "personal_handwriting_status": "Unfinished 2025-08-20 time-resolution reminder and sketches; no completed answer",
+              "personal_typed_reference": "tenta/signal tenta/signal calc/6/6 58b.jpg",
+              "personal_typed_reference_sha256": "4055aac0afe0cee473120f6eb09e7c7446a8b2cbfcfc5ca6fae6ea56aa223f3f",
+              "adaptation": "2025 part (a) asks time resolution; target part (a) asks frequency separation and selects iii. Part (b) retains iv for the smallest visible side lobes. Do not identify typed personal references as handwriting.",
+              "content_verified": true,
+              "slug": "spectral_leakage",
+              "required_solution_text": [
+                "Compare the side lobes",
+                "Window (iv)",
+                "smallest visible side lobes",
+                "Final answer",
+                "spectral leakage"
+              ]
+            }
+          ]
+        },
+        "7": {
+          "pdf_page": 5,
+          "folder_number": 7,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 7,
+              "part": "",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "source_sha256": "c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4",
+              "source_page": 3,
+              "source_label": "Previously authorized graded-reference fallback for the target-specific response-surface interpretation",
+              "user_authorized": "Continuation of user-approved graded-reference workflow; personal notes inspected first",
+              "personal_reference": "tenta/signal tenta/signal calc/7/7 68.jpg",
+              "personal_reference_sha256": "64a3ba141bf30b3c34ad0684ed29a0f9faaad9661f109817e476acdd96738ab0",
+              "personal_reference_origin": "2026-08-18 Question 7, kernel interpretation and sharpening",
+              "adaptation": "Personal kernel notes support the image-filtering subject and preservation/sharpening explanation; they are not an exact handwritten solution of this response-surface question. DC gain 1 and higher-frequency amplification are verified from the target and Q7 example answer.",
+              "content_verified": true,
+              "slug": "high_frequency_emphasis",
+              "required_solution_text": [
+                "Read the low frequencies",
+                "Read the higher frequencies",
+                "Effect on an image",
+                "Final answer",
+                "High-frequency emphasis",
+                "sharpening",
+                "overall brightness"
+              ]
+            }
+          ]
+        },
+        "8": {
+          "pdf_page": 5,
+          "folder_number": 7,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 8,
+              "part": "",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/7/7 68.jpg",
+              "source_sha256": "64a3ba141bf30b3c34ad0684ed29a0f9faaad9661f109817e476acdd96738ab0",
+              "source_exam_id": "2026-08-18",
+              "source_question": 7,
+              "source_label": "User's own handwritten kernel interpretations; same five target kernels and images",
+              "adaptation": "Keep center-only dimming, averaging, directional edges, Laplacian edges and sharpening reasoning. Correct the handwritten averaging block label to target kernel 4; later notes separately identify target kernel 2 as vertical edges. Target matches 1->ii,2->iv,3->v,4->iii,5->i.",
+              "content_verified": true,
+              "slug": "kernel_matching",
+              "required_solution_text": [
+                "Only the center pixel",
+                "Average the neighbors",
+                "Find vertical edges",
+                "Find edges in all directions",
+                "Sharpen the image",
+                "Final answer",
+                "English clarification:",
+                "1",
+                "ii",
+                "2",
+                "iv",
+                "3",
+                "v",
+                "4",
+                "iii",
+                "5",
+                "i"
+              ]
+            }
+          ]
+        },
+        "9": {
+          "pdf_page": 6,
+          "folder_number": 7,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 9,
+              "part": "",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/2024-10/graded references/Z6EHWWR50000_Grade-B.pdf",
+              "source_sha256": "c9ae4085a41871c34d6c87c3d6070376eaa51d675376a10f03585c99ed815ea4",
+              "source_page": 3,
+              "source_label": "Previously authorized graded-reference fallback: scaled impulse responses and overlap subtraction",
+              "user_authorized": "Continuation of user-approved graded-reference workflow; own subject notes inspected first",
+              "personal_reference": "tenta/signal tenta/signal calc/7/7 68.jpg",
+              "personal_reference_status": "Related kernel-pattern and coefficient-sum notes; no matching handwritten PSF recovery example found.",
+              "adaptation": "Follow reference impulse-superposition method; show explicit overlap subtraction and divide by 112. Independently solve all 36 matrix equations with exact arithmetic and verify the unique nine kernel coefficients.",
+              "content_verified": true,
+              "slug": "psf_recovery",
+              "required_solution_text": [
+                "Read one scaled impulse response",
+                "Find the center and direct neighbors",
+                "Remove the overlapping contributions",
+                "Check an overlapping output",
+                "Final answer",
+                "112",
+                "224",
+                "64",
+                "58",
+                "cross-shaped averaging kernel"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "2025-01-07": {
+      "pdf": "tenta/signal tenta/2025-01/2025-01 exam.pdf",
+      "tex": "tenta/signal latex/2025-01-07_compiled_notes.tex",
+      "questions": {
+        "1": {
+          "pdf_page": 2,
+          "folder_number": 1,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 1,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "source_sha256": "0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b",
+              "content_verified": true,
+              "slug": "convolution",
+              "required_solution_text": [
+                "Convolution",
+                "reversing and shifting",
+                "summing",
+                "English clarification:",
+                "Final answer"
+              ],
+              "source_page": 2,
+              "source_mark": "0.5/1; formula retained, opening definition corrected",
+              "source_label": "Authorized graded reference; convolution formulas checked against course Lecture 4 p20 and Lecture 2 p12",
+              "user_authorized": "Continuation of the established graded-reference workflow; user requested same treatment",
+              "correction": "Convolution is a shifted multiply-and-sum/integrate operation, not pointwise multiplication in time. Frequency-domain multiplication is retained and distinguished.",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 4 - Time-Domain Analysis.pdf",
+                  "page": 20,
+                  "sha256": "9ed28834e1453acd86bc1eb804f1fae62f2b4596eeb4014e894f238e6f1346b9"
+                },
+                {
+                  "source": "lectures/Lecture 2 - Introduction II.pdf",
+                  "page": 12,
+                  "sha256": "ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad"
+                }
+              ]
+            },
+            {
+              "question": 1,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "lectures/Lecture 5 - Digital Filter Design.pdf",
+              "source_sha256": "a9cb0d0d82aaffe3ed6bd224f1a77d7a35df282a5aaf3eec2f9a72636d77f115",
+              "content_verified": true,
+              "slug": "transfer_function",
+              "required_solution_text": [
+                "Transfer function",
+                "Starting from rest",
+                "output",
+                "input",
+                "English clarification:",
+                "Final answer"
+              ],
+              "source_page": 17,
+              "source_label": "Course-lecture definition replaces the January graded definition that received zero",
+              "user_authorized": "Same established source-checked workflow; course reference used to correct an erroneous graded answer",
+              "personal_reference": "tenta/signal tenta/signal calc/5/5 68a.jpg",
+              "personal_reference_sha256": "2036b48360aa8ed50cb5e164435d55775101c9e22df06f7dbda64fb919caf8e6",
+              "personal_reference_origin": "2026-08-18 Q5(a): Y(f)=X(f)H(f)",
+              "correction": "A transfer function is the transformed output/input relation under zero initial conditions; the graded answer describes a Fourier transform instead.",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 4 - Time-Domain Analysis.pdf",
+                  "page": 20,
+                  "sha256": "9ed28834e1453acd86bc1eb804f1fae62f2b4596eeb4014e894f238e6f1346b9"
+                }
+              ]
+            },
+            {
+              "question": 1,
+              "part": "c",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2024-10/graded references/7YEQWBVX0000_Grade-D.pdf",
+              "source_sha256": "64b276b3e8277758a55f5da5cac161675290bcfa23ed099aeb5d918a25b9b68c",
+              "content_verified": true,
+              "slug": "impulse_response",
+              "required_solution_text": [
+                "Impulse response",
+                "Starting from rest",
+                "unit impulse",
+                "Final answer"
+              ],
+              "source_exam_id": "2024-10-29",
+              "source_question": 1,
+              "source_part": "c",
+              "source_page": 4,
+              "source_mark": "1/1",
+              "source_label": "Previously verified cross-year graded definition; exact existing solution wording reused",
+              "user_authorized": "Continuation of the user-approved graded-reference workflow",
+              "adaptation": "Same concept definition; only target part placement changes. Avoid the January half-mark short-duration/spreading wording."
+            },
+            {
+              "question": 1,
+              "part": "d",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2024-10/graded references/7YEQWBVX0000_Grade-D.pdf",
+              "source_sha256": "64b276b3e8277758a55f5da5cac161675290bcfa23ed099aeb5d918a25b9b68c",
+              "content_verified": true,
+              "slug": "sampling",
+              "required_solution_text": [
+                "Sampling",
+                "predetermined sampling frequency",
+                "regular time intervals",
+                "Final answer"
+              ],
+              "source_exam_id": "2024-10-29",
+              "source_question": 1,
+              "source_part": "a",
+              "source_page": 4,
+              "source_mark": "1/1",
+              "source_label": "Previously verified cross-year graded definition; exact existing solution wording reused",
+              "user_authorized": "Continuation of the user-approved graded-reference workflow",
+              "adaptation": "Same concept definition; only target part placement changes. Avoid the January half-mark short-duration/spreading wording."
+            },
+            {
+              "question": 1,
+              "part": "e",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4/4 61b.jpg",
+              "source_sha256": "5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022",
+              "content_verified": true,
+              "slug": "aliasing",
+              "required_solution_text": [
+                "Aliasing",
+                "indistinguishable",
+                "25",
+                "30",
+                "5",
+                "Final answer"
+              ],
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "source_part": "b",
+              "source_label": "Own handwritten aliasing notes: undersampling, folding limit and 25 Hz -> 5 Hz example at 30 Hz",
+              "adaptation": "Preserve the folding example and cause; give a concise concept definition. Do not copy the aside that conflates aliasing with later low-pass filtering.",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 2 - Introduction II.pdf",
+                  "page": 22,
+                  "sha256": "ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad"
+                }
+              ]
+            }
+          ]
+        },
+        "2": {
+          "pdf_page": 2,
+          "folder_number": 2,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 2,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2/2 68a.jpg",
+              "source_sha256": "046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa",
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "source_part": "a",
+              "source_label": "Own handwritten block-diagram notes: input group plus feedback group",
+              "adaptation": "Same topology and delay positions 0,1,3 (input),1,3 (feedback). Use target input gains 1,4,2 instead of 1,2,1; feedback +0.4,-0.2 instead of +0.3,-0.1. Preserve grouping and solving order.",
+              "content_verified": true,
+              "slug": "iir",
+              "required_solution_text": [
+                "Look for delays",
+                "Look for feedback",
+                "previous outputs",
+                "Final answer",
+                "IIR"
+              ],
+              "secondary_reference": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "secondary_reference_page": 4
+            },
+            {
+              "question": 2,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2/2 68b.jpg",
+              "source_sha256": "a15862f32f2ec45c2e20937d2bdb5fb37d9973d6f5d6e36d0d2f8f42fdad6318",
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "source_part": "b",
+              "source_label": "Own handwritten block-diagram notes: input group plus feedback group",
+              "adaptation": "Same topology and delay positions 0,1,3 (input),1,3 (feedback). Use target input gains 1,4,2 instead of 1,2,1; feedback +0.4,-0.2 instead of +0.3,-0.1. Preserve grouping and solving order.",
+              "content_verified": true,
+              "slug": "difference_equation",
+              "required_solution_text": [
+                "Input group",
+                "Feedback group",
+                "Combine at the output",
+                "Collect the output terms",
+                "Final answer",
+                "0.4",
+                "0.2"
+              ],
+              "secondary_reference": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "secondary_reference_page": 4
+            }
+          ]
+        },
+        "3": {
+          "pdf_page": 3,
+          "folder_number": 3,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 3,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n)/3 68a.jpg",
+              "source_sha256": "443843e564a3b608339312aeb56c05420d0bd88ae0f0563f0273ec3ca337bb26",
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "source_part": "a",
+              "content_verified": true,
+              "slug": "impulse_response",
+              "required_solution_text": [
+                "Unit impulse input",
+                "Previous outputs",
+                "Final answer",
+                "impulse response",
+                "IIR"
+              ],
+              "source_label": "Own handwritten unit-impulse -> impulse-response classification",
+              "adaptation": "Same impulse-input family; target recurrence uses feedback +1,+1 instead of -0.5,+0.5. Preserve response/feedback reasoning."
+            },
+            {
+              "question": 3,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n)/3 68b.jpg",
+              "source_sha256": "0b1d40d23c93d1cd0aaf85417143d9ac7d7c139fbbde7400a280c582dfa50a2b",
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "source_part": "b",
+              "content_verified": true,
+              "slug": "output_samples",
+              "required_solution_text": [
+                "Assume initial rest",
+                "Write the input values",
+                "Calculate the samples",
+                "Final answer",
+                "1,1,2,3,5"
+              ],
+              "source_label": "Own handwritten initial-rest -> input values -> successive output samples method",
+              "adaptation": "Target input is delta(n), not 0.1^n cos(n). Target feedback +1,+1 and five samples, not source -0.5,+0.5 and three samples. No source output numbers are reused."
+            },
+            {
+              "question": 3,
+              "part": "c",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n)/3 68c.jpg",
+              "source_sha256": "a63a22be09ef0f2470ba29de2ad64f819f42fc899efeba2959b067bf62975144",
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "source_part": "c",
+              "content_verified": true,
+              "slug": "amplitude_magnification",
+              "required_solution_text": [
+                "Take the magnitude",
+                "Evaluate the exponentials",
+                "Find the denominator magnitude",
+                "Final answer",
+                "0.4472",
+                "English clarification:",
+                "DTFT does not converge"
+              ],
+              "source_label": "Existing mixed reference: handwritten formula only, completed typed magnitude-first method",
+              "user_authorized": "Continuation of the same user-requested workflow with existing notes prioritized and typed-reference origin identified",
+              "adaptation": "Use the target supplied denominator 1-e^(-jOmega)-e^(-2jOmega), evaluate only Omega=pi/2. Do not copy the source coefficients 0.5/0.8 or its whole-curve values.",
+              "handwriting_status": "Raw personal note starts the formula but contains no completed evaluation.",
+              "mathematical_issue": "For the initial-rest causal response in part b, impulse response grows; ordinary DTFT does not converge. Treat supplied H as a formal algebraic expression and label this caveat."
+            }
+          ]
+        },
+        "4": {
+          "pdf_page": 3,
+          "folder_number": 4,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 4,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg",
+              "source_sha256": "b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76",
+              "source_exam_id": "2026-08-18",
+              "source_question": 4,
+              "source_part": "a",
+              "source_label": "Own handwritten mirror/repeat and normalized-frequency -> Hz -> Nyquist method",
+              "adaptation": "Direct match: same spectrum shape, cutoff 3pi/4 and sampling rate 100 kHz. Preserve own steps and results 37500 Hz signal limit, 75000 Hz minimum sampling rate. Reuse established October solution wording with the target 100 kHz values.",
+              "content_verified": true,
+              "slug": "spectrum_extension",
+              "required_solution_text": [
+                "Mirror around zero",
+                "Repeat every",
+                "Final answer",
+                "same shape"
+              ],
+              "secondary_reference": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "secondary_reference_page": 6,
+              "secondary_reference_issue": "Graded b computes 37.5 kHz signal limit but does not carry out the final doubling. Use the complete own-note method, giving 75 kHz."
+            },
+            {
+              "question": 4,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg",
+              "source_sha256": "b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76",
+              "source_exam_id": "2026-08-18",
+              "source_question": 4,
+              "source_part": "b",
+              "source_label": "Own handwritten mirror/repeat and normalized-frequency -> Hz -> Nyquist method",
+              "adaptation": "Direct match: same spectrum shape, cutoff 3pi/4 and sampling rate 100 kHz. Preserve own steps and results 37500 Hz signal limit, 75000 Hz minimum sampling rate. Reuse established October solution wording with the target 100 kHz values.",
+              "content_verified": true,
+              "slug": "minimum_sampling",
+              "required_solution_text": [
+                "Read the highest normalized frequency",
+                "Convert to Hz",
+                "Apply the sampling theorem",
+                "100,000",
+                "37,500",
+                "75,000",
+                "Final answer"
+              ],
+              "secondary_reference": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "secondary_reference_page": 6,
+              "secondary_reference_issue": "Graded b computes 37.5 kHz signal limit but does not carry out the final doubling. Use the complete own-note method, giving 75 kHz."
+            }
+          ]
+        },
+        "5": {
+          "pdf_page": 4,
+          "folder_number": 5,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 5,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/5 dc, cos, sin/5 68a.jpg",
+              "source_sha256": "2036b48360aa8ed50cb5e164435d55775101c9e22df06f7dbda64fb919caf8e6",
+              "source_exam_id": "2026-08-18",
+              "source_question": 5,
+              "source_part": "a",
+              "source_label": "Own handwritten amplitude multiplication, phase addition and key-frequency sketch method",
+              "adaptation": "Direct match to the target graphs: X=(4,4,3,0), H=(10,10,5,5) at f=(0,10,20,30), Y=(40,40,15,0). Preserve own method; draw the exact quadratic segment on 10<f<20 and correct the missing negative sign in the handwritten phase example. Phase at f=0 is defined, unlike the October variant.",
+              "content_verified": true,
+              "slug": "lti_amplitude_phase",
+              "required_solution_text": [
+                "Multiply amplitudes",
+                "Add phases",
+                "Final answer",
+                "Frequency stays the same"
+              ],
+              "secondary_reference": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "secondary_reference_page": 7,
+              "secondary_reference_issue": "Part a formulas agree; part b misreads graph segments and proposes an incorrect piecewise expression. Do not copy it."
+            },
+            {
+              "question": 5,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/5 dc, cos, sin/5 68b.jpg",
+              "source_sha256": "4aaf8144974f87c773a5c7c1fcc0182c48f833d7e07cdc43b962b29a8b74433d",
+              "source_exam_id": "2026-08-18",
+              "source_question": 5,
+              "source_part": "b",
+              "source_label": "Own handwritten amplitude multiplication, phase addition and key-frequency sketch method",
+              "adaptation": "Direct match to the target graphs: X=(4,4,3,0), H=(10,10,5,5) at f=(0,10,20,30), Y=(40,40,15,0). Preserve own method; draw the exact quadratic segment on 10<f<20 and correct the missing negative sign in the handwritten phase example. Phase at f=0 is defined, unlike the October variant.",
+              "content_verified": true,
+              "slug": "output_spectra",
+              "required_solution_text": [
+                "Calculate the key values",
+                "Draw the amplitude spectrum",
+                "Add the phase graphs",
+                "26.25",
+                "English clarification:",
+                "undefined",
+                "Final answer"
+              ],
+              "secondary_reference": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "secondary_reference_page": 7,
+              "secondary_reference_issue": "Part a formulas agree; part b misreads graph segments and proposes an incorrect piecewise expression. Do not copy it."
+            }
+          ]
+        },
+        "6": {
+          "pdf_page": 4,
+          "folder_number": 6,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 6,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "source_sha256": "0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b",
+              "source_page": 9,
+              "source_mark": "2/2",
+              "source_label": "Previously authorized graded-reference fallback; own handwriting for this topic is unfinished",
+              "user_authorized": "Continuation of the same user-requested and previously approved graded-reference workflow",
+              "personal_handwriting": "tenta/signal tenta/2025-08/6 58.png",
+              "personal_handwriting_status": "Unfinished 2025-08-20 time-resolution reminder; no completed answer",
+              "personal_typed_reference": "tenta/signal tenta/signal calc/6 long theory rgb/6 58a.jpg",
+              "personal_typed_reference_sha256": "6d89c5c5ed51941852a7641e1286b7bec7d2bd9b6b1bc09f318f508ddefb5088",
+              "adaptation": "Same frequency-separation/leakage variant and plot choices as 2024-10 Q6; reuse established wording. August 2025 personal notes ask time resolution in a, so do not copy their a=iv into this target.",
+              "content_verified": true,
+              "slug": "frequency_separation",
+              "required_solution_text": [
+                "Compare the main lobes",
+                "Window (iii)",
+                "narrowest main lobe",
+                "Final answer",
+                "frequency separation"
+              ]
+            },
+            {
+              "question": 6,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "source_sha256": "0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b",
+              "source_page": 9,
+              "source_mark": "2/2",
+              "source_label": "Previously authorized graded-reference fallback; own handwriting for this topic is unfinished",
+              "user_authorized": "Continuation of the same user-requested and previously approved graded-reference workflow",
+              "personal_handwriting": "tenta/signal tenta/2025-08/6 58.png",
+              "personal_handwriting_status": "Unfinished 2025-08-20 time-resolution reminder; no completed answer",
+              "personal_typed_reference": "tenta/signal tenta/signal calc/6 long theory rgb/6 58b.jpg",
+              "personal_typed_reference_sha256": "4055aac0afe0cee473120f6eb09e7c7446a8b2cbfcfc5ca6fae6ea56aa223f3f",
+              "adaptation": "Same frequency-separation/leakage variant and plot choices as 2024-10 Q6; reuse established wording. August 2025 personal notes ask time resolution in a, so do not copy their a=iv into this target.",
+              "content_verified": true,
+              "slug": "spectral_leakage",
+              "required_solution_text": [
+                "Compare the side lobes",
+                "Window (iv)",
+                "smallest visible side lobes",
+                "Final answer",
+                "spectral leakage"
+              ]
+            }
+          ]
+        },
+        "7": {
+          "pdf_page": 5,
+          "folder_number": 7,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 7,
+              "part": "",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2025-10/7 510-1.jpg",
+              "source_sha256": "233ba73587c855b315cb4ec9521afd6c0e6d0cb177e87a7801368cc939376452",
+              "source_exam_id": "2025-10-28",
+              "source_question": 7,
+              "source_label": "Own handwritten response-surface reading method, adapted to the target low-pass graph",
+              "content_verified": true,
+              "slug": "low_pass_smoothing",
+              "required_solution_text": [
+                "Read the spatial frequencies",
+                "Read the graph",
+                "Effect on an image",
+                "Final answer",
+                "Low-pass filter",
+                "smoothing",
+                "blurring"
+              ],
+              "adaptation": "Keep spatial-frequency meaning, surface height/gain, center-versus-outside and image-effect order. Own October main answer is high-pass; January surface has the opposite shape. Own page 3 explicitly sketches the matching central hill as low pass and labels blurred as low-pass behavior. No unrelated October image choices or band-pass label copied.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2025-10/7 510.jpg",
+                  "sha256": "300b90e6ed3d6d4b55a1c8111c6deae60022778a05eab2abea0424efaf8a63a4",
+                  "source_label": "Own page 1: low = smooth/gradual, high = edges/fine details"
+                },
+                {
+                  "source": "tenta/signal tenta/2025-10/7 510-2.jpg",
+                  "sha256": "6c0153933628275b363ef4c84179c913696cf21973f48eb379a8cfb333470b7b",
+                  "source_label": "Own page 3: central-hill low-pass sketch and blurred low-pass behavior"
+                }
+              ],
+              "verification_reference": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "verification_reference_sha256": "0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b",
+              "verification_reference_page": 10,
+              "verification_reference_mark": "3/3",
+              "verification_reference_role": "Verification only; own handwritten method has priority",
+              "personal_folder_reference": "tenta/signal tenta/signal calc/7 kernels/7 68.jpg",
+              "personal_folder_reference_status": "Related averaging/sharpening notes; own raw October response-surface notes are the closer match.",
+              "scope_limit": "The magnitude plot supports low-pass classification and smoothing, not an exact Gaussian formula, kernel, cutoff or phase."
+            }
+          ]
+        },
+        "8": {
+          "pdf_page": 5,
+          "folder_number": 7,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 8,
+              "part": "",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/7 kernels/7 68.jpg",
+              "source_sha256": "64a3ba141bf30b3c34ad0684ed29a0f9faaad9661f109817e476acdd96738ab0",
+              "source_exam_id": "2026-08-18",
+              "source_question": 7,
+              "source_label": "Own handwritten pattern/coefficient-sum method, adapted to January kernel values and different result images",
+              "content_verified": true,
+              "slug": "kernel_matching",
+              "required_solution_text": [
+                "Only the center pixel",
+                "Average the neighbors",
+                "Find vertical edges",
+                "Find horizontal edges",
+                "Sharpen the image",
+                "English clarification:",
+                "January change:",
+                "Final answer",
+                "iv",
+                "ii",
+                "iii"
+              ],
+              "adaptation": "Preserve own center-only, averaging, vertical edges, remaining edge kernel, sharpening order. Kernel 1 center changes from 0.5 to 2, so brightening replaces dimming. January kernel 3 is top-bottom difference (horizontal edges), not the August Laplacian. Kernel 4 and 5 same weights, kernel 2 same left-right difference. Target results are new beard pictures: 1->iv,2->v,3->ii,4->i,5->iii. Correct own averaging block label 2 to target 4 explicitly; constant regions cancel for zero-sum kernels, not the whole picture.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/7 68.jpg",
+                  "sha256": "b22706068d40cea20ec1eb4242ec79c2dc76f0921ab8fb1265eae787392becbc"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/7 68-2.jpg",
+                  "sha256": "eaa489963efc8d6da58642256e7b74cb5a5168f10dcd26281747be970657071d"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/7 68-3.jpg",
+                  "sha256": "6096f62d4cadefc5354afb832a2121ebfe575c18612f0f6aa90ca62389d9c90a"
+                }
+              ],
+              "verification_reference": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "verification_reference_sha256": "0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b",
+              "verification_reference_page": 11,
+              "verification_reference_mark": "5/5",
+              "verification_reference_role": "Verification of January matches and horizontal-edge adaptation; own note method takes priority."
+            }
+          ]
+        },
+        "9": {
+          "pdf_page": 6,
+          "folder_number": 7,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 9,
+              "part": "",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/2025-01/DT081A-2025-01-07 (1)/F6PACQ9N0000_Grade-C.pdf",
+              "source_sha256": "0a9c788f54d0a19492e74f51bf02b273eab1dd9a0c0855114b7812196b47f51b",
+              "source_page": 12,
+              "source_mark": "6/6",
+              "source_label": "Previously authorized graded-reference fallback; January handwritten reference, not personal handwriting",
+              "user_authorized": "Continuation of the established reference fallback when suitable own handwritten solutions are missing",
+              "personal_reference": "tenta/signal tenta/signal calc/7 kernels/7 68.jpg",
+              "personal_reference_sha256": "64a3ba141bf30b3c34ad0684ed29a0f9faaad9661f109817e476acdd96738ab0",
+              "personal_reference_status": "Own kernel-pattern and coefficient-sum notes inspected first; no matching personal handwritten PSF-recovery derivation found.",
+              "content_verified": true,
+              "slug": "psf_recovery",
+              "required_solution_text": [
+                "Read one scaled impulse response",
+                "Find the center and direct neighbors",
+                "Remove the overlapping contributions",
+                "Check an overlapping output",
+                "Final answer",
+                "112",
+                "224",
+                "64",
+                "58",
+                "cross-shaped averaging"
+              ],
+              "reused_solution": "tenta/signal latex/2024-10-29_compiled_notes.tex, Q9, exact solution wording and calculations retained.",
+              "adaptation": "January input/output matrices equal October 2024 Q9 cell-for-cell. Reuse verified impulse-superposition method and explicit overlap subtraction; January graded p12 confirms final kernel 6/6. Original January matrix crops and full question retained.",
+              "independent_verification": "All 36 output equations solved exactly, rank 9 and unique 3x3 kernel; every shown output reproduced."
+            }
+          ]
+        }
+      }
+    },
+    "2025-10-28": {
+      "pdf": "tenta/signal tenta/2025-10/2025-10.pdf",
+      "tex": "tenta/signal latex/2025-10-28_compiled_notes.tex",
+      "questions": {
+        "1": {
+          "pdf_page": 2,
+          "folder_number": 1,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 1,
+              "status": "complete",
+              "content_verified": true,
+              "part": "a",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61a.jpg",
+              "source_sha256": "25fc5b319f6b93a1fb79731db7d1c6b8b24c1777f911e3b998111f42e313dd69",
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "source_part": "a",
+              "source_label": "Own twice-highest-frequency method; precise reconstruction inequality checked against course",
+              "adaptation": "Retain own Nyquist rule and distinction between highest signal frequency and sampling frequency. Define theorem rather than just sampling. Lecture 2 p21 and October example sheet specify fs>2 fmax for ideal reconstruction; Nyquist rate is 2 fmax.",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 2 - Introduction II.pdf",
+                  "page": 21,
+                  "sha256": "ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad"
+                }
+              ],
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_page": 2,
+              "slug": "sampling_theorem",
+              "required_solution_text": [
+                "Sampling theorem",
+                "band-limited",
+                "reconstructed ideally",
+                "highest frequency",
+                "Nyquist rate",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 1,
+              "status": "complete",
+              "content_verified": true,
+              "part": "b",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61b.jpg",
+              "source_sha256": "5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022",
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "source_part": "b",
+              "source_label": "Own handwritten undersampling and folding example; exact previously verified January definition reused",
+              "adaptation": "Preserve 25 Hz sampled at 30 Hz -> 5 Hz example. Do not conflate aliasing with later low-pass filtering. Only target part changes from January Q1(e) to October Q1(b).",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 2 - Introduction II.pdf",
+                  "page": 21,
+                  "sha256": "ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad"
+                }
+              ],
+              "slug": "aliasing",
+              "required_solution_text": [
+                "Aliasing",
+                "indistinguishable",
+                "25",
+                "30",
+                "5",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 1,
+              "status": "complete",
+              "content_verified": true,
+              "part": "c",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2 electro map/2 68a.jpg",
+              "source_sha256": "046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa",
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "source_part": "a",
+              "source_label": "Own FIR/IIR and feedback notes, supplemented by the exact impulse-duration definition from the course",
+              "adaptation": "Preserve previous-output feedback explanation. Define IIR by infinite impulse-response duration, not merely by feedback presence. Do not import an unsupported assumption that every IIR response decays to zero.",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 5 - Digital Filter Design.pdf",
+                  "page": 11,
+                  "sha256": "a9cb0d0d82aaffe3ed6bd224f1a77d7a35df282a5aaf3eec2f9a72636d77f115"
+                }
+              ],
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_page": 2,
+              "slug": "iir",
+              "required_solution_text": [
+                "Infinite Impulse Response",
+                "continues indefinitely",
+                "previous outputs",
+                "feedback",
+                "Final answer",
+                "infinite duration"
+              ]
+            },
+            {
+              "question": 1,
+              "status": "complete",
+              "content_verified": true,
+              "part": "d",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "source_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "source_page": 2,
+              "source_label": "Included October example-solutions sheet; verified reference fallback, not personal handwriting",
+              "user_authorized": "Continuation of the established reference fallback when no matching own handwritten definition is available",
+              "personal_source_status": "Existing subject folders and raw-note inventory checked; no completed personal definition found for this concept.",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 4 - Time-Domain Analysis.pdf",
+                  "page": 9,
+                  "sha256": "9ed28834e1453acd86bc1eb804f1fae62f2b4596eeb4014e894f238e6f1346b9"
+                }
+              ],
+              "handwritten_reference_page": 5,
+              "handwritten_reference_role": "Additional reference only; aggregate Q1 mark 5.5/6 is not treated as proof that every formula is correct.",
+              "adaptation": "Retain frequency-domain representation and amplitude/phase meaning. Do not copy the handwritten H-for-X label, magnitude/power conflation or faulty phase formula.",
+              "slug": "spectrum",
+              "required_solution_text": [
+                "Spectrum",
+                "frequency domain",
+                "amplitudes and phases",
+                "Final answer",
+                "frequency content"
+              ]
+            },
+            {
+              "question": 1,
+              "status": "complete",
+              "content_verified": true,
+              "part": "e",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "source_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "source_page": 2,
+              "source_label": "Included October example-solutions sheet; verified reference fallback, not personal handwriting",
+              "user_authorized": "Continuation of the established reference fallback when no matching own handwritten definition is available",
+              "personal_source_status": "Existing subject folders and raw-note inventory checked; no completed personal definition found for this concept.",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 1 - Introduction.pdf",
+                  "page": 18,
+                  "sha256": "3ab437e126bedd011eaf0f6587e14c97323ec6e200de9fbc8497d3813c4bed3f"
+                }
+              ],
+              "handwritten_reference_page": 5,
+              "handwritten_reference_role": "Additional reference only; aggregate Q1 mark 5.5/6 is not treated as proof that every formula is correct.",
+              "adaptation": "Preserve sampled then quantized meaning. Define a digital signal, rather than only the analog-to-digital conversion process.",
+              "slug": "digital",
+              "required_solution_text": [
+                "Digital signal",
+                "discrete time",
+                "quantized amplitudes",
+                "Sampling",
+                "Quantization",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 1,
+              "status": "complete",
+              "content_verified": true,
+              "part": "f",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "source_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "source_page": 2,
+              "source_label": "Included October example-solutions sheet; verified reference fallback, not personal handwriting",
+              "user_authorized": "Continuation of the established reference fallback when no matching own handwritten definition is available",
+              "personal_source_status": "Existing subject folders and raw-note inventory checked; no completed personal definition found for this concept.",
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 10 - Spatial domain image processing III.pdf",
+                  "page": 3,
+                  "sha256": "dc825da0961148e286f782f27e9bdeeae79981df2ada0919b3fa7347a1be77d0"
+                }
+              ],
+              "handwritten_reference_page": 5,
+              "handwritten_reference_role": "Additional reference only; aggregate Q1 mark 5.5/6 is not treated as proof that every formula is correct.",
+              "adaptation": "Preserve successive 1D operations; use the reference/course 2D DCT row-then-column example, without the handwritten malformed DCT formula.",
+              "slug": "separable",
+              "required_solution_text": [
+                "Separability",
+                "successive one-dimensional operations",
+                "2D DCT",
+                "row",
+                "column",
+                "Final answer"
+              ]
+            }
+          ]
+        },
+        "2": {
+          "pdf_page": 2,
+          "folder_number": 2,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 2,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_page": 6,
+              "verification_reference_question_mark": "4/4 total for Q2",
+              "verification_reference_role": "Verification only; own method takes priority.",
+              "part": "a",
+              "source": "tenta/signal tenta/signal calc/2 electro map/2 68a.jpg",
+              "source_sha256": "046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa",
+              "source_part": "a",
+              "source_label": "Own delay/feedback/IIR notes plus own January causality notes",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/signal calc/2 electro map/2 61a.jpg",
+                  "sha256": "8c7d143f2879f054c214de7215f641dfe21e3201fd3617f012593e40ec9ffd9e",
+                  "source_exam_id": "2026-01-07",
+                  "source_question": 2,
+                  "source_part": "a"
+                }
+              ],
+              "adaptation": "Preserve delays -> feedback -> IIR -> causality reasoning. Target has one return delay and gains 0.3 and 0.4; nonzero loop gain 0.12 gives an infinite impulse response. Present x[n] and past y[n-1] only, so causal. Do not copy the personal aside that previous exams are always IIR.",
+              "slug": "iir_causal",
+              "required_solution_text": [
+                "Look for delays",
+                "Look for feedback",
+                "Decide FIR or IIR",
+                "Decide causality",
+                "previous outputs",
+                "0.12",
+                "Final answer",
+                "IIR and causal"
+              ]
+            },
+            {
+              "question": 2,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_page": 6,
+              "verification_reference_question_mark": "4/4 total for Q2",
+              "verification_reference_role": "Verification only; own method takes priority.",
+              "part": "b",
+              "source": "tenta/signal tenta/signal calc/2 electro map/2 68b.jpg",
+              "source_sha256": "a15862f32f2ec45c2e20937d2bdb5fb37d9973d6f5d6e36d0d2f8f42fdad6318",
+              "source_part": "b",
+              "source_label": "Own handwritten input-group plus feedback-group method; gain traced using own January notes",
+              "source_region": "Handwritten grouping/tracing, not the appended typed block with a coefficient discrepancy",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/signal calc/2 electro map/2 61b.jpg",
+                  "sha256": "01dd116bc0661650dc295a12df1ed933c03ac90ce40d7443695010f61703e85d",
+                  "source_exam_id": "2026-01-07",
+                  "source_question": 2,
+                  "source_part": "b"
+                }
+              ],
+              "adaptation": "Retain input group, feedback group, combine and collect output terms. Target direct input has no delay. Return path is y[n] -> one T -> gain 0.3. External gain 0.4 multiplies the entire sum, so feedback coefficient is 0.12. January reference topology has a different delay/gain tap; do not copy its x[n-1] or two-delay terms.",
+              "slug": "difference_equation",
+              "required_solution_text": [
+                "Input group",
+                "Feedback group",
+                "Combine at the output",
+                "Collect the output terms",
+                "Final answer",
+                "0.4",
+                "0.12",
+                "whole sum"
+              ]
+            }
+          ]
+        },
+        "3": {
+          "pdf_page": 3,
+          "folder_number": 3,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 3,
+              "status": "complete",
+              "content_verified": true,
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "part": "a",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n)/3 68a.jpg",
+              "source_sha256": "443843e564a3b608339312aeb56c05420d0bd88ae0f0563f0273ec3ca337bb26",
+              "source_part": "a",
+              "source_label": "Own unit-impulse -> impulse-response -> feedback explanation",
+              "adaptation": "Retain exact established January Q3(a) explanation, now with target coefficients and the extra input-delay term in the full original question. Impulse response is IIR; checked no cancellation of the second-order denominator.",
+              "slug": "impulse_response",
+              "required_solution_text": [
+                "Unit impulse input",
+                "Previous outputs are used",
+                "Final answer",
+                "impulse response",
+                "IIR"
+              ]
+            },
+            {
+              "question": 3,
+              "status": "complete",
+              "content_verified": true,
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "part": "b",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n)/3 68b.jpg",
+              "source_sha256": "0b1d40d23c93d1cd0aaf85417143d9ac7d7c139fbbde7400a280c582dfa50a2b",
+              "source_part": "b",
+              "source_label": "Own initial rest -> input values -> successive output method",
+              "adaptation": "Use x[n]=0.6^n cos(n), not source 0.1^n. Rearrange target to y(n)=x(n)-0.3x(n-1)-y(n-1)+0.5y(n-2). Retain initial rest and one sample at a time; use radians and 0.6^0=1. Do not copy October graded b, which starts with 0.6 and propagates errors.",
+              "slug": "output_samples",
+              "required_solution_text": [
+                "Assume initial rest",
+                "Write the input values",
+                "Calculate the samples",
+                "radians",
+                "0.975819",
+                "1.228751",
+                "Final answer"
+              ],
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_page": 2,
+              "rejected_reference_pages": [
+                7
+              ],
+              "reference_note": "Included typed example confirms 1,-0.98,1.23; handwritten p7 is incorrect."
+            },
+            {
+              "question": 3,
+              "status": "complete",
+              "content_verified": true,
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "part": "c",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n)/3 68c.jpg",
+              "source_sha256": "a63a22be09ef0f2470ba29de2ad64f819f42fc899efeba2959b067bf62975144",
+              "source_part": "c",
+              "source_label": "Existing completed typed magnitude-first reference; personal handwriting is unfinished",
+              "user_authorized": "Continuation of the already established typed-reference fallback for this unfinished handwritten part",
+              "personal_handwriting": "tenta/signal tenta/2026-08/3 68c.png",
+              "personal_handwriting_sha256": "837f72afa37b33f7c4d3ad74bf9b950b23bc258e8bacfe2ab63df62efe9ae8d2",
+              "personal_handwriting_status": "Only writes a different frequency function and sketch prompt; no completed handwritten magnitude calculation.",
+              "adaptation": "Keep magnitude -> denominator simplification -> key values -> sketch method. Target denominator is 1-exp(-jOmega)-0.5exp(-2jOmega), not source 1-0.5exp(-jOmega)-0.8exp(-2jOmega). Use actual target extrema, not reference quarter-period approximations.",
+              "slug": "magnitude_sketch",
+              "required_solution_text": [
+                "Take the magnitude",
+                "Simplify the denominator magnitude",
+                "Key points for the sketch",
+                "Sketch the curve",
+                "2.25",
+                "0.555",
+                "0.667",
+                "1.823",
+                "4.460",
+                "Final answer",
+                "Sketch correction:",
+                "separate system"
+              ],
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_page": 2,
+              "rejected_reference_pages": [
+                7,
+                8
+              ],
+              "reference_note": "Handwritten p8 gives |H(pi)|=2 and pi-periodicity, both wrong. Target gain at pi is 2/3, period 2pi. Included typed sketch agrees with independently checked target values."
+            }
+          ]
+        },
+        "4": {
+          "pdf_page": 3,
+          "folder_number": 4,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 4,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 2 - Introduction II.pdf",
+                  "sha256": "ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad",
+                  "pages": [
+                    19,
+                    21
+                  ]
+                }
+              ],
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                9
+              ],
+              "part": "a",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61a.jpg",
+              "source_sha256": "25fc5b319f6b93a1fb79731db7d1c6b8b24c1777f911e3b998111f42e313dd69",
+              "source_part": "a",
+              "source_label": "Own angular-frequency -> Hz -> maximum -> double method",
+              "adaptation": "Change source frequencies 25/10Hz to target 30/15Hz. Nyquist rate is 60Hz; distinguish the limiting rate from strict fs>60Hz condition for general perfect reconstruction, following Lecture 2 p21.",
+              "slug": "sampling_frequency",
+              "required_solution_text": [
+                "Read the angular frequencies",
+                "Convert to Hz",
+                "Use the sampling theorem",
+                "60",
+                "Nyquist limit",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 4,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 2 - Introduction II.pdf",
+                  "sha256": "ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad",
+                  "pages": [
+                    19,
+                    21
+                  ]
+                }
+              ],
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                9
+              ],
+              "part": "b",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61b.jpg",
+              "source_sha256": "5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022",
+              "source_part": "b",
+              "source_label": "Own Nyquist-limit and frequency-check method; explicit correction of target hint/reference terminology",
+              "adaptation": "Keep compute fs/2 -> test each component -> assess output. Source fs=30Hz causes true folding of 25Hz; target fs=100Hz leaves 15/30Hz unchanged in the baseband. Explain reference 100-30=70 and 100-15=85 as images, not aliases. Give 15,30,70,85 only assuming the reconstruction stage retains images passed by fc=100; with ideal bandlimited reconstruction only15,30 remain.",
+              "slug": "reconstruction_images",
+              "required_solution_text": [
+                "Check the Nyquist limit",
+                "Check the sampling images",
+                "Apply the stated output low-pass",
+                "15,30,70,85",
+                "Clarification:",
+                "ideal reconstruction",
+                "not aliasing",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 4,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "supporting_sources": [
+                {
+                  "source": "lectures/Lecture 2 - Introduction II.pdf",
+                  "sha256": "ea286ef897a71b91dd908bde71b942c996c1d234b50769ee754c51477a96ddad",
+                  "pages": [
+                    19,
+                    21
+                  ]
+                }
+              ],
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                9
+              ],
+              "part": "c",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61c.jpg",
+              "source_sha256": "388e775f09671f5ac42bc36b20703897935295d7874a64d6828043a996954365",
+              "source_part": "c",
+              "source_label": "Own amplitude lines + smooth low-pass sketch, with spectrum convention labelled",
+              "adaptation": "Own notes use one-sided time-sinusoid amplitudes. Preserve 3 at15Hz and2 at30Hz explicitly, then mirror/halve to obtain full two-sided Fourier line weights1.5 at+-15 and1 at+-30. Use normalized filter gain near1, not a passband height tied to signal amplitude. For fs100, illustrate passband through30 and smooth transition toward strong attenuation by50. State pre-sampling anti-alias placement.",
+              "slug": "spectrum_antialias_filter",
+              "required_solution_text": [
+                "Place the spectral lines",
+                "Choose the low-pass response",
+                "Combined sketch",
+                "one-sided",
+                "two-sided",
+                "30",
+                "50",
+                "before sampling",
+                "Final answer"
+              ]
+            }
+          ]
+        },
+        "5": {
+          "pdf_page": 4,
+          "folder_number": 5,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 5,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_question": 5,
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                10
+              ],
+              "verification_reference_role": "Verification only; own handwritten method is primary.",
+              "part": "a",
+              "source": "tenta/signal tenta/signal calc/5 dc, cos, sin/5 510a.jpg",
+              "source_sha256": "7738babc3aa31e21be7a3da3c0a6108226fc8d9c23160a2ea6dbe6527d93fe20",
+              "source_exam_id": "2025-10-28",
+              "source_part": "a",
+              "source_label": "Own exact October handwritten component -> gain -> phase -> output -> combine method",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2025-10/5 510.jpg",
+                  "sha256": "7f4fd4f4312c173be64e92ef4a4427df7ed8c5644954f4d11f79ff32dc09518b"
+                },
+                {
+                  "source": "tenta/signal tenta/2025-10/5 510-2.jpg",
+                  "sha256": "6b5c7f7aa7728c4e1a9cde42560a4a8dcee85ab84789debe19b9233ba58df26c"
+                }
+              ],
+              "adaptation": "Exact target question. Preserve split into cosine, sine and DC, read graph1 gain, graph2 phase, find slope, multiply amplitudes, add phases, combine. Correct omitted +pi intercept in cosine phase and the conflicting 0.25 gain on the continuation page; original graph and own first page give1/8=0.125. DC flips to-1. Sine output amplitude1/2.",
+              "corrections": [
+                "phi(omega)=pi-(pi/50)omega on the first slope; retain interceptpi",
+                "|H(23pi)|=1/8, so 4/8=1/2, not1"
+              ],
+              "slug": "output_signal",
+              "required_solution_text": [
+                "Identify the input components",
+                "Read the amplitude gains",
+                "Read the phase shifts",
+                "Write the output components",
+                "Reading correction:",
+                "Phase correction:",
+                "0.125",
+                "72.26",
+                "1.48183",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 5,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_question": 5,
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                10
+              ],
+              "verification_reference_role": "Verification only; own handwritten method is primary.",
+              "part": "b",
+              "source": "tenta/signal tenta/signal calc/5 dc, cos, sin/5 61b.jpg",
+              "source_sha256": "18ff39d15514e5c73c2ab3069d2cfe4d42edec4cab6414441f51ec905402e978",
+              "source_exam_id": "2026-01-07",
+              "source_part": "b",
+              "source_label": "Own filter-shape comparison notes, specifically the low-and-high-pass / middle-stop sketch",
+              "adaptation": "The main January question is low-pass, but the same page explicitly sketches and explains band-stop. Apply that own comparison method to the October graph: low/high frequency gains near1, middle attenuated. Call nonideal band-stop/band-reject; do not copy January low-pass final classification or claim complete cancellation of the middle band.",
+              "slug": "band_stop_filter",
+              "required_solution_text": [
+                "Low frequencies",
+                "Middle frequencies",
+                "High frequencies",
+                "Final answer",
+                "band-stop",
+                "attenuated"
+              ]
+            }
+          ]
+        },
+        "6": {
+          "pdf_page": 4,
+          "folder_number": 6,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 6,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/signal calc/6 long theory rgb/6 68a.jpg",
+              "source_sha256": "9db99889ea52282c00d32df95c3c7b3ae0ae17a6aca99748e3d4c35cff9e3b79",
+              "content_verified": true,
+              "user_authorized": "2026-10-25: Use the existing typed solutions; same original Bayer question reused for October2025.",
+              "slug": "bayer",
+              "required_solution_text": [
+                "First: Understand the Bayer filter array",
+                "Step 1: Understand the two concepts",
+                "Step 2: Understand why there is a trade-off",
+                "Step 3: Understand the fundamental limitation",
+                "Final answer for part (a)",
+                "200",
+                "100",
+                "50"
+              ],
+              "source_exam_id": "2026-08-18",
+              "source_question": 6,
+              "source_part": "a",
+              "source_label": "Previously user-approved typed solution; no completed personal handwritten answer",
+              "personal_handwriting": "tenta/signal tenta/2026-08/6 68 f.png",
+              "personal_handwriting_sha256": "c903e2ccb0b1ec39eca785a8ddd7a5770c000e8ad0127bcf181dd5952ef1e0c1",
+              "personal_handwriting_status": "Dated incomplete fragment only: each pixel measures one color. No completed a or b.",
+              "adaptation": "Question wording and Bayer topic match the approved August question. Exact existing solution wording, method, example values, colored cells and final answer retained; only provenance annotation and target exam/date/figure change.",
+              "reused_source": "tenta/signal latex/2026-08-18_compiled_notes.tex",
+              "reused_source_sha256": "7b29787140a57701e9a71d63b3549033797bc348587c52869ee5897fe1824b0b",
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                11
+              ],
+              "verification_reference_question_mark": "3/4 total for Q6; reference is verification, not source wording."
+            },
+            {
+              "question": 6,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/signal calc/6 long theory rgb/6 68b.jpg",
+              "source_sha256": "886681aec0f9e752823b0e81d58741176aa875e9fc7a8d67613005da9a51e6ab",
+              "content_verified": true,
+              "user_authorized": "2026-10-25: Use the existing typed solutions; same original Bayer question reused for October2025.",
+              "slug": "demosaicing",
+              "required_solution_text": [
+                "Step 1: Keep the measured color",
+                "Step 2: Estimate missing colors from neighbors",
+                "Step 2a: Red value",
+                "Step 2b: Green value",
+                "Step 2c: Blue value",
+                "Step 3: Combine the values",
+                "Step 4: Repeat for every pixel",
+                "Final answer for part (b)",
+                "180",
+                "115",
+                "85",
+                "460",
+                "340"
+              ],
+              "source_exam_id": "2026-08-18",
+              "source_question": 6,
+              "source_part": "b",
+              "source_label": "Previously user-approved typed solution; no completed personal handwritten answer",
+              "personal_handwriting": "tenta/signal tenta/2026-08/6 68 f.png",
+              "personal_handwriting_sha256": "c903e2ccb0b1ec39eca785a8ddd7a5770c000e8ad0127bcf181dd5952ef1e0c1",
+              "personal_handwriting_status": "Dated incomplete fragment only: each pixel measures one color. No completed a or b.",
+              "adaptation": "Question wording and Bayer topic match the approved August question. Exact existing solution wording, method, example values, colored cells and final answer retained; only provenance annotation and target exam/date/figure change.",
+              "reused_source": "tenta/signal latex/2026-08-18_compiled_notes.tex",
+              "reused_source_sha256": "7b29787140a57701e9a71d63b3549033797bc348587c52869ee5897fe1824b0b",
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                11
+              ],
+              "verification_reference_question_mark": "3/4 total for Q6; reference is verification, not source wording."
+            }
+          ]
+        },
+        "7": {
+          "pdf_page": 5,
+          "folder_number": 7,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 7,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_exam_id": "2025-10-28",
+              "source_question": 7,
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                12
+              ],
+              "verification_reference_question_mark": "5/5 total for Q7; supports the checked qualitative interpretation",
+              "scope_limit": "Magnitude-shape interpretation and most-likely candidate only; no exact kernel, phase, cutoff or pixelwise output is inferred.",
+              "part": "a",
+              "source": "tenta/signal tenta/2025-10/7 510-1.jpg",
+              "source_sha256": "233ba73587c855b315cb4ec9521afd6c0e6d0cb177e87a7801368cc939376452",
+              "source_part": "a",
+              "source_label": "Own exact October surface-gain, low/high spatial-frequency and image-effect method",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2025-10/7 510.jpg",
+                  "sha256": "300b90e6ed3d6d4b55a1c8111c6deae60022778a05eab2abea0424efaf8a63a4",
+                  "source_page": "1/3"
+                }
+              ],
+              "adaptation": "Preserve spatial frequencies -> surface height/gain -> center versus outer region -> image effect. Here central dip attenuates low frequencies and gain increases outward, boosting high-frequency edges/detail. Do not copy the opposite low-pass adaptation from the January notes.",
+              "slug": "high_pass_response",
+              "required_solution_text": [
+                "Read the spatial frequencies",
+                "Read the graph",
+                "Effect on an image",
+                "Final answer",
+                "High-pass",
+                "amplified",
+                "smooth"
+              ]
+            },
+            {
+              "question": 7,
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source_exam_id": "2025-10-28",
+              "source_question": 7,
+              "verification_reference": "tenta/signal tenta/2025-10/VWCHCLKL0000_Grade-B.pdf",
+              "verification_reference_sha256": "29dda71620851395a65f210616103bb08e8e0fc85d48cacaed7ddbd4e7786f08",
+              "verification_reference_pages": [
+                2,
+                12
+              ],
+              "verification_reference_question_mark": "5/5 total for Q7; supports the checked qualitative interpretation",
+              "scope_limit": "Magnitude-shape interpretation and most-likely candidate only; no exact kernel, phase, cutoff or pixelwise output is inferred.",
+              "part": "b",
+              "source": "tenta/signal tenta/2025-10/7 510-2.jpg",
+              "source_sha256": "6c0153933628275b363ef4c84179c913696cf21973f48eb379a8cfb333470b7b",
+              "source_part": "b",
+              "source_label": "Own compare-the-four-candidates method, with the incorrect selected image explicitly corrected",
+              "adaptation": "Preserve expected dark/edge-dominant appearance and comparison order i,ii,iii,iv. Own note selects ii and dismisses iii as dark; correct to iii using original candidate details, radial response and both reference example/graded explanation. Do not classify iv as band-pass from brightness alone.",
+              "correction": "Most likely image iii, not handwritten ii. Low frequencies are suppressed, so dark background is expected; compare retained edges in several orientations rather than brightness alone.",
+              "slug": "output_image",
+              "required_solution_text": [
+                "Predict the appearance",
+                "Compare the candidates",
+                "English clarification:",
+                "your notes chose",
+                "Final answer",
+                "Image (iii)",
+                "most likely",
+                "orientations"
+              ]
+            }
+          ]
+        },
+        "8": {
+          "pdf_page": 5,
+          "folder_number": 8,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 8,
+              "part": "",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/8 castle/8 68.jpg",
+              "source_sha256": "ecb29a9cadd5b58e1fcd8b69ea515e13db3be6c678001ee3c310a57318438d7a",
+              "source_exam_id": "2026-08-18",
+              "source_question": 8,
+              "source_label": "Own handwritten castle notes; explicitly authorized for this October redo",
+              "content_verified": true,
+              "slug": "histogram_equalization",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/8 68.jpg",
+                  "sha256": "ec185eb7da29c216a64be3bc042f642035bdbfc0400ee93799f29843dd42ace1"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/8 68-2.jpg",
+                  "sha256": "08f8aeb367eb6bf6cfc3afdd2de74d5827054ca2a53a46cca98e0038a8ba7bbe"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/8 68-3.jpg",
+                  "sha256": "13ada374e34e4e9736a5c1401c576d34554f17f39964b6cabb8ee1dd42b32321"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/8 68-4.jpg",
+                  "sha256": "5352423f7ddadf85083cfed0db80507f3b1bea67f3be9c2c4864e775ad8103fd"
+                }
+              ],
+              "adaptation": "Faithful concise transcription of c -> e -> s=(L-1)H(r) -> f -> d. Retain own transformation formula and define its symbols in words. Merge repetitions. Omit optional handwritten background examples and the previously added T(100)=102 calculation, sum formula, rounding notation, 8-bit specialization, and extra theory. Explicitly flag constant intensity wording: a straight cumulative plot indicates an even gray-level distribution, not identical pixels.",
+              "required_solution_text": [
+                "We need to explain plots",
+                "(c) Original histogram",
+                "(e) Original cumulative histogram",
+                "Transform the pixel values",
+                "(f) Enhanced cumulative histogram",
+                "(d) Enhanced histogram",
+                "cumulative proportion",
+                "Note correction:",
+                "every pixel has the same intensity",
+                "Final answer"
+              ],
+              "user_authorized": "2026-10-26: Use my handwritten 8 68 notes for this redo.",
+              "source_policy": "Only personal handwriting supplies the solution; no lecture, graded paper or other generated solution used."
+            }
+          ]
+        }
+      }
+    },
+    "2026-01-07": {
+      "pdf": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+      "tex": "tenta/signal latex/2026-01-07_compiled_notes.tex",
+      "questions": {
+        "1": {
+          "pdf_page": 2,
+          "folder_number": 1,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 1,
+              "part": "a",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "independently-solved",
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 2,
+              "source_label": "Verified target question only; fresh concise definition, not handwriting or a reference answer",
+              "handwritten_notes_missing": true,
+              "personal_source_status": "No corresponding personal definition found in existing subject folders, same-exam raw notes, or visual inventory of all 36 unfiled paper photos. No cross-year answer reused.",
+              "user_authorized": "Permanent simplified-solution Rule 2: if corresponding handwritten notes are missing, solve using the simplest correct method.",
+              "slug": "convolution",
+              "required_solution_text": [
+                "Final answer",
+                "Convolution",
+                "reversing one in time",
+                "overlapping values",
+                "impulse response"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "b",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61b.jpg",
+              "source_sha256": "5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022",
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "source_part": "b",
+              "source_label": "Own same-exam sampling, aliasing and reconstruction notes; handwriting alone supplies this solution",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/4 61b.jpg",
+                  "source_sha256": "6047ed756d691a045af8a8df6cc4127f4a10b1c50d8bb15e981ad747d70fbd72"
+                }
+              ],
+              "adaptation": "Keep own undersampling -> folding limit 30/2=15 -> 10 unchanged -> abs(25-30)=5 method. Give only its simple concept definition and actual handwritten calculation. Explicitly flag that 15 Hz is the folding limit, not the sampling frequency.",
+              "slug": "aliasing",
+              "required_solution_text": [
+                "Final answer",
+                "Aliasing",
+                "sampled too slowly",
+                "folding limit",
+                "10",
+                "25",
+                "30",
+                "15",
+                "Wording correction:"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "c",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "independently-solved",
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 2,
+              "source_label": "Verified target question only; fresh concise definition, not handwriting or a reference answer",
+              "handwritten_notes_missing": true,
+              "personal_source_status": "No corresponding personal definition found in existing subject folders, same-exam raw notes, or visual inventory of all 36 unfiled paper photos. No cross-year answer reused.",
+              "user_authorized": "Permanent simplified-solution Rule 2: if corresponding handwritten notes are missing, solve using the simplest correct method.",
+              "slug": "lti_system",
+              "required_solution_text": [
+                "Final answer",
+                "linear",
+                "time-invariant",
+                "Linear:",
+                "Time-invariant:"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "d",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "independently-solved",
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 2,
+              "source_label": "Verified target question only; fresh concise definition, not handwriting or a reference answer",
+              "handwritten_notes_missing": true,
+              "personal_source_status": "No corresponding personal definition found in existing subject folders, same-exam raw notes, or visual inventory of all 36 unfiled paper photos. No cross-year answer reused.",
+              "user_authorized": "Permanent simplified-solution Rule 2: if corresponding handwritten notes are missing, solve using the simplest correct method.",
+              "slug": "spectrogram",
+              "required_solution_text": [
+                "Final answer",
+                "Spectrogram",
+                "frequency content changes over time",
+                "frequency on the other",
+                "short sections"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "e",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "independently-solved",
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 2,
+              "source_label": "Verified target question only; fresh concise definition, not handwriting or a reference answer",
+              "handwritten_notes_missing": true,
+              "personal_source_status": "No corresponding personal definition found in existing subject folders, same-exam raw notes, or visual inventory of all 36 unfiled paper photos. No cross-year answer reused.",
+              "user_authorized": "Permanent simplified-solution Rule 2: if corresponding handwritten notes are missing, solve using the simplest correct method.",
+              "slug": "analogue_signal",
+              "required_solution_text": [
+                "Final answer",
+                "Analogue signal",
+                "continuous in time and amplitude",
+                "every instant"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "f",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61b.jpg",
+              "source_sha256": "5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022",
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "source_part": "b",
+              "source_label": "Own same-exam sampling, aliasing and reconstruction notes; handwriting alone supplies this solution",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/4 61b.jpg",
+                  "source_sha256": "6047ed756d691a045af8a8df6cc4127f4a10b1c50d8bb15e981ad747d70fbd72"
+                }
+              ],
+              "adaptation": "Keep own recreating-a-continuous-signal explanation and warning that insufficient sampling gives inaccurate reconstruction. Clarify samples as the starting point; explicitly flag the note calling reconstruction sampling. No new formula, example or reconstruction method.",
+              "slug": "reconstruction",
+              "required_solution_text": [
+                "Final answer",
+                "Reconstruction",
+                "continuous-time signal",
+                "samples",
+                "aliasing",
+                "Wording correction:"
+              ]
+            }
+          ]
+        },
+        "2": {
+          "pdf_page": 2,
+          "folder_number": 2,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 2,
+              "part": "a",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2 electro map/2 61a.jpg",
+              "source_sha256": "8c7d143f2879f054c214de7215f641dfe21e3201fd3617f012593e40ec9ffd9e",
+              "source_exam_id": "2026-01-07",
+              "source_question": 2,
+              "source_part": "a",
+              "source_label": "Own handwritten same-exam Question 2 notes; no graded or cross-year solution used",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/2 61a.jpg",
+                  "sha256": "71236373075493205676751e9ad54450327558d2cd8162695c11eb7673cbc225"
+                }
+              ],
+              "slug": "iir_causal",
+              "adaptation": "Retain own present/past versus future-input test. Apply it to the delays in the target diagram. Complete only the missing FIR/IIR classification with the short feedback -> non-ending impulse response explanation from that original diagram.",
+              "personal_source_status": "Causality notes present; the FIR/IIR conclusion is not written in the personal January notes. This small necessary completion is identified in the workflow report.",
+              "required_solution_text": [
+                "Check causality",
+                "present and past",
+                "future input",
+                "Check FIR or IIR",
+                "feedback loop",
+                "Final answer",
+                "causal and IIR"
+              ]
+            },
+            {
+              "question": 2,
+              "part": "b",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2 electro map/2 61b.jpg",
+              "source_sha256": "01dd116bc0661650dc295a12df1ed933c03ac90ce40d7443695010f61703e85d",
+              "source_exam_id": "2026-01-07",
+              "source_question": 2,
+              "source_part": "b",
+              "source_label": "Own handwritten same-exam Question 2 notes; no graded or cross-year solution used",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/2 61b.jpg",
+                  "sha256": "0b0d74bfa0f61025a2e6debfad457b4dbfb514777842a3f4387115a9979b2c00"
+                }
+              ],
+              "slug": "difference_equation",
+              "adaptation": "Preserve own backward tracing method, exact order, coefficients and grouped final answer: y/0.5=2y; lower T then0.9 gives1.8y[n-1]; trace backward through top T to2y[n+1]; sum; shift every index down1; divide by2 and collect output terms. Merge repeated routes. No new method, transfer function, numerical example or extra derivation.",
+              "required_solution_text": [
+                "working backward",
+                "Undo the output gain",
+                "Follow the feedback path",
+                "Go backward through the top delay",
+                "Add at the summing point",
+                "Shift every index down by one",
+                "Divide by two and collect output terms",
+                "Final answer",
+                "1.8"
+              ]
+            }
+          ]
+        },
+        "3": {
+          "pdf_page": 3,
+          "folder_number": 3,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 3,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n) (electro map func)/3 68a.jpg",
+              "source_sha256": "443843e564a3b608339312aeb56c05420d0bd88ae0f0563f0273ec3ca337bb26",
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "source_part": "a",
+              "source_label": "Explicitly authorized own August handwritten method, adapted to verified January question",
+              "user_authorized": "2026-10-26: Adapt my August handwritten method for (a-b); solve (c) simply.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68.jpg",
+                  "sha256": "8b19e2c75ffafba087f84004c90b4641c48a1dd9eae0bcb3e5112f69b62cad34"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68a.jpg",
+                  "sha256": "10a29fc8451f9359a2278400cfc6c8ee4cc0158e915518c25bb62eb442685084"
+                }
+              ],
+              "slug": "step_response",
+              "source_region": "Personal handwriting only; appended generated quote in the composite is excluded.",
+              "adaptation": "Retain own identify-input -> name-response method. January input equals1 for every n>=0, so it is a unit step and the output is a step response. August was a unit impulse; its impulse-response answer is not copied. Irrelevant IIR discussion omitted.",
+              "required_solution_text": [
+                "unit step",
+                "every",
+                "step response",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 3,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n) (electro map func)/3 68b.jpg",
+              "source_sha256": "0b1d40d23c93d1cd0aaf85417143d9ac7d7c139fbbde7400a280c582dfa50a2b",
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "source_part": "b",
+              "source_label": "Explicitly authorized own August handwritten method, adapted to verified January question",
+              "user_authorized": "2026-10-26: Adapt my August handwritten method for (a-b); solve (c) simply.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68b.jpg",
+                  "sha256": "0fd3eb5d57b6b8000b6c31cec8fbcf63b3228aed6f10b37f9675424be3a96fda"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68b-2.jpg",
+                  "sha256": "732f49ee12c3d9b0827ddf660e5171cee1e58208432228cfb278f256b6609a8d"
+                }
+              ],
+              "slug": "first_output_samples",
+              "adaptation": "Retain own recurrence -> initial rest -> needed input values -> y[0],y[1],y[2] substitution order. Shift the verified January y(n+1) equation down one index; use0.8^n sin(n+2), in radians. Only x[0] andx[1] are needed because the January system delays the input. Do not copy August coefficients, cosine values or y[0]=1.",
+              "required_solution_text": [
+                "first three output samples",
+                "Shift every index down by one",
+                "Assume initial rest",
+                "input values",
+                "radians",
+                "Calculate each output sample",
+                "0.909297",
+                "0.978261",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 3,
+              "part": "c",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 3,
+              "source_label": "Verified target frequency function; fresh simple magnitude calculation and sketch, not a typed reference transcription",
+              "user_authorized": "2026-10-26: Adapt my August handwritten method for (a-b); solve (c) simply.",
+              "personal_source_status": "No January Q3(c) handwriting. August handwritten part(c) only restates a different frequency function and the sketch request; it has no completed calculation.",
+              "personal_handwriting": "tenta/signal tenta/2026-08/3 68c.png",
+              "personal_handwriting_sha256": "837f72afa37b33f7c4d3ad74bf9b950b23bc258e8bacfe2ab63df62efe9ae8d2",
+              "typed_material_role": "Inspected only to distinguish typed from handwritten material; not used as solution source. No prior generated or graded solution copied.",
+              "slug": "amplitude_sketch",
+              "adaptation": "Use only reciprocal denominator magnitude, three simple complex key-value calculations covering0,pi/2,pi,3pi/2,2pi, and a directly evaluated curve. No derivatives, extrema derivation, long trigonometric expansion or invented numerical example. The two dips are slightly after pi/2 and before3pi/2.",
+              "required_solution_text": [
+                "separate system",
+                "Take the magnitude",
+                "Calculate key values",
+                "0.555",
+                "0.667",
+                "Final answer",
+                "slightly after"
+              ]
+            }
+          ]
+        },
+        "4": {
+          "pdf_page": 3,
+          "folder_number": 4,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 4,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61a.jpg",
+              "source_sha256": "25fc5b319f6b93a1fb79731db7d1c6b8b24c1777f911e3b998111f42e313dd69",
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "source_part": "a",
+              "source_label": "Own exact same-exam handwritten solution; no graded or cross-year answer used",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/4 61a.jpg",
+                  "sha256": "eb85f09d5f28dd3da75b6fe89248bc2bd8b9245c189251dca203b35bc59cb3af"
+                }
+              ],
+              "slug": "minimum_sampling_frequency",
+              "adaptation": "Retain own omega=2pi*f ->25Hz and10Hz ->double highest ->50Hz. Keep50Hz as the ideal Nyquist sampling limit. Clarify that a real filter requires a higher sampling rate for roll-off; no arbitrary example rate added here.",
+              "required_solution_text": [
+                "Find the signal frequencies",
+                "highest signal frequency",
+                "Double the highest frequency",
+                "Final answer",
+                "Nyquist limit",
+                "50",
+                "roll-off"
+              ]
+            },
+            {
+              "question": 4,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61b.jpg",
+              "source_sha256": "5c66946ccf63d2353e113867b629f263e7054db9d6c02e5e238f361fd3775022",
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "source_part": "b",
+              "source_label": "Own exact same-exam handwritten solution; no graded or cross-year answer used",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/4 61b.jpg",
+                  "sha256": "6047ed756d691a045af8a8df6cc4127f4a10b1c50d8bb15e981ad747d70fbd72"
+                }
+              ],
+              "slug": "aliased_output_frequencies",
+              "adaptation": "Preserve own30<50 -> folding limit30/2=15 ->10Hz unchanged ->abs(25-30)=5 -> output5and10Hz. State the baseband reconstruction assumption because the reconstruction block is unspecified. Explicitly flag the handwritten cut-off wording:25Hz aliases at sampling rather than being removed by the LP filter.",
+              "reconstruction_assumption": "Baseband reconstruction as assumed by own handwritten answer. The original block is not further specified; do not silently claim its treatment of sampling images is known.",
+              "corrections": [
+                "15Hz is the folding limit, not the sampling frequency.",
+                "25Hz folds to5Hz during sampling; the30Hz LP filter passes5Hz and10Hz."
+              ],
+              "required_solution_text": [
+                "Reconstruction assumption:",
+                "baseband",
+                "Check the sampling rate",
+                "Find the folding limit",
+                "Check each component",
+                "Note correction:",
+                "Final answer",
+                "15",
+                "5",
+                "10"
+              ]
+            },
+            {
+              "question": 4,
+              "part": "c",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 61c.jpg",
+              "source_sha256": "388e775f09671f5ac42bc36b20703897935295d7874a64d6828043a996954365",
+              "source_exam_id": "2026-01-07",
+              "source_question": 4,
+              "source_part": "c",
+              "source_label": "Own exact same-exam handwritten solution; no graded or cross-year answer used",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/4 61c.jpg",
+                  "sha256": "c3c0f3f6b560d2fcba4b3926aa407b4afd074416560ca13fda87377fdb4834b1"
+                }
+              ],
+              "slug": "spectrum_and_antialias_filter",
+              "adaptation": "Retain own one-sided stems amplitude4at10Hz and3at25Hz and low-pass shape rolling off from25to30Hz. Mark filter curve schematic/rescaled, not a numerical gain4. Complete only the sampling-rate condition implied by the own30Hz stopband:fs/2>=30, sofs>=60Hz. This calculated requirement is not an invented numerical example.",
+              "necessary_completion": "A30Hz stopband edge in the own sketch requires sampling at least60Hz; the30Hz sampling rate in(b) cannot support full reconstruction of25Hz.",
+              "spectrum_convention": "Own one-sided amplitude spectrum, not a two-sided Fourier-delta normalization.",
+              "required_solution_text": [
+                "one-sided",
+                "10",
+                "25",
+                "low-pass",
+                "before sampling",
+                "Final answer",
+                "Dotted curve:",
+                "Completion of your sketch:",
+                "roll-off",
+                "60"
+              ]
+            }
+          ]
+        },
+        "5": {
+          "pdf_page": 4,
+          "folder_number": 5,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 5,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/5 dc, cos, sin/5 61a.jpg",
+              "source_sha256": "85482722e00bcf0649a4819a21076b00c81c28f9f1399d2cb6ec907e6b9a7494",
+              "source_exam_id": "2026-01-07",
+              "source_question": 5,
+              "source_part": "a",
+              "source_label": "Own exact same-exam handwritten method; graph-reading errors explicitly corrected against original exam",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/5 61.jpg",
+                  "sha256": "eb708868046dc73a19fb99a3eafbdd25195eccab210e509d90617b6f77e17ae8"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-01/5 61-1.jpg",
+                  "sha256": "28b838a6c480b829e7abb5d2decb6db685bf2293b0d82c40bb3674eeaf4faefc"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-01/5 61a.jpg",
+                  "sha256": "6940a96b5264a3592652bd0651a703d1012f19d4c51478e412ad8b869c393afb"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-01/5 61b.jpg",
+                  "sha256": "72f103ec8415ece8f517dd016d33d5fc685f4185b2bf83d51a5c9bcebd5bd63b"
+                }
+              ],
+              "slug": "output_signal",
+              "adaptation": "Keep own split into cosine/DC/sine -> read gains at angular frequencies0,15pi,20pi -> straight-line phase slope -pi/100 -> multiply amplitudes and add plotted negative phase -> combine DC/cosine/sine. Original graph gains are0.8and0.4; notes use0.7and0.3. Explicitly flag this error and correct amplitudes2.1to2.4 and0.6to0.8. Retain all phase calculations -0.15pi^2, -0.2pi^2 and input phases. No new method, numerical example or unrelated theory.",
+              "corrections": [
+                "Original second plateau is0.8, not handwritten0.7.",
+                "Original third plateau is0.4, not handwritten0.3.",
+                "Output cosine/sine amplitudes are2.4and0.8."
+              ],
+              "required_solution_text": [
+                "Read the amplitude gains",
+                "Graph-reading correction:",
+                "0.8",
+                "0.4",
+                "Find the phase shifts",
+                "Multiply the amplitudes",
+                "2.4",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 5,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/5 dc, cos, sin/5 61b.jpg",
+              "source_sha256": "18ff39d15514e5c73c2ab3069d2cfe4d42edec4cab6414441f51ec905402e978",
+              "source_exam_id": "2026-01-07",
+              "source_question": 5,
+              "source_part": "b",
+              "source_label": "Own exact same-exam handwritten method; graph-reading errors explicitly corrected against original exam",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-01/5 61b.jpg",
+                  "sha256": "72f103ec8415ece8f517dd016d33d5fc685f4185b2bf83d51a5c9bcebd5bd63b"
+                }
+              ],
+              "slug": "low_pass_filter",
+              "adaptation": "Retain own near-zero gain1 and decreasing gain at higher frequencies ->low-pass. Omit unrelated high-pass/band-stop comparison sketches.",
+              "required_solution_text": [
+                "gain is",
+                "near",
+                "decreases",
+                "high frequencies",
+                "Final answer",
+                "low-pass"
+              ]
+            }
+          ]
+        },
+        "6": {
+          "pdf_page": 4,
+          "folder_number": 6,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 6,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 4,
+              "source_label": "Verified target question; fresh concise solution under the missing-handwriting rule",
+              "user_authorized": "Permanent simplified-solution Rule2: if no corresponding handwritten answers exist, solve using the simplest correct method.",
+              "handwritten_notes_missing": true,
+              "personal_handwriting": "tenta/signal tenta/2026-01/6 61.png",
+              "personal_handwriting_sha256": "d36be7f88d2a461ee134878401d539f86965342f78f513fd82ca38bb27bbdd03",
+              "personal_source_status": "Only a dated handwritten reminder of the prompt, with no answer or solving method.",
+              "typed_source_status": "Existing6 61a.jpg and6 61b.jpg are typed/generated screenshots, not handwriting. Inspected to establish provenance; not transcribed or used as solution sources.",
+              "no_cross_year_or_graded_answer_used": true,
+              "slug": "light_to_rgb",
+              "adaptation": "Short necessary capture sequence: source/scene reflection -> lens projection -> spatial sampling and electrical sensing with color filters -> ADC intensity quantization -> missing-color reconstruction where needed -> digital RGB memory. Bayer sensing explicitly qualified as typical. No equations or invented numerical examples.",
+              "required_solution_text": [
+                "follow the light",
+                "Illumination and reflection",
+                "Optical projection",
+                "Sampling and sensing",
+                "Quantization",
+                "RGB reconstruction",
+                "Storage",
+                "Final answer",
+                "digital R, G and B values"
+              ]
+            },
+            {
+              "question": 6,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 4,
+              "source_label": "Verified target question; fresh concise solution under the missing-handwriting rule",
+              "user_authorized": "Permanent simplified-solution Rule2: if no corresponding handwritten answers exist, solve using the simplest correct method.",
+              "handwritten_notes_missing": true,
+              "personal_handwriting": "tenta/signal tenta/2026-01/6 61.png",
+              "personal_handwriting_sha256": "d36be7f88d2a461ee134878401d539f86965342f78f513fd82ca38bb27bbdd03",
+              "personal_source_status": "Only a dated handwritten reminder of the prompt, with no answer or solving method.",
+              "typed_source_status": "Existing6 61a.jpg and6 61b.jpg are typed/generated screenshots, not handwriting. Inspected to establish provenance; not transcribed or used as solution sources.",
+              "no_cross_year_or_graded_answer_used": true,
+              "slug": "camera_processing",
+              "adaptation": "Give exactly three valid named operations with their purposes: white balance, noise reduction, sharpening. No examples, equations or extra operations.",
+              "required_solution_text": [
+                "Final answer",
+                "White balance:",
+                "Noise reduction:",
+                "Sharpening:",
+                "color-channel",
+                "sensor",
+                "edge contrast"
+              ]
+            }
+          ]
+        },
+        "7": {
+          "pdf_page": 5,
+          "folder_number": 7,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 7,
+              "part": "a",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "independently-solved",
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 5,
+              "source_label": "Verified target question; newly authored step-by-step derivation under the missing-handwriting rule",
+              "handwritten_notes_missing": true,
+              "personal_source_status": "No matching derivation found in the existing calculator folders, same-exam raw folder, raw topic files or visual inventory of all36 unfiled paper photos. Own August7 68 handwriting explains kernel-result matching, not point-source superposition or PSF shift invariance; not reused.",
+              "no_cross_year_or_graded_answer_used": true,
+              "user_authorized": "Permanent simplified-solution Rule2 and critical fully step-by-step rule: solve simply and completely when corresponding handwriting is missing.",
+              "slug": "weighted_point_sources",
+              "required_solution_text": [
+                "Newly authored",
+                "Write the input as weighted point sources",
+                "Apply the linear operator",
+                "Substitute the point-source response",
+                "Final answer",
+                "point spread function",
+                "weighted by the input"
+              ]
+            },
+            {
+              "question": 7,
+              "part": "b",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "independently-solved",
+              "source": "tenta/signal tenta/2026-01/2026-01 exam.pdf",
+              "source_sha256": "2f0b1c6dd76c2b636a7986dead6c4fa5c3ef5eda5957a2bffb66c86fd65d6caf",
+              "source_page": 5,
+              "source_label": "Verified target question; newly authored step-by-step derivation under the missing-handwriting rule",
+              "handwritten_notes_missing": true,
+              "personal_source_status": "No matching derivation found in the existing calculator folders, same-exam raw folder, raw topic files or visual inventory of all36 unfiled paper photos. Own August7 68 handwriting explains kernel-result matching, not point-source superposition or PSF shift invariance; not reused.",
+              "no_cross_year_or_graded_answer_used": true,
+              "user_authorized": "Permanent simplified-solution Rule2 and critical fully step-by-step rule: solve simply and completely when corresponding handwriting is missing.",
+              "slug": "shift_invariant_convolution",
+              "required_solution_text": [
+                "Newly authored",
+                "Use shift invariance",
+                "Substitute into the result from (a)",
+                "Recognize two-dimensional convolution",
+                "Final answer",
+                "flip the PSF in both coordinates",
+                "sum over pixels"
+              ]
+            }
+          ]
+        },
+        "8": {
+          "pdf_page": 5,
+          "folder_number": 8,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 8,
+              "part": "",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/8 castle/8 68.jpg",
+              "source_sha256": "ecb29a9cadd5b58e1fcd8b69ea515e13db3be6c678001ee3c310a57318438d7a",
+              "source_exam_id": "2026-08-18",
+              "source_question": 8,
+              "source_label": "Own August2026 handwritten castle notes, explicitly authorized for this January question",
+              "source_region": "Handwriting only; printed exam at the top of either composite is not the target question or a solution source.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/signal calc/8 castle/8 68-j.jpg",
+                  "source_sha256": "185978c2a0b1a40eac825fc5817e1ef17f1555f589cdc37a40f9ed5d4706b9ce"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/8 68.jpg",
+                  "source_sha256": "ec185eb7da29c216a64be3bc042f642035bdbfc0400ee93799f29843dd42ace1"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/8 68-2.jpg",
+                  "source_sha256": "08f8aeb367eb6bf6cfc3afdd2de74d5827054ca2a53a46cca98e0038a8ba7bbe"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/8 68-3.jpg",
+                  "source_sha256": "13ada374e34e4e9736a5c1401c576d34554f17f39964b6cabb8ee1dd42b32321"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/8 68-4.jpg",
+                  "source_sha256": "5352423f7ddadf85083cfed0db80507f3b1bea67f3be9c2c4864e775ad8103fd"
+                }
+              ],
+              "user_authorized": "2026-10-26 explicit reply: Use my August handwritten notes.",
+              "personal_source_status": "No personal January Question8 handwriting found. Matching August notes found in8 68.jpg and8 68-j.jpg, plus all four raw pages; inspected and used with explicit permission.",
+              "adaptation": "Preserve own c->e->s=(L-1)H(r)->f->d order; merge repeated axis/CDF explanations from8 68-j handwriting, clarify necessary fraction-to-gray-level steps. Flag constant-intensity wording. No numerical examples, alternative formula, graded answer or generated solution used.",
+              "corrections": [
+                "Straight cumulative histogram indicates even distribution across intensities, not all pixels having the same constant intensity."
+              ],
+              "slug": "histogram_equalization",
+              "required_solution_text": [
+                "Based on your August 2026 handwritten notes",
+                "Read the original histogram (c)",
+                "Read the original cumulative histogram (e)",
+                "Use",
+                "to change each pixel value",
+                "Read the enhanced cumulative histogram (f)",
+                "Read the enhanced histogram (d)",
+                "Note correction:",
+                "Final answer",
+                "fraction between",
+                "replace",
+                "peaks and gaps"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "2026-08-18": {
+      "pdf": "tenta/signal tenta/2026-08/2026-08 exam.pdf",
+      "tex": "tenta/signal latex/2026-08-18_compiled_notes.tex",
+      "questions": {
+        "2": {
+          "pdf_page": 2,
+          "folder_number": 2,
+          "output_subfolder": "latex",
+          "parts": [
+            {
+              "question": 2,
+              "part": "a",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2 electro map/2 68a.jpg",
+              "source_sha256": "046c83ac132b2b48484f02cb41a792e070ec25a51e8dda180a18246ffa5d59aa",
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "source_part": "a",
+              "source_label": "Own corresponding August handwritten solution; no graded or generated solution source",
+              "source_region": "Handwriting only; printed question and appended generated explanation excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/2 68a.jpg",
+                  "source_sha256": "938df57036ab1c2a1d46684d5df3cfd4f755269f888472cd82b29c81fb76d4f2"
+                }
+              ],
+              "adaptation": "Keep feedback-loop -> IIR reasoning; clarify that the impulse response continues after the input impulse ends. Do not add causality or stability discussion.",
+              "slug": "iir",
+              "required_solution_text": [
+                "feedback",
+                "previous output samples",
+                "unit impulse",
+                "finite number",
+                "Final answer",
+                "IIR",
+                "Infinite Impulse Response"
+              ],
+              "no_cross_year_or_graded_answer_used": true
+            },
+            {
+              "question": 2,
+              "part": "b",
+              "status": "complete",
+              "content_verified": true,
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/2 electro map/2 68b.jpg",
+              "source_sha256": "a15862f32f2ec45c2e20937d2bdb5fb37d9973d6f5d6e36d0d2f8f42fdad6318",
+              "source_exam_id": "2026-08-18",
+              "source_question": 2,
+              "source_part": "b",
+              "source_label": "Own corresponding August handwritten solution; no graded or generated solution source",
+              "source_region": "Handwriting only; printed question and appended generated explanation excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/signal calc/2 electro map/2 68a-j.jpg",
+                  "source_sha256": "d5a9c934c79f9c2a4d83f04bf6e6abb7e52d1e197a827220505230d7de37e65c"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/2 68b.jpg",
+                  "source_sha256": "5eb0e73635b76cb5bc23e41f23cd42940ef9453589117f3f4d63591ef8a51b63"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/2 68bb.jpg",
+                  "source_sha256": "f42141fc7ecb802d8cce22fef52c628e04d699ab8563a9fb9f87cc3814f4f804"
+                },
+                {
+                  "source": "tenta/signal tenta/exaam/exaam/IMG_20261024_154103.jpg",
+                  "source_sha256": "f42141fc7ecb802d8cce22fef52c628e04d699ab8563a9fb9f87cc3814f4f804"
+                }
+              ],
+              "adaptation": "Preserve input paths first, feedback paths second, then y(n)=their sum. Keep delays0,1,3, gains1,2,1,0.3,-0.1 and original input/feedback term grouping. Make multiplications and missing second-delay branches explicit. No alternate left-hand rearrangement, transfer function, numerical example or new method.",
+              "slug": "difference_equation",
+              "required_solution_text": [
+                "Read the blocks",
+                "Add the input paths on the left",
+                "Add the feedback paths on the right",
+                "Combine at the output",
+                "Final answer",
+                "0.3",
+                "0.1"
+              ],
+              "no_cross_year_or_graded_answer_used": true
+            }
+          ]
+        },
+        "6": {
+          "pdf_page": 4,
+          "folder_number": 6,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 6,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/signal calc/6/6 68a.jpg",
+              "source_sha256": "9db99889ea52282c00d32df95c3c7b3ae0ae17a6aca99748e3d4c35cff9e3b79",
+              "content_verified": true,
+              "user_authorized": "2026-10-25: Use the existing typed solutions",
+              "slug": "bayer",
+              "required_solution_text": [
+                "First: Understand the Bayer filter array",
+                "Step 1: Understand the two concepts",
+                "Step 2: Understand why there is a trade-off",
+                "Step 3: Understand the fundamental limitation",
+                "Final answer for part (a)",
+                "200",
+                "100",
+                "50"
+              ]
+            },
+            {
+              "question": 6,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "user-approved-typed",
+              "source": "tenta/signal tenta/signal calc/6/6 68b.jpg",
+              "source_sha256": "886681aec0f9e752823b0e81d58741176aa875e9fc7a8d67613005da9a51e6ab",
+              "content_verified": true,
+              "user_authorized": "2026-10-25: Use the existing typed solutions",
+              "slug": "demosaicing",
+              "required_solution_text": [
+                "Step 1: Keep the measured color",
+                "Step 2: Estimate missing colors from neighbors",
+                "Step 2a: Red value",
+                "Step 2b: Green value",
+                "Step 2c: Blue value",
+                "Step 3: Combine the values",
+                "Step 4: Repeat for every pixel",
+                "Final answer for part (b)",
+                "180",
+                "115",
+                "85",
+                "460",
+                "340"
+              ]
+            }
+          ]
+        },
+        "1": {
+          "pdf_page": 2,
+          "folder_number": 1,
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 1,
+              "part": "a",
+              "status": "complete",
+              "content_verified": true,
+              "slug": "sampling",
+              "required_solution_text": [
+                "Final answer",
+                "Sampling",
+                "continuous-time signal",
+                "time instants",
+                "sequence of samples",
+                "time becomes discrete"
+              ],
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg",
+              "source_sha256": "b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76",
+              "source_exam_id": "2026-08-18",
+              "source_question": 4,
+              "source_label": "Own same-exam handwritten concept notes; necessary English definition clarification explicitly recorded",
+              "source_region": "Personal handwriting only; printed questions and appended generated text excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/4 68.jpg",
+                  "source_sha256": "10fe5e2de1c66149759848f93956589845c38970cae13797eaf417a9575fa31a"
+                }
+              ],
+              "adaptation": "Sampling notes discuss capturing a continuous signal and sampling rate; no standalone Q1 definition. Clarify the meaning of taking separate time samples, without importing the numerical Q4 example or adding a new method.",
+              "no_cross_year_or_graded_solution_used": true
+            },
+            {
+              "question": 1,
+              "part": "b",
+              "status": "complete",
+              "content_verified": true,
+              "slug": "quantization",
+              "required_solution_text": [
+                "Newly authored",
+                "Final answer",
+                "Quantization",
+                "finite set",
+                "amplitude discrete",
+                "quantization error"
+              ],
+              "source_kind": "independently-solved",
+              "source": "tenta/signal tenta/2026-08/2026-08 exam.pdf",
+              "source_sha256": "f0a44d790df6c154ef9165ac0467ddb8210c23b567860b64c8790bc2cc4c90c8",
+              "source_page": 2,
+              "source_label": "Verified target concept; fresh concise definition under missing-handwriting rule",
+              "handwritten_notes_missing": true,
+              "personal_source_status": "No matching personal definition found after existing calculator-folder and raw-note inspection, including the36 unfiled photo inventory. Compression and histogram notes do not supply quantization or windowing definitions.",
+              "user_authorized": "Permanent simplified-solution Rule2: write the simplest complete answer when corresponding personal handwriting is missing.",
+              "no_cross_year_or_graded_solution_used": true
+            },
+            {
+              "question": 1,
+              "part": "c",
+              "status": "complete",
+              "content_verified": true,
+              "slug": "impulse_response",
+              "required_solution_text": [
+                "Final answer",
+                "impulse response",
+                "unit impulse",
+                "Scope clarification:",
+                "finite or infinite"
+              ],
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n) (electro map func)/3 68a.jpg",
+              "source_sha256": "443843e564a3b608339312aeb56c05420d0bd88ae0f0563f0273ec3ca337bb26",
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "source_label": "Own same-exam handwritten concept notes; necessary English definition clarification explicitly recorded",
+              "source_region": "Personal handwriting only; printed questions and appended generated text excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68.jpg",
+                  "source_sha256": "8b19e2c75ffafba087f84004c90b4641c48a1dd9eae0bcb3e5112f69b62cad34"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68a.jpg",
+                  "source_sha256": "10a29fc8451f9359a2278400cfc6c8ee4cc0158e915518c25bb62eb442685084"
+                }
+              ],
+              "adaptation": "Use handwritten unit impulse1at0/0else -> system output h[n] definition. Exclude appended generated quote. Clarify initially resting system and explicitly limit Q3 IIR shorthand to its particular feedback system.",
+              "no_cross_year_or_graded_solution_used": true
+            },
+            {
+              "question": 1,
+              "part": "d",
+              "status": "complete",
+              "content_verified": true,
+              "slug": "frequency_response",
+              "required_solution_text": [
+                "Final answer",
+                "frequency response",
+                "linear, time-invariant",
+                "amplitude gain",
+                "phase shift"
+              ],
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/5.5 combined graphs/5 68a.jpg",
+              "source_sha256": "2036b48360aa8ed50cb5e164435d55775101c9e22df06f7dbda64fb919caf8e6",
+              "source_exam_id": "2026-08-18",
+              "source_question": 5,
+              "source_label": "Own same-exam handwritten concept notes; necessary English definition clarification explicitly recorded",
+              "source_region": "Personal handwriting only; printed questions and appended generated text excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/5 68a.jpg",
+                  "source_sha256": "b54a2a8e0c390985c0ea39c2a5c863bf01c83f7ccd6aedc2c78b686f253a3acd"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/5 68a-2.jpg",
+                  "source_sha256": "c783d3def2aa1368324fe98d7a3e20b4d4a448d6b2c36689dc754dd51fa92ac7"
+                }
+              ],
+              "adaptation": "Use own magnitude/gain and phase-shift explanation. Condense the concept only; do not copy the Q5 application, graphs, algebra or numerical output.",
+              "no_cross_year_or_graded_solution_used": true
+            },
+            {
+              "question": 1,
+              "part": "e",
+              "status": "complete",
+              "content_verified": true,
+              "slug": "windowing",
+              "required_solution_text": [
+                "Newly authored",
+                "Final answer",
+                "Windowing",
+                "window function",
+                "finite section",
+                "spectral leakage"
+              ],
+              "source_kind": "independently-solved",
+              "source": "tenta/signal tenta/2026-08/2026-08 exam.pdf",
+              "source_sha256": "f0a44d790df6c154ef9165ac0467ddb8210c23b567860b64c8790bc2cc4c90c8",
+              "source_page": 2,
+              "source_label": "Verified target concept; fresh concise definition under missing-handwriting rule",
+              "handwritten_notes_missing": true,
+              "personal_source_status": "No matching personal definition found after existing calculator-folder and raw-note inspection, including the36 unfiled photo inventory. Compression and histogram notes do not supply quantization or windowing definitions.",
+              "user_authorized": "Permanent simplified-solution Rule2: write the simplest complete answer when corresponding personal handwriting is missing.",
+              "no_cross_year_or_graded_solution_used": true
+            },
+            {
+              "question": 1,
+              "part": "f",
+              "status": "complete",
+              "content_verified": true,
+              "slug": "reconstruction",
+              "required_solution_text": [
+                "Final answer",
+                "Reconstruction",
+                "continuous-time signal",
+                "samples",
+                "exact recovery",
+                "sampling theorem"
+              ],
+              "source_kind": "handwritten",
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg",
+              "source_sha256": "b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76",
+              "source_exam_id": "2026-08-18",
+              "source_question": 4,
+              "source_label": "Own same-exam handwritten concept notes; necessary English definition clarification explicitly recorded",
+              "source_region": "Personal handwriting only; printed questions and appended generated text excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/4 68a-2.jpg",
+                  "source_sha256": "324331e10b6b8d7c72463f2043b844cc574e0dde90f8b4eb0d527f613d3660d9"
+                }
+              ],
+              "adaptation": "Handwritten Q4 concludes the sampling rate needed to reconstruct exactly. Clarify reconstruction as recreating the continuous signal from samples and retain the sufficiently-high-sampling condition; no numerical example or reconstruction method added.",
+              "no_cross_year_or_graded_solution_used": true
+            }
+          ]
+        },
+        "3": {
+          "pdf_page": 3,
+          "folder_number": 3,
+          "output_subfolder": "latex",
+          "parts": [
+            {
+              "question": 3,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n) (electro map func)/3 68a.jpg",
+              "source_sha256": "443843e564a3b608339312aeb56c05420d0bd88ae0f0563f0273ec3ca337bb26",
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "source_part": "a",
+              "source_label": "Own corresponding August handwritten solution only",
+              "source_region": "Handwriting only; appended generated quote excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68.jpg",
+                  "source_sha256": "8b19e2c75ffafba087f84004c90b4641c48a1dd9eae0bcb3e5112f69b62cad34"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68a.jpg",
+                  "source_sha256": "10a29fc8451f9359a2278400cfc6c8ee4cc0158e915518c25bb62eb442685084"
+                }
+              ],
+              "adaptation": "Keep identify unit impulse -> name output impulse response -> own system-specific IIR/feedback explanation. Distinguish response name from IIR classification.",
+              "required_solution_text": [
+                "unit impulse",
+                "impulse response",
+                "Final answer",
+                "previous outputs",
+                "infinite impulse response"
+              ],
+              "slug": "impulse_response",
+              "no_cross_year_or_graded_solution_used": true
+            },
+            {
+              "question": 3,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/3 y(n) x(n) (electro map func)/3 68b.jpg",
+              "source_sha256": "0b1d40d23c93d1cd0aaf85417143d9ac7d7c139fbbde7400a280c582dfa50a2b",
+              "source_exam_id": "2026-08-18",
+              "source_question": 3,
+              "source_part": "b",
+              "source_label": "Own corresponding August handwritten solution only",
+              "source_region": "Handwriting only; appended generated quote excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68b.jpg",
+                  "source_sha256": "0fd3eb5d57b6b8000b6c31cec8fbcf63b3228aed6f10b37f9675424be3a96fda"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/3 68b-2.jpg",
+                  "source_sha256": "732f49ee12c3d9b0827ddf660e5171cee1e58208432228cfb278f256b6609a8d"
+                }
+              ],
+              "adaptation": "Keep own initial rest y[-1]=y[-2]=0 -> calculate x0,x1,x2 in radians -> successive y0,y1,y2 substitutions. Preserve recurrence signs, order and six-decimal answers. Make necessary multiplications explicit; retain extra calculator precision until final rounding.",
+              "required_solution_text": [
+                "initial-rest assumption",
+                "Use radians",
+                "Set the initial values",
+                "Calculate the three input samples",
+                "Final answer",
+                "0.445970",
+                "0.718823"
+              ],
+              "slug": "first_samples",
+              "no_cross_year_or_graded_solution_used": true
+            },
+            {
+              "question": 3,
+              "part": "c",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/2026-08/2026-08 exam.pdf",
+              "source_sha256": "f0a44d790df6c154ef9165ac0467ddb8210c23b567860b64c8790bc2cc4c90c8",
+              "source_page": 3,
+              "source_label": "Verified target function; fresh simple sketch solution because handwritten working is missing",
+              "personal_source_status": "Own3 68c.png and handwritten region of3 68c.jpg only repeat the given function and range. No calculations or sketch. Appended typed solution inspected only to distinguish source types, not used as a solution source.",
+              "unfinished_handwritten_source": "tenta/signal tenta/2026-08/3 68c.png",
+              "unfinished_handwritten_sha256": "837f72afa37b33f7c4d3ad74bf9b950b23bc258e8bacfe2ab63df62efe9ae8d2",
+              "user_authorized": "Permanent missing-handwriting rule: solve missing working using the simplest complete method.",
+              "adaptation": "Fresh reciprocal-denominator magnitude, elementary complex substitutions at0,pi/2,pi, explain conjugate/repeated cases3pi/2 and2pi; smooth direct-function curve. No expanded trigonometric magnitude derivation or extrema calculus.",
+              "required_solution_text": [
+                "Newly authored",
+                "separate system",
+                "Take the magnitude",
+                "Calculate the main points",
+                "Draw the smooth curve",
+                "Final answer: amplitude sketch",
+                "3.333",
+                "0.535",
+                "1.429"
+              ],
+              "slug": "amplitude_sketch",
+              "no_cross_year_or_graded_solution_used": true
+            }
+          ]
+        },
+        "4": {
+          "pdf_page": 3,
+          "folder_number": 4,
+          "folder_name": "4 sketching symmetry",
+          "output_subfolder": "latex",
+          "parts": [
+            {
+              "question": 4,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg",
+              "source_sha256": "b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76",
+              "source_exam_id": "2026-08-18",
+              "source_question": 4,
+              "source_region": "Own handwriting only; printed prompt excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/4 68.jpg",
+                  "source_sha256": "10fe5e2de1c66149759848f93956589845c38970cae13797eaf417a9575fa31a"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/4 68a.jpg",
+                  "source_sha256": "05daa9195e544655539f19d0292cbdda59477fba3b19a43182b7ef18d39f1d73"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/4 68a-2.jpg",
+                  "source_sha256": "324331e10b6b8d7c72463f2043b844cc574e0dde90f8b4eb0d527f613d3660d9"
+                }
+              ],
+              "adaptation": "Preserve own mirror then2pi-repeat sketch and Omega=2pi*f/fs -> fmax37500 -> twice37500=75000Hz method. Make every algebra step explicit, with no new example or method. State real-signal/unaliased-baseband assumptions.",
+              "required_solution_text": [
+                "Keep the given shape",
+                "Mirror about zero",
+                "Repeat every",
+                "Final answer: extended spectrum"
+              ],
+              "slug": "extended_spectrum"
+            },
+            {
+              "question": 4,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "handwritten",
+              "content_verified": true,
+              "source": "tenta/signal tenta/signal calc/4 sketching symmetry/4 68.jpg",
+              "source_sha256": "b706b45e90deee9eefcbcac839c234ea2c255718bc951fbcd837ee9bb24b6c76",
+              "source_exam_id": "2026-08-18",
+              "source_question": 4,
+              "source_region": "Own handwriting only; printed prompt excluded.",
+              "supporting_sources": [
+                {
+                  "source": "tenta/signal tenta/2026-08/4 68.jpg",
+                  "source_sha256": "10fe5e2de1c66149759848f93956589845c38970cae13797eaf417a9575fa31a"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/4 68a.jpg",
+                  "source_sha256": "05daa9195e544655539f19d0292cbdda59477fba3b19a43182b7ef18d39f1d73"
+                },
+                {
+                  "source": "tenta/signal tenta/2026-08/4 68a-2.jpg",
+                  "source_sha256": "324331e10b6b8d7c72463f2043b844cc574e0dde90f8b4eb0d527f613d3660d9"
+                }
+              ],
+              "adaptation": "Preserve own mirror then2pi-repeat sketch and Omega=2pi*f/fs -> fmax37500 -> twice37500=75000Hz method. Make every algebra step explicit, with no new example or method. State real-signal/unaliased-baseband assumptions.",
+              "required_solution_text": [
+                "Assumption:",
+                "Read the highest normalized frequency",
+                "Convert to frequency in Hz",
+                "Apply the sampling theorem",
+                "Final answer",
+                "37,500",
+                "75,000"
+              ],
+              "slug": "minimum_sampling_rate"
+            }
+          ]
+        }
+      }
+    },
+    "example": {
+      "pdf": "tenta/signal tenta/example tenta.pdf",
+      "tex": "tenta/signal latex/example_compiled_notes.tex",
+      "questions": {
+        "1": {
+          "pdf_page": 1,
+          "folder_number": null,
+          "folder_name": "exempl tenta",
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 1,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Check linearity",
+                "Check time invariance",
+                "Final answer",
+                "linear and time-invariant"
+              ]
+            },
+            {
+              "question": 1,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Read the undelayed path",
+                "Read the path after one delay",
+                "Read the path after three delays",
+                "Add the paths",
+                "Final answer"
+              ]
+            }
+          ]
+        },
+        "2": {
+          "pdf_page": 1,
+          "folder_number": null,
+          "folder_name": "exempl tenta",
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 2,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "200",
+                "300",
+                "600",
+                "Apply the sampling theorem",
+                "Choose the ideal reconstruction cutoff",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 2,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "exact symbolic positions",
+                "Find the original spectral lines",
+                "Repeat the spectrum every",
+                "Scale note:",
+                "Final answer"
+              ]
+            }
+          ]
+        },
+        "3": {
+          "pdf_page": 2,
+          "folder_number": null,
+          "folder_name": "exempl tenta",
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 3,
+              "part": "i",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Compare the impulse responses shown",
+                "time-invariance test",
+                "Final answer",
+                "Limitation:"
+              ],
+              "uncertainties": "Original(ii),(vi) crossed out; i is one trace, ii lacks ROC, v lacks support, vi derivative notation ambiguous. Conditional conclusions stated in each relevant solution."
+            },
+            {
+              "question": 3,
+              "part": "ii",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Read poles and zeros",
+                "causal realization",
+                "missing ROC",
+                "Final answer"
+              ],
+              "uncertainties": "Original(ii),(vi) crossed out; i is one trace, ii lacks ROC, v lacks support, vi derivative notation ambiguous. Conditional conclusions stated in each relevant solution."
+            },
+            {
+              "question": 3,
+              "part": "iii",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Isolate the current output",
+                "Noncausal:",
+                "Stable under the initially resting forward recursion:",
+                "Final answer"
+              ],
+              "uncertainties": "Original(ii),(vi) crossed out; i is one trace, ii lacks ROC, v lacks support, vi derivative notation ambiguous. Conditional conclusions stated in each relevant solution."
+            },
+            {
+              "question": 3,
+              "part": "iv",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Rearrange the equation",
+                "Check stability",
+                "unit impulse",
+                "Final answer",
+                "Causal LTI, but unstable"
+              ],
+              "uncertainties": "Original(ii),(vi) crossed out; i is one trace, ii lacks ROC, v lacks support, vi derivative notation ambiguous. Conditional conclusions stated in each relevant solution."
+            },
+            {
+              "question": 3,
+              "part": "v",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Check causality",
+                "Check stability",
+                "Final answer",
+                "Unstable;",
+                "omitted"
+              ],
+              "uncertainties": "Original(ii),(vi) crossed out; i is one trace, ii lacks ROC, v lacks support, vi derivative notation ambiguous. Conditional conclusions stated in each relevant solution."
+            },
+            {
+              "question": 3,
+              "part": "vi",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Source uncertainty:",
+                "squared-output reading",
+                "Check scaling",
+                "Final answer",
+                "nonlinear"
+              ],
+              "uncertainties": "Original(ii),(vi) crossed out; i is one trace, ii lacks ROC, v lacks support, vi derivative notation ambiguous. Conditional conclusions stated in each relevant solution."
+            }
+          ]
+        },
+        "4": {
+          "pdf_page": 2,
+          "folder_number": null,
+          "folder_name": "exempl tenta",
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 4,
+              "part": "",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Boundary assumption:",
+                "Apply the convolution rule",
+                "Calculate the nonzero contributions",
+                "Show the overlapping calculations",
+                "Final answer: same-size",
+                "Full-convolution alternative"
+              ],
+              "boundary_assumption": "Zero extension, same6x6 and full8x8 results both supplied."
+            }
+          ]
+        },
+        "5": {
+          "pdf_page": 3,
+          "folder_number": null,
+          "folder_name": "exempl tenta",
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 5,
+              "part": "a",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Transform the image",
+                "Keep only the central disk",
+                "Return to the image",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 5,
+              "part": "b",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "Complement the lowpass mask",
+                "Construct the missing spectrum",
+                "Reconstruct the highpass image",
+                "Final answer"
+              ]
+            },
+            {
+              "question": 5,
+              "part": "c",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "abrupt cutoff",
+                "oscillating side-lobes",
+                "Final answer",
+                "Gibbs effect"
+              ]
+            }
+          ]
+        },
+        "6": {
+          "pdf_page": 3,
+          "folder_number": null,
+          "folder_name": "exempl tenta",
+          "output_subfolder": "",
+          "parts": [
+            {
+              "question": 6,
+              "part": "",
+              "status": "complete",
+              "source_kind": "independently-solved",
+              "content_verified": true,
+              "source": "tenta/signal tenta/example tenta.pdf",
+              "source_sha256": "c8a6e60f61cecd8be507dfef1c0de3e8fe9b20f537964311db73ece97c84092b",
+              "source_label": "Authoritative example exam; newly authored solution because no matching personal example-exam handwriting was found.",
+              "handwritten_notes_missing": true,
+              "required_solution_text": [
+                "State the transform convention",
+                "447",
+                "319",
+                "191",
+                "63",
+                "Final answer"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
