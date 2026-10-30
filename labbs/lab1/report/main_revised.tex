@@ -308,7 +308,7 @@ and the spectrum ended at the new Nyquist frequency. High frequencies folded
 down because anti-alias filtering was omitted. The 2500 Hz tone stayed at
 2500 Hz when sampled at 6000 Hz, became 1500 Hz at 4000 Hz sampling, and 500 Hz
 at 2000 Hz sampling. Aliasing appeared below its 5000 Hz Nyquist rate;
-this is not a listening threshold.
+this is not a listening threshold. Downsampling without an anti-aliasing filter can introduce false lower-frequency components, which may distort the sound.
 
 % Teacher 3.1 Q6.
 Spectral noise reduction could estimate noise magnitudes from a quiet part,
@@ -331,6 +331,7 @@ The lab showed how sampling, quantization and noise change represented
 information. FFT analysis exposed frequency content and aliasing. Quality
 measurements helped compare results, while visual observations showed their limits.
 
+\vspace{-7pt}
 \section*{Appendix: Code Snippets}
 \small
 \textbf{A. Chirp generation.} The sweep duration sets how quickly frequency changes.
