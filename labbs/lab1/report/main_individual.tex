@@ -70,22 +70,32 @@ The 10 and 20 Hz components had amplitudes 1 and 0.5. Their FFT peaks were at
 9.990 and 19.980 Hz. Adding 30 Hz at amplitude 0.25 gave a smaller
 29.970 Hz peak. The endpoint-including grid has spacing \(1/999\) s, explaining
 the offsets. Noise of standard deviation 0.2 raised
-the spectral background, while the main peaks remained visible.
+the spectral background, while the main peaks remained visible
+(Figure~\ref{fig:fft-experiments}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{section1_2_fft_experiments.png}
+\caption{Q1--Q3: original signal and FFT (top), FFT after adding 30 Hz and
+FFT after adding noise (bottom). All FFT panels use the same amplitude scale.}
+\label{fig:fft-experiments}
+\end{figure}
 
 The chirp phase was \(2\pi(10t+20t^2)\), giving \(f(t)=10+40t\): 10--50 Hz in
 one second. Its cycles became closer together, and its whole-signal FFT spread
 across a frequency range. Figure~\ref{fig:chirp} shows the closer cycles in
 time and the broad FFT spectrum; a whole-signal FFT does not show when each
 frequency occurs.
-Audio equalizers use frequency analysis to change selected bands.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
 \centering
-% Keep both complete top-row plots; omit the optional lower-row visualizations.
-\includegraphics[trim=0 252bp 0 0,clip,width=\linewidth]{chirp.png}
-\caption{Chirp: time waveform and whole-signal FFT amplitude, using the saved output.}
+\includegraphics[width=\linewidth]{section1_2_chirp_time_fft.png}
+\caption{Q4: chirp waveform and whole-signal FFT amplitude, using the same
+signal and FFT scaling as the implementation.}
 \label{fig:chirp}
 \end{figure}
+
+Audio equalizers use frequency analysis to change selected bands.
 
 % Teacher 1.3 Q1-Q5.
 \subsection{Sampling and Aliasing}
