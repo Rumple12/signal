@@ -313,12 +313,7 @@ from about 0.768 to 2 Hz. The main peak stayed near 290 Hz, but other strengths
 changed because only the beginning was included. Both spectra used the same scale.
 
 % Teacher 3.1 Q5.
-Speech rates were 44100, 22050, 14700 and 7350 Hz. The waveform had fewer points
-and the spectrum ended at the new Nyquist frequency. High frequencies folded
-down because anti-alias filtering was omitted. The 2500 Hz tone stayed at
-2500 Hz when sampled at 6000 Hz, became 1500 Hz at 4000 Hz sampling, and 500 Hz
-at 2000 Hz sampling. Aliasing appeared below its 5000 Hz Nyquist rate;
-this is not a listening threshold. Downsampling without an anti-aliasing filter can introduce false lower-frequency components, which may distort the sound.
+Downsampling reduced the number of audio samples and lowered the highest frequency that could be represented correctly. Without an anti-aliasing filter, higher frequencies could appear as false lower frequencies, potentially reducing sound quality. For the 2500 Hz test tone, the frequency remained unchanged at a 6000 Hz sampling rate but appeared at 1500 Hz when sampled at 4000 Hz and 500 Hz when sampled at 2000 Hz. This demonstrates that aliasing occurs when the sampling rate falls below twice the signal frequency, which is 5000 Hz in this example.
 
 % Teacher 3.1 Q6.
 Spectral noise reduction could estimate noise magnitudes from a quiet part,
