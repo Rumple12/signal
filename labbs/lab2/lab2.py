@@ -211,11 +211,6 @@ print("Section 4 frequencies (Hz):", measured_frequencies)
 print("Section 4 cosine amplitudes:", measured_amplitudes)
 print("Section 4 phases (rad):", measured_phases)
 
-# Hide phase values where the FFT magnitude is nearly zero.
-# Only the plotting copy changes; phase_x keeps all calculated values.
-phase_plot = phase_x[:N//2].copy()
-phase_plot[A_positive < 1] = np.nan
-
 plt.figure(figsize=(11, 4))
 plt.subplot(1, 2, 1)
 plt.plot(f_positive, A_positive, ".-")
@@ -226,7 +221,7 @@ plt.xlim(0, fs/2)
 plt.grid()
 
 plt.subplot(1, 2, 2)
-plt.plot(f_positive, phase_plot, "o")
+plt.plot(f[:len(f)//2], phase_x[:len(f)//2])
 plt.title("Section 4: Phase spectrum")
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Phase (radians)")
