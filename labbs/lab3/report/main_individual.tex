@@ -270,12 +270,18 @@ error 0; the inverse FFT's largest imaginary part was \(6.172\times10^{-14}\). S
 \end{figure}
 
 \subsection{Histograms and Image Enhancement}
-\textbf{Q9.1.} The normalized histogram (Figure~\ref{fig:hist}) summed to 1: 76.43\% of pixels were
-64--191, with the highest bar at 96 and another group around 150--190;
-the maximum was 228. Cumulative proportions were 52.51\% at 127 and 92.19\%
-at 191, reaching 1 at 228. These describe intensity amounts, not positions.
-The interval \texttt{[0,256]} was used because OpenCV excludes the upper limit.
-
+\textbf{Q9.1.} Figure~\ref{fig:hist} shows that pixel
+intensities are concentrated mainly in the darker and
+middle ranges. The largest histogram peak was at
+intensity 96, and 76.43\% of pixels were between 64
+and 191. This indicates that the image contains mostly
+midtones and darker areas, with relatively few bright
+pixels. The cumulative histogram confirms this:
+52.51\% of pixels had intensities at or below 127,
+and 92.19\% were at or below 191. It reached 100\%
+at intensity 228. The histograms describe how
+brightness is distributed, but not where individual
+objects or details appear in the image.
 
 \begin{figure}[!htbp]
 \centering
@@ -285,13 +291,24 @@ The interval \texttt{[0,256]} was used because OpenCV excludes the upper limit.
 \end{figure}
 
 \begin{samepage}
-\textbf{Q9.2.} Applying \(128+0.5(I-128)\) in floating point shrank 0--228 to
-64--178. The lookup \(T(r)=255\,\mathrm{CDF}(r)\), converted to \texttt{uint8},
-restored 0--255; OpenCV's \texttt{equalizeHist()} did too
-(Figure~\ref{fig:equalization}). Details became clearer than the flat input;
-dark gaps and highlights were stronger than originally, with more visible grain.
-Results differed by at most 1 level, mean 0.443756: OpenCV subtracts the first
-nonzero cumulative value and rounds, while the implemented method truncates the lab's formula.
+\textbf{Q9.2.} Reducing contrast with
+\(128+0.5(I-128)\) compressed the grayscale range
+from 0--228 to 64--178, making the image flatter
+and reducing differences between dark and light
+regions. Histogram equalization using
+\(T(r)=255\,\mathrm{CDF}(r)\) expanded the intensity
+range to 0--255. Compared with the reduced-contrast
+image, shading and details became clearer. Compared
+with the original, dark and light regions showed
+stronger contrast, although grain became more visible
+(Figure~\ref{fig:equalization}). The custom CDF
+method and OpenCV's \texttt{equalizeHist()} produced
+nearly identical results, with a maximum difference
+of 1 intensity level and a mean absolute difference
+of 0.443756. The small differences arise from
+OpenCV's cumulative-histogram normalization and
+rounding, compared with the simpler implemented
+transformation.
 \par\end{samepage}
 
 
