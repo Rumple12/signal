@@ -92,6 +92,13 @@ These are stored channel samples before display reconstruction, not compressed
 files. Factor 2 looked close; factor 4 softened colour boundaries and factor 8
 showed clearer blending, while Y detail remained.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{section2_chroma_subsampling.png}
+\caption{Chroma subsampling at factors 2, 4 and 8 compared with the original image. Enlarged crops show increasing colour smoothing while luminance detail is preserved.}
+\label{fig:chroma-subsampling}
+\end{figure}
+
 \subsection{Quantization and Sampling}
 \textbf{Q3.1.} RGB integer division by 16 gave 16 possible levels per channel,
 displayed as \(0,16,\ldots,240\). Only 15 were occupied because no input reached
