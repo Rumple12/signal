@@ -146,7 +146,14 @@ Log transform (direct / lookup) & 30 & 9.469 & 2.468\\\bottomrule
 \textbf{Q4.2.} The \(3\times3\) Sobel function used \texttt{dx=0, dy=1}.
 Absolute top-to-bottom brightness changes highlighted horizontal boundaries
 and weakened long vertical sides. With \texttt{dx=1, dy=0}, vertical edges
-stood out; curved edges appeared in both.
+stood out; curved edges appeared in both (Figure~\ref{fig:sobel-edges}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{section4_sobel_edges.png}
+\caption{Q4.2: Sobel edge detection. Horizontal edges use \texttt{dy=1}; vertical edges use \texttt{dx=1}.}
+\label{fig:sobel-edges}
+\end{figure}
 
 \textbf{Q4.3.} Signed derivatives combined as \(G=\sqrt{G_x^2+G_y^2}\);
 a copy was normalized to 0--255. Both directions gave more complete outlines
