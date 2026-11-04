@@ -259,8 +259,15 @@ from the sharp cutoff. Raw values were
 detail around near-zero smooth regions. The raw range was \(-155.400\) to
 113.396; display limits were \(\pm155.400\), with zero middle gray.
 Ringing remained. Low-pass plus high-pass recovered the original with maximum
-error 0; the inverse FFT's largest imaginary part was \(6.172\times10^{-14}\).
+error 0; the inverse FFT's largest imaginary part was \(6.172\times10^{-14}\). See Figure~\ref{fig:frequency-filtering}.
 
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{section8_frequency_filtering.png}
+\caption{Q8.2--8.3: Original grayscale image, low-pass result (radius below 40 bins), and signed high-pass difference. Zero is middle gray in the high-pass image.}
+\label{fig:frequency-filtering}
+\end{figure}
 
 \subsection{Histograms and Image Enhancement}
 \textbf{Q9.1.} The normalized histogram (Figure~\ref{fig:hist}) summed to 1: 76.43\% of pixels were
