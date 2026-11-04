@@ -395,7 +395,14 @@ and more grain; Sobel outlines were smoother. Raw ranges were 0--204 and
 0--812.857, separately normalized to 0--255 for display, so displayed brightness
 does not compare raw strength. Morphology suits binary shapes and kernel-dependent
 boundaries; Sobel suits grayscale brightness changes and directional derivatives.
-Its magnitude shows strength, not direction.
+Its magnitude shows strength, not direction. See Figure~\ref{fig:gradient-comparison}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.90\linewidth]{section11_gradient_comparison.png}
+\caption{Q11.2: Original grayscale image, morphological gradient, and Sobel gradient magnitude.}
+\label{fig:gradient-comparison}
+\end{figure}
 
 \section{Discussion}
 Vectorization and lookup saved time with identical outputs. Gaussian timings
