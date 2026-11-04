@@ -350,6 +350,7 @@ row of Table~\ref{tab:noise}. Salt-and-pepper probability was 4\% total
 Mean filtering gave slightly better Gaussian results but blurred edges.
 Median removed isolated extremes much better; mean filtering spread them
 into gray marks. \texttt{cv2.PSNR()} used the clean image, with differences from unrounded values.
+The visual comparison is shown in Figure~\ref{fig:mean-median-comparison}.
 
 \begin{table}[H]
 \centering
@@ -361,6 +362,17 @@ Gaussian, \(\sigma=25\) & 20.318 & 27.237 & 26.829 & \(+0.409\)\\
 Salt-and-pepper, 4\% & 19.296 & 26.516 & 34.035 & \(-7.519\)\\\bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{section10_mean_median_comparison.png}
+\caption{Q10.2: Mean and median filtering of Gaussian
+($\sigma=25$) and salt-and-pepper (4\%) noise.
+Each filter is compared using the same noisy input
+for its respective noise type. PSNR values are
+shown in the panels.}
+\label{fig:mean-median-comparison}
+\end{figure}
 
 \subsection{Morphological Filtering}
 \textbf{Q11.1.} Two \(128\times128\) binary tests used separate shapes.
