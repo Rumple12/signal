@@ -158,7 +158,14 @@ stood out; curved edges appeared in both (Figure~\ref{fig:sobel-edges}).
 \textbf{Q4.3.} Signed derivatives combined as \(G=\sqrt{G_x^2+G_y^2}\);
 a copy was normalized to 0--255. Both directions gave more complete outlines
 and stems. Brighter pixels mean stronger edges
-(Figure~\ref{fig:equalization}, far right).
+(Figure~\ref{fig:gradient-magnitude}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{section4_gradient_magnitude.png}
+\caption{Q4.3: Original grayscale image and Sobel gradient magnitude.}
+\label{fig:gradient-magnitude}
+\end{figure}
 
 \subsection{Matrix Operations}
 \textbf{Q5.1.} Stacking pixels, applying \(1.2(I-128)+128+20\), clipping to
