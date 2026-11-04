@@ -240,7 +240,14 @@ outside the square. Three patterns gave a coarse fit.
 The bright centre held average brightness and slow changes; faster changes
 lay farther out. Horizontal/vertical streaks included edges and border effects:
 vertical edges contribute along horizontal frequency and vice versa.
-Curves involve several directions. The FFT does not locate individual edges.
+Curves involve several directions. The FFT does not locate individual edges. See Figure~\ref{fig:fft-spectrum}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{section8_fft_spectrum.png}
+\caption{Q8.1: Original grayscale image and its centered 2D FFT magnitude spectrum (log scale).}
+\label{fig:fft-spectrum}
+\end{figure}
 
 \textbf{Q8.2.} A circular low-pass mask kept radii below 40 bins in the
 \(512\times512\) grid; inverse shifting and FFT returned its real part.
