@@ -23,6 +23,7 @@ This lab studies signals in the time and frequency domains. The tasks include wi
 
 \section{Experimental Setup}
 I used Python with NumPy, SciPy and Matplotlib. For the first task, I sampled three cosine waves at 250 Hz for 0.6 seconds. Their frequencies were 50, 55 and 120 Hz.
+I compared rectangular, Hann and Hamming windows using the same signal.
 
 \section{Results and Analysis}
 \subsection{Time-Domain Analysis}
@@ -38,9 +39,22 @@ The signal contains three cosine waves. The FFT shows peaks at 50, 55 and 120 Hz
 \label{fig:signal-fft}
 \end{figure}
 
+\subsection{Frequency Identification}
+\subsubsection*{Q1. Which of the windows (rectangular, Hann, and Hamming) is best able to separate frequencies close to each other? Why?}
+\textbf{Answer:} The rectangular window separated the 50 Hz and 55 Hz frequencies most clearly in this test. Both frequencies fall exactly on FFT points, so the peaks stay narrow. Hann and Hamming made the peaks wider, but they can reduce leakage when frequencies do not fall exactly on FFT points (Figure~\ref{fig:window-comparison}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section2_window_comparison.png}
+\caption{Rectangular, Hann and Hamming window spectra. The lower plot zooms in on the 50 Hz and 55 Hz components.}
+\label{fig:window-comparison}
+\end{figure}
+
 \section{Discussion}
 The FFT showed the same frequencies that were used to make the signal. The positive and negative frequency peaks matched because the signal was real.
+The rectangular window separated the nearby frequencies best in this test because they matched the FFT frequency points.
 
 \section{Conclusion}
 The first experiment showed how the FFT can identify the frequencies in a signal.
+The window comparison showed how different windows change the frequency spectrum.
 \end{document}
