@@ -25,6 +25,7 @@ This lab studies signals in the time and frequency domains. The tasks include wi
 I used Python with NumPy, SciPy and Matplotlib. For the first task, I sampled three cosine waves at 250 Hz for 0.6 seconds. Their frequencies were 50, 55 and 120 Hz.
 I compared rectangular, Hann and Hamming windows using the same signal.
 I also tested FIR and IIR systems using unit impulses.
+I also calculated the amplitudes and phases of the three original cosine waves.
 
 \section{Results and Analysis}
 \subsection{Time-Domain Analysis}
@@ -85,13 +86,39 @@ The printed difference equation repeats \(y(n-1)\), but the given filter coeffic
 \label{fig:lti-systems}
 \end{figure}
 
+\subsection{Frequency-Domain Analysis}
+\subsubsection*{Q1. From these spectra, decide the frequencies, amplitudes, and phases of the sinusoids in the signal. Use the zoom-functionality in the graphs to see better. Do the amplitudes and phases agree with what you have defined in the code?}
+\textbf{Answer:} I found peaks at 50, 55 and 120 Hz. I divided the raw FFT magnitudes by 75 to get the original amplitudes. The amplitudes were 1, 0.1 and 0.3, and the phases were 0, 0.7854 and 1.5708 radians. All values matched the original signal (Figure~\ref{fig:amplitude-phase}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section4_amplitude_phase.png}
+\caption{Amplitude and phase spectra of the three cosine waves.}
+\label{fig:amplitude-phase}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\hline
+Frequency & Amplitude & Phase \\
+\hline
+50 Hz & 1.0 & 0 rad \\
+55 Hz & 0.1 & \(\pi/4\) rad \\
+120 Hz & 0.3 & \(\pi/2\) rad \\
+\hline
+\end{tabular}
+\end{table}
+
 \section{Discussion}
 The FFT showed the same frequencies that were used to make the signal. The positive and negative frequency peaks matched because the signal was real.
 The rectangular window separated the nearby frequencies best in this test because they matched the FFT frequency points.
 The FIR response stopped after eight samples, while the IIR response continued because it uses feedback.
+The measured amplitudes and phases agreed with the values used to create the signal.
 
 \section{Conclusion}
 The first experiment showed how the FFT can identify the frequencies in a signal.
 The window comparison showed how different windows change the frequency spectrum.
 The two LTI experiments showed the difference between finite and recursive impulse responses.
+The frequency analysis confirmed the original amplitudes and phases.
 \end{document}
