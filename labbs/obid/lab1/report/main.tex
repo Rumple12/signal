@@ -4,6 +4,7 @@
 \usepackage{lmodern}
 \usepackage[margin=20mm]{geometry}
 \usepackage{amsmath,graphicx,float}
+\usepackage{needspace}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage[hidelinks]{hyperref}
 \graphicspath{{../figures/}}
@@ -101,7 +102,7 @@ The sampled values range from about $-2$ to $+2$ (Figure~\ref{fig:composite}).
 Its regular changes tell parts of the circuit when to act.
 Its frequency tells us how often these changes repeat.
 
-\clearpage
+\Needspace{10\baselineskip}
 \subsection{Fourier Transform and Frequency Domain Analysis}
 
 \subsubsection*{Q1. What frequencies are present in the signal? How can you identify them from the frequency domain plot?}
@@ -152,7 +153,7 @@ It shows which frequencies are present, but not when each one occurs (Figure~\re
 Its frequency peaks can be compared with a normal reading.
 New or much stronger peaks can help find a fault.
 
-\clearpage
+\Needspace{10\baselineskip}
 \subsection{Sampling and Aliasing}
 
 \subsubsection*{Q1. What is the Nyquist rate for the given signal? Is the current sampling rate sufficient?}
@@ -184,7 +185,7 @@ New or much stronger peaks can help find a fault.
 \subsubsection*{Q5. Describe a real-world scenario where understanding aliasing is crucial.}
 \textbf{Answer:} A camera can make spinning fan blades look slower or move backwards when the frame rate is too low. Choosing a high enough frame rate helps show the motion more accurately.
 
-\clearpage
+\Needspace{10\baselineskip}
 \subsection{Image Sampling and Quantization}
 
 \subsubsection*{Q1. How does the resampling factor affect the image quality? At what factor does the distortion become apparent?}
@@ -233,7 +234,7 @@ New or much stronger peaks can help find a fault.
 \label{fig:image-types}
 \end{figure}
 
-\clearpage
+\Needspace{10\baselineskip}
 \subsection{PSNR Calculation}
 
 \subsubsection*{Q1. Which process (resampling or requantization) introduces more distortion according to the PSNR values?}
@@ -257,6 +258,7 @@ New or much stronger peaks can help find a fault.
 
 Reference: Wang et al. (2004), \emph{Image Quality Assessment: From Error Visibility to Structural Similarity}. DOI: \href{https://doi.org/10.1109/TIP.2003.819861}{10.1109/TIP.2003.819861}.
 
+\Needspace{16\baselineskip}
 \subsubsection*{Q5. Implement the SSIM metric and compare its results with PSNR for your processed images. Discuss the differences in how these metrics evaluate image quality.}
 \textbf{Answer:} I calculated PSNR and SSIM for the same processed images (Table~\ref{tab:psnr-ssim}). A higher PSNR means less pixel error, while a higher SSIM means the image is more similar in local structure. The two scores measure image quality in different ways.
 
@@ -276,7 +278,7 @@ Bicubic resampling, factor 4 & 28.8441 & 0.8282 \\
 \end{tabular}
 \end{table}
 
-\clearpage
+\Needspace{10\baselineskip}
 \subsection{Noise Addition and PSNR Analysis}
 
 \subsubsection*{Q1. At what PSNR value does the noise start to become visibly apparent in the image?}
@@ -317,7 +319,7 @@ Bicubic resampling, factor 4 & 28.8441 & 0.8282 \\
 
 Reference: scikit-image documentation, \texttt{denoise\_nl\_means}: \url{https://scikit-image.org/docs/stable/api/skimage.restoration.html}.
 
-\clearpage
+\Needspace{10\baselineskip}
 \subsection{Audio Signal Analysis}
 
 \subsubsection*{Q1. What is the duration of the audio clip? What is its highest frequency component?}
@@ -334,7 +336,7 @@ Reference: scikit-image documentation, \texttt{denoise\_nl\_means}: \url{https:/
 \end{figure}
 
 \subsubsection*{Q3. Modify the code to analyze only the first half second of the audio. How does this change the frequency spectrum?}
-\textbf{Answer:} I analyzed only the first 0.5 seconds. The FFT used fewer samples, which changed its frequency spacing. The main frequency peaks stayed near the same values, but their sizes could change (Figure~\ref{fig:audio-short}).
+\textbf{Answer:} I compared the full 0.5018-second piano recording with its first 0.5 seconds. The spectra were almost the same because only 0.0018 seconds were removed. The main peak stayed near 220 Hz (Figure~\ref{fig:audio-short}).
 
 \begin{figure}[H]
 \centering
@@ -354,7 +356,7 @@ Reference: scikit-image documentation, \texttt{denoise\_nl\_means}: \url{https:/
 \end{figure}
 
 \subsubsection*{Q5. Implement a function to downsample the audio (reduce the sampling rate). How does this affect the audio quality and the frequency spectrum? At what point does aliasing become noticeable?}
-\textbf{Answer:} I reduced the audio sampling rate by keeping fewer samples. This lowered the highest frequency that could be represented correctly. In my 1,800 Hz test, sampling at 3,000 Hz produced a 1,200 Hz alias, while sampling at 2,000 Hz produced a 200 Hz alias (Figure~\ref{fig:audio-aliasing}). This can change how audio sounds.
+\textbf{Answer:} I reduced the piano sampling rate by factors 2, 4 and 8. At factor 8, the Nyquist limit dropped to 2756.25 Hz, so higher piano frequencies could cause aliasing. I also tested a 1800 Hz tone. Aliasing starts below 3600 Hz sampling. At 3000 Hz, the tone appeared at 1200 Hz, and at 2000 Hz it appeared at 200 Hz (Figure~\ref{fig:audio-aliasing}).
 
 \begin{figure}[H]
 \centering
@@ -371,14 +373,9 @@ Reference: librosa effects documentation, \url{https://librosa.org/doc/0.11.0/ef
 Audio sources: \href{https://github.com/parisjava/wav-piano-sound/blob/master/wav/a1.wav}{teacher's piano \texttt{a1.wav}} and \href{https://github.com/karolpiczak/ESC-50/blob/master/audio/1-101296-A-19.wav}{ESC-50 thunderstorm \texttt{1-101296-A-19.wav}}.
 
 \section{Discussion}
-Changing frequency changes the number of cycles, while adding signals changes their shape.
-The square-wave comparison also shows why values at zero need to be checked.
-With added noise, the main FFT peaks stayed visible above the smaller values.
-When the sampling rate was too low, higher frequencies appeared as lower ones.
-Resampling changed image detail, while requantization changed the gray levels.
-PSNR and SSIM described image changes in different ways.
-Gaussian filtering increased PSNR for the noisy image.
-The tone test showed that reducing the sampling rate can produce alias frequencies.
+Resampling made images blocky, while requantization created banding. In the Lenna test, requantization at 4 bpp gave 29.2074~dB PSNR, compared with 22.7098~dB for factor-4 simple resampling. Adding Gaussian noise lowered PSNR. With noise \(\sigma = 25\), Gaussian filtering increased it from 20.2170 to 29.0338~dB, but it also softened some details.
+
+The sampling tests showed that low sampling rates can change the apparent frequency. The 1800~Hz tone appeared at 1200~Hz and 200~Hz when sampled too slowly. The piano clip was only 0.5018 seconds long, so comparing it with its first 0.5 seconds gave almost the same FFT. These results show why the processing settings matter.
 
 \section{Conclusion}
 The requested signals were generated and compared.
@@ -390,6 +387,8 @@ Requantization at 4 bpp had less pixel error than simple resampling at factor 4.
 The noise tests showed how added noise affects PSNR.
 The 1,800 Hz tone appeared at lower frequencies when sampling was too slow.
 
+These experiments showed me that sampling and quantization matter in signals, images and audio. Sampling controls how many values are recorded over time or across an image. Quantization limits the possible values, such as gray levels in an image or amplitude levels in audio. Images and audio can both use filtering and Fourier analysis, but images contain spatial patterns while audio changes over time. These methods can help reduce noise in medical images, improve sound recordings and prevent aliasing in communication systems.
+
 \section*{Appendix: Code Snippets}
 \begin{verbatim}
 sawtooth_wave = 2 * (5 * t - np.floor(5 * t)) - 1
@@ -397,13 +396,42 @@ square_wave_ceil = np.ceil(np.sin(2 * np.pi * 5 * t)) * 2 - 1
 \end{verbatim}
 The first line removes whole cycles to make a repeating ramp.
 The second line is the teacher's replacement expression checked in Q3.
-The full script is \texttt{code/section1\_1.py}.
-The Fourier analysis script is \texttt{code/section1\_2.py}.
-The sampling script is \texttt{code/section1\_3.py}.
-The image processing script is \texttt{code/section2\_1.py}.
-The image quality script is \texttt{code/section2\_2.py}.
-The noise analysis script is \texttt{code/section2\_3.py}.
-The audio analysis script is \texttt{code/section3\_1.py}.
+
+\textbf{Example 1 -- PSNR Calculation}
+\begin{verbatim}
+def calculate_psnr(original, processed):
+    error = original.astype(float) - processed.astype(float)
+    mse = np.mean(error**2)
+    if mse == 0:
+        return float("inf")
+    return 10 * np.log10(255**2 / mse)
+\end{verbatim}
+I converted the pixel values to floats before subtraction to avoid calculation errors. PSNR measures the difference from the original image.
+
+\textbf{Example 2 -- Gaussian Noise Reduction}
+\begin{verbatim}
+noisy_25 = add_noise(original, 25)
+filtered = gaussian_filter(noisy_25.astype(float), sigma=1)
+noisy_psnr = calculate_psnr(original, noisy_25)
+filtered_psnr = calculate_psnr(original, filtered)
+\end{verbatim}
+I applied a Gaussian filter and compared PSNR before and after filtering.
+
+\textbf{Example 3 -- Audio Downsampling}
+\begin{verbatim}
+def downsample(data, sample_rate, factor):
+    return data[::factor], sample_rate / factor
+\end{verbatim}
+I kept every factor-th sample and reduced the sampling rate by the same factor. This method does not prevent aliasing.
+
+\noindent\textbf{Full Python scripts:}
+\texttt{code/section1\_1.py},
+\texttt{code/section1\_2.py},
+\texttt{code/section1\_3.py},
+\texttt{code/section2\_1.py},
+\texttt{code/section2\_2.py},
+\texttt{code/section2\_3.py},
+and \texttt{code/section3\_1.py}.
 
 \smallskip
 \textbf{Sources:} DT081A Lab 1 assignment, Sections 1.1--3.1 (pages 1--5),
