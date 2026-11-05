@@ -1,0 +1,46 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=20mm]{geometry}
+\usepackage{graphicx,float}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{../figures/}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\intextsep}{8pt}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries DT081A --- Laboratory 2 Report\par}
+Student: Jakob Obid\par
+2026-11-05
+\end{center}
+
+\section{Introduction}
+This lab studies signals in the time and frequency domains. The tasks include windowing, LTI systems, digital filters and voice analysis.
+
+\section{Experimental Setup}
+I used Python with NumPy, SciPy and Matplotlib. For the first task, I sampled three cosine waves at 250 Hz for 0.6 seconds. Their frequencies were 50, 55 and 120 Hz.
+
+\section{Results and Analysis}
+\subsection{Time-Domain Analysis}
+The signal contains three cosine waves. The FFT shows peaks at 50, 55 and 120 Hz (Figure~\ref{fig:signal-fft}).
+
+\subsubsection*{Q1. Why does the amplitude spectrum contain negative frequencies?}
+\textbf{Answer:} The signal contains real cosine waves, so its FFT has matching positive and negative frequencies. The negative side is a mirror of the positive side. It does not mean extra frequencies were added to the signal (Figure~\ref{fig:signal-fft}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section1_signal_fft.png}
+\caption{Composite signal, two-sided FFT magnitude and positive-frequency FFT magnitude. FFT magnitudes are unnormalized.}
+\label{fig:signal-fft}
+\end{figure}
+
+\section{Discussion}
+The FFT showed the same frequencies that were used to make the signal. The positive and negative frequency peaks matched because the signal was real.
+
+\section{Conclusion}
+The first experiment showed how the FFT can identify the frequencies in a signal.
+\end{document}
