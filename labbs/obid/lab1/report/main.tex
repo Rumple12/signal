@@ -15,7 +15,7 @@
 \begin{center}
 {\Large\bfseries DT081A -- Signal and Image Processing\par}
 {\large Laboratory 1 Report\par}
-Sections 1.1--1.3 and 2.1--2.2 -- Signal and Image Processing\par
+Sections 1.1--1.3 and 2.1--2.3 -- Signal and Image Processing\par
 Jakob Obid\par
 4 November 2026
 \end{center}
@@ -27,6 +27,7 @@ FFTs were also used to study fixed frequencies, noise and a chirp.
 I also tested how different sampling rates affect a signal.
 I also compared image resampling and requantization.
 I also compared image quality using PSNR and SSIM.
+I also measured how Gaussian noise and filtering changed image PSNR.
 
 \section{Experimental Setup}
 NumPy and Matplotlib were used. All signals use the teacher's time vector,
@@ -38,6 +39,7 @@ The FFT uses the time step between the given points.
 I used the teacher's sampling examples and tested a 23 Hz sine wave sampled at 8 Hz.
 Pillow loaded Lenna and a grass texture as grayscale images.
 PSNR used floating-point pixel errors, and SSIM used a data range of 255.
+Gaussian noise used seed 31415, and Gaussian filtering used spatial \(\sigma=1\).
 
 \section{Results and Analysis}
 \subsection{Signal Generation and Visualization}
@@ -271,6 +273,47 @@ Bicubic resampling, factor 4 & 28.8441 & 0.8282 \\
 \end{tabular}
 \end{table}
 
+\clearpage
+\subsection{Noise Addition and PSNR Analysis}
+
+\subsubsection*{Q1. At what PSNR value does the noise start to become visibly apparent in the image?}
+\textbf{Answer:} I added different amounts of Gaussian noise and measured the PSNR. The noise became noticeable at about [VISUAL CHECK] dB, especially in smooth parts of the image (Figures~\ref{fig:noise-psnr}--\ref{fig:increasing-noise}).
+
+\subsubsection*{Q2. How does this PSNR threshold compare to the often-cited 30--50 dB range for acceptable image quality?}
+\textbf{Answer:} The 30--50 dB range is only a general guide. Noise can still be visible within this range. The image content also affects how easily we notice it.
+
+\subsubsection*{Q3. At what noise level (standard deviation) does the image become unrecognizable? What is the corresponding PSNR?}
+\textbf{Answer:} I increased the noise until the image became difficult to recognize. This happened at about \(\sigma = \text{[VISUAL CHECK]}\), with a PSNR of [VISUAL CHECK] dB (Figure~\ref{fig:increasing-noise}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section2_3_noise_psnr.png}
+\caption{PSNR for 20 noise levels from 0 to 50. At \(\sigma=0\), PSNR is infinite, so that point is omitted from the curve.}
+\label{fig:noise-psnr}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section2_3_increasing_noise.png}
+\caption{Original Lenna and Gaussian noise at standard deviations 5, 20, 50, 150 and 500. Each noisy image's title shows its measured PSNR.}
+\label{fig:increasing-noise}
+\end{figure}
+
+\subsubsection*{Q4. Implement a simple noise reduction technique, such as a median filter or Gaussian blur. Apply this to the noisy images and compare the PSNR values before and after noise reduction. Discuss the effectiveness and limitations of this simple denoising approach.}
+\textbf{Answer:} I used a Gaussian filter on the image with noise \(\sigma = 25\). The PSNR changed from 20.2170 dB to 29.0338 dB. The filter reduced noise, but it also made some edges and small details softer (Figure~\ref{fig:noise-reduction}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section2_3_noise_reduction.png}
+\caption{Original, noisy (\(\sigma=25\)), and Gaussian filtered (spatial \(\sigma=1\)) images. PSNR is measured against the original.}
+\label{fig:noise-reduction}
+\end{figure}
+
+\subsubsection*{Q5. Research and briefly describe an advanced noise reduction technique. How does it improve upon simpler methods?}
+\textbf{Answer:} Non-Local Means compares small image patches and averages similar ones. It can reduce noise while keeping more edges and texture than simple blurring. It needs more calculations, so it is usually slower.
+
+Reference: scikit-image documentation, \texttt{denoise\_nl\_means}: \url{https://scikit-image.org/docs/stable/api/skimage.restoration.html}.
+
 \section{Discussion}
 Changing frequency changes the number of cycles, while adding signals changes their shape.
 The square-wave comparison also shows why values at zero need to be checked.
@@ -278,6 +321,7 @@ With added noise, the main FFT peaks stayed visible above the smaller values.
 When the sampling rate was too low, higher frequencies appeared as lower ones.
 Resampling changed image detail, while requantization changed the gray levels.
 PSNR and SSIM described image changes in different ways.
+Gaussian filtering increased PSNR for the noisy image.
 
 \section{Conclusion}
 The requested signals were generated and compared.
@@ -286,6 +330,7 @@ Fourier analysis identified the added 30 Hz component and the chirp's wider freq
 The sampling experiments showed how aliasing can give a false impression of the original signal.
 The image comparisons showed different losses of detail and tone levels.
 Requantization at 4 bpp had less pixel error than simple resampling at factor 4.
+The noise tests showed how added noise affects PSNR.
 
 \section*{Appendix: Code Snippets}
 \begin{verbatim}
@@ -299,8 +344,9 @@ The Fourier analysis script is \texttt{code/section1\_2.py}.
 The sampling script is \texttt{code/section1\_3.py}.
 The image processing script is \texttt{code/section2\_1.py}.
 The image quality script is \texttt{code/section2\_2.py}.
+The noise analysis script is \texttt{code/section2\_3.py}.
 
 \smallskip
-\textbf{Sources:} DT081A Lab 1 assignment, Sections 1.1--2.2 (pages 1--4),
+\textbf{Sources:} DT081A Lab 1 assignment, Sections 1.1--2.3 (pages 1--4),
 and the DT081A lab report template.
 \end{document}
