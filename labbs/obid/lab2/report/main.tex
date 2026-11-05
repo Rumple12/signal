@@ -27,6 +27,8 @@ I compared rectangular, Hann and Hamming windows using the same signal.
 I also tested FIR and IIR systems using unit impulses.
 I also calculated the amplitudes and phases of the three original cosine waves.
 I also passed a 50 Hz cosine through System 2 and compared its input and output spectra.
+I designed Butterworth and Chebyshev filters and compared different cutoff frequencies, filter types and orders.
+I also analyzed my voice recording using different segment lengths.
 
 \section{Results and Analysis}
 \subsection{Time-Domain Analysis}
@@ -125,12 +127,69 @@ Frequency & Amplitude & Phase \\
 \label{fig:system-response}
 \end{figure}
 
+\subsection{Filtering}
+\subsubsection*{Q1. How do Butterworth and Chebyshev type 1 differ?}
+\textbf{Answer:} Butterworth has a smooth passband, while Chebyshev Type I has ripple. Chebyshev also reduces frequencies more sharply after the cutoff. At 300 Hz, the low-pass gains were about -18.87 dB and -36.42 dB (Figure~\ref{fig:filter-comparison}).
+
+\subsubsection*{Q2. How do the filters differ in amplification and phase shift when changing LP/HP, \(f_c\), order \(N\)?}
+\textbf{Answer:} Low-pass filters keep lower frequencies, while high-pass filters keep higher ones. Raising the cutoff from 200 to 400 Hz allowed more high frequencies through the low-pass filter. Increasing the order from 3 to 7 made the transition sharper. At 100 Hz, the phase also changed from about -1.03 to -2.28 radians (Figure~\ref{fig:filter-comparison}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section6_filter_comparison.png}
+\caption{Butterworth and Chebyshev filter responses, with comparisons of filter type, cutoff frequency and order.}
+\label{fig:filter-comparison}
+\end{figure}
+
+\subsubsection*{Q3. Write the Python code to design BP and BS filters.}
+\textbf{Answer:} I designed Butterworth band-pass and band-stop filters using 250 Hz and 500 Hz as cutoff frequencies. The band-pass mainly keeps frequencies between them. The band-stop reduces frequencies in that range.
+
+\begin{verbatim}
+band = [250, 500]
+b_bp, a_bp = signal.butter(
+    5, band, btype="bandpass", fs=2500)
+b_bs, a_bs = signal.butter(
+    5, band, btype="bandstop", fs=2500)
+\end{verbatim}
+
+\subsection{Frequency-Time Domain Analysis}
+\subsubsection*{Q1. What is \(X(t, f)\) called? What is \(|X(t, f)|^2\) called?}
+\textbf{Answer:} \(X(t, f)\) is the short-time Fourier transform (STFT). It shows how the frequencies change over time. Its squared magnitude gives the time-frequency power spectrum, which is shown as a spectrogram (Figure~\ref{fig:voice-spectrogram}).
+
+\subsubsection*{Q2. How does changing the length of the sub-sequences affect time and frequency resolution? Try out different lengths by changing k in the code.}
+\textbf{Answer:} I tested segment lengths of 512, 1024 and 2048 samples. Shorter segments showed when sounds changed more clearly, but had poorer frequency resolution. Longer segments gave better frequency resolution but less detail in time (Figure~\ref{fig:voice-spectrogram}).
+
+\begin{table}[H]
+\centering
+\begin{tabular}{crr}
+\hline
+Segment length \(k\) & Time (s) & Frequency spacing (Hz) \\
+\hline
+512 & 0.010667 & 93.7500 \\
+1024 & 0.021333 & 46.8750 \\
+2048 & 0.042667 & 23.4375 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Q3. Try to identify the letters of your name by looking at \(|X(t, f)|^2\).}
+\textbf{Answer:} I examined the spectrogram of my spoken name. Different sound regions appeared at different times. I could see changes between parts of the name, but individual letters were difficult to identify from the spectrogram alone (Figure~\ref{fig:voice-spectrogram}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section7_voice_spectrogram.png}
+\caption{Time-frequency power spectrum of Obid's voice recording using segment lengths of 512, 1024 and 2048 samples.}
+\label{fig:voice-spectrogram}
+\end{figure}
+
 \section{Discussion}
 The FFT showed the same frequencies that were used to make the signal. The positive and negative frequency peaks matched because the signal was real.
 The rectangular window separated the nearby frequencies best in this test because they matched the FFT frequency points.
 The FIR response stopped after eight samples, while the IIR response continued because it uses feedback.
 The measured amplitudes and phases agreed with the values used to create the signal.
 At 50 Hz, System 2 reduced the amplitude and shifted the phase slightly. The measured output was close to the value predicted by its frequency response.
+Chebyshev had a sharper cutoff than Butterworth but introduced passband ripple. Increasing the filter order also made the cutoff sharper.
+The voice experiment showed the trade-off between time and frequency resolution.
 
 \section{Conclusion}
 The first experiment showed how the FFT can identify the frequencies in a signal.
@@ -138,4 +197,6 @@ The window comparison showed how different windows change the frequency spectrum
 The two LTI experiments showed the difference between finite and recursive impulse responses.
 The frequency analysis confirmed the original amplitudes and phases.
 System 2 reduced the 50 Hz tone and caused a small phase shift.
+The filtering tests showed how filter type, cutoff frequency and order affect amplification and phase.
+The spectrogram showed how the frequencies in my voice changed over time.
 \end{document}
