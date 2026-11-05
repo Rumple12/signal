@@ -15,7 +15,7 @@
 \begin{center}
 {\Large\bfseries DT081A -- Signal and Image Processing\par}
 {\large Laboratory 1 Report\par}
-Sections 1.1--1.3 -- Signals, Fourier Analysis and Sampling\par
+Sections 1.1--1.3 and 2.1 -- Signal and Image Processing\par
 Jakob Obid\par
 4 November 2026
 \end{center}
@@ -25,6 +25,7 @@ This part of Lab 1 compares sine, square and sawtooth waves.
 It shows how frequency and addition change a signal.
 FFTs were also used to study fixed frequencies, noise and a chirp.
 I also tested how different sampling rates affect a signal.
+I also compared image resampling and requantization.
 
 \section{Experimental Setup}
 NumPy and Matplotlib were used. All signals use the teacher's time vector,
@@ -34,6 +35,7 @@ Their amplitudes were kept unchanged.
 For Section 1.2, the original 10 Hz and 20 Hz sines have amplitudes 1 and 0.5.
 The FFT uses the time step between the given points.
 I used the teacher's sampling examples and tested a 23 Hz sine wave sampled at 8 Hz.
+Pillow loaded Lenna and a grass texture as grayscale images.
 
 \section{Results and Analysis}
 \subsection{Signal Generation and Visualization}
@@ -175,17 +177,68 @@ New or much stronger peaks can help find a fault.
 \subsubsection*{Q5. Describe a real-world scenario where understanding aliasing is crucial.}
 \textbf{Answer:} A camera can make spinning fan blades look slower or move backwards when the frame rate is too low. Choosing a high enough frame rate helps show the motion more accurately.
 
+\clearpage
+\subsection{Image Sampling and Quantization}
+
+\subsubsection*{Q1. How does the resampling factor affect the image quality? At what factor does the distortion become apparent?}
+\textbf{Answer:} I tested resampling factors 2, 4 and 8. Factor 2 kept most details, while factor 4 made the image clearly softer and more blocky. At factor 8, the loss of detail was strong, so the distortion was easy to see.
+
+\subsubsection*{Q2. What is the characteristic of the distortion introduced by resampling? How does it differ from the distortion introduced by requantization?}
+\textbf{Answer:} Resampling removes spatial detail and can make edges look blocky or jagged. Requantization keeps the same image size but reduces the number of gray levels, so smooth areas show banding or contour steps. The two distortions are different: one removes detail, and the other removes tone levels.
+
+\subsubsection*{Q3. How few bits per pixel can be used in requantization before the image distortion becomes apparent?}
+\textbf{Answer:} In my tests, 4 bits per pixel was about the point where distortion became clearly visible. At 6 bits the image still looked close to the original, but at 2 bits the banding was strong. So 4 bpp was the lowest level I could use before the loss became obvious.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{section2_1_basic_comparison.png}
+\caption{Grayscale Lenna: original, simple resampling (factor 4), and requantization (4 bpp).}
+\label{fig:image-basic}
+\end{figure}
+
+\subsubsection*{Q4. Implement a function that applies both resampling and requantization to the image. Experiment with different combinations of factors and bits per pixel. What combination gives the best balance between compression and visual quality?}
+\textbf{Answer:} I combined both methods and compared several settings. The best balance was resampling by a factor of 2 with 4 bits per pixel. It reduced data a lot but still kept the main shapes and most important details.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section2_1_combined_settings.png}
+\caption{Combined resampling and requantization of Lenna at the four requested settings.}
+\label{fig:image-combined}
+\end{figure}
+
+\subsubsection*{Q5. Modify the code to implement a more advanced resampling method, such as bicubic interpolation. Compare the results with the simple resampling method used initially. Discuss the trade-offs between image quality and computational complexity.}
+\textbf{Answer:} I also tried bicubic resampling. It looked smoother and less blocky than the simple method, especially around edges, but it needed more computation. The simple method is faster, while bicubic gives better image quality.
+
+\subsubsection*{Q6. Try using different images by changing the image\_url. You can find a variety of test images at the USC-SIPI Image Database (\url{http://sipi.usc.edu/database/}). How do the effects of resampling and requantization vary for different types of images (e.g., portraits, textures, aerial photos)?}
+\textbf{Answer:} The portrait image kept its main shapes for longer, especially under requantization. The texture image lost fine detail sooner when I resampled it. Smooth regions showed banding more clearly, while detailed regions mainly lost texture.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section2_1_image_types.png}
+\caption{Portrait and grass texture before and after factor 4 resampling and 4 bpp requantization.}
+\label{fig:image-types}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section2_1_bicubic_comparison.png}
+\caption{Simple and bicubic resampling of Lenna at factor 4.}
+\label{fig:image-bicubic}
+\end{figure}
+
 \section{Discussion}
 Changing frequency changes the number of cycles, while adding signals changes their shape.
 The square-wave comparison also shows why values at zero need to be checked.
 With added noise, the main FFT peaks stayed visible above the smaller values.
 When the sampling rate was too low, higher frequencies appeared as lower ones.
+Resampling changed image detail, while requantization changed the gray levels.
 
 \section{Conclusion}
 The requested signals were generated and compared.
 The 20 Hz sine had twice as many cycles, and the composite had both curves and jumps.
 Fourier analysis identified the added 30 Hz component and the chirp's wider frequency range.
 The sampling experiments showed how aliasing can give a false impression of the original signal.
+The image comparisons showed different losses of detail and tone levels.
 
 \section*{Appendix: Code Snippets}
 \begin{verbatim}
