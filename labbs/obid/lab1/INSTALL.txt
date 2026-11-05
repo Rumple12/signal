@@ -1,0 +1,11 @@
+Place both Markdown files in your local repository:
+  labbs/obid/AGENTS.md
+  labbs/obid/REPORT_WRITING_STYLE.md
+
+Then start a fresh Codex session from the repo (or labbs/obid directory).
+For every new Section X task, begin with:
+  First read labbs/obid/AGENTS.md and labbs/obid/REPORT_WRITING_STYLE.md.
+  Follow the approved Obid Section 1.1 PDF for simple English, question/answer format,
+  and short evidence-based explanations. Do not rewrite already approved sections.
+
+These files apply to Obid's work only, not Yacoub's labs.
