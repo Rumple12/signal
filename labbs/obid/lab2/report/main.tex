@@ -26,6 +26,7 @@ I used Python with NumPy, SciPy and Matplotlib. For the first task, I sampled th
 I compared rectangular, Hann and Hamming windows using the same signal.
 I also tested FIR and IIR systems using unit impulses.
 I also calculated the amplitudes and phases of the three original cosine waves.
+I also passed a 50 Hz cosine through System 2 and compared its input and output spectra.
 
 \section{Results and Analysis}
 \subsection{Time-Domain Analysis}
@@ -110,15 +111,31 @@ Frequency & Amplitude & Phase \\
 \end{tabular}
 \end{table}
 
+\subsection{System Frequency Response}
+\subsubsection*{Q1. Identify the amplitude and phase of both input and output signals by analysing them in the frequency domain as in Section 4.}
+\textbf{Answer:} I sent a 50 Hz cosine through System 2. The input amplitude was 1 and its phase was 0 rad. The output amplitude was 0.7481 and its phase was -0.0103 rad (Figure~\ref{fig:system-response}).
+
+\subsubsection*{Q2. Analyse the system frequency response in the frequency domain. Verify the relation \(Y(f) = H(f)X(f)\) for both amplitude and phase.}
+\textbf{Answer:} At 50 Hz, the system gain was 0.7454 with a phase shift of -0.0128 rad. This predicts an output amplitude of 0.7454 and a phase of -0.0128 rad. The measured values were 0.7481 and -0.0103 rad. They were close but not exactly equal because the recording was short and included the filter's start-up response (Figure~\ref{fig:system-response}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section5_system_response.png}
+\caption{System 2 frequency response and the amplitude and phase of the 50 Hz input and output signals.}
+\label{fig:system-response}
+\end{figure}
+
 \section{Discussion}
 The FFT showed the same frequencies that were used to make the signal. The positive and negative frequency peaks matched because the signal was real.
 The rectangular window separated the nearby frequencies best in this test because they matched the FFT frequency points.
 The FIR response stopped after eight samples, while the IIR response continued because it uses feedback.
 The measured amplitudes and phases agreed with the values used to create the signal.
+At 50 Hz, System 2 reduced the amplitude and shifted the phase slightly. The measured output was close to the value predicted by its frequency response.
 
 \section{Conclusion}
 The first experiment showed how the FFT can identify the frequencies in a signal.
 The window comparison showed how different windows change the frequency spectrum.
 The two LTI experiments showed the difference between finite and recursive impulse responses.
 The frequency analysis confirmed the original amplitudes and phases.
+System 2 reduced the 50 Hz tone and caused a small phase shift.
 \end{document}
