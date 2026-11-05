@@ -15,7 +15,7 @@
 \begin{center}
 {\Large\bfseries DT081A -- Signal and Image Processing\par}
 {\large Laboratory 1 Report\par}
-Sections 1.1--1.3 and 2.1--2.3 -- Signal and Image Processing\par
+Sections 1.1--1.3, 2.1--2.3 and 3.1 -- Signal and Image Processing\par
 Jakob Obid\par
 4 November 2026
 \end{center}
@@ -28,6 +28,7 @@ I also tested how different sampling rates affect a signal.
 I also compared image resampling and requantization.
 I also compared image quality using PSNR and SSIM.
 I also measured how Gaussian noise and filtering changed image PSNR.
+I also analyzed audio recordings and tested downsampling.
 
 \section{Experimental Setup}
 NumPy and Matplotlib were used. All signals use the teacher's time vector,
@@ -40,6 +41,8 @@ I used the teacher's sampling examples and tested a 23 Hz sine wave sampled at 8
 Pillow loaded Lenna and a grass texture as grayscale images.
 PSNR used floating-point pixel errors, and SSIM used a data range of 255.
 Gaussian noise used seed 31415, and Gaussian filtering used spatial \(\sigma=1\).
+SciPy loaded the piano and thunderstorm WAV files; stereo channels were averaged before peak normalization.
+Spectrograms used 1,024-sample windows with 512-sample overlap; the frequency estimate used 1\% of the strongest non-DC FFT magnitude.
 
 \section{Results and Analysis}
 \subsection{Signal Generation and Visualization}
@@ -277,13 +280,13 @@ Bicubic resampling, factor 4 & 28.8441 & 0.8282 \\
 \subsection{Noise Addition and PSNR Analysis}
 
 \subsubsection*{Q1. At what PSNR value does the noise start to become visibly apparent in the image?}
-\textbf{Answer:} I added different amounts of Gaussian noise and measured the PSNR. The noise became noticeable at about [VISUAL CHECK] dB, especially in smooth parts of the image (Figures~\ref{fig:noise-psnr}--\ref{fig:increasing-noise}).
+\textbf{Answer:} I added different amounts of Gaussian noise and measured the PSNR. Slight noise was visible at \(\sigma = 5\), with a PSNR of 34.0821 dB, especially in smooth parts of the image (Figures~\ref{fig:noise-psnr}--\ref{fig:increasing-noise}).
 
 \subsubsection*{Q2. How does this PSNR threshold compare to the often-cited 30--50 dB range for acceptable image quality?}
 \textbf{Answer:} The 30--50 dB range is only a general guide. Noise can still be visible within this range. The image content also affects how easily we notice it.
 
 \subsubsection*{Q3. At what noise level (standard deviation) does the image become unrecognizable? What is the corresponding PSNR?}
-\textbf{Answer:} I increased the noise until the image became difficult to recognize. This happened at about \(\sigma = \text{[VISUAL CHECK]}\), with a PSNR of [VISUAL CHECK] dB (Figure~\ref{fig:increasing-noise}).
+\textbf{Answer:} I increased the noise until the image became difficult to recognize. At \(\sigma = 500\), the PSNR was 6.2490 dB. Most details were lost, although some shapes could still be seen (Figure~\ref{fig:increasing-noise}).
 
 \begin{figure}[H]
 \centering
@@ -314,6 +317,59 @@ Bicubic resampling, factor 4 & 28.8441 & 0.8282 \\
 
 Reference: scikit-image documentation, \texttt{denoise\_nl\_means}: \url{https://scikit-image.org/docs/stable/api/skimage.restoration.html}.
 
+\clearpage
+\subsection{Audio Signal Analysis}
+
+\subsubsection*{Q1. What is the duration of the audio clip? What is its highest frequency component?}
+\textbf{Answer:} I analyzed the piano recording. It lasted 0.5018 seconds, and its strongest FFT peak was at 219.2146 Hz. The highest frequency above my 1\% threshold was 4832.6856 Hz. This is an estimate because weaker frequencies may still be present (Figure~\ref{fig:audio-piano}).
+
+\subsubsection*{Q2. Describe the main features you observe in the spectrogram. What do the bright areas represent?}
+\textbf{Answer:} The piano sound has clear frequency bands that become weaker over time. The brighter areas show where the sound has more energy. This makes it easier to see how the sound changes (Figure~\ref{fig:audio-piano}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section3_1_piano_analysis.png}
+\caption{Piano waveform, normalized FFT magnitude and spectrogram.}
+\label{fig:audio-piano}
+\end{figure}
+
+\subsubsection*{Q3. Modify the code to analyze only the first half second of the audio. How does this change the frequency spectrum?}
+\textbf{Answer:} I analyzed only the first 0.5 seconds. The FFT used fewer samples, which changed its frequency spacing. The main frequency peaks stayed near the same values, but their sizes could change (Figure~\ref{fig:audio-short}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section3_1_full_short_fft.png}
+\caption{Full piano FFT and the first 0.5 seconds, shown over 0--2000 Hz with the same scales.}
+\label{fig:audio-short}
+\end{figure}
+
+\subsubsection*{Q4. Try using different audio files by changing the audio\_url. You can find a variety of sound effects and audio samples at \url{https://www.pacdv.com/sounds/}. How do the waveform, frequency spectrum, and spectrogram differ for different types of audio (e.g., music, speech, environmental sounds)?}
+\textbf{Answer:} I compared piano music with a thunderstorm recording. The piano had clearer repeating patterns and frequency peaks. The thunderstorm was more irregular, with sound spread over more frequencies. The spectrograms showed these differences over time (Figure~\ref{fig:audio-comparison}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section3_1_audio_comparison.png}
+\caption{Piano and thunderstorm waveforms, FFTs and spectrograms. Each recording is normalized to its own peak; spectrograms use the same colour scale.}
+\label{fig:audio-comparison}
+\end{figure}
+
+\subsubsection*{Q5. Implement a function to downsample the audio (reduce the sampling rate). How does this affect the audio quality and the frequency spectrum? At what point does aliasing become noticeable?}
+\textbf{Answer:} I reduced the audio sampling rate by keeping fewer samples. This lowered the highest frequency that could be represented correctly. In my 1,800 Hz test, sampling at 3,000 Hz produced a 1,200 Hz alias, while sampling at 2,000 Hz produced a 200 Hz alias (Figure~\ref{fig:audio-aliasing}). This can change how audio sounds.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section3_1_tone_aliasing.png}
+\caption{The 1,800 Hz test tone sampled at 6,000, 3,000 and 2,000 Hz gives FFT peaks at 1,800, 1,200 and 200 Hz.}
+\label{fig:audio-aliasing}
+\end{figure}
+
+\subsubsection*{Q6. Research and briefly describe a common audio processing technique (e.g., noise reduction, pitch shifting, time stretching). How might this technique be implemented using the concepts you've learned in this lab?}
+\textbf{Answer:} Pitch shifting changes how high or low a sound is. Playing audio samples at a different rate can change the pitch, but it also changes the duration. More advanced methods can change pitch while keeping the same length.
+
+Reference: librosa effects documentation, \url{https://librosa.org/doc/0.11.0/effects.html}.
+
+Audio sources: \href{https://github.com/parisjava/wav-piano-sound/blob/master/wav/a1.wav}{teacher's piano \texttt{a1.wav}} and \href{https://github.com/karolpiczak/ESC-50/blob/master/audio/1-101296-A-19.wav}{ESC-50 thunderstorm \texttt{1-101296-A-19.wav}}.
+
 \section{Discussion}
 Changing frequency changes the number of cycles, while adding signals changes their shape.
 The square-wave comparison also shows why values at zero need to be checked.
@@ -322,6 +378,7 @@ When the sampling rate was too low, higher frequencies appeared as lower ones.
 Resampling changed image detail, while requantization changed the gray levels.
 PSNR and SSIM described image changes in different ways.
 Gaussian filtering increased PSNR for the noisy image.
+The tone test showed that reducing the sampling rate can produce alias frequencies.
 
 \section{Conclusion}
 The requested signals were generated and compared.
@@ -331,6 +388,7 @@ The sampling experiments showed how aliasing can give a false impression of the 
 The image comparisons showed different losses of detail and tone levels.
 Requantization at 4 bpp had less pixel error than simple resampling at factor 4.
 The noise tests showed how added noise affects PSNR.
+The 1,800 Hz tone appeared at lower frequencies when sampling was too slow.
 
 \section*{Appendix: Code Snippets}
 \begin{verbatim}
@@ -345,8 +403,9 @@ The sampling script is \texttt{code/section1\_3.py}.
 The image processing script is \texttt{code/section2\_1.py}.
 The image quality script is \texttt{code/section2\_2.py}.
 The noise analysis script is \texttt{code/section2\_3.py}.
+The audio analysis script is \texttt{code/section3\_1.py}.
 
 \smallskip
-\textbf{Sources:} DT081A Lab 1 assignment, Sections 1.1--2.3 (pages 1--4),
+\textbf{Sources:} DT081A Lab 1 assignment, Sections 1.1--3.1 (pages 1--5),
 and the DT081A lab report template.
 \end{document}
