@@ -31,6 +31,7 @@ I also compared direct pixel calculations with a lookup table.
 I also created elementary images using outer products and used three of them to approximate a triangle.
 I also used the 2D FFT to separate low and high image frequencies.
 I also used histograms and cumulative histograms to adjust image contrast.
+I also added Gaussian and salt-and-pepper noise and compared different noise-reduction filters.
 
 \section{Results and Analysis}
 \subsection{Human Perception of Color, Spatial Detail, and Gamma Correction}
@@ -231,6 +232,45 @@ The time comparison excludes the one-time cost of building the lookup table.
 \label{fig:histogram-equalization}
 \end{figure}
 
+\subsection{Noise and Noise Reduction}
+
+\subsubsection*{Q10.1. Add noise to the filter and measure the PSNR of the results. Change the noise levels such that the same PSNR is achieved for both filters, and present the parameters used.}
+\textbf{Answer:} I tested median and bilateral filtering with different Gaussian noise levels. With a noise standard deviation of 18.75 for the median filter and 27.00 for the bilateral filter, both results had a PSNR of about 29.00 dB. The bilateral filter handled stronger noise in this test.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\hline
+Filter & Noise \(\sigma\) & Output PSNR (dB) \\
+\hline
+Median, \(3\times3\) & 18.75 & 29.00 \\
+Bilateral, 9/75/75 & 27.00 & 29.01 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Q10.2. Compare the effectiveness of mean filtering versus median filtering for salt-and-pepper noise and Gaussian noise. Quantify the difference using PSNR.}
+\textbf{Answer:} I compared mean and median filtering on both noise types. With Gaussian noise, mean filtering gave 28.40 dB compared with 27.10 dB for median filtering. With salt-and-pepper noise, median filtering worked better, reaching 35.02 dB compared with 27.09 dB for mean filtering (Figure~\ref{fig:noise-comparison}).
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\hline
+Noise & Mean (dB) & Median (dB) \\
+\hline
+Gaussian & 28.40 & 27.10 \\
+Salt-and-pepper & 27.09 & 35.02 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section10_noise_comparison.png}
+\caption{Mean and median filtering results for Gaussian and salt-and-pepper noise.}
+\label{fig:noise-comparison}
+\end{figure}
+
 \section{Discussion}
 Gamma correction made the image darker because gamma was greater than 1.
 Chroma subsampling saved storage while keeping most visible image detail.
@@ -241,6 +281,7 @@ The lookup table stores the result for each possible input intensity, so the sam
 The triangle approximation showed that a few elementary images can reproduce some features, but not every detail.
 Low-pass filtering softened image details, while high-pass filtering kept edges and small changes.
 Histogram equalization increased the contrast after I had reduced the image's intensity range.
+Mean filtering worked better for Gaussian noise in this test, while median filtering worked better for salt-and-pepper noise.
 
 \section{Conclusion}
 The first experiment showed how changing gamma affects image brightness and its histogram.
@@ -252,4 +293,5 @@ The pixel-processing experiment showed how intensity transformations and lookup 
 The elementary-image experiment showed how images can be built from weighted patterns.
 The FFT experiment showed how different spatial frequencies affect image detail.
 The histogram experiment showed how pixel distributions can be used to improve image contrast.
+The noise experiment showed that different noise types benefit from different filters.
 \end{document}
