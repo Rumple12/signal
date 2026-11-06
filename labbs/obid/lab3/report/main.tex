@@ -23,6 +23,12 @@ This lab studies how pixel values, colour channels, filters and spatial patterns
 
 \section{Experimental Setup}
 I used Python, NumPy, OpenCV and Matplotlib. The main test image was \texttt{ManWoman.png}, with \(631 \times 475\) pixels. For the first experiment, I converted it to grayscale and applied gamma correction.
+I also compared the Y, R, G and B channels and reduced the chroma resolution.
+I also tested 4-bit colour quantization and 3-bit grayscale quantization.
+I compared Gaussian filtering methods and used Sobel filters to detect image edges.
+I compared brightness and contrast adjustment using vectors and nested loops.
+I also compared direct pixel calculations with a lookup table.
+I also created elementary images using outer products and used three of them to approximate a triangle.
 
 \section{Results and Analysis}
 \subsection{Human Perception of Color, Spatial Detail, and Gamma Correction}
@@ -53,9 +59,158 @@ Input & Output \\
 \label{fig:gamma-comparison}
 \end{figure}
 
+\subsection{Colorspaces (RGB and YCbCr)}
+
+\subsubsection*{Q2.1. Compare the histogram spread of the Y channel versus R, G, and B channels. Why is the Y channel typically used for edge detection?}
+\textbf{Answer:} The R channel had the widest histogram, with a standard deviation of 70.20. The Y channel had a standard deviation of 63.89, between R and the G/B channels. Y is useful for edge detection because it represents brightness in one channel, although it may miss boundaries that only differ in colour (Figure~\ref{fig:channel-histograms}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\linewidth]{section02_channel_histograms.png}
+\caption{Intensity histograms of the Y, R, G and B channels.}
+\label{fig:channel-histograms}
+\end{figure}
+
+\subsubsection*{Q2.2. If Cb and Cr channels are subsampled by a factor of 2, calculate the memory savings. At what point does this subsampling become visually noticeable if the subsampling factor is increased?}
+\textbf{Answer:} Reducing both chroma dimensions by a factor of 2 saved about 50\% of the uncompressed channel storage. At factor 2, the image looked almost the same. At factors 4 and 8, colour edges became slightly softer when zoomed in (Figure~\ref{fig:chroma-subsampling}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section02_chroma_subsampling.png}
+\caption{Chroma subsampling at factors 2, 4 and 8 compared with the original image.}
+\label{fig:chroma-subsampling}
+\end{figure}
+
+\subsection{Image Quantization and Sampling}
+
+\subsubsection*{Q3.1. Quantize the image to 4 bits and calculate the theoretical compression ratio achieved.}
+\textbf{Answer:} I reduced each colour channel from 8 bits to 4 bits, giving 16 possible levels per channel. The theoretical compression ratio was 2:1, which means 50\% less storage if the values are packed. The colours became less smooth (Figure~\ref{fig:quantization}).
+
+\subsubsection*{Q3.2. Plot the intensity distribution before and after 3-bit quantization. Explain the histogram's structure.}
+\textbf{Answer:} I reduced the grayscale image to eight intensity levels. The new histogram had eight groups because every 32 input values were combined into one level. This removed some of the original intensity detail (Figure~\ref{fig:quantization}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section03_quantization.png}
+\caption{Original and quantized images, with grayscale intensity histograms before and after 3-bit quantization.}
+\label{fig:quantization}
+\end{figure}
+
+\subsection{Point Spread Functions and Convolution}
+
+\subsubsection*{Q4.1. Compare the execution time of separable versus non-separable Gaussian filtering. When does separability provide significant advantage?}
+\textbf{Answer:} I compared normal 2D Gaussian filtering with separable filtering using three kernel sizes. The measured times are shown in Table~\ref{tab:gaussian-times}. Both methods gave the same result within numerical precision. Separable filtering uses fewer kernel calculations for larger kernels, but the actual speed also depends on OpenCV.
+
+\begin{table}[H]
+\centering
+\setcounter{table}{1}
+\caption{Median Gaussian filtering times.}
+\label{tab:gaussian-times}
+\begin{tabular}{crr}
+\hline
+Kernel & Ordinary 2D (ms) & Separable (ms) \\
+\hline
+\(5\times5\) & 5.149 & 2.225 \\
+\(11\times11\) & 5.148 & 2.922 \\
+\(21\times21\) & 8.635 & 6.218 \\
+\hline
+\end{tabular}
+\end{table}
+
+Separable filtering was faster for all three tested kernel sizes.
+
+\subsubsection*{Q4.2. Create a function that enhances an image's horizontal edges while suppressing vertical ones. Explain its structure.}
+\textbf{Answer:} I used the Sobel filter with \texttt{dx=0} and \texttt{dy=1} to detect horizontal edges. It finds brightness changes from top to bottom, so horizontal boundaries appear stronger while vertical ones are weaker (Figure~\ref{fig:sobel-comparison}).
+
+\subsubsection*{Q4.3. Show the result of applying the magnitude gradient kernel to the image.}
+\textbf{Answer:} I combined the horizontal and vertical Sobel results to calculate the gradient magnitude. This highlighted edges in both directions (Figure~\ref{fig:sobel-comparison}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section04_sobel_comparison.png}
+\caption{Original grayscale image, horizontal and vertical Sobel edges, and the combined gradient magnitude.}
+\label{fig:sobel-comparison}
+\end{figure}
+
+\subsection{Images as Stacked Vectors and Matrix Operations}
+
+\subsubsection*{Q5.1. Implement image brightness and contrast adjustment using vector operations. Compare the computational efficiency with element-wise operations where nested loops are used, by measuring the execution time.}
+\textbf{Answer:} I adjusted the image using a flattened vector and nested Python loops. Both methods produced the same result. The vector method took 2.72 ms, while the loops took 199.59 ms. The loop-to-vector time ratio was 73.45.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lr}
+\hline
+Method & Time (ms) \\
+\hline
+Vectorized NumPy & 2.72 \\
+Nested loops & 199.59 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Q5.2. Given a \(512\times512\) image, calculate the memory requirements for storing the explicit transformation matrix \(H\) for a \(3\times3\) convolution operation.}
+\textbf{Answer:} A \(512\times512\) image has 262144 pixels, so the full matrix \(H\) would contain 68719476736 elements. It would need 256 GiB using float32 or 512 GiB using float64. This is too much memory for a simple \(3\times3\) convolution, so applying the small kernel directly is more practical.
+
+\subsection{Pixel-Based Processing}
+
+\subsubsection*{Q6.1. For your implementation, which is more efficient: direct computation or lookup tables? Quantify the difference.}
+\textbf{Answer:} I applied the same logarithmic transformation using direct NumPy calculations and a lookup table. Both methods produced the same image. Direct computation took 9.83 ms, while the lookup table took 1.32 ms. The speed ratio was 7.45.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lr}
+\hline
+Method & Average time (ms) \\
+\hline
+Direct NumPy & 9.83 \\
+Lookup table & 1.32 \\
+\hline
+\end{tabular}
+\end{table}
+
+The time comparison excludes the one-time cost of building the lookup table.
+
+\subsubsection*{Q6.2. Design a logarithmic transformation that enhances contrast in the middle intensity range while compressing shadows and highlights. Plot the transfer function.}
+\textbf{Answer:} I used a logarithmic transformation with strength 3. The curve rises faster near middle gray and more slowly near black and white. For example, input values 112 and 144 became 98 and 157. This increases contrast between middle brightness values (Figure~\ref{fig:log-transform}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{section06_log_transform.png}
+\caption{Logarithmic intensity transformation with increased middle-range contrast, compared with a linear transformation.}
+\label{fig:log-transform}
+\end{figure}
+
+\subsection{Elementary Images and Linear Superposition}
+
+\subsubsection*{Q7.1. Create four different elementary images of size \(16\times16\) using combinations of ramp, step, and sine basis vectors. How do they capture different image features?}
+\textbf{Answer:} I created four \(16\times16\) images using ramp, step and sine vectors. Step \(\times\) Step made a sharp block, while Step \(\times\) Ramp and Ramp \(\times\) Step combined sharp boundaries with gradual changes. Sine \(\times\) Sine created a repeating pattern (Figure~\ref{fig:elementary-images}).
+
+\subsubsection*{Q7.2. Select a simple geometric shape in an image of size \(16\times16\) and approximate it using only three elementary images by finding the best respective weights.}
+\textbf{Answer:} I created a small triangle and approximated it using three elementary images. The best weights were 0.5625, -0.4327 and 0.4327, with an MSE of 0.0521. The approximation showed some of the triangular shape, but the diagonal edge was not exact (Figure~\ref{fig:elementary-images}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section07_elementary_images.png}
+\caption{Four elementary \(16\times16\) images and a triangle approximated using three weighted elementary images.}
+\label{fig:elementary-images}
+\end{figure}
+
 \section{Discussion}
 Gamma correction made the image darker because gamma was greater than 1.
+Chroma subsampling saved storage while keeping most visible image detail.
+Reducing the number of intensity levels saved theoretical storage space but removed some image detail.
+Gaussian filtering showed how the same blur can be calculated in different ways. Sobel filtering highlighted edges based on brightness changes.
+Both brightness and contrast methods produced the same image. Their execution times showed the cost of processing pixels with Python loops.
+The lookup table stores the result for each possible input intensity, so the same calculation does not need to be repeated for every pixel.
+The triangle approximation showed that a few elementary images can reproduce some features, but not every detail.
 
 \section{Conclusion}
 The first experiment showed how changing gamma affects image brightness and its histogram.
+The colour-space experiment showed how brightness and colour information can be processed separately.
+Quantization showed how lower bit depth reduces the number of colours and intensity levels.
+The convolution experiments showed how filters can blur images and detect edges.
+The matrix experiment showed why vectorized operations and small convolution kernels are useful.
+The pixel-processing experiment showed how intensity transformations and lookup tables work.
+The elementary-image experiment showed how images can be built from weighted patterns.
 \end{document}

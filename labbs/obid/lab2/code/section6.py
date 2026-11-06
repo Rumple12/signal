@@ -15,8 +15,7 @@ Rp = 3
 
 impulse = np.zeros(150)
 impulse[0] = 1
-fft_points = 2500
-f = fftfreq(fft_points, 1/fs1)
+f = fftfreq(len(impulse), 1/fs1)
 positive = f >= 0
 index_300 = np.argmin(np.abs(f - 300))
 index_100 = np.argmin(np.abs(f - 100))
@@ -25,12 +24,10 @@ index_100 = np.argmin(np.abs(f - 100))
 # Use the teacher's impulse-response method for every filter.
 def calculate_response(b, a):
     h = signal.lfilter(b, a, impulse)
-    H = fft(h, n=fft_points)
+    H = fft(h)
     magnitude = np.abs(H)
     gain_db = 20 * np.log10(np.maximum(magnitude, 1e-12))
     phase = np.angle(H)
-    # Leave gaps instead of showing phases at extremely small magnitudes.
-    phase[magnitude < 0.000001 * np.max(magnitude)] = np.nan
     return gain_db, phase
 
 

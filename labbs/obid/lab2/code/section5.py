@@ -53,9 +53,6 @@ print(f"Measured output phase: {measured_phase:.4f} rad")
 print(f"Output amplitude difference: {difference_percent:.4f}%")
 # Finite records include startup and truncation effects; do not force equality.
 
-# Compare phases only where the input FFT has a meaningful component.
-significant = positive & (np.abs(X2) > 0.000001 * np.max(np.abs(X2)))
-
 plt.rcParams.update({"font.size": 10, "lines.linewidth": 1.2})
 plt.figure(figsize=(9, 6.5))
 plt.subplot(2, 2, 1)
@@ -87,20 +84,16 @@ plt.grid(alpha=0.25)
 plt.legend()
 
 plt.subplot(2, 2, 4)
-plt.plot(f[significant], input_phases[significant], "o",
+plt.plot(f[positive], input_phases[positive], "-",
          color="#185c4b", label="Input")
-plt.plot(f[significant], output_phases[significant], "s",
+plt.plot(f[positive], output_phases[positive], "--",
          color="#b07130", label="Output")
-plt.plot(f[index_50], predicted_phase, "x", markersize=8,
-         color="#435d99", label="Predicted output")
-plt.title("Phase comparison at 50 Hz")
+plt.title("Input and output phase spectra")
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Phase (rad)")
-plt.xlim(45, 55)
-plt.ylim(-0.02, 0.005)
-plt.xticks([45, 50, 55])
-plt.grid(alpha=0.25)
-plt.legend(loc="upper right", fontsize=9)
+plt.xlim(0, fs / 2)
+plt.grid(True)
+plt.legend()
 
 plt.tight_layout()
 figure_folder = Path(__file__).resolve().parent.parent / "figures"
