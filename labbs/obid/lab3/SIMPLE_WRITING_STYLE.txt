@@ -1,0 +1,108 @@
+WRITING STYLE — NATURAL UNIVERSITY STUDENT ENGLISH
+
+Write in clear, natural and easy-to-understand English.
+
+The writing should sound like a competent university student explaining their work to another university student, not like a PhD researcher or an AI trying to sound academic.
+
+PRIORITIES:
+
+1. READABILITY
+Use simple, familiar words and reasonably short sentences.
+The reader should understand each paragraph on the first read.
+
+2. NATURAL FLOW
+Make sentences and paragraphs connect smoothly.
+Avoid writing disconnected textbook-style explanations.
+Each paragraph should develop one clear idea.
+
+3. CASUAL BUT PROFESSIONAL
+Keep a relaxed, straightforward student writing style.
+It should be suitable for a university report without
+sounding overly formal, stiff or conversational.
+
+4. NO ROBOTIC ACADEMIC JARGON
+Avoid complicated vocabulary when ordinary words work.
+
+For example:
+
+BAD:
+"The methodological framework facilitated a
+standardised assessment of interaction efficacy."
+
+GOOD:
+"We used the same tasks in both tests so we could
+compare how people used the two versions."
+
+BAD:
+"The findings informed the subsequent refinement
+of the interface."
+
+GOOD:
+"We used the test results to decide what needed
+to change in the next version."
+
+BAD:
+"The implementation prioritised functionalities
+aligned with the identified user requirements."
+
+GOOD:
+"We focused on the features that mattered most
+to the users."
+
+5. EXPLAIN THINGS LIKE A HUMAN
+Explain what was done, why it was done and what
+the results mean.
+Use concrete examples when helpful.
+Avoid unnecessary definitions, repetition,
+filler and exaggerated claims.
+
+6. KEEP ACADEMIC ACCURACY
+Simple language does not mean weak academic work.
+Maintain:
+- Correct terminology when genuinely necessary
+- Accurate facts and results
+- Proper citations and references
+- Clear reasoning
+- Appropriate report structure
+- Honest discussion of limitations
+Do not invent information to make the text flow better.
+
+7. AVOID AI WRITING PATTERNS
+Avoid:
+- Overly polished or inflated language
+- Generic introductions and conclusions
+- Repeating the same point in different ways
+- Excessive passive voice
+- Long sentences packed with abstract terminology
+- Formulaic transitions such as "Furthermore",
+  "Moreover" and "It is important to note that"
+- Constantly defending or qualifying obvious statements
+
+8. DO NOT OVERENGINEER
+Write only what is necessary to explain the topic.
+Do not make simple concepts sound complex.
+Do not add paragraphs just to increase the word count.
+Do not introduce theories or details that are not needed.
+
+FINAL QUALITY CHECK:
+Before finishing, reread every paragraph and ask:
+"Would a normal university student naturally write
+this, and would another student understand it easily?"
+If not, rewrite it in simpler, smoother English.
+
+The final result should be:
+Natural.
+Clear.
+Readable.
+Straightforward.
+Academically correct without sounding academic.
+Apply this style consistently throughout the entire work.
+
+OBID LAB 3-SPECIFIC OVERRIDE:
+The examples saying "We" above belong to the original general style guide.
+This report is INDIVIDUAL: use "I" for actions Obid actually performed;
+use neutral language for general findings. Do not write "we" or "our" as
+if two students collaborated. Do not assert an experiment was performed,
+an image was examined, or a measurement obtained unless there is evidence.
+Use the teacher's question followed by a short **Answer:**, normally 1-4
+simple sentences. Technical accuracy always takes priority over brevity.

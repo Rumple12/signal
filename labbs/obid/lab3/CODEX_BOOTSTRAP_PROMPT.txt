@@ -1,0 +1,9 @@
+# Codex — Obid Lab 3 Bootstrap ONLY
+
+Create the working directory `labbs/obid/lab3/` from the supplied setup package, using its existing `AGENTS.md`, `README_FOR_CODEX.md`, `SIMPLE_WRITING_STYLE.txt`, `TEACHER_QUESTIONS_CHECKLIST.md`, and `assets/ManWoman.png`.
+
+Read the rules once. Use the official Lab 3 v1.1 assignment PDF, its embedded teacher starter snippets, and the DT081A report template as the primary sources. The uploaded `lab3(1).py` is a completed implementation, not baseline starter code, and Yacoub's report is NOT source material for Obid.
+
+Create empty `code/`, `figures/`, and `report/` directories if missing. Check that `assets/ManWoman.png` opens and record dimensions; do not process or regenerate it. Do not implement Section 1, generate graphs, or write answers yet. GPT will supply ready-made content one section at a time.
+
+Very important: **Do not compile LaTeX or export PDF, do not inspect figures/PDFs/screenshots, do not commit/push, do not run experiments, and do not change other files.** The user handles TeXstudio and Git. Finish with a one-paragraph confirmation and stop.

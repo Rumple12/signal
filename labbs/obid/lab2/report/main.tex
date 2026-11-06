@@ -170,13 +170,9 @@ Segment length \(k\) & Time (s) & Frequency spacing (Hz) \\
 \end{figure}
 
 \section{Discussion}
-The FFT showed the same frequencies that were used to make the signal. The positive and negative frequency peaks matched because the signal was real.
-The rectangular window separated the nearby frequencies best in this test because they matched the FFT frequency points.
-The FIR response stopped after eight samples, while the IIR response continued because it uses feedback.
-The measured amplitudes and phases agreed with the values used to create the signal.
-At 50 Hz, System 2 reduced the amplitude and shifted the phase slightly. The measured output was close to the value predicted by its frequency response.
-Chebyshev had a sharper cutoff than Butterworth but introduced passband ripple. Increasing the filter order also made the cutoff sharper.
-The voice experiment showed the trade-off between time and frequency resolution.
+The rectangular window separated the 50 Hz and 55 Hz peaks best because both frequencies matched the FFT bins. Hann and Hamming made the peaks wider, but they can reduce leakage when frequencies fall between bins. The filter tests showed another difference. Chebyshev had a sharper cutoff than Butterworth, but it also had ripple in the passband.
+
+For System 2, the measured output amplitude was 0.7481 instead of the predicted 0.7454. This small difference is consistent with the short recording and the filter's start-up response. In my voice experiment, shorter segments showed changes in time more clearly, while longer segments showed frequencies more precisely. I could not improve both types of resolution at the same time.
 
 \section{Conclusion}
 The first experiment showed how the FFT can identify the frequencies in a signal.
@@ -186,4 +182,26 @@ The frequency analysis confirmed the original amplitudes and phases.
 System 2 reduced the 50 Hz tone and caused a small phase shift.
 The filtering tests showed how filter type, cutoff frequency and order affect amplification and phase.
 The spectrogram showed how the frequencies in my voice changed over time.
+
+\section*{Appendix: Code Snippets}
+\textbf{Example 1 -- System 2: IIR Recurrence}
+\begin{verbatim}
+for n in range(len(impulse)):
+    y_loop[n] = impulse[n]
+    if n >= 1:
+        y_loop[n] += 0.3 * impulse[n-1] - 0.6 * y_loop[n-1]
+    if n >= 2:
+        y_loop[n] += 0.35 * y_loop[n-2]
+\end{verbatim}
+I used a loop to calculate each output sample. The system uses previous output values, which makes it an IIR system.
+
+\textbf{Example 2 -- Voice FFT Analysis}
+\begin{verbatim}
+k = 1024
+n = len(x_voice) // k
+segments = x_voice[:n*k].reshape(n, k)
+X_voice = np.fft.rfft(segments, axis=1)
+power = np.abs(X_voice)**2
+\end{verbatim}
+I divided my voice recording into short segments and calculated the FFT of each one. The squared magnitude shows how the frequency content changes over time.
 \end{document}
