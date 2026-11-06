@@ -1,0 +1,61 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=20mm]{geometry}
+\usepackage{graphicx,float}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{../figures/}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\intextsep}{8pt}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries DT081A --- Laboratory 3 Report\par}
+Student: Jakob Obid\par
+2026-11-06
+\end{center}
+
+\section{Introduction}
+This lab studies how pixel values, colour channels, filters and spatial patterns affect digital images.
+
+\section{Experimental Setup}
+I used Python, NumPy, OpenCV and Matplotlib. The main test image was \texttt{ManWoman.png}, with \(631 \times 475\) pixels. For the first experiment, I converted it to grayscale and applied gamma correction.
+
+\section{Results and Analysis}
+\subsection{Human Perception of Color, Spatial Detail, and Gamma Correction}
+
+\subsubsection*{Q1.1. Implement gamma correction and calculate the outputs for intensities 64, 128 and 192 using gamma = 2.0.}
+\textbf{Answer:} I used gamma correction with gamma = 2.0. The outputs were 16, 64 and 144 for the three input values. The values were converted to integers for the final result.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rr}
+\hline
+Input & Output \\
+\hline
+64 & 16 \\
+128 & 64 \\
+192 & 144 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Q1.2. Compare the image histograms before and after applying gamma = 2.2. Explain the relationship to nonlinear light perception.}
+\textbf{Answer:} I applied gamma = 2.2 to the grayscale image. The mean intensity fell from 95.28 to 46.25, and the histogram moved toward darker values (Figure~\ref{fig:gamma-comparison}). This shows how a nonlinear intensity change affects brightness, which relates to how the eye responds nonlinearly to light.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{section01_gamma_comparison.png}
+\caption{Original grayscale image and gamma-corrected image (gamma = 2.2), with their intensity histograms.}
+\label{fig:gamma-comparison}
+\end{figure}
+
+\section{Discussion}
+Gamma correction made the image darker because gamma was greater than 1.
+
+\section{Conclusion}
+The first experiment showed how changing gamma affects image brightness and its histogram.
+\end{document}
