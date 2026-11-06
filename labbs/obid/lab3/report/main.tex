@@ -29,6 +29,7 @@ I compared Gaussian filtering methods and used Sobel filters to detect image edg
 I compared brightness and contrast adjustment using vectors and nested loops.
 I also compared direct pixel calculations with a lookup table.
 I also created elementary images using outer products and used three of them to approximate a triangle.
+I also used the 2D FFT to separate low and high image frequencies.
 
 \section{Results and Analysis}
 \subsection{Human Perception of Color, Spatial Detail, and Gamma Correction}
@@ -196,6 +197,24 @@ The time comparison excludes the one-time cost of building the lookup table.
 \label{fig:elementary-images}
 \end{figure}
 
+\subsection{Transforms and Frequency Domain}
+
+\subsubsection*{Q8.1. Apply the FFT to your image and identify the frequencies corresponding to dominant edges. Where are they located?}
+\textbf{Answer:} I applied the 2D FFT to the grayscale image. The strongest values were near the centre, where the low frequencies are located. Bright horizontal and vertical patterns also appeared in the spectrum. These relate to image edges and changes in different directions, but the FFT does not show the exact position of each edge (Figure~\ref{fig:fft-filters}).
+
+\subsubsection*{Q8.2. Remove the high frequencies from the FFT, and inverse transform back to the spatial domain. Compare the result with the original image. What happens to the image content?}
+\textbf{Answer:} I kept the frequencies inside a circle with a radius of 40 bins. After the inverse FFT, the main shapes were still visible, but smaller details and sharp edges became softer (Figure~\ref{fig:fft-filters}).
+
+\subsubsection*{Q8.3. Remove the low frequencies from the FFT and inverse transform back to the spatial domain. Compare the result with the original image.}
+\textbf{Answer:} I subtracted the low-pass image from the original to keep the high-frequency part. The result mainly showed edges and fine details, while smooth areas were close to zero (Figure~\ref{fig:fft-filters}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section08_fft_filters.png}
+\caption{Original image, 2D FFT magnitude spectrum, low-pass reconstruction and high-pass result.}
+\label{fig:fft-filters}
+\end{figure}
+
 \section{Discussion}
 Gamma correction made the image darker because gamma was greater than 1.
 Chroma subsampling saved storage while keeping most visible image detail.
@@ -204,6 +223,7 @@ Gaussian filtering showed how the same blur can be calculated in different ways.
 Both brightness and contrast methods produced the same image. Their execution times showed the cost of processing pixels with Python loops.
 The lookup table stores the result for each possible input intensity, so the same calculation does not need to be repeated for every pixel.
 The triangle approximation showed that a few elementary images can reproduce some features, but not every detail.
+Low-pass filtering softened image details, while high-pass filtering kept edges and small changes.
 
 \section{Conclusion}
 The first experiment showed how changing gamma affects image brightness and its histogram.
@@ -213,4 +233,5 @@ The convolution experiments showed how filters can blur images and detect edges.
 The matrix experiment showed why vectorized operations and small convolution kernels are useful.
 The pixel-processing experiment showed how intensity transformations and lookup tables work.
 The elementary-image experiment showed how images can be built from weighted patterns.
+The FFT experiment showed how different spatial frequencies affect image detail.
 \end{document}
