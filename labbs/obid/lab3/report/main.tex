@@ -32,6 +32,7 @@ I also created elementary images using outer products and used three of them to 
 I also used the 2D FFT to separate low and high image frequencies.
 I also used histograms and cumulative histograms to adjust image contrast.
 I also added Gaussian and salt-and-pepper noise and compared different noise-reduction filters.
+I also used morphological operations to count binary objects and compared morphological edges with Sobel edges.
 
 \section{Results and Analysis}
 \subsection{Human Perception of Color, Spatial Detail, and Gamma Correction}
@@ -271,6 +272,30 @@ Salt-and-pepper & 27.09 & 35.02 \\
 \label{fig:noise-comparison}
 \end{figure}
 
+\subsection{Morphological Filtering}
+
+\subsubsection*{Q11.1. Develop a sequence of morphological operations to detect and count objects in a binary image. Test with different object shapes.}
+\textbf{Answer:} I created a binary image with a circle, a rectangle and a triangle. I also added four isolated white pixels. Opening and closing removed the small unwanted pixels, leaving three connected objects. I counted them using connected components (Figure~\ref{fig:morphology}).
+
+\begin{verbatim}
+opened = cv2.morphologyEx(binary, cv2.MORPH_OPEN, cross_kernel)
+cleaned = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, disk_kernel)
+n, labels, stats, centroids = cv2.connectedComponentsWithStats(
+    cleaned, connectivity=8
+)
+object_count = n - 1
+\end{verbatim}
+
+\subsubsection*{Q11.2. Compare the morphological gradient with the Sobel based gradient in Section 4 for edge detection. When is each method preferable?}
+\textbf{Answer:} I compared the morphological gradient with the Sobel gradient. The morphological gradient used dilation minus erosion to highlight local boundaries. Sobel detected brightness changes using horizontal and vertical derivatives. Morphological filtering is useful for binary objects and shapes, while Sobel is useful for finding edges in grayscale images (Figure~\ref{fig:morphology}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section11_morphology.png}
+\caption{Morphological object detection and comparison of morphological and Sobel gradients.}
+\label{fig:morphology}
+\end{figure}
+
 \section{Discussion}
 Gamma correction made the image darker because gamma was greater than 1.
 Chroma subsampling saved storage while keeping most visible image detail.
@@ -282,6 +307,7 @@ The triangle approximation showed that a few elementary images can reproduce som
 Low-pass filtering softened image details, while high-pass filtering kept edges and small changes.
 Histogram equalization increased the contrast after I had reduced the image's intensity range.
 Mean filtering worked better for Gaussian noise in this test, while median filtering worked better for salt-and-pepper noise.
+Morphological filtering removed isolated pixels while keeping the three main objects. The two gradient methods highlighted edges in different ways.
 
 \section{Conclusion}
 The first experiment showed how changing gamma affects image brightness and its histogram.
@@ -294,4 +320,5 @@ The elementary-image experiment showed how images can be built from weighted pat
 The FFT experiment showed how different spatial frequencies affect image detail.
 The histogram experiment showed how pixel distributions can be used to improve image contrast.
 The noise experiment showed that different noise types benefit from different filters.
+The morphology experiment showed how erosion and dilation can help detect objects and boundaries.
 \end{document}
