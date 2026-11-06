@@ -30,6 +30,7 @@ I compared brightness and contrast adjustment using vectors and nested loops.
 I also compared direct pixel calculations with a lookup table.
 I also created elementary images using outer products and used three of them to approximate a triangle.
 I also used the 2D FFT to separate low and high image frequencies.
+I also used histograms and cumulative histograms to adjust image contrast.
 
 \section{Results and Analysis}
 \subsection{Human Perception of Color, Spatial Detail, and Gamma Correction}
@@ -215,6 +216,21 @@ The time comparison excludes the one-time cost of building the lookup table.
 \label{fig:fft-filters}
 \end{figure}
 
+\subsection{Histograms and Image Enhancement}
+
+\subsubsection*{Q9.1. Apply and plot the histogram and cumulative histogram functions to your image. What can be said about the image content based on the histogram and cumulative histogram?}
+\textbf{Answer:} I calculated the histogram and cumulative histogram of the grayscale image. The most common intensity was 64, and 67.55\% of the pixels had an intensity of 127 or less. This shows that the image contains more dark and middle brightness values than very bright ones (Figure~\ref{fig:histogram-equalization}).
+
+\subsubsection*{Q9.2. Apply histogram equalization to the image after reducing its contrast. Show the result and compare it with the original image. Validate using \texttt{cv2.equalizeHist()}.}
+\textbf{Answer:} I reduced the contrast using a factor of 0.60. The image became flatter, with intensities between 51 and 202. After histogram equalization, the range increased to 0--254 and the contrast became stronger. My CDF method differed from OpenCV by at most one intensity level (Figure~\ref{fig:histogram-equalization}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{section09_histogram_equalization.png}
+\caption{Original histogram and CDF, with reduced-contrast and histogram-equalized images.}
+\label{fig:histogram-equalization}
+\end{figure}
+
 \section{Discussion}
 Gamma correction made the image darker because gamma was greater than 1.
 Chroma subsampling saved storage while keeping most visible image detail.
@@ -224,6 +240,7 @@ Both brightness and contrast methods produced the same image. Their execution ti
 The lookup table stores the result for each possible input intensity, so the same calculation does not need to be repeated for every pixel.
 The triangle approximation showed that a few elementary images can reproduce some features, but not every detail.
 Low-pass filtering softened image details, while high-pass filtering kept edges and small changes.
+Histogram equalization increased the contrast after I had reduced the image's intensity range.
 
 \section{Conclusion}
 The first experiment showed how changing gamma affects image brightness and its histogram.
@@ -234,4 +251,5 @@ The matrix experiment showed why vectorized operations and small convolution ker
 The pixel-processing experiment showed how intensity transformations and lookup tables work.
 The elementary-image experiment showed how images can be built from weighted patterns.
 The FFT experiment showed how different spatial frequencies affect image detail.
+The histogram experiment showed how pixel distributions can be used to improve image contrast.
 \end{document}
