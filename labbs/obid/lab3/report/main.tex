@@ -15,6 +15,7 @@
 \begin{center}
 {\Large\bfseries DT081A --- Laboratory 3 Report\par}
 Student: Jakob Obid\par
+\texttt{obal2302@student.miun.se}\par
 2026-11-06
 \end{center}
 
@@ -77,6 +78,8 @@ Input & Output \\
 
 \subsubsection*{Q2.2. If Cb and Cr channels are subsampled by a factor of 2, calculate the memory savings. At what point does this subsampling become visually noticeable if the subsampling factor is increased?}
 \textbf{Answer:} Reducing both chroma dimensions by a factor of 2 saved about 50\% of the uncompressed channel storage. At factor 2, the image looked almost the same. At factors 4 and 8, colour edges became slightly softer when zoomed in (Figure~\ref{fig:chroma-subsampling}).
+
+Each reduced chroma channel kept about one quarter of its samples. This reduced the total storage from three channel units to \(1 + 0.25 + 0.25 = 1.5\) units, saving about 50\%. For the actual image size, the saving was 50.06\%.
 
 \begin{figure}[H]
 \centering
@@ -191,7 +194,7 @@ The time comparison excludes the one-time cost of building the lookup table.
 \textbf{Answer:} I created four \(16\times16\) images using ramp, step and sine vectors. Step \(\times\) Step made a sharp block, while Step \(\times\) Ramp and Ramp \(\times\) Step combined sharp boundaries with gradual changes. Sine \(\times\) Sine created a repeating pattern (Figure~\ref{fig:elementary-images}).
 
 \subsubsection*{Q7.2. Select a simple geometric shape in an image of size \(16\times16\) and approximate it using only three elementary images by finding the best respective weights.}
-\textbf{Answer:} I created a small triangle and approximated it using three elementary images. The best weights were 0.5625, -0.4327 and 0.4327, with an MSE of 0.0521. The approximation showed some of the triangular shape, but the diagonal edge was not exact (Figure~\ref{fig:elementary-images}).
+\textbf{Answer:} I created a small triangle and approximated it using three elementary images. The weights were 0.5625 for Step \(\times\) Step, \(-0.4327\) for Step \(\times\) Ramp and 0.4327 for Ramp \(\times\) Step. The MSE was 0.0521. The approximation showed some of the triangular shape, but the diagonal edge was not exact (Figure~\ref{fig:elementary-images}).
 
 \begin{figure}[H]
 \centering
@@ -203,7 +206,7 @@ The time comparison excludes the one-time cost of building the lookup table.
 \subsection{Transforms and Frequency Domain}
 
 \subsubsection*{Q8.1. Apply the FFT to your image and identify the frequencies corresponding to dominant edges. Where are they located?}
-\textbf{Answer:} I applied the 2D FFT to the grayscale image. The strongest values were near the centre, where the low frequencies are located. Bright horizontal and vertical patterns also appeared in the spectrum. These relate to image edges and changes in different directions, but the FFT does not show the exact position of each edge (Figure~\ref{fig:fft-filters}).
+\textbf{Answer:} I applied the 2D FFT to the grayscale image. The strongest values were near the centre, where the low frequencies are located. A horizontal streak in the spectrum is related to vertical edges, while a vertical streak is related to horizontal edges. The FFT shows these frequency patterns, but not the exact position of each edge (Figure~\ref{fig:fft-filters}).
 
 \subsubsection*{Q8.2. Remove the high frequencies from the FFT, and inverse transform back to the spatial domain. Compare the result with the original image. What happens to the image content?}
 \textbf{Answer:} I kept the frequencies inside a circle with a radius of 40 bins. After the inverse FFT, the main shapes were still visible, but smaller details and sharp edges became softer (Figure~\ref{fig:fft-filters}).
@@ -224,7 +227,7 @@ The time comparison excludes the one-time cost of building the lookup table.
 \textbf{Answer:} I calculated the histogram and cumulative histogram of the grayscale image. The most common intensity was 64, and 67.55\% of the pixels had an intensity of 127 or less. This shows that the image contains more dark and middle brightness values than very bright ones (Figure~\ref{fig:histogram-equalization}).
 
 \subsubsection*{Q9.2. Apply histogram equalization to the image after reducing its contrast. Show the result and compare it with the original image. Validate using \texttt{cv2.equalizeHist()}.}
-\textbf{Answer:} I reduced the contrast using a factor of 0.60. The image became flatter, with intensities between 51 and 202. After histogram equalization, the range increased to 0--254 and the contrast became stronger. My CDF method differed from OpenCV by at most one intensity level (Figure~\ref{fig:histogram-equalization}).
+\textbf{Answer:} I reduced the contrast using a factor of 0.60. The intensity range became 51--202. After histogram equalization, the range increased to 0--254. The result had stronger contrast than the reduced image, but it did not restore the original pixel values. My CDF method differed from OpenCV by at most one intensity level (Figure~\ref{fig:histogram-equalization}).
 
 \begin{figure}[H]
 \centering
@@ -277,14 +280,7 @@ Salt-and-pepper & 27.09 & 35.02 \\
 \subsubsection*{Q11.1. Develop a sequence of morphological operations to detect and count objects in a binary image. Test with different object shapes.}
 \textbf{Answer:} I created a binary image with a circle, a rectangle and a triangle. I also added four isolated white pixels. Opening and closing removed the small unwanted pixels, leaving three connected objects. I counted them using connected components (Figure~\ref{fig:morphology}).
 
-\begin{verbatim}
-opened = cv2.morphologyEx(binary, cv2.MORPH_OPEN, cross_kernel)
-cleaned = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, disk_kernel)
-n, labels, stats, centroids = cv2.connectedComponentsWithStats(
-    cleaned, connectivity=8
-)
-object_count = n - 1
-\end{verbatim}
+See the code appendix for the object counting steps.
 
 \subsubsection*{Q11.2. Compare the morphological gradient with the Sobel based gradient in Section 4 for edge detection. When is each method preferable?}
 \textbf{Answer:} I compared the morphological gradient with the Sobel gradient. The morphological gradient used dilation minus erosion to highlight local boundaries. Sobel detected brightness changes using horizontal and vertical derivatives. Morphological filtering is useful for binary objects and shapes, while Sobel is useful for finding edges in grayscale images (Figure~\ref{fig:morphology}).
@@ -310,15 +306,36 @@ Mean filtering worked better for Gaussian noise in this test, while median filte
 Morphological filtering removed isolated pixels while keeping the three main objects. The two gradient methods highlighted edges in different ways.
 
 \section{Conclusion}
-The first experiment showed how changing gamma affects image brightness and its histogram.
-The colour-space experiment showed how brightness and colour information can be processed separately.
-Quantization showed how lower bit depth reduces the number of colours and intensity levels.
-The convolution experiments showed how filters can blur images and detect edges.
-The matrix experiment showed why vectorized operations and small convolution kernels are useful.
-The pixel-processing experiment showed how intensity transformations and lookup tables work.
-The elementary-image experiment showed how images can be built from weighted patterns.
-The FFT experiment showed how different spatial frequencies affect image detail.
-The histogram experiment showed how pixel distributions can be used to improve image contrast.
-The noise experiment showed that different noise types benefit from different filters.
-The morphology experiment showed how erosion and dilation can help detect objects and boundaries.
+In this lab, I tested how image processing changes brightness, colour, detail and noise. The results showed that reducing image information can save space but also remove detail. Different filters worked better for different tasks, such as removing noise, detecting edges and counting objects. I learned that choosing the right method depends on what I want to preserve in the image.
+
+\section*{Appendix: Code Snippets}
+\textbf{Gamma correction}
+\begin{verbatim}
+def apply_gamma(image, gamma):
+    normalized = image.astype(np.float32) / 255.0
+    corrected_image = 255 * np.power(normalized, gamma)
+    return np.uint8(corrected_image)
+\end{verbatim}
+The function scales the pixel values to 0--1, applies gamma and converts the result back to 8-bit values.
+
+\textbf{FFT filtering}
+\begin{verbatim}
+cutoff = 40
+mask = ideal_lowpass(gray.shape, cutoff)
+F_low = F_shift * mask
+low_pass = np.fft.ifft2(np.fft.ifftshift(F_low)).real
+\end{verbatim}
+The mask keeps the low frequencies, and the inverse FFT turns them back into an image.
+
+\textbf{Morphological object counting}
+\begin{verbatim}
+opened = cv2.morphologyEx(binary, cv2.MORPH_OPEN, cross_kernel)
+cleaned = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, disk_kernel)
+before, _ = cv2.connectedComponents(binary, connectivity=8)
+n, labels, stats, centroids = cv2.connectedComponentsWithStats(
+    cleaned, connectivity=8
+)
+object_count = n - 1  # Label zero is the background.
+\end{verbatim}
+Opening and closing clean the binary image before the connected objects are counted.
 \end{document}
