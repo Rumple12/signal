@@ -23,17 +23,9 @@ Student: Jakob Obid\par
 This lab studies how pixel values, colour channels, filters and spatial patterns affect digital images.
 
 \section{Experimental Setup}
-I used Python, NumPy, OpenCV and Matplotlib. The main test image was \texttt{ManWoman.png}, with \(631 \times 475\) pixels. For the first experiment, I converted it to grayscale and applied gamma correction.
-I also compared the Y, R, G and B channels and reduced the chroma resolution.
-I also tested 4-bit colour quantization and 3-bit grayscale quantization.
-I compared Gaussian filtering methods and used Sobel filters to detect image edges.
-I compared brightness and contrast adjustment using vectors and nested loops.
-I also compared direct pixel calculations with a lookup table.
-I also created elementary images using outer products and used three of them to approximate a triangle.
-I also used the 2D FFT to separate low and high image frequencies.
-I also used histograms and cumulative histograms to adjust image contrast.
-I also added Gaussian and salt-and-pepper noise and compared different noise-reduction filters.
-I also used morphological operations to count binary objects and compared morphological edges with Sobel edges.
+I used Python with NumPy, OpenCV and Matplotlib. Most experiments used the \texttt{ManWoman.png} image, which has a size of \(631 \times 475\) pixels. I worked with both colour and grayscale images and compared the results using graphs, images and measurements.
+
+I also measured execution times to compare different methods and used PSNR to test noise reduction. For the morphology experiment, I created a separate binary image with different shapes. The settings for each experiment are given in the results sections.
 
 \section{Results and Analysis}
 \subsection{Human Perception of Color, Spatial Detail, and Gamma Correction}
@@ -293,17 +285,13 @@ See the code appendix for the object counting steps.
 \end{figure}
 
 \section{Discussion}
-Gamma correction made the image darker because gamma was greater than 1.
-Chroma subsampling saved storage while keeping most visible image detail.
-Reducing the number of intensity levels saved theoretical storage space but removed some image detail.
-Gaussian filtering showed how the same blur can be calculated in different ways. Sobel filtering highlighted edges based on brightness changes.
-Both brightness and contrast methods produced the same image. Their execution times showed the cost of processing pixels with Python loops.
-The lookup table stores the result for each possible input intensity, so the same calculation does not need to be repeated for every pixel.
-The triangle approximation showed that a few elementary images can reproduce some features, but not every detail.
-Low-pass filtering softened image details, while high-pass filtering kept edges and small changes.
-Histogram equalization increased the contrast after I had reduced the image's intensity range.
-Mean filtering worked better for Gaussian noise in this test, while median filtering worked better for salt-and-pepper noise.
-Morphological filtering removed isolated pixels while keeping the three main objects. The two gradient methods highlighted edges in different ways.
+The results showed that reducing image information can save storage, but some details are lost. For example, stronger chroma subsampling made colour edges softer, while quantization reduced the number of intensity levels.
+
+The timing tests showed that vector operations and lookup tables were much faster than the other methods tested. I also found that different noise types needed different filters. Mean filtering worked better for Gaussian noise, while median filtering worked better for salt-and-pepper noise.
+
+The triangle approximation showed that three elementary images could not reproduce every detail. My histogram equalization was also very close to OpenCV's result, with a difference of at most one intensity level.
+
+Overall, the experiments showed that different methods have different advantages depending on the task.
 
 \section{Conclusion}
 In this lab, I tested how image processing changes brightness, colour, detail and noise. The results showed that reducing image information can save space but also remove detail. Different filters worked better for different tasks, such as removing noise, detecting edges and counting objects. I learned that choosing the right method depends on what I want to preserve in the image.
